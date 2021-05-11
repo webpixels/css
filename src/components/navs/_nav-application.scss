@@ -1,0 +1,30 @@
+//
+// Application nav
+//
+
+.nav-application {
+    > .btn {
+        width: (($navbar-vertical-open-width / 2) - 12) !important;
+        height: (($navbar-vertical-open-width / 2) - 12) !important;
+        float: left;
+        background: transparent;
+        color: $text-muted;
+        margin: 0;
+        margin-bottom: 24px;
+
+        &:nth-child(odd) {
+            margin-right: 24px;
+        }
+
+        &.active {
+            background-color: theme-color("primary");
+            color: color-yiq(theme-color("primary"));
+            @include box-shadow($box-shadow-lg !important);
+        }
+
+        &:hover:not(.active) {
+            color: theme-color("primary");
+            transform: scale(1.05);
+        }
+    }
+}

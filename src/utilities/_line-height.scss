@@ -1,0 +1,52 @@
+// Line height
+// options to pass to the utility API
+//
+
+// Default values
+$line-height-values: map-get($config, line-height) !default;
+$line-height-state: null !default;
+$line-height-responsive: true !default;
+
+// Values defined in the $theme
+$line-height-theme-values: null;
+
+// Values for extending the default utilities
+@if(map-has-key($theme, line-height, extend)) {
+    $line-height-theme-values: map-merge($line-height-values, map-get($theme, line-height, extend));
+}
+
+// New values that override the whole map
+@if(map-has-key($theme, line-height, values)) {
+    $line-height-theme-values: map-get($theme, line-height, values);
+}
+
+// Override default options with the theme's ones
+$line-height-defaults: (
+    responsive: if(map-has-key($theme, line-height, responsive), map-get($theme, line-height, responsive), $line-height-responsive),
+    values: $line-height-theme-values,
+    disable: if(map-has-key($theme, line-height, disable), map-get($theme, line-height, disable), false)
+) !default;
+
+$line-height-options: (
+    property: line-height,
+    class: lh,
+    responsive: map-get($line-height-defaults, responsive),
+    values: map-get($line-height-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, line-height, state)) {
+    // Push new values to default list if not null
+    $line-height-state: if($line-height-state != null, append($line-height-state, map-get($theme, line-height, state)), map-get($theme, line-height, state));
+
+    // Merge states with the utility options
+    $line-height-options: map-merge($line-height-options, (
+        state: map-get($theme, line-height, state)
+    ));
+} @else {
+    @if($line-height-state != null) {
+        $line-height-options: map-merge($line-height-options, (
+            state: $line-height-state
+        ));
+    }
+}

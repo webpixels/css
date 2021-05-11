@@ -1,0 +1,39 @@
+// Font size
+// options to pass to the utility API
+//
+
+// Default values
+$font-size-values: map-get($config, font-size) !default;
+$font-size-state: null !default;
+$font-size-responsive: false !default;
+
+// Override default options with the theme's ones
+$font-size-defaults: (
+    state: if(map-has-key($theme, font-size, state), map-get($theme, font-size, state), $font-size-state),
+    values: if(map-has-key($theme, font-size, values), map-get($theme, font-size, values), $font-size-values),
+    disable: if(map-has-key($theme, font-size, disable), map-get($theme, font-size, disable), false)
+) !default;
+
+$font-size-options: (
+    rfs: true,
+    property: font-size,
+    class: text,
+    values: map-get($font-size-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, font-size, state)) {
+    // Push new values to default list if not null
+    $font-size-state: if($font-size-state != null, append($font-size-state, map-get($theme, font-size, state)), map-get($theme, font-size, state));
+
+    // Merge states with the utility options
+    $font-size-options: map-merge($font-size-options, (
+        state: map-get($theme, font-size, state)
+    ));
+} @else {
+    @if($font-size-state != null) {
+        $font-size-options: map-merge($font-size-options, (
+            state: $font-size-state
+        ));
+    }
+}

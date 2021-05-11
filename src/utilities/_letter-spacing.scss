@@ -1,0 +1,39 @@
+// Letter spacing
+// options to pass to the utility API
+//
+
+// Default values
+$letter-spacing-values: map-get($config, letter-spacing) !default;
+$letter-spacing-state: null !default;
+$letter-spacing-responsive: true !default;
+
+// Override default options with the theme's ones
+$letter-spacing-defaults: (
+    responsive: if(map-has-key($theme, letter-spacing, responsive), map-get($theme, letter-spacing, responsive), $letter-spacing-responsive),
+    values: if(map-has-key($theme, letter-spacing, values), map-get($theme, letter-spacing, values), $letter-spacing-values),
+    disable: if(map-has-key($theme, letter-spacing, disable), map-get($theme, letter-spacing, disable), false)
+) !default;
+
+$letter-spacing-options: (
+    property: letter-spacing,
+    class: ls,
+    responsive: map-get($letter-spacing-defaults, responsive),
+    values: map-get($letter-spacing-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, letter-spacing, state)) {
+    // Push new values to default list if not null
+    $letter-spacing-state: if($letter-spacing-state != null, append($letter-spacing-state, map-get($theme, letter-spacing, state)), map-get($theme, letter-spacing, state));
+
+    // Merge states with the utility options
+    $letter-spacing-options: map-merge($letter-spacing-options, (
+        state: map-get($theme, letter-spacing, state)
+    ));
+} @else {
+    @if($letter-spacing-state != null) {
+        $letter-spacing-options: map-merge($letter-spacing-options, (
+            state: $letter-spacing-state
+        ));
+    }
+}

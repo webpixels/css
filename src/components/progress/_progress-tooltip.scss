@@ -1,0 +1,31 @@
+//
+// Progress tolltip
+//
+
+
+.progress-tooltip {
+    display: inline-block;
+    background: rgba(0, 0, 0, .8);
+    color: $white;
+    padding: .25rem .375rem;
+    line-height: 1;
+    font-size: 0.7rem;
+    position: relative;
+    bottom: 8px;
+    border-radius: 3px;
+    margin-left: -15px;
+
+    &:after {
+        top: 100%;
+        left: 10px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(51, 51, 51, 0);
+        border-top-color: rgba(0, 0, 0, .8);
+        border-width: 5px;
+    }
+}

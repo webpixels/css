@@ -1,0 +1,13 @@
+@import "bootstrap/scss/buttons";
+
+// Soft color variation
+@each $color, $value in $theme-colors {
+    .btn-soft-#{$color} {
+        @include button-variant(shift-color($value, $btn-soft-bg-level), shift-color($value, $btn-soft-bg-level), $value, $value, color-contrast($value));
+    }
+}
+
+// Neutral button variant
+.btn-neutral {
+    @include button-variant($btn-neutral-bg, $btn-neutral-border-color, $btn-neutral-color, $btn-neutral-hover-bg, $btn-neutral-hover-border-color, $btn-neutral-hover-color);
+}

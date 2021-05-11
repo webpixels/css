@@ -1,0 +1,39 @@
+// Flex
+// options to pass to the utility API
+//
+
+// Default values
+$flex-values: map-get($config, flex) !default;
+$flex-state: null !default;
+$flex-responsive: true !default;
+
+// Override default options with the theme's ones
+$flex-defaults: (
+    responsive: if(map-has-key($theme, flex, responsive), map-get($theme, flex, responsive), $flex-responsive),
+    values: if(map-has-key($theme, flex, values), map-get($theme, flex, values), $flex-values),
+    disable: if(map-has-key($theme, flex, disable), map-get($theme, flex, disable), false)
+) !default;
+
+$flex-options: (
+    property: flex,
+    class: flex,
+    responsive: map-get($flex-defaults, responsive),
+    values: map-get($flex-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, flex, state)) {
+    // Push new values to default list if not null
+    $flex-state: if($flex-state != null, append($flex-state, map-get($theme, flex, state)), map-get($theme, flex, state));
+
+    // Merge states with the utility options
+    $flex-options: map-merge($flex-options, (
+        state: map-get($theme, flex, state)
+    ));
+} @else {
+    @if($flex-state != null) {
+        $flex-options: map-merge($flex-options, (
+            state: $flex-state
+        ));
+    }
+}

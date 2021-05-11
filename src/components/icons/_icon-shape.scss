@@ -1,0 +1,35 @@
+//
+// Icon shapes
+//
+
+
+.icon-shape {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: $border-radius;
+	width: $icon-size;
+	height: $icon-size;
+
+	&.icon-xl {
+		width: $icon-size-xl;
+		height: $icon-size-xl;
+	}
+
+	&.icon-lg {
+		width: $icon-size-lg;
+		height: $icon-size-lg;
+	}
+
+	&.icon-sm {
+		width: $icon-size-sm;
+		height: $icon-size-sm;
+	}
+
+	&.icon-xs {
+		width: $icon-size-xs;
+		height: $icon-size-xs;
+	}
+}

@@ -1,0 +1,39 @@
+.progress-circle {
+    width: 100px;
+    height: 100px;
+
+    .progressbar-text {
+        font-size: 1.5rem;
+        font-weight: $headings-font-weight;
+        color: $headings-color;
+    }
+
+    [class^="display"],
+    .h1, .h2, .h3 {
+        color: $headings-color;
+    }
+
+    svg path {
+        @if $enable-rounded {
+            stroke-linecap: round;
+        }
+    }
+
+    &.progress-sm {
+        width: 60px;
+        height: 60px;
+
+        .progressbar-text {
+            font-size: .875rem;
+        }
+    }
+
+    &.progress-lg {
+        width: 140px;
+        height: 140px;
+
+        .progressbar-text {
+            font-size: 1.25rem;
+        }
+    }
+}

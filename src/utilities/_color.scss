@@ -1,0 +1,52 @@
+// Color
+// options to pass to the utility API
+//
+
+
+// Default values
+$color-values: map-get($config, color) !default;
+$color-state: hover !default;
+$color-responsive: true !default;
+
+// Override default options with the theme's ones
+$color-defaults: (
+    responsive: if(map-has-key($theme, color, responsive), map-get($theme, color, responsive), $color-responsive),
+    values: if(map-has-key($theme, color, values), map-get($theme, color, values), $color-values),
+    disable: if(map-has-key($theme, color, disable), map-get($theme, color, disable), false)
+) !default;
+
+$color-options: (
+    property: color,
+    class: text,
+    responsive: map-get($color-defaults, responsive),
+    values: map-get($color-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, color, state)) {
+    // Push new values to default list if not null
+    $color-state: if($color-state != null, append($color-state, map-get($theme, color, state)), map-get($theme, color, state));
+
+    // Merge states with the utility options
+    $color-options: map-merge($color-options, (
+        state: map-get($theme, color, state)
+    ));
+} @else {
+    @if($color-state != null) {
+        $color-options: map-merge($color-options, (
+            state: $color-state
+        ));
+    }
+}
+
+@each $color, $value in $theme-colors {
+    // Light shades
+    .text-tint-#{$color} {
+        color: tint-color($value, $bg-tint-level) !important;
+    }
+
+    // Dark shades
+    .text-shade-#{$color} {
+        color: shade-color($value, $bg-shade-level) !important;
+    }
+}

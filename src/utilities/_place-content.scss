@@ -1,0 +1,39 @@
+// Place content
+// options to pass to the utility API
+//
+
+// Default values
+$place-content-values: map-get($config, place-content) !default;
+$place-content-state: null !default;
+$place-content-responsive: true !default;
+
+// Override default options with the theme's ones
+$place-content-defaults: (
+    responsive: if(map-has-key($theme, place-content, responsive), map-get($theme, place-content, responsive), $place-content-responsive),
+    values: if(map-has-key($theme, place-content, values), map-get($theme, place-content, values), $place-content-values),
+    disable: if(map-has-key($theme, place-content, disable), map-get($theme, place-content, disable), false)
+) !default;
+
+$place-content-options: (
+    property: place-content,
+    class: place-content,
+    responsive: map-get($place-content-defaults, responsive),
+    values: map-get($place-content-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, place-content, state)) {
+    // Push new values to default list if not null
+    $place-content-state: if($place-content-state != null, append($place-content-state, map-get($theme, place-content, state)), map-get($theme, place-content, state));
+
+    // Merge states with the utility options
+    $place-content-options: map-merge($place-content-options, (
+        state: map-get($theme, place-content, state)
+    ));
+} @else {
+    @if($place-content-state != null) {
+        $place-content-options: map-merge($place-content-options, (
+            state: $place-content-state
+        ));
+    }
+}

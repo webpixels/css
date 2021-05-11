@@ -1,0 +1,66 @@
+// Rotate
+// options to pass to the utility API
+//
+
+// Default values
+$rotate-values: map-get($config, rotate) !default;
+$negative-rotate-values: negativify-map($rotate-values) !default;
+$rotate-state: hover !default;
+$rotate-responsive: true !default;
+
+// Override default options with the theme's ones
+$rotate-defaults: (
+    responsive: if(map-has-key($theme, rotate, responsive), map-get($theme, rotate, responsive), $rotate-responsive),
+    values: if(map-has-key($theme, rotate, values), map-get($theme, rotate, values), map-merge($rotate-values, $negative-rotate-values)),
+    disable: if(map-has-key($theme, rotate, disable), map-get($theme, rotate, disable), false)
+) !default;
+
+$rotate-y-options: (
+    property: --#{$variable-prefix}rotate-y,
+    class: rotate-y,
+    responsive: map-get($rotate-defaults, responsive),
+    values: map-get($rotate-defaults, values),
+);
+
+$rotate-x-options: (
+    property: --#{$variable-prefix}rotate-x,
+    class: rotate-x,
+    responsive: map-get($rotate-defaults, responsive),
+    values: map-get($rotate-defaults, values),
+);
+
+$rotate-options: (
+    property: --#{$variable-prefix}rotate,
+    class: rotate,
+    responsive: map-get($rotate-defaults, responsive),
+    values: map-get($rotate-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, rotate, state)) {
+    // Push new values to default list if not null
+    $rotate-state: if($rotate-state != null, append($rotate-state, map-get($theme, rotate, state)), map-get($theme, rotate, state));
+
+    // Merge states with the utility options
+    $rotate-options: map-merge($rotate-options, (
+        state: map-get($theme, rotate, state)
+    ));
+    $rotate-y-options: map-merge($rotate-y-options, (
+        state: map-get($theme, rotate, state)
+    ));
+    $rotate-x-options: map-merge($rotate-x-options, (
+        state: map-get($theme, rotate, state)
+    ));
+} @else {
+    @if($rotate-state != null) {
+        $rotate-options: map-merge($rotate-options, (
+            state: $rotate-state
+        ));
+        $rotate-y-options: map-merge($rotate-y-options, (
+            state: $rotate-state
+        ));
+        $rotate-x-options: map-merge($rotate-x-options, (
+            state: $rotate-state
+        ));
+    }
+}

@@ -1,0 +1,41 @@
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-width:                1px !default;
+$border-color:                $gray-200 !default;
+
+$border-radius-sm:            .25rem !default;
+$border-radius:               .375rem !default;
+$border-radius-lg:            .5rem !default;
+$border-radius-xl:            .75rem !default;
+$border-radius-2xl:            1rem !default;
+$border-radius-3xl:            1.5rem !default;
+$border-radius-4xl:            3rem !default;
+$border-radius-5xl:            4rem !default;
+$border-radius-6xl:            5rem !default;
+$border-radius-7xl:            6rem !default;
+$border-radius-8xl:            7rem !default;
+$border-radius-pill:           50rem !default;
+$border-radius-circle:         50% !default;
+
+$box-shadow-sm:               0px 1px 1px 0px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow:                  0px 3px 3px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow-lg:               0px 6px 6px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow-xl:               0px 9px 9px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow-2xl:              0px 16px 16px -1px rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow-3xl:              0px 32px 40px -2px rgba(10, 22, 70, 0.11), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+$box-shadow-4xl:              0px 36px 50px 0 rgba(10, 22, 70, 0.1), 0px 0px 1px 0px rgba(10, 22, 70, 0.06) !default;
+
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
+$box-shadow-outline:          0 0 0 3px rgba(66, 153, 225, 0.5) !default;
+$box-shadow-focus:            0 0 0 3px rgba(66, 153, 225, 0.5) !default;
+
+$box-shadow-transparent:      0 0 0 0 rgba(0, 0, 0, 0) !default;
+
+$component-active-color:      $white !default;
+$component-active-bg:         $primary !default;
+
+$caret-width:                 .3em !default;
+$caret-vertical-align:        $caret-width * .85 !default;
+$caret-spacing:               $caret-width * .85 !default;

@@ -1,0 +1,126 @@
+//
+// Omnisearch
+//
+
+
+.omnisearch {
+    width: 100%;
+    margin-top: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    opacity: 0;
+    background-color: transparent;
+    pointer-events: none;
+    transform: translateY(0);
+    @include transition(transform .3s, opacity .15s);
+
+    &-container {
+        margin: auto;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: $omnisearch-width;
+        }
+    }
+
+    &.show {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+
+    .container {
+        position: relative;
+        height: 100%;
+    }
+
+    .omnisearch-form {
+        display: block;
+        position: relative;
+        z-index: 700;
+        background: $white;
+        border-radius: $border-radius-lg;
+
+        .input-group-text {
+            font-size: 1.25rem;
+            background: transparent;
+        }
+
+        .form-control {
+            display: block;
+            height: $omnisearch-input-height;
+            font-size: 1.25rem;
+            color: $gray-600;
+            background-color: transparent;
+            background-image: none;
+
+            &::placeholder {
+                color: $input-placeholder-color;
+            }
+        }
+    }
+
+    .omnisearch-suggestions {
+        min-height: 150px;
+        padding: 1.5rem;
+        background: white;
+        border-radius: $border-radius-lg;
+        position: relative;
+        opacity: 0;
+        @include transition(opacity .3s);
+        transition-delay: $transition-base-duration * 1.05;
+
+        &:before {
+            background: $white;
+            box-shadow: none;
+            content: '';
+            display: block;
+            height: 16px;
+            width: 16px;
+            left: 20px;
+            position: absolute;
+            bottom: 100%;
+            transform: rotate(-45deg) translateY(1rem);
+            z-index: -5;
+            border-radius: .2rem;
+        }
+
+        .heading {
+            color: $gray-700;
+        }
+
+        .list-link {
+            span {
+                font-weight: $font-weight-bold;
+                color: $gray-800;
+            }
+
+            &:hover {
+                color: theme-color("primary");
+
+                span {
+                    color: theme-color("primary");
+                }
+            }
+        }
+    }
+
+    &.show {
+        .omnisearch-form,
+        .omnisearch-suggestions {
+            pointer-events: auto;
+        }
+
+        .omnisearch-suggestions {
+            opacity: 1;
+        }
+    }
+}
+
+.omnisearch-open {
+    overflow: hidden;
+}

@@ -1,0 +1,26 @@
+// Pagination tabs
+
+.pagination-tabs {
+    border-radius: 0;
+
+    .page-link {
+        margin-top: -$border-width;
+        padding: $pagination-tabs-padding-y $pagination-tabs-padding-x;
+        background-color: $pagination-tabs-bg-color;
+        border-width: $pagination-tabs-border-width 0 0 0;
+        border-color: transparent;
+        border-radius: 0 !important;
+
+        &:hover {
+            color: $pagination-tabs-hover-color;
+        }
+    }
+
+    .page-item.active {
+        .page-link {
+            background-color: $pagination-tabs-bg-color;
+            border-color: $pagination-tabs-active-border-color;
+            color: $pagination-tabs-active-color;
+        }
+    }
+}

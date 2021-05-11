@@ -1,0 +1,39 @@
+// Background size
+// options to pass to the utility API
+//
+
+// Default values
+$background-size-values: map-get($config, background-size) !default;
+$background-size-state: null !default;
+$background-size-responsive: true !default;
+
+// Override default options with the theme's ones
+$background-size-defaults: (
+    responsive: if(map-has-key($theme, background-size, responsive), map-get($theme, background-size, responsive), $background-size-responsive),
+    values: if(map-has-key($theme, background-size, values), map-get($theme, background-size, values), $background-size-values),
+    disable: if(map-has-key($theme, background-size, disable), map-get($theme, background-size, disable), false)
+) !default;
+
+$background-size-options: (
+    property: background-size,
+    class: bg,
+    responsive: map-get($background-size-defaults, responsive),
+    values: map-get($background-size-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, background-size, state)) {
+    // Push new values to default list if not null
+    $background-size-state: if($background-size-state != null, append($background-size-state, map-get($theme, background-size, state)), map-get($theme, background-size, state));
+
+    // Merge states with the utility options
+    $background-size-options: map-merge($background-size-options, (
+        state: map-get($theme, background-size, state)
+    ));
+} @else {
+    @if($background-size-state != null) {
+        $background-size-options: map-merge($background-size-options, (
+            state: $background-size-state
+        ));
+    }
+}

@@ -1,0 +1,178 @@
+// Utitlity setups
+@import "background-color";
+@import "background-size";
+@import "gradient";
+@import "border-color";
+@import "border-radius";
+@import "border-style";
+@import "border-width";
+@import "color";
+@import "cursor";
+@import "flex";
+@import "align-content";
+@import "place-content";
+@import "font-family";
+@import "font-size";
+@import "font-style";
+@import "font-weight";
+@import "letter-spacing";
+@import "line-height";
+@import "opacity";
+@import "shadow";
+@import "text-align";
+@import "text-decoration";
+@import "text-transform";
+@import "width";
+@import "min-width";
+@import "max-width";
+@import "height";
+@import "min-height";
+@import "max-height";
+@import "height-calc";
+@import "overflow";
+@import "position";
+@import "inset";
+@import "zindex";
+
+// Filters
+@import "blur";
+
+// Transitions
+@import "bootstrap/scss/transitions";
+@import "transition-property";
+@import "transition-timing-function";
+@import "transition-duration";
+@import "transition-delay";
+@import "animation";
+
+// Transforms
+@import "transform";
+@import "transform-origin";
+@import "scale";
+@import "rotate";
+@import "perspective";
+@import "translate";
+@import "skew";
+
+// Static utilities
+@import "static/helpers";
+@import "static/background";
+
+// Generate utilities using the Bootstrap API
+$utilities: (
+
+    // Remove some of the Bootstrap utilities
+    "viewport-height": null,
+    "min-viewport-height": null,
+    "min-viewport-width": null,
+    "viewport-width": null,
+    "border": null,
+
+    // Opacity
+    "opacity": if(map-get($opacity-defaults, disable) == true, null, $opacity-options),
+
+    // Z-index
+    "zindex": if(map-get($zindex-defaults, disable) == true, null, $zindex-options),
+
+    // Border radius
+    "rounded": if(map-get($border-radius-defaults, disable) == true, null, $border-radius-options),
+    "rounded-top": if(map-get($border-radius-defaults, disable) == true, null, $border-top-radius-options),
+    "rounded-end": if(map-get($border-radius-defaults, disable) == true, null, $border-right-radius-options),
+    "rounded-bottom": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-radius-options),
+    "rounded-start": if(map-get($border-radius-defaults, disable) == true, null, $border-left-radius-options),
+    "rounded-top-start": if(map-get($border-radius-defaults, disable) == true, null, $border-top-left-radius-options),
+    "rounded-top-end": if(map-get($border-radius-defaults, disable) == true, null, $border-top-right-radius-options),
+    "rounded-bottom-end": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-right-radius-options),
+    "rounded-bottom-start": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-left-radius-options),
+
+    // Border width
+    "border-width": if(map-get($border-width-defaults, disable) == true, null, $border-width-options),
+    "border-top": if(map-get($border-width-defaults, disable) == true, null, $border-top-width-options),
+    "border-end": if(map-get($border-width-defaults, disable) == true, null, $border-right-width-options),
+    "border-bottom": if(map-get($border-width-defaults, disable) == true, null, $border-bottom-width-options),
+    "border-start": if(map-get($border-width-defaults, disable) == true, null, $border-left-width-options),
+
+    // Border color
+    "border-color": if(map-get($border-color-defaults, disable) == true, null, $border-color-options),
+
+    // Border style
+    "border-style": if(map-get($border-style-defaults, disable) == true, null, $border-style-options),
+
+    // Cursor
+    "cursor": if(map-get($cursor-defaults, disable) == true, null, $cursor-options),
+
+    // Fonts and Text
+    "font-family": if(map-get($font-family-defaults, disable) == true, null, $font-family-options),
+    "font-size": if(map-get($font-size-defaults, disable) == true, null, $font-size-options),
+    "font-style": if(map-get($font-style-defaults, disable) == true, null, $font-style-options),
+    "font-weight": if(map-get($font-weight-defaults, disable) == true, null, $font-weight-options),
+    "text-transform": if(map-get($text-transform-defaults, disable) == true, null, $text-transform-options),
+    "text-align": if(map-get($text-align-defaults, disable) == true, null, $text-align-options),
+    "text-decoration": if(map-get($text-decoration-defaults, disable) == true, null, $text-decoration-options),
+    "line-height": if(map-get($line-height-defaults, disable) == true, null, $line-height-options),
+    "letter-spacing": if(map-get($letter-spacing-defaults, disable) == true, null, $letter-spacing-options),
+    "color": if(map-get($color-defaults, disable) == true, null, $color-options),
+
+    // Background
+    "background-color": if(map-get($background-color-defaults, disable) == true, null, $background-color-options),
+    "background-size": if(map-get($background-size-defaults, disable) == true, null, $background-size-options),
+    // "gradient": if(map-get($gradient-defaults, disable) == true, null, $gradient-options),
+
+    // Shadow
+    "shadow": if(map-get($shadow-defaults, disable) == true, null, $shadow-options),
+
+    // Widths
+    "width": if(map-get($width-defaults, disable) == true, null, $width-options),
+    "min-width": if(map-get($min-width-defaults, disable) == true, null, $min-width-options),
+    "max-width": if(map-get($max-width-defaults, disable) == true, null, $max-width-options),
+
+    // Heights
+    "height": if(map-get($height-defaults, disable) == true, null, $height-options),
+    "min-height": if(map-get($min-height-defaults, disable) == true, null, $min-height-options),
+    "max-height": if(map-get($max-height-defaults, disable) == true, null, $max-height-options),
+
+    // Position
+    "position": if(map-get($position-defaults, disable) == true, null, $position-options),
+    "top": if(map-get($inset-defaults, disable) == true, null, $top-options),
+    "end": if(map-get($inset-defaults, disable) == true, null, $right-options),
+    "bottom": if(map-get($inset-defaults, disable) == true, null, $bottom-options),
+    "start": if(map-get($inset-defaults, disable) == true, null, $left-options),
+    "inset": if(map-get($inset-defaults, disable) == true, null, $inset-options),
+    "inset-x": if(map-get($inset-defaults, disable) == true, null, $inset-x-options),
+    "inset-y": if(map-get($inset-defaults, disable) == true, null, $inset-y-options),
+
+    // Flex
+    "flex": if(map-get($flex-defaults, disable) == true, null, $flex-options),
+    "align-content": if(map-get($align-content-defaults, disable) == true, null, $align-content-options),
+    "place-content": if(map-get($place-content-defaults, disable) == true, null, $place-content-options),
+
+    // Overflow
+    "overflow": if(map-get($overflow-defaults, disable) == true, null, $overflow-options),
+    "overflow-x": if(map-get($overflow-defaults, disable) == true, null, $overflow-x-options),
+    "overflow-y": if(map-get($overflow-defaults, disable) == true, null, $overflow-y-options),
+
+    // Transitions
+    "transition-property": if(map-get($transition-property-defaults, disable) == true, null, $transition-property-options),
+    "transition-timing-function": if(map-get($transition-timing-function-defaults, disable) == true, null, $transition-timing-function-options),
+    "transition-duration": if(map-get($transition-duration-defaults, disable) == true, null, $transition-duration-options),
+    "transition-delay": if(map-get($transition-delay-defaults, disable) == true, null, $transition-delay-options),
+    "animation": if(map-get($animation-defaults, disable) == true, null, $animation-options),
+
+    // Filter
+    "blur": if(map-get($blur-defaults, disable) == true, null, $blur-options),
+
+    // Transforms
+    "transform": if(map-get($transform-defaults, disable) == true, null, $transform-options),
+    "transform-origin": if(map-get($transform-origin-defaults, disable) == true, null, $transform-origin-options),
+    "scale": if(map-get($scale-defaults, disable) == true, null, $scale-options),
+    "scale-y": if(map-get($scale-defaults, disable) == true, null, $scale-y-options),
+    "scale-x": if(map-get($scale-defaults, disable) == true, null, $scale-x-options),
+    "rotate": if(map-get($rotate-defaults, disable) == true, null, $rotate-options),
+    "rotate-y": if(map-get($rotate-defaults, disable) == true, null, $rotate-y-options),
+    "rotate-x": if(map-get($rotate-defaults, disable) == true, null, $rotate-x-options),
+    "perspective": if(map-get($perspective-defaults, disable) == true, null, $perspective-options),
+    "translate-y": if(map-get($translate-defaults, disable) == true, null, $translate-y-options),
+    "translate-x": if(map-get($translate-defaults, disable) == true, null, $translate-x-options),
+    "skew-y": if(map-get($skew-defaults, disable) == true, null, $skew-y-options),
+    "skew-x": if(map-get($skew-defaults, disable) == true, null, $skew-x-options),
+);

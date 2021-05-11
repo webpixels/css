@@ -1,0 +1,39 @@
+// perspective
+// options to pass to the utility API
+//
+
+// Default values
+$perspective-values: map-get($config, perspective) !default;
+$perspective-state: hover !default;
+$perspective-responsive: true !default;
+
+// Override default options with the theme's ones
+$perspective-defaults: (
+    responsive: if(map-has-key($theme, perspective, responsive), map-get($theme, perspective, responsive), $perspective-responsive),
+    values: if(map-has-key($theme, perspective, values), map-get($theme, perspective, values), $perspective-values),
+    disable: if(map-has-key($theme, perspective, disable), map-get($theme, perspective, disable), false)
+) !default;
+
+$perspective-options: (
+    property: --#{$variable-prefix}perspective,
+    class: perspective,
+    responsive: map-get($perspective-defaults, responsive),
+    values: map-get($perspective-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, perspective, state)) {
+    // Push new values to default list if not null
+    $perspective-state: if($perspective-state != null, append($perspective-state, map-get($theme, perspective, state)), map-get($theme, perspective, state));
+
+    // Merge states with the utility options
+    $perspective-options: map-merge($perspective-options, (
+        state: map-get($theme, perspective, state)
+    ));
+} @else {
+    @if($perspective-state != null) {
+        $perspective-options: map-merge($perspective-options, (
+            state: $perspective-state
+        ));
+    }
+}

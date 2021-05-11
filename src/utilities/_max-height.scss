@@ -1,0 +1,41 @@
+// Max Height
+// options to pass to the utility API
+//
+
+@import "../core";
+
+// Default values
+$max-height-values: map-get($config, max-height) !default;
+$max-height-state: null !default;
+$max-height-responsive: true !default;
+
+// Override default options with the theme's ones
+$max-height-defaults: (
+    responsive: if(map-has-key($theme, max-height, responsive), map-get($theme, max-height, responsive), $max-height-responsive),
+    values: if(map-has-key($theme, max-height, values), map-get($theme, max-height, values), $max-height-values),
+    disable: if(map-has-key($theme, max-height, disable), map-get($theme, max-height, disable), false)
+) !default;
+
+$max-height-options: (
+    property: max-height,
+    class: max-h,
+    responsive: map-get($max-height-defaults, responsive),
+    values: map-get($max-height-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, max-height, state)) {
+    // Push new values to default list if not null
+    $max-height-state: if($max-height-state != null, append($max-height-state, map-get($theme, max-height, state)), map-get($theme, max-height, state));
+
+    // Merge states with the utility options
+    $max-height-options: map-merge($max-height-options, (
+        state: map-get($theme, max-height, state)
+    ));
+} @else {
+    @if($max-height-state != null) {
+        $max-height-options: map-merge($max-height-options, (
+            state: $max-height-state
+        ));
+    }
+}

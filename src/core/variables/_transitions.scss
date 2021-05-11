@@ -1,0 +1,19 @@
+// Transitions
+//
+
+$transition-base-duration:      .2s;
+$transition-fade:               opacity $transition-base-duration linear !default;
+$transition-collapse:           height $transition-base-duration ease !default;
+$transition-cubic-bezier:       all $transition-base-duration cubic-bezier(.77, 0, .2, 2.25) !default;
+$transition-bg:                 background-color $transition-base-duration * 2 linear !default;
+$transition-ease-in-out:        all $transition-base-duration ease-in-out !default;
+$transition-base:               all $transition-base-duration ease-in-out !default;
+
+// Transition properties for utilities
+$transition-property:               background-color, border-color, color, fill, stroke, opacity, box-shadow, transform !default;
+$transition-property-colors:        background-color, border-color, color, fill, stroke !default;
+
+$transition-timing-function:        cubic-bezier(0.4, 0, 0.2, 1) !default;
+$transition-in-timing-function:     cubic-bezier(0.4, 0, 1, 1) !default;
+$transition-out-timing-function:    cubic-bezier(0, 0, 0.2, 1) !default;
+$transition-in-out-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !default;

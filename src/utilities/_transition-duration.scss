@@ -1,0 +1,39 @@
+// Transition duration
+// options to pass to the utility API
+//
+
+// Default values
+$transition-duration-values: map-get($config, transition-duration) !default;
+$transition-duration-state: null !default;
+$transition-duration-responsive: true !default;
+
+// Override default options with the theme's ones
+$transition-duration-defaults: (
+    responsive: if(map-has-key($theme, transition-duration, responsive), map-get($theme, transition-duration, responsive), $transition-duration-responsive),
+    values: if(map-has-key($theme, transition-duration, values), map-get($theme, transition-duration, values), $transition-duration-values),
+    disable: if(map-has-key($theme, transition-duration, disable), map-get($theme, transition-duration, disable), false)
+) !default;
+
+$transition-duration-options: (
+    property: transition-duration,
+    class: duration,
+    responsive: map-get($transition-duration-defaults, responsive),
+    values: map-get($transition-duration-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, transition-duration, state)) {
+    // Push new values to default list if not null
+    $transition-duration-state: if($transition-duration-state != null, append($transition-duration-state, map-get($theme, transition-duration, state)), map-get($theme, transition-duration, state));
+
+    // Merge states with the utility options
+    $transition-duration-options: map-merge($transition-duration-options, (
+        state: map-get($theme, transition-duration, state)
+    ));
+} @else {
+    @if($transition-duration-state != null) {
+        $transition-duration-options: map-merge($transition-duration-options, (
+            state: $transition-duration-state
+        ));
+    }
+}

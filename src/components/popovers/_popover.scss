@@ -1,0 +1,18 @@
+@import "bootstrap/scss/popover";
+
+//
+// Popover
+//
+
+.popover-header {
+	font-weight: $font-weight-bold;
+}
+
+
+// Color variations
+
+@each $color, $value in $theme-colors {
+    .popover-#{$color} {
+        @include popover-variant($value);
+    }
+}

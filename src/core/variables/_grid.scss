@@ -1,0 +1,48 @@
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+// scss-docs-start grid-breakpoints
+
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+$grid-breakpoints: if(map-has-key($theme, breakpoints), map-get($theme, breakpoints), $breakpoints);
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1360px
+) !default;
+// scss-docs-end container-max-widths
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:          if(map-has-key($theme, grid, columns), map-get($theme, grid, columns), 12) !default;
+$grid-row-columns:      if(map-has-key($theme, grid, row-columns), map-get($theme, grid, row-columns), 6) !default;
+
+$grid-gutter-width:     if(map-has-key($theme, gutter, width), map-get($theme, gutter, width), 1.5rem) !default;
+$gutter:                if(map-has-key($theme, gutter, values), map-get($theme, gutter, values), $spacers) !default;
+
+// Container padding
+
+$container-padding-x: 1.5rem !default;

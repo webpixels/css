@@ -1,0 +1,70 @@
+//
+// Table
+//
+
+@import "bootstrap/scss/tables";
+
+// General styles
+
+.table {
+    margin-bottom: 0;
+
+    thead th {
+        padding-top: $table-th-spacer-y;
+        padding-bottom: $table-th-spacer-y;
+        font-size: $table-th-font-size;
+        font-weight: $table-th-font-weight;
+        text-transform: $table-th-text-transform;
+        letter-spacing: $table-th-letter-spacing;
+        background-color: $table-th-bg;
+        border-bottom-width: $table-border-width;
+        color: $table-th-color;
+        white-space: nowrap;
+        vertical-align: $table-cell-vertical-align;
+    }
+
+    tbody {
+        th {
+            font-size: $table-cell-font-size;
+        }
+    }
+
+    td {
+        font-size: $table-cell-font-size;
+        white-space: nowrap;
+
+        .progress {
+            height: 3px;
+            width: 120px;
+            margin: 0;
+        }
+    }
+
+   // Styles for dark table
+
+   &.table-dark thead,
+   .thead-dark {
+        th {
+            background-color: $table-dark-th-bg;
+            color: $table-dark-th-color;
+
+            a {
+                color: $table-dark-th-color;
+            }
+        }
+    }
+
+
+    // Styles for light table
+    &.table-light thead,
+    .thead-light {
+        th {
+            background-color: $table-light-th-bg;
+            color: $table-light-th-color;
+
+            a {
+                color: $table-light-th-color;
+            }
+        }
+    }
+}

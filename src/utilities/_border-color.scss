@@ -1,0 +1,39 @@
+// Border color
+// options to pass to the utility API
+//
+
+// Default values
+$border-color-values: map-get($config, border-color) !default;
+$border-color-state: hover !default;
+$border-color-responsive: true !default;
+
+// Override default options with the theme's ones
+$border-color-defaults: (
+    responsive: if(map-has-key($theme, border-color, responsive), map-get($theme, border-color, responsive), $border-color-responsive),
+    values: if(map-has-key($theme, border-color, values), map-get($theme, border-color, values), $border-color-values),
+    disable: if(map-has-key($theme, border-color, disable), map-get($theme, border-color, disable), false)
+) !default;
+
+$border-color-options: (
+    property: border-color,
+    class: border,
+    responsive: map-get($border-color-defaults, responsive),
+    values: map-get($border-color-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, border-color, state)) {
+    // Push new values to default list if not null
+    $border-color-state: if($border-color-state != null, append($border-color-state, map-get($theme, border-color, state)), map-get($theme, border-color, state));
+
+    // Merge states with the utility options
+    $border-color-options: map-merge($border-color-options, (
+        state: map-get($theme, border-color, state)
+    ));
+} @else {
+    @if($border-color-state != null) {
+        $border-color-options: map-merge($border-color-options, (
+            state: $border-color-state
+        ));
+    }
+}

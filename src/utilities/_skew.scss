@@ -1,0 +1,53 @@
+// Skew
+// options to pass to the utility API
+//
+
+// Default values
+$skew-values: map-get($config, skew) !default;
+$negative-skew-values: negativify-map($skew-values) !default;
+$skew-state: hover !default;
+$skew-responsive: true !default;
+
+// Override default options with the theme's ones
+$skew-defaults: (
+    responsive: if(map-has-key($theme, skew, responsive), map-get($theme, skew, responsive), $skew-responsive),
+    values: if(map-has-key($theme, skew, values), map-get($theme, skew, values), map-merge($skew-values, $negative-skew-values)),
+    disable: if(map-has-key($theme, skew, disable), map-get($theme, skew, disable), false)
+) !default;
+
+$skew-y-options: (
+    property: --#{$variable-prefix}skew-y,
+    class: skew-y,
+    responsive: map-get($skew-defaults, responsive),
+    values: map-get($skew-defaults, values),
+);
+
+$skew-x-options: (
+    property: --#{$variable-prefix}skew-x,
+    class: skew-x,
+    responsive: map-get($skew-defaults, responsive),
+    values: map-get($skew-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, skew, state)) {
+    // Push new values to default list if not null
+    $skew-state: if($skew-state != null, append($skew-state, map-get($theme, skew, state)), map-get($theme, skew, state));
+
+    // Merge states with the utility options
+    $skew-y-options: map-merge($skew-y-options, (
+        state: map-get($theme, skew, state)
+    ));
+    $skew-x-options: map-merge($skew-x-options, (
+        state: map-get($theme, skew, state)
+    ));
+} @else {
+    @if($skew-state != null) {
+        $skew-y-options: map-merge($skew-y-options, (
+            state: $skew-state
+        ));
+        $skew-x-options: map-merge($skew-x-options, (
+            state: $skew-state
+        ));
+    }
+}

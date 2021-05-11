@@ -1,0 +1,26 @@
+//
+// Card comment
+//
+
+
+.card-comment-box {
+    width: 100%;
+
+    input,
+    textarea {
+        font-size: $font-size-sm;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: .3125rem 0;
+        margin: 0;
+        color: $gray-800;
+        outline: none;
+        resize: none;
+
+        &:focus {
+            background: transparent;
+            box-shadow: none;
+        }
+    }
+}

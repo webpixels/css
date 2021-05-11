@@ -1,0 +1,15 @@
+//
+// Functions
+// overrides or extension after the Bootstrap's defaults
+//
+
+
+
+@function map-collect($maps...) {
+  	$collection: ();
+
+  	@each $map in $maps {
+    	$collection: map-merge($collection, $map);
+  	}
+  	@return $collection;
+}

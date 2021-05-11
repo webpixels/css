@@ -1,0 +1,239 @@
+@import "bootstrap/scss/dropdown";
+
+.dropdown,
+.dropup,
+.dropright,
+.dropleft {
+    display: inline-block;
+}
+
+
+// Inner elements
+
+.dropdown-heading {
+    color: $dropdown-heading-color;
+    font-size: $dropdown-heading-font-size;
+    font-weight: $dropdown-heading-font-weight;
+}
+
+.dropdown-helper {
+    color: $dropdown-helper-color;
+}
+
+.dropdown-group {
+    display: block;
+
+    &:hover {
+        .dropdown-heading {
+            color: $dropdown-heading-focus-color;
+        }
+    }
+}
+
+.dropdown-img-left {
+    position: relative;
+    display: flex;
+    min-height: 200px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.625rem 1.75rem;
+    background: no-repeat center center/cover;
+    @include border-start-radius($dropdown-border-radius);
+
+    &.dropdown-img-mask {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba($primary, .7);
+            border-radius: inherit;
+        }
+    }
+}
+
+// Additional dropdown background
+
+.dropdown-secondary {
+    background-color: $dropdown-secondary-bg;
+}
+
+.dropdown-body-left {
+    @include border-start-radius($dropdown-border-radius);
+}
+
+.dropdown-body-right {
+    @include border-end-radius($dropdown-border-radius);
+}
+
+// Dropdown menu fluid
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        .dropdown-menu#{$infix}-fluid {
+            width: calc(100% - (var(--x-gutter-x, 1.5rem) * 2));
+            left: var(--x-gutter-x, 1.5rem) !important;
+
+            &[data-bs-popper] {
+                left: var(--x-gutter-x, 1.5rem);
+            }
+        }
+    }
+}
+
+// Dropdown submenu
+
+.dropdown-submenu {
+    .dropdown-menu {
+        min-width: 16rem;
+        margin-left: 1rem;
+
+        &:before {
+            content: '';
+            border-left: 1.5rem solid transparent;
+            position: absolute;
+            left: -1rem;
+            top: 0;
+            height: 100%;
+        }
+    }
+
+    .dropdown-item {
+        &:after {
+            // right: $navbar-dropdown-item-padding-x;
+        }
+    }
+}
+
+// Inner elements
+.dropdown-body {
+    padding: 2rem 2.5rem;
+}
+
+.delimiter {
+    border-right: 1px solid $border-color;
+}
+
+
+// Sizing
+
+@include media-breakpoint-up(md) {
+    .dropdown-menu-sm {
+        min-width: $dropdown-min-width-sm !important;
+
+        &.dropdown-menu-arrow {
+            &.dropdown-menu-right {
+                &:before {
+                    right: 2rem;
+                    left: auto;
+                }
+            }
+        }
+    }
+
+    .dropdown-menu-md {
+        min-width: $dropdown-min-width-md !important;
+    }
+
+    .dropdown-menu-lg {
+        min-width: $dropdown-min-width-lg !important;
+    }
+
+    .dropdown-menu-xl {
+        min-width: $dropdown-min-width-xl !important;
+    }
+
+    .dropdown-menu-2xl {
+        min-width: $dropdown-min-width-2xl !important;
+    }
+}
+
+
+// Positioning
+
+.dropdown-menu-centered {
+    left: $dropdown-left-offset !important;
+    transform: $dropdown-transform;
+}
+
+
+// Dropdown menu animation on show
+
+@include media-breakpoint-up(lg) {
+    .dropdown-animate {
+        > .dropdown-menu {
+            opacity: 0;
+            position: absolute;
+            display: block;
+            pointer-events: none;
+        }
+    }
+
+    // Dropdown animation on click
+    .dropdown-animate:not([data-toggle="hover"]) {
+        .dropdown-menu {
+            &.show {
+                pointer-events: auto;
+                animation: show-dropdown .3s ease forwards;
+            }
+
+            &.hide {
+                display: block;
+                animation: hide-dropdown .3s ease backwards;
+            }
+        }
+    }
+
+    // Dropdown animation on hover
+    .dropdown-animate[data-toggle="hover"] {
+        > .dropdown-menu {
+            display: block;
+            margin: 0;
+            @include transition($transition-base);
+        }
+
+        &:hover {
+            > .dropdown-menu {
+                display: block;
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+                transform: $dropdown-hover-transform;
+            }
+        }
+    }
+}
+
+
+// Keyframes
+
+@keyframes show-dropdown {
+    0% {
+        opacity: 0;
+        transform: translateX(0) translateY(-3px) scale(.97);
+        transition: all .3s ease;
+    }
+
+    100% {
+        transform: translateX(0) translateY(-3px) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hide-dropdown {
+    from {
+        opacity: 1;
+        transform: translateX(0) translateY(-3px) scale(1);
+        transition: all .3s ease;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(0) translateY(-3px) scale(.97);
+    }
+}

@@ -1,0 +1,22 @@
+@import "bootstrap/scss/card";
+
+
+// Card header
+
+.card-header-tabs {
+    margin-top: calc(-#{$card-spacer-y} - 1px);
+    margin-bottom: calc(-#{$card-spacer-y} + 1px);
+    margin-left: 0;
+    margin-right: 0;
+
+    .nav-item {
+        margin-right: .75rem;
+    }
+    
+    .nav-link {
+        &.active {
+            background-color: transparent;
+            border-bottom-color: $primary;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+*.log
+.DS_Store
+.cache/
+.changelog/
+.next/
+.sass-cache
+.stylelintcache
+node_modules/
+tmp
+package-lock.json

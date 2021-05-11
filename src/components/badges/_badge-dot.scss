@@ -1,0 +1,36 @@
+//
+// badge dot
+//
+
+
+.badge-dot {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    font-weight: $font-weight-normal;
+    color: $body-color;
+
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        width: .375rem;
+        height: .375rem;
+        border-radius: 50%;
+        margin-right: .5rem;
+    }
+
+    &.badge-md {
+        i {
+            width: .5rem;
+            height: .5rem;
+        }
+    }
+
+    &.badge-lg {
+        i {
+            width: .625rem;
+            height: .625rem;
+        }
+    }
+}

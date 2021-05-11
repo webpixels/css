@@ -1,0 +1,19 @@
+//
+// Progress label
+//
+
+
+.progress-label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $headings-color;
+}
+
+.progress-percentage {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

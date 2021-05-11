@@ -1,0 +1,21 @@
+// Pagination tabs
+
+.pagination-spaced {
+    border-radius: 0;
+
+    .page-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: .5rem;
+        padding: 0;
+        border-radius: $pagination-border-radius;
+        width: 36px;
+        height: 36px;
+    }
+
+    &.pagination-lg {
+        width: 52px;
+        height: 52px;
+    }
+}

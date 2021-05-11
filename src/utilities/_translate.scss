@@ -1,0 +1,53 @@
+// Rotate
+// options to pass to the utility API
+//
+
+// Default values
+$translate-values: map-get($config, translate) !default;
+$negative-translate-values: negativify-map($translate-values) !default;
+$translate-state: hover !default;
+$translate-responsive: true !default;
+
+// Override default options with the theme's ones
+$translate-defaults: (
+    responsive: if(map-has-key($theme, translate, responsive), map-get($theme, translate, responsive), $translate-responsive),
+    values: if(map-has-key($theme, translate, values), map-get($theme, translate, values), map-merge($translate-values, $negative-translate-values)),
+    disable: if(map-has-key($theme, translate, disable), map-get($theme, translate, disable), false)
+) !default;
+
+$translate-y-options: (
+    property: --#{$variable-prefix}translate-y,
+    class: translate-y,
+    responsive: map-get($translate-defaults, responsive),
+    values: map-get($translate-defaults, values),
+);
+
+$translate-x-options: (
+    property: --#{$variable-prefix}translate-x,
+    class: translate-x,
+    responsive: map-get($translate-defaults, responsive),
+    values: map-get($translate-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, translate, state)) {
+    // Push new values to default list if not null
+    $translate-state: if($translate-state != null, append($translate-state, map-get($theme, translate, state)), map-get($theme, translate, state));
+
+    // Merge states with the utility options
+    $translate-y-options: map-merge($translate-y-options, (
+        state: map-get($theme, translate, state)
+    ));
+    $translate-x-options: map-merge($translate-x-options, (
+        state: map-get($theme, translate, state)
+    ));
+} @else {
+    @if($translate-state != null) {
+        $translate-y-options: map-merge($translate-y-options, (
+            state: $translate-state
+        ));
+        $translate-x-options: map-merge($translate-x-options, (
+            state: $translate-state
+        ));
+    }
+}

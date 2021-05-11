@@ -1,0 +1,290 @@
+@import "bootstrap/scss/navbar";
+
+//
+// Navbar
+//
+
+
+.navbar {
+    position: relative;
+    z-index: 100;
+
+    // Container
+    [class^="container"] {
+        position: relative;
+    }
+}
+
+.navbar-nav {
+    .nav-link {
+        font-size: $navbar-nav-link-font-size;
+        font-weight: $navbar-nav-link-font-weight;
+        text-transform: $navbar-nav-link-text-transform;
+        letter-spacing: $navbar-nav-link-letter-spacing;
+        @include transition($navbar-transition);
+    }
+}
+
+.navbar-text {
+    font-size: $navbar-nav-link-font-size;
+}
+
+.navbar-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-img-brand {
+    font-size: initial;
+}
+
+
+// Borders
+
+.navbar-border {
+    &.navbar-dark {
+        border-bottom: 1px solid rgba($white, .1) !important;
+
+        .border-bottom {
+            border-bottom: 1px solid rgba($white, .1) !important;
+        }
+    }
+
+    &.navbar-light {
+        border-bottom: 1px solid rgba($black, .04) !important;
+
+        .border-bottom {
+            border-bottom: 1px solid rgba($black, .1) !important;
+        }
+    }
+}
+
+.navbar-dark {
+    .border-bottom {
+        border-bottom: 1px solid rgba($white, .1) !important;
+    }
+}
+
+.navbar-light {
+    .border-bottom {
+        border-bottom: 1px solid rgba($black, .1) !important;
+    }
+}
+
+
+// Top navbar
+
+.navbar-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .navbar-nav {
+        flex-direction: row;
+
+        .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        .nav-link {
+            padding: .5rem .5rem;
+        }
+    }
+}
+
+// Collapse
+
+.navbar-collapse {
+    &:before {
+        content: '';
+        display: block;
+        border-top-width: 1px;
+        border-top-style: solid;
+        margin: .75rem -1rem;
+        opacity: 0;
+        @include transition($transition-base);
+    }
+
+    &.show,
+    &.collapsing {
+        &:before {
+            opacity: 1;
+        }
+    }
+}
+
+.navbar-light {
+    .navbar-collapse::before {
+        border-top-color: rgba($dark, .1);
+    }
+
+    .collapse .nav {
+        &:before {
+            border-color: rgba($dark, .1);
+        }
+    }
+}
+
+.navbar-dark {
+    .navbar-collapse::before {
+        border-top-color: rgba(255, 255, 255, .2);
+    }
+
+    .collapse .nav {
+        &:before {
+            border-color: rgba(255, 255, 255, .2);
+        }
+    }
+}
+
+
+// Generate series of `.navbar-expand-*` responsive classes for configuring
+// where your navbar collapses.
+
+.navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+
+        &#{$infix} {
+            @include media-breakpoint-up($next) {
+
+                // Brand
+                .navbar-brand {
+                    img {
+                        height: $navbar-brand-size;
+                    }
+
+                    &.dropdown-toggle {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+
+                // Navbar nav
+                .navbar-nav {
+                    .nav-link {
+                        padding-top: $navbar-nav-link-padding-y;
+                        padding-bottom: $navbar-nav-link-padding-y;
+                        border-radius: $navbar-nav-link-border-radius;
+                    }
+                }
+
+                // Navbar collapse
+
+                .navbar-collapse {
+                    .collapse-header {
+                        display: none;
+                    }
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Navabr toggler
+
+.navbar-toggler-icon {
+    width: $navbar-toggler-icon-width;
+    height: $navbar-toggler-icon-height;
+}
+
+
+// Navbar search
+
+.navbar-search {
+    .input-group {
+        border-radius: $navbar-search-border-radius;
+        border: $navbar-search-border-width solid;
+        @include transition($transition-bg);
+        transition-delay: $transition-base-duration;
+
+        .input-group-text {
+            background-color: transparent;
+            padding-left: 1rem;
+            border: 0;
+        }
+    }
+
+    .form-control {
+        width: $navbar-search-width;
+        background-color: transparent;
+        border: 0;
+        @include transition($navbar-search-transition);
+    }
+
+    .focused {
+        .input-group {
+            .form-control {
+                width: $navbar-search-focus-width;
+            }
+        }
+    }
+
+    .close {
+        display: none;
+    }
+}
+
+
+// Search variations
+
+.navbar-search-dark {
+    .input-group {
+        background-color: $navbar-search-dark-bg;
+        border-color: $navbar-search-dark-border-color;
+    }
+
+    .input-group-text {
+        color: $navbar-search-dark-color;
+    }
+
+    .form-control {
+        color: $navbar-search-dark-focus-color;
+
+        &::placeholder {
+            color: $navbar-search-dark-color;
+        }
+    }
+
+    .focused {
+        .input-group {
+            background-color: $navbar-search-dark-focus-bg;
+            border-color: $navbar-search-dark-focus-border-color;
+        }
+    }
+}
+
+.navbar-search-light {
+    .input-group {
+        background-color: $navbar-search-light-bg;
+        border-color: $navbar-search-light-border-color;
+    }
+
+    .input-group-text {
+        color: $navbar-search-light-color;
+    }
+
+    .form-control {
+        color: $navbar-search-light-focus-color;
+
+        &::placeholder {
+            color: $navbar-search-light-color;
+        }
+    }
+
+    .focused {
+        .input-group {
+            background-color: $navbar-search-light-focus-bg;
+            border-color: $navbar-search-light-focus-border-color;
+        }
+    }
+}

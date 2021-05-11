@@ -1,0 +1,39 @@
+// Text decoration
+// options to pass to the utility API
+//
+
+// Default values
+$text-decoration-values: map-get($config, text-decoration) !default;
+$text-decoration-state: hover !default;
+$text-decoration-responsive: true !default;
+
+// Override default options with the theme's ones
+$text-decoration-defaults: (
+    responsive: if(map-has-key($theme, text-decoration, responsive), map-get($theme, text-decoration, responsive), $text-decoration-responsive),
+    values: if(map-has-key($theme, text-decoration, values), map-get($theme, text-decoration, values), $text-decoration-values),
+    disable: if(map-has-key($theme, text-decoration, disable), map-get($theme, text-decoration, disable), false)
+) !default;
+
+$text-decoration-options: (
+    property: text-decoration,
+    class: text,
+    responsive: map-get($text-decoration-defaults, responsive),
+    values: map-get($text-decoration-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, text-decoration, state)) {
+    // Push new values to default list if not null
+    $text-decoration-state: if($text-decoration-state != null, append($text-decoration-state, map-get($theme, text-decoration, state)), map-get($theme, text-decoration, state));
+
+    // Merge states with the utility options
+    $text-decoration-options: map-merge($text-decoration-options, (
+        state: map-get($theme, text-decoration, state)
+    ));
+} @else {
+    @if($text-decoration-state != null) {
+        $text-decoration-options: map-merge($text-decoration-options, (
+            state: $text-decoration-state
+        ));
+    }
+}

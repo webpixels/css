@@ -1,0 +1,41 @@
+// Max Width
+// options to pass to the utility API
+//
+
+@import "../core";
+
+// Default values
+$max-width-values: map-get($config, max-width) !default;
+$max-width-state: null !default;
+$max-width-responsive: true !default;
+
+// Override default options with the theme's ones
+$max-width-defaults: (
+    responsive: if(map-has-key($theme, max-width, responsive), map-get($theme, max-width, responsive), $max-width-responsive),
+    values: if(map-has-key($theme, max-width, values), map-get($theme, max-width, values), $max-width-values),
+    disable: if(map-has-key($theme, max-width, disable), map-get($theme, max-width, disable), false)
+) !default;
+
+$max-width-options: (
+    property: max-width,
+    class: max-w,
+    responsive: map-get($max-width-defaults, responsive),
+    values: map-get($max-width-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, max-width, state)) {
+    // Push new values to default list if not null
+    $max-width-state: if($max-width-state != null, append($max-width-state, map-get($theme, max-width, state)), map-get($theme, max-width, state));
+
+    // Merge states with the utility options
+    $max-width-options: map-merge($max-width-options, (
+        state: map-get($theme, max-width, state)
+    ));
+} @else {
+    @if($max-width-state != null) {
+        $max-width-options: map-merge($max-width-options, (
+            state: $max-width-state
+        ));
+    }
+}

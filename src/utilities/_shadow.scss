@@ -1,0 +1,39 @@
+// Shadow
+// options to pass to the utility API
+//
+
+// Default values
+$shadow-values: map-get($config, shadow) !default;
+$shadow-state: hover !default;
+$shadow-responsive: true !default;
+
+// Override default options with the theme's ones
+$shadow-defaults: (
+    responsive: if(map-has-key($theme, shadow, responsive), map-get($theme, shadow, responsive), $shadow-responsive),
+    values: if(map-has-key($theme, shadow, values), map-get($theme, shadow, values), $shadow-values),
+    disable: if(map-has-key($theme, shadow, disable), map-get($theme, shadow, disable), false)
+) !default;
+
+$shadow-options: (
+    property: box-shadow,
+    class: shadow,
+    responsive: map-get($shadow-defaults, responsive),
+    values: map-get($shadow-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, shadow, state)) {
+    // Push new values to default list if not null
+    $shadow-state: if($shadow-state != null, append($shadow-state, map-get($theme, shadow, state)), map-get($theme, shadow, state));
+
+    // Merge states with the utility options
+    $shadow-options: map-merge($shadow-options, (
+        state: map-get($theme, shadow, state)
+    ));
+} @else {
+    @if($shadow-state != null) {
+        $shadow-options: map-merge($shadow-options, (
+            state: $shadow-state
+        ));
+    }
+}

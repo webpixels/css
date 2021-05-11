@@ -1,0 +1,26 @@
+//
+// Flush tables
+//
+
+
+.table-flush {
+    th, td {
+        border-left: 0;
+        border-right: 0;
+    }
+
+
+    thead > tr {
+        th {
+            border-top: 0;
+        }
+    }
+
+    tbody > tr {
+        &:last-child {
+            th, td {
+                border-bottom: 0;
+            }
+        }
+    }
+}

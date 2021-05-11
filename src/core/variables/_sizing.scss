@@ -1,0 +1,39 @@
+// Sizing
+//
+
+// This variable affects the `.w-*`, `.min-w-*`, `.max-w-*` classes.
+$percentage-sizers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$percentage-sizers: map-merge((
+    1\/2: 100% / 2,
+    1\/3: 100% / 3,
+    2\/3: 200% / 3,
+    1\/4: 100% / 4,
+    2\/4: 200% / 4,
+    3\/4: 300% / 4,
+    1\/5: 100% / 5,
+    2\/5: 200% / 5,
+    3\/5: 300% / 5,
+    4\/5: 400% / 5,
+    1\/6: 100% / 6,
+    2\/6: 200% / 6,
+    3\/6: 300% / 6,
+    4\/6: 400% / 6,
+    5\/6: 500% / 6,
+    11\/10: 110%,
+    12\/10: 120%,
+    13\/10: 130%,
+    14\/10: 140%,
+    15\/10: 150%,
+), $percentage-sizers);
+
+// This variable affects the `.pc-*`, `.max-pc-*` classes.
+$screen-widths: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$screen-widths: map-merge((
+    screen-sm: 640px,
+    screen-md: 768px,
+    screen-lg: 1024px,
+    screen-xl: 1280px,
+    screen-xxl: 1536px
+), $screen-widths);

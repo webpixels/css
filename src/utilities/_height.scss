@@ -1,0 +1,41 @@
+// Height
+// options to pass to the utility API
+//
+
+@import "../core";
+
+// Default values
+$height-values: map-get($config, height) !default;
+$height-state: null !default;
+$height-responsive: true !default;
+
+// Override default options with the theme's ones
+$height-defaults: (
+    responsive: if(map-has-key($theme, height, responsive), map-get($theme, height, responsive), $height-responsive),
+    values: if(map-has-key($theme, height, values), map-get($theme, height, values), $height-values),
+    disable: if(map-has-key($theme, height, disable), map-get($theme, height, disable), false)
+) !default;
+
+$height-options: (
+    property: height,
+    class: h,
+    responsive: map-get($height-defaults, responsive),
+    values: map-get($height-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, height, state)) {
+    // Push new values to default list if not null
+    $height-state: if($height-state != null, append($height-state, map-get($theme, height, state)), map-get($theme, height, state));
+
+    // Merge states with the utility options
+    $height-options: map-merge($height-options, (
+        state: map-get($theme, height, state)
+    ));
+} @else {
+    @if($height-state != null) {
+        $height-options: map-merge($height-options, (
+            state: $height-state
+        ));
+    }
+}

@@ -1,0 +1,124 @@
+// Inset
+// options to pass to the utility API
+//
+
+@import "../core";
+
+// Default values
+$inset-values: map-get($config, inset) !default;
+$inset-state: null !default;
+$inset-responsive: true !default;
+
+// Override default options with the theme's ones
+$inset-defaults: (
+    responsive: if(map-has-key($theme, inset, responsive), map-get($theme, inset, responsive), $inset-responsive),
+    values: if(map-has-key($theme, inset, values), map-get($theme, inset, values), $inset-values),
+    disable: if(map-has-key($theme, inset, disable), map-get($theme, inset, disable), false)
+) !default;
+
+// Top
+$top-options: (
+    property: top,
+    class: top,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+// Right
+$right-options: (
+    property: right,
+    class: end,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+// Bottom
+$bottom-options: (
+    property: bottom,
+    class: bottom,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+// Left
+$left-options: (
+    property: left,
+    class: start,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+// Inset
+$inset-options: (
+    property: top right bottom left,
+    class: inset,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+$inset-x-options: (
+    property: left right,
+    class: inset-x,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+$inset-y-options: (
+    property: top bottom,
+    class: inset-y,
+    responsive: map-get($inset-defaults, responsive),
+    values: map-get($inset-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, inset, state)) {
+    // Push new values to default list if not null
+    $inset-state: if($inset-state != null, append($inset-state, map-get($theme, inset, state)), map-get($theme, inset, state));
+
+    // Merge states with the utility options
+    $top-options: map-merge($top-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $right-options: map-merge($right-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $bottom-options: map-merge($bottom-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $left-options: map-merge($left-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $inset-options: map-merge($inset-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $inset-x-options: map-merge($inset-x-options, (
+        state: map-get($theme, inset, state)
+    ));
+    $inset-y-options: map-merge($inset-y-options, (
+        state: map-get($theme, inset, state)
+    ));
+} @else {
+    @if($inset-state != null) {
+        $top-options: map-merge($top-options, (
+            state: $inset-state
+        ));
+        $right-options: map-merge($right-options, (
+            state: $inset-state
+        ));
+        $bottom-options: map-merge($bottom-options, (
+            state: $inset-state
+        ));
+        $left-options: map-merge($left-options, (
+            state: $inset-state
+        ));
+        $inset-options: map-merge($inset-options, (
+            state: $inset-state
+        ));
+        $inset-x-options: map-merge($inset-x-options, (
+            state: $inset-state
+        ));
+        $inset-y-options: map-merge($inset-y-options, (
+            state: $inset-state
+        ));
+    }
+}

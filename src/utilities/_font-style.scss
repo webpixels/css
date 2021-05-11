@@ -1,0 +1,39 @@
+// Font style
+// options to pass to the utility API
+//
+
+// Default values
+$font-style-values: map-get($config, font-style) !default;
+$font-style-state: null !default;
+$font-style-responsive: true !default;
+
+// Override default options with the theme's ones
+$font-style-defaults: (
+    responsive: if(map-has-key($theme, font-style, responsive), map-get($theme, font-style, responsive), $font-style-responsive),
+    values: if(map-has-key($theme, font-style, values), map-get($theme, font-style, values), $font-style-values),
+    disable: if(map-has-key($theme, font-style, disable), map-get($theme, font-style, disable), false)
+) !default;
+
+$font-style-options: (
+    property: font-style,
+    class: font,
+    responsive: map-get($font-style-defaults, responsive),
+    values: map-get($font-style-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, font-style, state)) {
+    // Push new values to default list if not null
+    $font-style-state: if($font-style-state != null, append($font-style-state, map-get($theme, font-style, state)), map-get($theme, font-style, state));
+
+    // Merge states with the utility options
+    $font-style-options: map-merge($font-style-options, (
+        state: map-get($theme, font-style, state)
+    ));
+} @else {
+    @if($font-style-state != null) {
+        $font-style-options: map-merge($font-style-options, (
+            state: $font-style-state
+        ));
+    }
+}

@@ -1,0 +1,19 @@
+//
+// Laptop frame
+//
+
+
+.frame-laptop {
+    position: relative;
+
+    .frame-inner {
+        position: absolute;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: $frame-laptop-width;
+        height: $frame-laptop-height;
+        margin: $frame-laptop-spacing;
+    }
+}

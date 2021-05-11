@@ -1,0 +1,39 @@
+// Transform origin
+// options to pass to the utility API
+//
+
+// Default values
+$transform-origin-values: map-get($config, transform-origin) !default;
+$transform-origin-state: hover !default;
+$transform-origin-responsive: true !default;
+
+// Override default options with the theme's ones
+$transform-origin-defaults: (
+    responsive: if(map-has-key($theme, transform-origin, responsive), map-get($theme, transform-origin, responsive), $transform-origin-responsive),
+    values: if(map-has-key($theme, transform-origin, values), map-get($theme, transform-origin, values), $transform-origin-values),
+    disable: if(map-has-key($theme, transform-origin, disable), map-get($theme, transform-origin, disable), false)
+) !default;
+
+$transform-origin-options: (
+    property: transform-origin,
+    class: origin,
+    responsive: map-get($transform-origin-defaults, responsive),
+    values: map-get($transform-origin-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, transform-origin, state)) {
+    // Push new values to default list if not null
+    $transform-origin-state: if($transform-origin-state != null, append($transform-origin-state, map-get($theme, transform-origin, state)), map-get($theme, transform-origin, state));
+
+    // Merge states with the utility options
+    $transform-origin-options: map-merge($transform-origin-options, (
+        state: map-get($theme, transform-origin, state)
+    ));
+} @else {
+    @if($transform-origin-state != null) {
+        $transform-origin-options: map-merge($transform-origin-options, (
+            state: $transform-origin-state
+        ));
+    }
+}

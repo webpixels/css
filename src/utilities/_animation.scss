@@ -1,0 +1,84 @@
+// Animation
+// options to pass to the utility API
+//
+
+// Default values
+$animation-values: map-get($config, animation) !default;
+$animation-state: null !default;
+$animation-responsive: true !default;
+
+// Override default options with the theme's ones
+$animation-defaults: (
+    responsive: if(map-has-key($theme, animation, responsive), map-get($theme, animation, responsive), $animation-responsive),
+    values: if(map-has-key($theme, animation, values), map-get($theme, animation, values), $animation-values),
+    disable: if(map-has-key($theme, animation, disable), map-get($theme, animation, disable), false)
+) !default;
+
+$animation-options: (
+    property: animation,
+    class: animation,
+    responsive: map-get($animation-defaults, responsive),
+    values: map-get($animation-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, animation, state)) {
+    // Push new values to default list if not null
+    $animation-state: if($animation-state != null, append($animation-state, map-get($theme, animation, state)), map-get($theme, animation, state));
+
+    // Merge states with the utility options
+    $animation-options: map-merge($animation-options, (
+        state: map-get($theme, animation, state)
+    ));
+} @else {
+    @if($animation-state != null) {
+        $animation-options: map-merge($animation-options, (
+            state: $animation-state
+        ));
+    }
+}
+
+// Keyframes
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .5;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform:translateX(0);
+    }
+    to {
+        transform:translateX(-100%);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform:translateX(-100%);
+    }
+
+    to {
+        transform:translateX(0);
+    }
+}

@@ -1,0 +1,39 @@
+// Text transform
+// options to pass to the utility API
+//
+
+// Default values
+$text-transform-values:  map-get($config, text-transform) !default;
+$text-transform-state: hover !default;
+$text-transform-responsive: true !default;
+
+// Override default options with the theme's ones
+$text-transform-defaults: (
+    responsive: if(map-has-key($theme, text-transform, responsive), map-get($theme, text-transform, responsive), $text-transform-responsive),
+    values: if(map-has-key($theme, text-transform, values), map-get($theme, text-transform, values), $text-transform-values),
+    disable: if(map-has-key($theme, text-transform, disable), map-get($theme, text-transform, disable), false)
+) !default;
+
+$text-transform-options: (
+    property: text-transform,
+    class: text,
+    responsive: map-get($text-transform-defaults, responsive),
+    values: map-get($text-transform-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, text-transform, state)) {
+    // Push new values to default list if not null
+    $text-transform-state: if($text-transform-state != null, append($text-transform-state, map-get($theme, text-transform, state)), map-get($theme, text-transform, state));
+
+    // Merge states with the utility options
+    $text-transform-options: map-merge($text-transform-options, (
+        state: map-get($theme, text-transform, state)
+    ));
+} @else {
+    @if($text-transform-state != null) {
+        $text-transform-options: map-merge($text-transform-options, (
+            state: $text-transform-state
+        ));
+    }
+}

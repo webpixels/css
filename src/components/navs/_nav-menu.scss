@@ -1,0 +1,20 @@
+//
+// Nav menu (used for sidebars)
+//
+
+
+.nav-menu {
+    .nav-link {
+        padding: .35rem 0;
+
+        &:not(.active) {
+            &:hover {
+                color: $gray-800;
+            }
+
+            &.active {
+                font-weight: $font-weight-bolder;
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+// Background colors
+// options to pass to the utility API
+//
+
+@import "../core";
+
+// Default values
+$background-color-values: map-get($config, background-color) !default;
+$background-color-state: hover !default;
+$background-color-responsive: true !default;
+
+// Override default options with the theme's ones
+$background-color-defaults: (
+    responsive: if(map-has-key($theme, background-color, responsive), map-get($theme, background-color, responsive), $background-color-responsive),
+    values: if(map-has-key($theme, background-color, values), map-get($theme, background-color, values), $background-color-values),
+    disable: if(map-has-key($theme, background-color, disable), map-get($theme, background-color, disable), false)
+) !default;
+
+$background-color-options: (
+    property: background-color,
+    class: bg,
+    responsive: map-get($background-color-defaults, responsive),
+    values: map-get($background-color-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, background-color, state)) {
+    // Push new values to default list if not null
+    $background-color-state: if($background-color-state != null, append($background-color-state, map-get($theme, background-color, state)), map-get($theme, background-color, state));
+
+    // Merge states with the utility options
+    $background-color-options: map-merge($background-color-options, (
+        state: map-get($theme, background-color, state)
+    ));
+} @else {
+    @if($background-color-state != null) {
+        $background-color-options: map-merge($background-color-options, (
+            state: $background-color-state
+        ));
+    }
+}
+
+// Background color variants
+
+@each $color, $value in $colors {
+    .bg-#{$color} {
+        background-color: rgba($value, 1) !important;
+    }
+}
+
+@each $color, $value in $theme-colors {
+
+    // Light shades
+    .bg-tint-#{$color} {
+        background-color: tint-color($value, $bg-tint-level) !important;
+    }
+
+    // Dark shades
+    .bg-shade-#{$color} {
+        background-color: shade-color($value, $bg-shade-level) !important;
+    }
+
+    // Soft variants
+    .bg-soft-#{$color} {
+        background-color: shift-color($value, $bg-soft-level) !important;
+    }
+}
+
+@each $color, $value in $surface-colors {
+    .bg-surface-#{$color} {
+        background-color: $value !important;
+    }
+}

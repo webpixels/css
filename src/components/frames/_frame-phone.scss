@@ -1,0 +1,21 @@
+//
+// Phone frame
+//
+
+
+.frame-iphone {
+    position: relative;
+    z-index: 100;
+
+    .frame-inner {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: $frame-iphone-width;
+        height: $frame-iphone-height;
+        margin: $frame-iphone-spacing;
+        @include border-radius(5%);
+    }
+}

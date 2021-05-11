@@ -1,0 +1,144 @@
+// Border radius
+// options to pass to the utility API
+//
+
+// Default values
+$border-radius-values: map-get($config, border-radius) !default;
+$border-radius-state: null !default;
+$border-radius-responsive: true !default;
+
+// Override default options with the theme's ones
+$border-radius-defaults: (
+    responsive: if(map-has-key($theme, border-radius, responsive), map-get($theme, border-radius, responsive), $border-radius-responsive),
+    values: if(map-has-key($theme, border-radius, values), map-get($theme, border-radius, values), $border-radius-values),
+    disable: if(map-has-key($theme, border-radius, disable), map-get($theme, border-radius, disable), false)
+) !default;
+
+// Set options
+$border-radius-options: (
+    property: border-radius,
+    class: rounded,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-top-radius-options: (
+    property: border-top-left-radius border-top-right-radius,
+    class: rounded-top,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-right-radius-options: (
+    property: border-top-right-radius border-bottom-right-radius,
+    class: rounded-end,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-bottom-radius-options: (
+    property: border-bottom-right-radius border-bottom-left-radius,
+    class: rounded-bottom,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-left-radius-options: (
+    property: border-bottom-left-radius border-top-left-radius,
+    class: rounded-start,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-top-left-radius-options: (
+    property: border-top-left-radius,
+    class: rounded-top-start,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-top-right-radius-options: (
+    property: border-top-right-radius,
+    class: rounded-top-end,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-bottom-right-radius-options: (
+    property: border-bottom-right-radius,
+    class: rounded-bottom-end,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+$border-bottom-left-radius-options: (
+    property: border-bottom-left-radius,
+    class: rounded-bottom-start,
+    responsive: map-get($border-radius-defaults, responsive),
+    values: map-get($border-radius-defaults, values),
+);
+
+// Merge states (variants)
+@if(map-has-key($theme, border-radius, state)) {
+    // Push new values to default list if not null
+    $border-radius-state: if($border-radius-state != null, append($border-radius-state, map-get($theme, border-radius, state)), map-get($theme, border-radius, state));
+
+    // Merge states with the utility options
+    $border-radius-options: map-merge($border-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-top-radius-options: map-merge($border-top-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-right-radius-options: map-merge($border-right-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-bottom-radius-options: map-merge($border-bottom-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-left-radius-options: map-merge($border-left-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-top-left-radius-options: map-merge($border-top-left-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-top-right-radius-options: map-merge($border-top-right-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-bottom-right-radius-options: map-merge($border-bottom-right-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+    $border-bottom-left-radius-options: map-merge($border-bottom-left-radius-options, (
+        state: map-get($theme, border-radius, state)
+    ));
+} @else {
+    @if($border-radius-state != null) {
+        $border-radius-options: map-merge($border-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-top-radius-options: map-merge($border-top-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-right-radius-options: map-merge($border-right-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-bottom-radius-options: map-merge($border-bottom-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-left-radius-options: map-merge($border-left-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-top-left-radius-options: map-merge($border-top-left-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-top-right-radius-options: map-merge($border-top-right-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-bottom-right-radius-options: map-merge($border-bottom-right-radius-options, (
+            state: $border-radius-state
+        ));
+        $border-bottom-left-radius-options: map-merge($border-bottom-left-radius-options, (
+            state: $border-radius-state
+        ));
+    }
+}
