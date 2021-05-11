@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "version_short": "1.0",
     "license": "MIT",
-    "style": "dist/style.css",
+    "style": "dist/index.css",
     "sass": "index.scss",
     "keywords": [
         "webpixels",
@@ -33,10 +33,10 @@
     },
     "scripts": {
         "build": "npm run css",
-        "css-compile": "sass --load-path=node_modules --style=compressed src:dist/style.css",
+        "css-compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources --no-error-css src:dist/",
         "css-lint": "stylelint src/",
-        "css-prefix": "postcss --replace dist/style.css --use autoprefixer --map",
-        "css-purge": "purgecss --css dist/style.css --content index.html --output dist/css/",
+        "css-prefix": "postcss --replace dist/index.css --use autoprefixer --map",
+        "css-purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
         "css": "npm-run-all css-compile css-prefix",
         "postpublish": "script/postpublish",
         "prepublishOnly": "script/prepublish",
@@ -61,11 +61,5 @@
         "serve": "^11.3.2",
         "stylelint": "^13.8.0",
         "stylelint-config-twbs-bootstrap": "^2.1.0"
-    },
-    "browserslist": [
-        "> 1%",
-        "not edge <= 18",
-        "not ie 11",
-        "not op_mini all"
-    ]
+    }
 }
