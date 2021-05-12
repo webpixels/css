@@ -9,7 +9,7 @@ assignees: ''
 
 Before opening:
 
-- [Search for duplicate or closed issues](https://github.com/webpixels/purposecss/issues?utf8=%E2%9C%93&q=is%3Aissue)
+- [Search for duplicate or closed issues](https://github.com/webpixels/css/issues?utf8=%E2%9C%93&q=is%3Aissue)
 - [Validate](https://html5.validator.nu/) any HTML to avoid common problems
 
 Bug reports must include:
