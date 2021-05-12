@@ -17,7 +17,7 @@
   <a href="https://webpixels.io/blog/">Blog</a>
 </p>
 
-<p align="center"><a href="https://webpixels.io/start" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/products/css.jpg" ></a></p>
+<p align="center"><a href="https://webpixels.io/start" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/products/css.png" ></a></p>
 
 ## Documentation
 
