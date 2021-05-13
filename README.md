@@ -37,4 +37,4 @@ Get updates on the development of our CSS tool and chat with the project maintai
 
 ## License
 
-Webpixels CSS is open-sourced software licensed under the [MIT license](https://github.com/webpixels/css/blob/main/LICENSE).
+Webpixels CSS is open-sourced software licensed under the [MIT license](https://github.com/webpixels/css/blob/master/LICENSE).
