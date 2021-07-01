@@ -2,10 +2,12 @@
 // Application nav
 //
 
+@use "sass:math";
+
 .nav-application {
     > .btn {
-        width: (($navbar-vertical-open-width / 2) - 12) !important;
-        height: (($navbar-vertical-open-width / 2) - 12) !important;
+        width: (math.div($navbar-vertical-open-width, 2) - 12) !important;
+        height: (math.div($navbar-vertical-open-width, 2) - 12) !important;
         float: left;
         background: transparent;
         color: $text-muted;

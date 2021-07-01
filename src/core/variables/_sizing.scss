@@ -1,25 +1,27 @@
 // Sizing
 //
 
+@use "sass:math";
+
 // This variable affects the `.w-*`, `.min-w-*`, `.max-w-*` classes.
 $percentage-sizers: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $percentage-sizers: map-merge((
-    1\/2: 100% / 2,
-    1\/3: 100% / 3,
-    2\/3: 200% / 3,
-    1\/4: 100% / 4,
-    2\/4: 200% / 4,
-    3\/4: 300% / 4,
-    1\/5: 100% / 5,
-    2\/5: 200% / 5,
-    3\/5: 300% / 5,
-    4\/5: 400% / 5,
-    1\/6: 100% / 6,
-    2\/6: 200% / 6,
-    3\/6: 300% / 6,
-    4\/6: 400% / 6,
-    5\/6: 500% / 6,
+    1\/2: math.div(100%, 2),
+    1\/3: math.div(100%, 3),
+    2\/3: math.div(200%, 3),
+    1\/4: math.div(100%, 4),
+    2\/4: math.div(200%, 4),
+    3\/4: math.div(300%, 4),
+    1\/5: math.div(100%, 5),
+    2\/5: math.div(200%, 5),
+    3\/5: math.div(300%, 5),
+    4\/5: math.div(400%, 5),
+    1\/6: math.div(100%, 6),
+    2\/6: math.div(200%, 6),
+    3\/6: math.div(300%, 6),
+    4\/6: math.div(400%, 6),
+    5\/6: math.div(500%, 6),
     11\/10: 110%,
     12\/10: 120%,
     13\/10: 130%,

@@ -1,6 +1,4 @@
-// Tables
-//
-// Customizes the `.table` component with basic values, each used across all table variations.
+@use "sass:math";
 
 // scss-docs-start table-variables
 $table-cell-padding-y:        1rem !default;
@@ -89,8 +87,8 @@ $input-btn-padding-x:         1.25rem !default;
 $input-btn-font-size:         $font-size-base !default;
 $input-btn-line-height:       $line-height-sm !default;
 
-$input-btn-focus-width:         1px !default;
-$input-btn-focus-color-opacity: 1 !default;
+$input-btn-focus-width:         .25rem !default;
+$input-btn-focus-color-opacity: .25 !default;
 $input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
 $input-btn-focus-blur:          0 !default;
 $input-btn-focus-box-shadow:    0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
@@ -140,7 +138,7 @@ $btn-padding-x-xl:            $input-btn-padding-x-xl !default;
 $btn-line-height-xl:          $input-btn-line-height-xl !default;
 
 $btn-border-width:            $input-btn-border-width !default;
-$btn-font-weight:             $font-weight-bold !default;
+$btn-font-weight:             $font-weight-semibold !default;
 $btn-box-shadow:              0 1px 1px rgba($black, .075) !default;
 $btn-hover-width:             0 !default;
 $btn-hover-box-shadow:        0 4px 15px rgba($primary, 0.35) !default;
@@ -359,7 +357,7 @@ $card-title-spacer-y:               1.5rem !default;
 $card-color:                        $body-color !default;
 $card-bg:                           $white !default;
 $card-border-width:                 $border-width !default;
-$card-border-color:                 $gray-200 !default;
+$card-border-color:                 tint-color($gray-200, 20%) !default;
 $card-border-radius:                $border-radius-xl !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
 
@@ -370,6 +368,7 @@ $card-cap-bg:                       transparent !default;
 $card-cap-border-width:             1px !default;
 $card-cap-border-color:             $card-border-color !default;
 
+$card-group-margin:                 math.div($grid-gutter-width, 2) !default;
 
 // Accordion
 $accordion-padding-y:                     1.5rem !default;
@@ -379,7 +378,6 @@ $accordion-bg:                            transparent !default;
 $accordion-border-width:                  $border-width !default;
 $accordion-border-color:                  $border-color !default;
 $accordion-border-radius:                 $border-radius !default;
-// $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
 $accordion-body-padding-x:                $accordion-padding-x !default;
@@ -590,9 +588,12 @@ $navbar-nav-link-text-transform:    null !default;
 $navbar-nav-link-letter-spacing:    0 !default;
 $navbar-nav-link-border-radius:     0 !default;
 
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
 $navbar-brand-size:                 40px !default;
 $navbar-brand-font-size:            $font-size-base !default;
 $navbar-brand-margin-end:           0 !default;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y:            math.div(($nav-link-height - $navbar-brand-height), 2) !default;
 
 $navbar-dark-bg:                    $dark !default;
 $navbar-dark-hover-bg:              rgba(255, 255, 255, .1) !default;
@@ -662,7 +663,7 @@ $navbar-vertical-nav-link-font-size:    $font-size-sm !default;
 $navbar-search-width:                       250px !default;
 $navbar-search-focus-width:                 380px !default;
 $navbar-search-bg:                          transparent !default;
-$navbar-search-transition:                  $transition-cubic-bezier;
+$navbar-search-transition:                  $transition-cubic-bezier !default;
 
 $navbar-search-border-radius:               $border-radius-lg !default;
 $navbar-search-border-width:                0 !default;
@@ -795,6 +796,11 @@ $popover-body-padding-x:            $popover-header-padding-x !default;
 
 $popover-arrow-outer-color:         transparent !default;
 
+
+// Tooltips
+
+$tooltip-padding-y:                 math.div($spacer, 4) !default;
+$tooltip-padding-x:                 math.div($spacer, 2) !default;
 
 // Progress
 

@@ -1,7 +1,7 @@
 {
     "name": "@webpixels/css",
     "description": "Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "version_short": "1.0",
     "license": "MIT",
     "style": "dist/index.css",
@@ -33,7 +33,7 @@
     },
     "scripts": {
         "build": "npm run css",
-        "css-compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources --no-error-css src:dist/",
+        "css-compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources src:dist/",
         "css-lint": "stylelint src/",
         "css-prefix": "postcss --replace dist/index.css --use autoprefixer --map",
         "css-purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
@@ -46,20 +46,19 @@
         "test": "npm run css-lint && npm run css"
     },
     "peerDependencies": {
-        "@popperjs/core": "^2.6.0",
-        "bootstrap": "^5.0.0"
+        "@popperjs/core": "^2.9.2",
+        "bootstrap": "^5.0.2"
     },
     "devDependencies": {
-        "autoprefixer": "^10.2.0",
-        "node-sass": "^5.0.0",
+        "autoprefixer": "^10.2.6",
         "nodemon": "^2.0.7",
         "npm-run-all": "^4.1.5",
-        "postcss": "^8.2.3",
+        "postcss": "^8.3.0",
         "postcss-cli": "^8.3.1",
-        "purgecss": "^3.1.3",
-        "sass": "^1.32.5",
-        "serve": "^11.3.2",
-        "stylelint": "^13.8.0",
-        "stylelint-config-twbs-bootstrap": "^2.1.0"
+        "purgecss": "^4.0.3",
+        "sass": "^1.35.1",
+        "serve": "^11.3.2"
+
+
     }
 }

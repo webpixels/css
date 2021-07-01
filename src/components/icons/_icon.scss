@@ -2,9 +2,10 @@
 // Icon
 //
 
+@use "sass:math";
 
 .icon {
-	font-size: $icon-size / 1.75;
+	font-size: math.div($icon-size, 1.75);
 	line-height: 1;
 
 	svg {
@@ -22,7 +23,7 @@
 // Size variations
 
 .icon-xl {
-	font-size: $icon-size-xl / 1.75;
+	font-size: math.div($icon-size-xl, 1.75);
 }
 
 .icon-xl + .icon-text {
@@ -30,7 +31,7 @@
 }
 
 .icon-lg {
-	font-size: $icon-size-lg / 1.75;
+	font-size: math.div($icon-size-lg, 1.75);
 }
 
 .icon-lg + .icon-text {
@@ -38,7 +39,7 @@
 }
 
 .icon-sm {
-	font-size: $icon-size-sm / 1.75;
+	font-size: math.div($icon-size-sm, 1.75);
 }
 
 .icon-sm + .icon-text {
@@ -46,7 +47,7 @@
 }
 
 .icon-xs {
-	font-size: $icon-size-xs / 1.75;
+	font-size: math.div($icon-size-xs, 1.75);
 }
 
 .icon-xs + .icon-text {

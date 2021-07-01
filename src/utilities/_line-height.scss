@@ -23,7 +23,7 @@ $line-height-theme-values: null;
 // Override default options with the theme's ones
 $line-height-defaults: (
     responsive: if(map-has-key($theme, line-height, responsive), map-get($theme, line-height, responsive), $line-height-responsive),
-    values: $line-height-theme-values,
+    values: if($line-height-theme-values, $line-height-theme-values, $line-height-values),
     disable: if(map-has-key($theme, line-height, disable), map-get($theme, line-height, disable), false)
 ) !default;
 

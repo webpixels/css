@@ -6,7 +6,7 @@
 
 // Default values
 $background-color-values: map-get($config, background-color) !default;
-$background-color-state: hover !default;
+$background-color-state: hover focus focus-within !default;
 $background-color-responsive: true !default;
 
 // Override default options with the theme's ones

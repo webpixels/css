@@ -4,7 +4,7 @@
 
 // Default values
 $border-color-values: map-get($config, border-color) !default;
-$border-color-state: hover !default;
+$border-color-state: hover focus focus-within !default;
 $border-color-responsive: true !default;
 
 // Override default options with the theme's ones

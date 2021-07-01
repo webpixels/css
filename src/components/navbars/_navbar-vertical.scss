@@ -2,6 +2,8 @@
 // Vertical navbar
 //
 
+@use "sass:math";
+
 .navbar-vertical {
     .navbar-nav {
         margin-left: -$navbar-vertical-nav-link-padding-x;
@@ -31,7 +33,7 @@
                 border: none;
 
                 .dropdown-menu {
-                    margin-left: $dropdown-item-padding-x / 2;
+                    margin-left: math.div($dropdown-item-padding-x, 2);
                 }
             }
 
@@ -69,8 +71,8 @@
 
         // Second level
         .nav .nav-link {
-            padding-top: $navbar-vertical-nav-link-padding-y / 1.75;
-            padding-bottom: $navbar-vertical-nav-link-padding-y / 1.75;
+            padding-top: math.div($navbar-vertical-nav-link-padding-y, 1.75);
+            padding-bottom: math.div($navbar-vertical-nav-link-padding-y, 1.75);
             padding-left: $navbar-vertical-nav-link-padding-x + $navbar-icon-min-width;
             font-weight: 400;
         }

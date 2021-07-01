@@ -29,14 +29,12 @@
 		font-weight: $font-weight-bold;
 		margin-top: 1.6em;
 		margin-bottom: .6em;
-		// margin-bottom: 1em;
 	}
 
 	> h4 {
 		@include font-size(1em);
 		font-weight: 500;
 		margin-top: 2em;
-		// margin-bottom: .4em;
 	}
 
 	> img {
@@ -94,7 +92,7 @@
 	    padding: 1.5rem 3.5rem;
 		margin-top: 3em;
 		margin-bottom: 3em;
-		background-color: surface-color('secondary');
+		background-color: var(--x-surface-secondary);
 		@include border-radius($border-radius-lg);
 
 		> p {

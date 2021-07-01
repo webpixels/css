@@ -53,6 +53,17 @@
             }
         }
 
+        &:nth-child(odd) {
+            .row {
+                > div:first-child {
+                    order: 2;
+                }
+                > div:last-child {
+                    order: 1;
+                }
+            }
+        }
+
         &:nth-child(even) {
             &:before {
                 background: $section-step-even-bg no-repeat center;

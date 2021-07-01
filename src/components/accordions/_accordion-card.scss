@@ -2,7 +2,7 @@
 // Accordion
 //
 
-.accordion {
+.accordion-card {
     .card-header {
 		position: relative;
 		cursor: pointer;
@@ -45,5 +45,4 @@
             border: 1px solid $card-border-color;
         }
     }
-
 }
