@@ -45,6 +45,9 @@ $background-color-options: (
     }
 }
 
+
+// Static classes
+
 @each $color, $value in $colors {
     .bg-#{$color} {
         background-color: rgba($value, 1) !important;
@@ -73,4 +76,12 @@ $background-color-options: (
     .bg-surface-#{$color} {
         background-color: $value !important;
     }
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.bg-current {
+    background-color: currentColor !important;
 }

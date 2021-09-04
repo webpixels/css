@@ -6,8 +6,6 @@ $config: (
             "white": to-rgb($white),
             "black": to-rgb($black),
             "card": to-rgb($card-bg),
-            "transparent": transparent,
-            "current": currentColor
         )
     ),
     background-size: auto cover contain,
@@ -53,17 +51,12 @@ $config: (
         8: 8px
     ),
     color: map-merge(
-        $theme-colors,
+        $theme-colors-rgb,
         (
-            "white": $white,
-            "body": $body-color,
-            "muted": $text-muted,
-            "heading": $headings-color,
-            "black-50": rgba($black, .5),
-            "black-80": rgba($black, .8),
-            "white-50": rgba($white, .5),
-            "white-80": rgba($white, .8),
-            "current": currentColor
+            "white": to-rgb($white),
+            "body": to-rgb($body-color),
+            "muted": to-rgb($text-muted),
+            "heading": to-rgb($headings-color)
         )
     ),
     flex: (

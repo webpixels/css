@@ -44,6 +44,9 @@ $color-options: (
     }
 }
 
+
+// Static classes
+
 @each $color, $value in $theme-colors {
     // Light shades
     .text-tint-#{$color} {
@@ -54,4 +57,8 @@ $color-options: (
     .text-shade-#{$color} {
         color: shade-color($value, $bg-shade-level) !important;
     }
+}
+
+.text-current {
+    color: currentColor !important;
 }
