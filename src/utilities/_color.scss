@@ -24,7 +24,7 @@ $color-options: (
         "text-opacity": 1
     ),
     responsive: map-get($color-defaults, responsive),
-    values: map-get($color-defaults, values),
+    values: $utilities-text-colors,
 );
 
 // Merge states (variants)
