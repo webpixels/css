@@ -1,12 +1,12 @@
 $config: (
     background-color: map-merge(
-        $theme-colors,
+        $theme-colors-rgb,
         (
-            "body": $body-bg,
-            "white": $white,
-            "black": $black,
+            "body": to-rgb($body-color),
+            "white": to-rgb($white),
+            "black": to-rgb($black),
+            "card": to-rgb($card-bg),
             "transparent": transparent,
-            "card": $card-bg,
             "current": currentColor
         )
     ),

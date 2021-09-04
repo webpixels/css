@@ -15,9 +15,14 @@ $color-defaults: (
     disable: if(map-has-key($theme, color, disable), map-get($theme, color, disable), false)
 ) !default;
 
+$utilities-text-colors: map-loop(map-get($color-defaults, values), rgba-css-var, "$key", "bg") !default;
+
 $color-options: (
     property: color,
     class: text,
+    local-vars: (
+        "text-opacity": 1
+    ),
     responsive: map-get($color-defaults, responsive),
     values: map-get($color-defaults, values),
 );

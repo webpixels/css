@@ -16,11 +16,16 @@ $background-color-defaults: (
     disable: if(map-has-key($theme, background-color, disable), map-get($theme, background-color, disable), false)
 ) !default;
 
+$utilities-bg-colors: map-loop(map-get($background-color-defaults, values), rgba-css-var, "$key", "bg") !default;
+
 $background-color-options: (
     property: background-color,
     class: bg,
+    local-vars: (
+        "bg-opacity": 1
+    ),
     responsive: map-get($background-color-defaults, responsive),
-    values: map-get($background-color-defaults, values),
+    values: $utilities-bg-colors,
 );
 
 // Merge states (variants)
@@ -39,8 +44,6 @@ $background-color-options: (
         ));
     }
 }
-
-// Background color variants
 
 @each $color, $value in $colors {
     .bg-#{$color} {
