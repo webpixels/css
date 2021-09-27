@@ -47,14 +47,18 @@
 
 // Fading elements
 
-[class*="faded"] {
+[class*="faded"],
+[class*="blured"] {
     position: relative;
 
     &:after {
         content: '';
+        display: block;
         position: absolute;
+        left: 0;
+        right: 0;
         width: 100%;
-        height: 30%;
+        height: 3.9375rem;
     }
 }
 
@@ -75,6 +79,22 @@
         background: -webkit-linear-gradient(top, transparent 0%, rgba(0,0,0,.6) 100%);
         background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.6) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#00000000', endColorstr='#a6000000',GradientType=0 );
+    }
+}
+
+.blured-top {
+    &:after {
+        top: 0;
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(10px) saturate(200%);
+    }
+}
+
+.blured-bottom {
+    &:after {
+        bottom: 0;
+        background: rgba(255,255,255,.75);
+        backdrop-filter: blur(10px) saturate(200%);
     }
 }
 
@@ -180,4 +200,28 @@ a.text-current {
 .subpixel-antialised {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+}
+
+
+// Line clamp
+
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

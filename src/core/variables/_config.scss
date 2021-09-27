@@ -6,6 +6,8 @@ $config: (
             "white": to-rgb($white),
             "black": to-rgb($black),
             "card": to-rgb($card-bg),
+            "transparent": transparent,
+            "current": currentColor
         )
     ),
     background-size: auto cover contain,
@@ -54,9 +56,12 @@ $config: (
         $theme-colors-rgb,
         (
             "white": to-rgb($white),
-            "body": to-rgb($body-color),
-            "muted": to-rgb($text-muted),
-            "heading": to-rgb($headings-color)
+            "black": to-rgb($black),
+            "body": $body-color,
+            "muted": $text-muted,
+            "heading": $headings-color,
+            "current": currentColor,
+            "reset": inherit,
         )
     ),
     flex: (

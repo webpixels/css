@@ -16,7 +16,9 @@ $background-color-defaults: (
     disable: if(map-has-key($theme, background-color, disable), map-get($theme, background-color, disable), false)
 ) !default;
 
-$utilities-bg-colors: map-loop(map-get($background-color-defaults, values), rgba-css-var, "$key", "bg") !default;
+
+// Replace Bootstrap default values with the ones in config
+$utilities-bg-colors: map-loop(map-get($background-color-defaults, values), rgba-css-var, "$key", "bg");
 
 $background-color-options: (
     property: background-color,
@@ -76,12 +78,4 @@ $background-color-options: (
     .bg-surface-#{$color} {
         background-color: $value !important;
     }
-}
-
-.bg-transparent {
-    background-color: transparent !important;
-}
-
-.bg-current {
-    background-color: currentColor !important;
 }

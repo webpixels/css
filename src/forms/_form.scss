@@ -4,6 +4,13 @@
 // Form
 //
 
+.form-control {
+    &:focus {
+        &::placeholder {
+            color: $input-focus-placeholder-color;
+        }
+    }
+}
 .form-control-muted {
     background-color: $input-muted-bg;
     border-color: $input-muted-bg;
@@ -102,7 +109,7 @@ textarea[resize="horizontal"] {
 
         &:focus {
             z-index: 2;
-            box-shadow: none;
+            // box-shadow: none;
         }
     }
 

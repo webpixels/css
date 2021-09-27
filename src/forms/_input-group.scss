@@ -25,6 +25,7 @@
 
         .form-control {
             box-shadow: none;
+            border-color: $input-focus-border-color;
         }
     }
 }

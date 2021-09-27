@@ -5,6 +5,8 @@
 @use "sass:math";
 
 .navbar-vertical {
+
+    // Nav
     .navbar-nav {
         margin-left: -$navbar-vertical-nav-link-padding-x;
         margin-right: -$navbar-vertical-nav-link-padding-x;
@@ -119,7 +121,6 @@
         }
     }
 
-
     // Navbar dark
     &.navbar-dark {
         background-color: $navbar-dark-bg;
@@ -181,6 +182,7 @@
                         }
                     }
 
+                    // Content
                     .nav-link-text,
                     .navbar-heading {
                         opacity: 0;
@@ -191,6 +193,15 @@
                     &.show {
                         max-width: $navbar-vertical-open-width;
                         @include border-radius($navbar-vertical-open-border-radius);
+
+                        // Sizes
+                        &.navbar-lg {
+                            max-width: $navbar-vertical-width-lg;
+                        }
+
+                        &.navbar-xl {
+                            max-width: $navbar-vertical-width-xl;
+                        }
 
                         .nav-link-text,
                         .navbar-heading {

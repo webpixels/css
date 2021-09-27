@@ -4,7 +4,7 @@
 
 // Default values
 $border-width-values: map-get($config, border-width) !default;
-$border-width-state: null !default;
+$border-width-state: hover focus !default;
 $border-width-responsive: true !default;
 
 // Override default options with the theme's ones

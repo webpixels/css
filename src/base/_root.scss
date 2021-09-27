@@ -10,7 +10,7 @@
   }
 
   @each $color, $value in $grays {
-    --#{$variable-prefix}gray-#{$color}: #{$value};
+    // --#{$variable-prefix}gray-#{$color}: #{$value};
   }
 
   @each $color, $value in $theme-colors {
@@ -29,7 +29,10 @@
 
   --#{$variable-prefix}white-rgb: #{to-rgb($white)};
   --#{$variable-prefix}black-rgb: #{to-rgb($black)};
+  --#{$variable-prefix}muted-rgb: #{to-rgb($text-muted)};
   --#{$variable-prefix}body-rgb: #{to-rgb($body-color)};
+  --#{$variable-prefix}heading-rgb: #{to-rgb($headings-color)};
+  --#{$variable-prefix}card-rgb: #{to-rgb($card-bg)};
 
   // Fonts
 
@@ -64,4 +67,5 @@
   --#{$variable-prefix}body-bg: #{$body-bg};
   // scss-docs-end root-body-variables
   // stylelint-enable custom-property-empty-line-before
+
 }

@@ -15,7 +15,8 @@ $color-defaults: (
     disable: if(map-has-key($theme, color, disable), map-get($theme, color, disable), false)
 ) !default;
 
-$utilities-text-colors: map-loop(map-get($color-defaults, values), rgba-css-var, "$key", "bg") !default;
+// Replace Bootstrap default values with the ones in config
+$utilities-text-colors: map-loop(map-get($color-defaults, values), rgba-css-var, "$key", "text");
 
 $color-options: (
     property: color,
@@ -57,8 +58,4 @@ $color-options: (
     .text-shade-#{$color} {
         color: shade-color($value, $bg-shade-level) !important;
     }
-}
-
-.text-current {
-    color: currentColor !important;
 }
