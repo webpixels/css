@@ -595,11 +595,13 @@ $utilities: (
     // Transforms
     "transform": (
         property: transform,
-        values: none
+        values: none,
+        responsive: true
     ),
     "transform-origin": (
         property: transform-origin,
         class: origin,
+        responsive: true,
         values: (
             center: center,
             top: top,
@@ -616,78 +618,91 @@ $utilities: (
         property: --#{$variable-prefix}scale-x --#{$variable-prefix}scale-y,
         class: scale,
         state: hover focus,
+        responsive: true,
         values: $utilities-scale-values
     ),
     "scale-y": (
         property: --#{$variable-prefix}-scale-y,
         class: scale-y,
         state: hover focus,
+        responsive: true,
         values: $utilities-scale-values
     ),
     "scale-x": (
         property: --#{$variable-prefix}-scale-x,
         class: scale-x,
         state: hover focus,
+        responsive: true,
         values: $utilities-scale-values
     ),
     "rotate":  (
         property: --#{$variable-prefix}rotate,
         class: rotate,
         state: hover focus,
+        responsive: true,
         values: $utilities-rotate-values
     ),
     "rotate-y":  (
         property: --#{$variable-prefix}rotate-y,
         class: rotate-y,
         state: hover focus,
+        responsive: true,
         values: $utilities-rotate-values
     ),
     "negative-rotate-y": (
         property: --#{$variable-prefix}rotate-y,
         class: rotate-y,
         state: hover focus,
+        responsive: true,
         values: negativify-map($utilities-rotate-values)
     ),
     "rotate-x":  (
         property: --#{$variable-prefix}rotate-x,
         class: rotate-x,
         state: hover focus,
+        responsive: true,
         values: $utilities-rotate-values
     ),
     "negative-rotate-x": (
         property: --#{$variable-prefix}rotate-x,
         class: rotate-x,
         state: hover focus,
+        responsive: true,
         values: negativify-map($utilities-rotate-values)
     ),
     "perspective": (
         property: --#{$variable-prefix}perspective,
         class: perspective,
         state: hover focus,
+        responsive: true,
         values: $utilities-perspective-values
     ),
     "translate-y": (
         property: --#{$variable-prefix}translate-y,
         class: translate-y,
         state: hover focus,
+        responsive: true,
         values: $utilities-translate-values
     ),
     "negative-translate-y": (
         property: --#{$variable-prefix}translate-y,
         class: translate-y,
         state: hover focus,
+        responsive: true,
         values: negativify-map($utilities-translate-values)
     ),
     "translate-x": (
         property: --#{$variable-prefix}translate-x,
         class: translate-x,
         state: hover focus,
+        responsive: true,
         values: $utilities-translate-values
     ),
     "negative-translate-x": (
         property: --#{$variable-prefix}translate-x,
         class: translate-x,
         state: hover focus,
+        responsive: true,
         values: negativify-map($utilities-translate-values)
     ),
     "skew-y": (
