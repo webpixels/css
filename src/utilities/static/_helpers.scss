@@ -117,7 +117,7 @@ a.text-muted,
 a.text-heading,
 a.text-current {
 	&:hover {
-		color: $link-hover-color !important;
+		color: $link-hover-color;
 	}
 }
 
