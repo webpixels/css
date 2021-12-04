@@ -37,3 +37,9 @@ $spacer-values: (
 
 $spacers:           if(map-has-key($theme, spacers), map-get($theme, spacers), $spacer-values);
 $negative-spacers:  if($enable-negative-margins, negativify-map($spacers), null);
+
+$position-values: (
+    1\/2: 50%,
+    full: 100%,
+    auto: auto
+) !default;

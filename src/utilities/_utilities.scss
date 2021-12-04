@@ -1,179 +1,717 @@
-// Utitlity setups
-@import "background-color";
-@import "background-size";
-@import "gradient";
-@import "border-color";
-@import "border-radius";
-@import "border-style";
-@import "border-width";
-@import "color";
-@import "cursor";
-@import "flex";
-@import "align-content";
-@import "place-content";
-@import "font-family";
-@import "font-size";
-@import "font-style";
-@import "font-weight";
-@import "letter-spacing";
-@import "line-height";
-@import "opacity";
-@import "shadow";
-@import "text-align";
-@import "text-decoration";
-@import "text-transform";
-@import "width";
-@import "min-width";
-@import "max-width";
-@import "height";
-@import "min-height";
-@import "max-height";
-@import "height-calc";
-@import "overflow";
-@import "position";
-@import "inset";
-@import "zindex";
+// Utilities
 
-// Filters
-@import "blur";
-
-// Transitions
-@import "bootstrap/scss/transitions";
-
-@import "transition-property";
-@import "transition-timing-function";
-@import "transition-duration";
-@import "transition-delay";
-@import "animation";
-
-// Transforms
-@import "transform";
-@import "transform-origin";
-@import "scale";
-@import "rotate";
-@import "perspective";
-@import "translate";
-@import "skew";
-
-// Static utilities
-@import "static/helpers";
 @import "static/background";
+@import "static/gradient";
+@import "static/filter";
+@import "static/transform";
+@import "static/height-calc";
+@import "static/helpers";
 
-// Generate utilities using the Bootstrap API
 $utilities: (
-
-    // Remove some of the Bootstrap utilities
     "viewport-height": null,
     "min-viewport-height": null,
     "min-viewport-width": null,
     "viewport-width": null,
     "border": null,
-
-    // Opacity
-    "opacity": if(map-get($opacity-defaults, disable) == true, null, $opacity-options),
-
-    // Z-index
-    "zindex": if(map-get($zindex-defaults, disable) == true, null, $zindex-options),
+    "opacity": (
+        property: opacity,
+        values: (
+            0: 0,
+            10: 0.1,
+            20: 0.2,
+            30: 0.3,
+            40: 0.4,
+            50: 0.5,
+            60: 0.6,
+            70: 0.7,
+            80: 0.8,
+            90: 0.9,
+            100: 1
+        )
+    ),
+    "zindex": (
+        property: z-index,
+        class: overlap,
+        values: (
+            10: 10,
+            20: 20,
+            30: 30,
+            40: 40,
+            50: 50,
+            100: 100,
+            200: 200,
+            300: 300,
+            400: 400,
+            500: 500,
+            1000: 1000,
+            auto: auto
+        )
+    ),
 
     // Border radius
-    "rounded": if(map-get($border-radius-defaults, disable) == true, null, $border-radius-options),
-    "rounded-top": if(map-get($border-radius-defaults, disable) == true, null, $border-top-radius-options),
-    "rounded-end": if(map-get($border-radius-defaults, disable) == true, null, $border-right-radius-options),
-    "rounded-bottom": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-radius-options),
-    "rounded-start": if(map-get($border-radius-defaults, disable) == true, null, $border-left-radius-options),
-    "rounded-top-start": if(map-get($border-radius-defaults, disable) == true, null, $border-top-left-radius-options),
-    "rounded-top-end": if(map-get($border-radius-defaults, disable) == true, null, $border-top-right-radius-options),
-    "rounded-bottom-end": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-right-radius-options),
-    "rounded-bottom-start": if(map-get($border-radius-defaults, disable) == true, null, $border-bottom-left-radius-options),
+    "rounded": (
+        property: border-radius,
+        class: rounded,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-top": (
+        property: border-top-left-radius border-top-right-radius,
+        class: rounded-top,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-end": (
+        property: border-top-right-radius border-bottom-right-radius,
+        class: rounded-end,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-bottom": (
+        property: border-bottom-right-radius border-bottom-left-radius,
+        class: rounded-bottom,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-start": (
+        property: border-bottom-left-radius border-top-left-radius,
+        class: rounded-start,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-top-start": (
+        property: border-top-left-radius,
+        class: rounded-top-start,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-top-end": (
+        property: border-top-right-radius,
+        class: rounded-top-end,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-bottom-end": (
+        property: border-bottom-right-radius,
+        class: rounded-bottom-end,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
+    "rounded-bottom-start": (
+        property: border-bottom-left-radius,
+        class: rounded-bottom-start,
+        responsive: true,
+        values: $utilities-border-radius
+    ),
 
-    // Border width
-    "border-width": if(map-get($border-width-defaults, disable) == true, null, $border-width-options),
-    "border-top": if(map-get($border-width-defaults, disable) == true, null, $border-top-width-options),
-    "border-end": if(map-get($border-width-defaults, disable) == true, null, $border-right-width-options),
-    "border-bottom": if(map-get($border-width-defaults, disable) == true, null, $border-bottom-width-options),
-    "border-start": if(map-get($border-width-defaults, disable) == true, null, $border-left-width-options),
+    // Border
+    "border-width": (
+        property: border-width,
+        class: border,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-border-widths
+    ),
+    "border-top": (
+        property: border-top-width,
+        class: border-top,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-border-widths
+    ),
+    "border-end": (
+        property: border-right-width,
+        class: border-end,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-border-widths
+    ),
+    "border-bottom": (
+        property: border-bottom-width,
+        class: border-bottom,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-border-widths
+    ),
+    "border-start": (
+        property: border-left-width,
+        class: border-start,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-border-widths
+    ),
 
     // Border color
-    "border-color": if(map-get($border-color-defaults, disable) == true, null, $border-color-options),
+    "border-color": (
+        property: border-color,
+        class: border,
+        responsive: true,
+        state: hover focus focus-within,
+        values: map-merge(
+            $theme-colors,
+            (
+                "transparent": transparent,
+                "current": currentColor,
+                "base": $border-color,
+                "body": $body-bg,
+                "card": $card-bg,
+                "black": $black,
+                "white": $white
+            )
+        )
+    ),
 
     // Border style
-    "border-style": if(map-get($border-style-defaults, disable) == true, null, $border-style-options),
+    "border-style": (
+        property: border-style,
+        class: border,
+        responsive: true,
+        values: solid dashed dotted double groove none
+    ),
 
     // Cursor
-    "cursor": if(map-get($cursor-defaults, disable) == true, null, $cursor-options),
+    "cursor": (
+        property: border-style,
+        class: border,
+        responsive: false,
+        values: auto pointer wait text,
+    ),
+
 
     // Fonts and Text
-    "font-family": if(map-get($font-family-defaults, disable) == true, null, $font-family-options),
-    "font-size": if(map-get($font-size-defaults, disable) == true, null, $font-size-options),
-    "font-style": if(map-get($font-style-defaults, disable) == true, null, $font-style-options),
-    "font-weight": if(map-get($font-weight-defaults, disable) == true, null, $font-weight-options),
-    "text-transform": if(map-get($text-transform-defaults, disable) == true, null, $text-transform-options),
-    "text-align": if(map-get($text-align-defaults, disable) == true, null, $text-align-options),
-    "text-decoration": if(map-get($text-decoration-defaults, disable) == true, null, $text-decoration-options),
-    "line-height": if(map-get($line-height-defaults, disable) == true, null, $line-height-options),
-    "letter-spacing": if(map-get($letter-spacing-defaults, disable) == true, null, $letter-spacing-options),
-    "color": if(map-get($color-defaults, disable) == true, null, $color-options),
+    "font-family": (
+        property: font-family,
+        class: font,
+        values: (
+            base: var(--#{$variable-prefix}font-sans-serif),
+            display: var(--#{$variable-prefix}font-display),
+            serif: var(--#{$variable-prefix}font-serif),
+            code: var(--#{$variable-prefix}font-monospace)
+        )
+    ),
+    "font-size": (
+        rfs: true,
+        property: font-size,
+        class: text,
+        values: (
+            xs: $font-size-xs,
+            sm: $font-size-sm,
+            base: $font-size-base,
+            md: $font-size-md,
+            lg: $font-size-lg,
+            xl: $font-size-xl,
+            2xl: $font-size-2xl
+        )
+    ),
+    "font-style": (
+        property: font-style,
+        class: font,
+        values: italic normal
+    ),
+    "font-weight": (
+        property: font-weight,
+        class: font,
+        values: (
+            light: $font-weight-light,
+            lighter: $font-weight-lighter,
+            regular: $font-weight-normal,
+            semibold: $font-weight-semibold,
+            bold: $font-weight-bold,
+            bolder: $font-weight-bolder
+        )
+    ),
+    "text-transform": (
+        property: text-transform,
+        class: text,
+        values: lowercase uppercase capitalize,
+    ),
+    "text-align": (
+        property: text-align,
+        class: text,
+        responsive: true,
+        values: (
+            start: left,
+            end: right,
+            center: center,
+        )
+    ),
+    "text-decoration": (
+        property: text-decoration,
+        class: text,
+        responsive: false,
+        values: (
+            no-decoration: none,
+            underline: underline,
+            line-through: line-through
+        )
+    ),
+    "line-height": (
+        property: line-height,
+        class: lh,
+        values: (
+            none: 1,
+            tighter: 1.125,
+            tight: 1.2,
+            snug: 1.375,
+            normal: 1.5,
+            relaxed: 1.625,
+            loose: 2
+        )
+    ),
+    "letter-spacing": (
+        property: letter-spacing,
+        class: ls,
+        values: (
+            tighter: -0.05em,
+            tight: -0.025em,
+            normal: 0,
+            wide: 0.025em,
+            wider: 0.05em,
+            widest: 0.1em
+        )
+    ),
+    "color": (
+        property: color,
+        class: text,
+        responsive: true,
+        state: hover focus,
+        local-vars: (
+            "text-opacity": 1
+        ),
+        values: $utilities-text-colors
+    ),
 
     // Background
-    "background-color": if(map-get($background-color-defaults, disable) == true, null, $background-color-options),
-    "background-size": if(map-get($background-size-defaults, disable) == true, null, $background-size-options),
-    // "gradient": if(map-get($gradient-defaults, disable) == true, null, $gradient-options),
+    "background-color": (
+        property: background-color,
+        class: bg,
+        state: hover focus focus-within,
+        local-vars: (
+            "bg-opacity": 1
+        ),
+        values: $utilities-bg-colors
+    ),
+    "bg-opacity": (
+        css-var: true,
+        class: bg-opacity,
+        values: (
+            10: .1,
+            20: .2,
+            30: .3,
+            40: .4,
+            50: .5,
+            60: .6,
+            70: .7,
+            80: .8,
+            90: .9,
+            100: 1
+        )
+    ),
+    "background-size": (
+        property: background-size,
+        class: bg,
+        values: auto cover contain
+    ),
 
     // Shadow
-    "shadow": if(map-get($shadow-defaults, disable) == true, null, $shadow-options),
+    "shadow": (
+        property: box-shadow,
+        class: shadow,
+        responsive: true,
+        state: hover focus,
+        values: (
+            null: $box-shadow,
+            1: $box-shadow-sm,
+            2: $box-shadow-lg,
+            3: $box-shadow-xl,
+            4: $box-shadow-2xl,
+            5: $box-shadow-3xl,
+            6: $box-shadow-4xl,
+            inset: $box-shadow-inset,
+            outline: $box-shadow-outline,
+            focus: $box-shadow-focus,
+            none: none
+        ),
+    ),
 
     // Widths
-    "width": if(map-get($width-defaults, disable) == true, null, $width-options),
-    "min-width": if(map-get($min-width-defaults, disable) == true, null, $min-width-options),
-    "max-width": if(map-get($max-width-defaults, disable) == true, null, $max-width-options),
+    "width": (
+        property: width,
+        class: w,
+        responsive: true,
+        values: map-collect(
+            $spacers,
+            $percentage-sizers,
+            $screen-widths,
+            (
+                auto: auto,
+                full: 100%,
+                screen: 100vw,
+                min: min-content,
+                max: max-content
+            )
+        )
+    ),
+    "min-width": (
+        property: min-width,
+        class: min-w,
+        responsive: true,
+        values: (
+            0: 0,
+            full: 100%,
+            min: min-content,
+            max: max-content
+        )
+    ),
+    "max-width": (
+        property: max-width,
+        class: max-w,
+        responsive: true,
+        values: map-collect(
+            $screen-widths,
+            (
+                0: 0,
+                full: 100%,
+                read: 65ch,
+                min: min-content,
+                max: max-content
+            )
+        ),
+    ),
 
     // Heights
-    "height": if(map-get($height-defaults, disable) == true, null, $height-options),
-    "min-height": if(map-get($min-height-defaults, disable) == true, null, $min-height-options),
-    "max-height": if(map-get($max-height-defaults, disable) == true, null, $max-height-options),
+    "height": (
+        property: height,
+        class: h,
+        responsive: true,
+        values: map-collect(
+            $spacers,
+            $percentage-sizers,
+            (
+                px: 1px,
+                auto: auto,
+                full: 100%,
+                screen: 100vh
+            )
+        )
+    ),
+    "min-height": (
+        property: min-height,
+        class: min-h,
+        responsive: true,
+        values: (
+            0: 0,
+            full: 100%,
+            screen: 100vh
+        )
+    ),
+    "max-height": (
+        property: max-height,
+        class: max-h,
+        responsive: true,
+        values: map-collect(
+            $spacers,
+            (
+                px: 1px,
+                full: 100%,
+                screen: 100vh
+            )
+        )
+    ),
 
     // Position
-    "position": if(map-get($position-defaults, disable) == true, null, $position-options),
-    "top": if(map-get($inset-defaults, disable) == true, null, $top-options),
-    "end": if(map-get($inset-defaults, disable) == true, null, $right-options),
-    "bottom": if(map-get($inset-defaults, disable) == true, null, $bottom-options),
-    "start": if(map-get($inset-defaults, disable) == true, null, $left-options),
-    "inset": if(map-get($inset-defaults, disable) == true, null, $inset-options),
-    "inset-x": if(map-get($inset-defaults, disable) == true, null, $inset-x-options),
-    "inset-y": if(map-get($inset-defaults, disable) == true, null, $inset-y-options),
+    "position": (
+        property: position,
+        responsive: true,
+        values: static relative absolute fixed sticky,
+    ),
+    "top": (
+        property: top,
+        responsive: true,
+        values: map-merge($spacers, $position-values)
+    ),
+    "end": (
+        property: right,
+        class: end,
+        responsive: true,
+        values: map-merge($spacers, $position-values)
+    ),
+    "bottom": (
+        property: bottom,
+        class: bottom,
+        responsive: true,
+        values: map-merge($spacers, $position-values)
+    ),
+    "start": (
+        property: left,
+        class: start,
+        responsive: true,
+        values: map-merge($spacers, $position-values)
+    ),
 
     // Flex
-    "flex": if(map-get($flex-defaults, disable) == true, null, $flex-options),
-    "align-content": if(map-get($align-content-defaults, disable) == true, null, $align-content-options),
-    "place-content": if(map-get($place-content-defaults, disable) == true, null, $place-content-options),
+    "flex": (
+        property: flex,
+        responsive: true,
+        values: (
+            1: 1 1 0%,
+            fill: 1 1 auto,
+            initial: 0 1 auto,
+            none: none
+        )
+    ),
+    "align-content": (
+        property: align-content,
+        responsive: true,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            between: space-between,
+            around: space-around,
+            evenly: space-evenly,
+            stretch: stretch
+        )
+    ),
+    "place-content": (
+        property: place-content,
+        responsive: true,
+        values: (
+            start: flex-start,
+            end: flex-end,
+            center: center,
+            between: space-between,
+            around: space-around,
+            evenly: space-evenly,
+            stretch: stretch,
+        )
+    ),
 
     // Overflow
-    "overflow": if(map-get($overflow-defaults, disable) == true, null, $overflow-options),
-    "overflow-x": if(map-get($overflow-defaults, disable) == true, null, $overflow-x-options),
-    "overflow-y": if(map-get($overflow-defaults, disable) == true, null, $overflow-y-options),
+    "overflow": (
+        property: overflow,
+        responsive: true,
+        values: auto hidden visible scroll
+    ),
+    "overflow-x": (
+        property: overflow-x,
+        responsive: true,
+        values: auto hidden visible scroll
+    ),
+    "overflow-y": (
+        property: overflow-y,
+        responsive: true,
+        values: auto hidden visible scroll
+    ),
 
     // Transitions
-    "transition-property": if(map-get($transition-property-defaults, disable) == true, null, $transition-property-options),
-    "transition-timing-function": if(map-get($transition-timing-function-defaults, disable) == true, null, $transition-timing-function-options),
-    "transition-duration": if(map-get($transition-duration-defaults, disable) == true, null, $transition-duration-options),
-    "transition-delay": if(map-get($transition-delay-defaults, disable) == true, null, $transition-delay-options),
-    "animation": if(map-get($animation-defaults, disable) == true, null, $animation-options),
+    "transition-property": (
+        property: transition-property,
+        class: transition,
+        responsive: true,
+        values: (
+            null: $transition-property,
+            none: none,
+            all: all,
+            colors: $transition-property-colors,
+            opacity: opacity,
+            shadow: box-shadow,
+            transform: transform,
+        ),
+    ),
+    "transition-timing-function": (
+        property: transition-timing-function,
+        class: ease,
+        responsive: true,
+        values: (
+            base: $transition-timing-function,
+            linear: linear,
+            in: $transition-in-timing-function,
+            out: $transition-out-timing-function,
+            in-out: $transition-in-out-timing-function,
+        )
+    ),
+    "transition-duration": (
+        property: transition-duration,
+        class: duration,
+        values: (
+            base: 150ms,
+            75: 75ms,
+            100: 100ms,
+            150: 150ms,
+            200: 200ms,
+            300: 300ms,
+            500: 500ms,
+            700: 700ms,
+            1000: 1000ms,
+        )
+    ),
+    "transition-delay": (
+        property: transition-delay,
+        class: delay,
+        values: (
+            75: 75ms,
+            100: 100ms,
+            150: 150ms,
+            200: 200ms,
+            300: 300ms,
+            500: 500ms,
+            700: 700ms,
+            1000: 1000ms,
+        )
+    ),
+    "animation": (
+        property: animation,
+        values: (
+            none: none,
+            spin: spin 1s linear infinite,
+            ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite,
+            pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+            bounce: bounce 1s infinite,
+            slide-left: slideLeft 3s infinite,
+            slide-right: slideRight 3s infinite,
+            move-slow-left: slideLeft 15s linear infinite,
+            move-slow-right: slideRight 15s linear infinite,
+        )
+    ),
 
     // Filter
-    "blur": if(map-get($blur-defaults, disable) == true, null, $blur-options),
+    "blur": (
+        property: --#{$variable-prefix}blur,
+        class: blur,
+        values: (
+            5: 5px,
+            10: 10px,
+            25: 25px,
+            50: 50px,
+            75: 75px,
+            100: 100px,
+            125: 125px,
+            150: 150px,
+            200: 200px
+        )
+    ),
 
     // Transforms
-    "transform": if(map-get($transform-defaults, disable) == true, null, $transform-options),
-    "transform-origin": if(map-get($transform-origin-defaults, disable) == true, null, $transform-origin-options),
-    "scale": if(map-get($scale-defaults, disable) == true, null, $scale-options),
-    "scale-y": if(map-get($scale-defaults, disable) == true, null, $scale-y-options),
-    "scale-x": if(map-get($scale-defaults, disable) == true, null, $scale-x-options),
-    "rotate": if(map-get($rotate-defaults, disable) == true, null, $rotate-options),
-    "rotate-y": if(map-get($rotate-defaults, disable) == true, null, $rotate-y-options),
-    "rotate-x": if(map-get($rotate-defaults, disable) == true, null, $rotate-x-options),
-    "perspective": if(map-get($perspective-defaults, disable) == true, null, $perspective-options),
-    "translate-y": if(map-get($translate-defaults, disable) == true, null, $translate-y-options),
-    "translate-x": if(map-get($translate-defaults, disable) == true, null, $translate-x-options),
-    "skew-y": if(map-get($skew-defaults, disable) == true, null, $skew-y-options),
-    "skew-x": if(map-get($skew-defaults, disable) == true, null, $skew-x-options),
+    "transform": (
+        property: transform,
+        values: none
+    ),
+    "transform-origin": (
+        property: transform-origin,
+        class: origin,
+        values: (
+            center: center,
+            top: top,
+            top-right: top right,
+            right: right,
+            bottom-right: bottom right,
+            bottom: bottom,
+            bottom-left: bottom left,
+            left: left,
+            top-left: top left
+        )
+    ),
+    "scale": (
+        property: --#{$variable-prefix}scale-x --#{$variable-prefix}scale-y,
+        class: scale,
+        state: hover focus,
+        values: $utilities-scale-values
+    ),
+    "scale-y": (
+        property: --#{$variable-prefix}-scale-y,
+        class: scale-y,
+        state: hover focus,
+        values: $utilities-scale-values
+    ),
+    "scale-x": (
+        property: --#{$variable-prefix}-scale-x,
+        class: scale-x,
+        state: hover focus,
+        values: $utilities-scale-values
+    ),
+    "rotate":  (
+        property: --#{$variable-prefix}rotate,
+        class: rotate,
+        state: hover focus,
+        values: $utilities-rotate-values
+    ),
+    "rotate-y":  (
+        property: --#{$variable-prefix}rotate-y,
+        class: rotate-y,
+        state: hover focus,
+        values: $utilities-rotate-values
+    ),
+    "negative-rotate-y": (
+        property: --#{$variable-prefix}rotate-y,
+        class: rotate-y,
+        state: hover focus,
+        values: negativify-map($utilities-rotate-values)
+    ),
+    "rotate-x":  (
+        property: --#{$variable-prefix}rotate-x,
+        class: rotate-x,
+        state: hover focus,
+        values: $utilities-rotate-values
+    ),
+    "negative-rotate-x": (
+        property: --#{$variable-prefix}rotate-x,
+        class: rotate-x,
+        state: hover focus,
+        values: negativify-map($utilities-rotate-values)
+    ),
+    "perspective": (
+        property: --#{$variable-prefix}perspective,
+        class: perspective,
+        state: hover focus,
+        values: $utilities-perspective-values
+    ),
+    "translate-y": (
+        property: --#{$variable-prefix}translate-y,
+        class: translate-y,
+        state: hover focus,
+        values: $utilities-translate-values
+    ),
+    "negative-translate-y": (
+        property: --#{$variable-prefix}translate-y,
+        class: translate-y,
+        state: hover focus,
+        values: negativify-map($utilities-translate-values)
+    ),
+    "translate-x": (
+        property: --#{$variable-prefix}translate-x,
+        class: translate-x,
+        state: hover focus,
+        values: $utilities-translate-values
+    ),
+    "negative-translate-x": (
+        property: --#{$variable-prefix}translate-x,
+        class: translate-x,
+        state: hover focus,
+        values: negativify-map($utilities-translate-values)
+    ),
+    "skew-y": (
+        property: --#{$variable-prefix}skew-y,
+        class: skew-y,
+        state: hover focus,
+        values: $utilities-skew-values
+    ),
+    "negative-skew-y": (
+        property: --#{$variable-prefix}skew-y,
+        class: skew-y,
+        state: hover focus,
+        values: negativify-map($utilities-skew-values)
+    ),
+    "skew-x": (
+        property: --#{$variable-prefix}skew-x,
+        class: skew-x,
+        state: hover focus,
+        values: $utilities-skew-values
+    ),
+    "negative-skew-x": (
+        property: --#{$variable-prefix}skew-x,
+        class: skew-x,
+        state: hover focus,
+        values: negativify-map($utilities-skew-values)
+    )
 );

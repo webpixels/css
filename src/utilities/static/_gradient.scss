@@ -2,8 +2,6 @@
 // options to pass to the utility API
 //
 
-@import "../core";
-
 @if(map-get($theme, gradient, disable) != true) {
     .gradient-top {
         background-image: linear-gradient(to top, var(--#{$variable-prefix}gradient)) !important;

@@ -16,9 +16,7 @@
         font-weight: $table-th-font-weight;
         text-transform: $table-th-text-transform;
         letter-spacing: $table-th-letter-spacing;
-        background-color: $table-th-bg;
         border-bottom-width: $table-border-width;
-        color: $table-th-color;
         white-space: nowrap;
         vertical-align: $table-cell-vertical-align;
     }
@@ -37,34 +35,6 @@
             height: 3px;
             width: 120px;
             margin: 0;
-        }
-    }
-
-   // Styles for dark table
-
-   &.table-dark thead,
-   .thead-dark {
-        th {
-            background-color: $table-dark-th-bg;
-            color: $table-dark-th-color;
-
-            a {
-                color: $table-dark-th-color;
-            }
-        }
-    }
-
-
-    // Styles for light table
-    &.table-light thead,
-    .thead-light {
-        th {
-            background-color: $table-light-th-bg;
-            color: $table-light-th-color;
-
-            a {
-                color: $table-light-th-color;
-            }
         }
     }
 }

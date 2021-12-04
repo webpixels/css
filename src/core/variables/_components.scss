@@ -18,7 +18,7 @@ $table-th-spacer-y:         1rem !default;
 $table-th-spacer-x:         1.5rem !default;
 $table-th-font-size:        .675rem !default;
 $table-th-font-weight:      $font-weight-semibold !default;
-$table-th-text-transform:   uppercase !default;
+$table-th-text-transform:   none !default;
 $table-th-letter-spacing:   0.025em !default;
 $table-th-bg:               transparent !default;
 $table-th-color:            $gray-700 !default;
@@ -356,10 +356,11 @@ $card-title-spacer-y:               1.5rem !default;
 
 $card-color:                        $body-color !default;
 $card-bg:                           $white !default;
-$card-border-width:                 $border-width !default;
+$card-border-width:                 0 !default;
 $card-border-color:                 tint-color($gray-200, 20%) !default;
 $card-border-radius:                $border-radius-xl !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+$card-box-shadow:                   $box-shadow !default;
 
 $card-cap-padding-y:                1.25rem !default;
 $card-cap-padding-x:                $card-spacer-x !default;
@@ -762,7 +763,8 @@ $pagination-focus-color:            $link-hover-color !default;
 $pagination-focus-bg:               $gray-100 !default;
 $pagination-focus-box-shadow:       none !default;
 $pagination-focus-outline:          0 !default;
-$pagination-active-bg:              $gray-50 !default;
+$pagination-active-bg:              $primary !default;
+$pagination-tabs-active-color:      color-contrast($pagination-active-bg) !default;
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-tabs-padding-y:             1.25rem !default;

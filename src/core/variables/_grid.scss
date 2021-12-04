@@ -12,7 +12,7 @@ $breakpoints: (
     lg: 992px,
     xl: 1200px,
     xxl: 1400px
-);
+) !default;
 
 $grid-breakpoints: if(map-has-key($theme, breakpoints), map-get($theme, breakpoints), $breakpoints);
 

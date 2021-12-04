@@ -336,6 +336,7 @@ $config: (
     width: map-collect(
         $spacers,
         $percentage-sizers,
+        $screen-widths,
         (
             auto: auto,
             full: 100%,

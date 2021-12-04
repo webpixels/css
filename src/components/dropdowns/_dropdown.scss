@@ -151,14 +151,12 @@
     .dropdown-menu-2xl {
         min-width: $dropdown-min-width-2xl !important;
     }
-}
 
-
-// Positioning
-
-.dropdown-menu-centered {
-    left: $dropdown-left-offset !important;
-    transform: $dropdown-transform;
+    // Positioning
+    .dropdown-menu-centered {
+        left: $dropdown-left-offset !important;
+        transform: $dropdown-transform;
+    }
 }
 
 

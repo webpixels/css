@@ -7,15 +7,24 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin-right: .5rem;
         padding: 0;
         border-radius: $pagination-border-radius;
         width: 36px;
         height: 36px;
     }
 
+    &.pagination-sm {
+        .page-link {
+            width: 30px;
+            height: 30px;
+            border-radius: $border-radius-sm;
+        }
+    }
+
     &.pagination-lg {
-        width: 52px;
-        height: 52px;
+        .page-link {
+            width: 52px;
+            height: 52px;
+        }
     }
 }

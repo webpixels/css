@@ -1,0 +1,14 @@
+.transform {
+    --#{$variable-prefix}translate-x: 0;
+    --#{$variable-prefix}translate-y: 0;
+    --#{$variable-prefix}translate-z: 0;
+    --#{$variable-prefix}perspective: 0;
+    --#{$variable-prefix}rotate: 0;
+    --#{$variable-prefix}rotate-x: 0;
+    --#{$variable-prefix}rotate-y: 0;
+    --#{$variable-prefix}skew-x: 0;
+    --#{$variable-prefix}skew-y: 0;
+    --#{$variable-prefix}scale-x: 1;
+    --#{$variable-prefix}scale-y: 1;
+    transform: translateX(var(--#{$variable-prefix}translate-x)) translateY(var(--#{$variable-prefix}translate-y)) perspective(var(--#{$variable-prefix}perspective)) rotate(var(--#{$variable-prefix}rotate)) rotateX(var(--#{$variable-prefix}rotate-x)) rotateY(var(--#{$variable-prefix}rotate-y)) skewX(var(--#{$variable-prefix}skew-x)) skewY(var(--#{$variable-prefix}skew-y)) scaleX(var(--#{$variable-prefix}scale-x)) scaleY(var(--#{$variable-prefix}scale-y));
+}
