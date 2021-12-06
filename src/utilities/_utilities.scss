@@ -328,6 +328,16 @@ $utilities: (
         class: bg,
         values: auto cover contain
     ),
+    "background-clip": (
+        property: background-clip,
+        class: bg-clip,
+        values: (
+            border: border-box,
+            padding: padding-box,
+            content: content-box,
+            text: text
+        )
+    ),
 
     // Shadow
     "shadow": (
