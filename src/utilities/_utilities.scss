@@ -280,6 +280,13 @@ $utilities: (
         ),
         values: $utilities-text-colors
     ),
+    "static-color": (
+        property: color,
+        class: text,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-static-text-colors
+    ),
     "text-opacity": (
         css-var: true,
         class: text-opacity,
@@ -306,6 +313,12 @@ $utilities: (
             "bg-opacity": 1
         ),
         values: $utilities-bg-colors
+    ),
+    "static-background-color": (
+        property: background-color,
+        class: bg,
+        state: hover focus focus-within,
+        values: $utilities-static-bg-colors
     ),
     "bg-opacity": (
         css-var: true,

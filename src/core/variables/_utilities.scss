@@ -15,14 +15,17 @@ $utilities-text: map-merge(
         "black": to-rgb($black),
         "body": to-rgb($body-color),
         "muted": to-rgb($text-muted),
-        "heading": to-rgb($headings-color),
-        "transparent": transparent,
-        "current": currentColor,
-        "reset": inherit,
+        "heading": to-rgb($headings-color)
     )
 ) !default;
 $utilities-text-colors: map-loop($utilities-text, rgba-css-var, "$key", "text") !default;
 // scss-docs-end utilities-text-colors
+
+$utilities-static-text-colors: (
+    "transparent": transparent,
+    "current": currentColor,
+    "reset": inherit,
+) !default;
 
 // scss-docs-start utilities-bg-colors
 $utilities-bg: map-merge(
@@ -31,13 +34,16 @@ $utilities-bg: map-merge(
         "body": to-rgb($body-color),
         "white": to-rgb($white),
         "black": to-rgb($black),
-        "card": to-rgb($card-bg),
-        "transparent": transparent,
-        "current": currentColor
+        "card": to-rgb($card-bg)
     )
 ) !default;
 $utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg") !default;
 // scss-docs-end utilities-bg-colors
+
+$utilities-static-bg-colors: (
+    "transparent": transparent,
+    "current": currentColor
+) !default;
 
 // Border
 $utilities-border-widths: (
