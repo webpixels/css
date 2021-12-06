@@ -16,6 +16,7 @@ $utilities-text: map-merge(
         "body": to-rgb($body-color),
         "muted": to-rgb($text-muted),
         "heading": to-rgb($headings-color),
+        "transparent": transparent,
         "current": currentColor,
         "reset": inherit,
     )
