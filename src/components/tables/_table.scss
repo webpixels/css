@@ -37,4 +37,32 @@
             margin: 0;
         }
     }
+
+    // Styles for dark table
+
+    &.table-dark,
+    .table-dark {
+        th {
+            background-color: $table-dark-th-bg;
+            color: $table-dark-th-color;
+
+            a {
+                color: $table-dark-th-color;
+            }
+        }
+    }
+
+
+    // Styles for light table
+    &.table-light,
+    .table-light {
+        th {
+            background-color: $table-light-th-bg;
+            color: $table-light-th-color;
+
+            a {
+                color: $table-light-th-color;
+            }
+        }
+    }
 }
