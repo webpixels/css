@@ -3,6 +3,11 @@
 @import "static/background";
 @import "static/gradient";
 @import "static/filter";
+
+// Transitions
+@import "bootstrap/scss/transitions";
+
+// Static utilities
 @import "static/transform";
 @import "static/height-calc";
 @import "static/helpers";

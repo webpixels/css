@@ -1,7 +1,7 @@
 {
     "name": "@webpixels/css",
     "description": "Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.",
-    "version": "1.1.84",
+    "version": "1.1.85",
     "version_short": "1.1",
     "license": "MIT",
     "style": "dist/index.css",
