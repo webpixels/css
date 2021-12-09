@@ -62,7 +62,7 @@ Get updates on the development of our CSS tool and chat with the project maintai
 
 - Follow [@webpxs](https://twitter.com/intent/user?screen_name=webpxs) on Twitter
 - Read and subscribe to [The Official Webpixels Blog](https://webpixels.io/blog)
-- Join the [Webpixels Discord Server](https://discord.gg/hQ9H4wKTSv)
+- Join [Github Discussions](https://github.com/webpixels/css/discussions)
 
 ## License
 
