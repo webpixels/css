@@ -162,51 +162,52 @@
 
 // Dropdown menu animation on show
 
-@include media-breakpoint-up(lg) {
-    .dropdown-animate {
-        > .dropdown-menu {
-            opacity: 0;
-            position: absolute;
-            display: block;
-            pointer-events: none;
-        }
-    }
-
-    // Dropdown animation on click
-    .dropdown-animate:not([data-toggle="hover"]) {
-        .dropdown-menu {
-            &.show {
-                pointer-events: auto;
-                animation: show-dropdown .3s ease forwards;
-            }
-
-            &.hide {
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        .dropdown#{$infix}-animate {
+            > .dropdown-menu {
+                opacity: 0;
+                position: absolute;
                 display: block;
-                animation: hide-dropdown .3s ease backwards;
+                pointer-events: none;
             }
         }
-    }
+        // Dropdown animation on click
+        .dropdown#{$infix}-animate:not([data-toggle="hover"]) {
+            .dropdown-menu {
+                &.show {
+                    pointer-events: auto;
+                    animation: show-dropdown .3s ease forwards;
+                }
 
-    // Dropdown animation on hover
-    .dropdown-animate[data-toggle="hover"] {
-        > .dropdown-menu {
-            display: block;
-            margin: 0;
-            @include transition($transition-base);
+                &:not(.show) {
+                    display: block;
+                    animation: hide-dropdown .3s ease backwards;
+                }
+            }
         }
 
-        &:hover {
+        // Dropdown animation on hover
+        .dropdown#{$infix}-animate[data-toggle="hover"] {
             > .dropdown-menu {
                 display: block;
-                opacity: 1;
-                pointer-events: auto;
-                visibility: visible;
-                transform: $dropdown-hover-transform;
+                margin: 0;
+                @include transition($transition-base);
+            }
+
+            &:hover {
+                > .dropdown-menu {
+                    display: block;
+                    opacity: 1;
+                    pointer-events: auto;
+                    visibility: visible;
+                    transform: $dropdown-hover-transform;
+                }
             }
         }
     }
 }
-
 
 // Keyframes
 
