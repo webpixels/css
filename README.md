@@ -19,6 +19,35 @@
 
 <p align="center"><a href="https://webpixels.io/start" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/products/css.png" ></a></p>
 
+## Install via npm
+
+For most projects (and to take advantage of the customization features), you'll want to install Webpixels CSS and its peer-dependencies via npm.
+
+```txt
+npm install @webpixels/css@latest bootstrap@latest --save-dev
+```
+
+This will automatically install the latest Bootstrap version, so you don't need to do that manually.
+
+## Import the styles into your CSS
+
+In your main.scss, you’ll import the source Sass files. Bootstrap is automatically loaded when you use the source files, so you don't need to worry about what Bootstrap files should you incorporate in your styles.
+
+You have two options: include all of styles at once:
+
+```scss
+@import "@webpixels/css";
+```
+
+or pick the parts you need:
+
+```scss
+@import "@webpixels/css/base";
+@import "@webpixels/css/forms";
+@import "@webpixels/css/components";
+@import "@webpixels/css/utilities";
+```
+
 ## Documentation
 
 Check out our [documentation website](https://webpixels.io/docs).
