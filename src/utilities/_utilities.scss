@@ -295,6 +295,7 @@ $utilities: (
     "text-opacity": (
         css-var: true,
         class: text-opacity,
+        state: hover focus,
         values: (
             10: .1,
             20: .2,
@@ -328,6 +329,7 @@ $utilities: (
     "bg-opacity": (
         css-var: true,
         class: bg-opacity,
+        state: hover focus,
         values: (
             10: .1,
             20: .2,
