@@ -686,6 +686,13 @@ $utilities: (
         responsive: true,
         values: $utilities-rotate-values
     ),
+    "negative-rotate":  (
+        property: --#{$variable-prefix}rotate,
+        class: rotate,
+        state: hover focus,
+        responsive: true,
+        values: negativify-map($utilities-rotate-values)
+    ),
     "rotate-y":  (
         property: --#{$variable-prefix}rotate-y,
         class: rotate-y,
