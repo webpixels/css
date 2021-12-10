@@ -45,6 +45,31 @@ $utilities-static-bg-colors: (
     "current": currentColor
 ) !default;
 
+// Shadows
+$utilities-shadows: (
+    null: $box-shadow,
+    1: $box-shadow-sm,
+    2: $box-shadow-lg,
+    3: $box-shadow-xl,
+    4: $box-shadow-2xl,
+    5: $box-shadow-3xl,
+    6: $box-shadow-4xl,
+    inset: $box-shadow-inset,
+    outline: $box-shadow-outline,
+    focus: $box-shadow-focus,
+    none: none
+) !default;
+
+$utilities-soft-shadows: (
+    1: $box-soft-shadow-sm,
+    2: $box-soft-shadow-lg,
+    3: $box-soft-shadow-xl,
+    4: $box-soft-shadow-2xl,
+    5: $box-soft-shadow-3xl,
+    6: $box-soft-shadow-4xl,
+    none: none
+) !default;
+
 // Border
 $utilities-border-widths: (
     0: 0,

@@ -365,19 +365,14 @@ $utilities: (
         class: shadow,
         responsive: true,
         state: hover focus,
-        values: (
-            null: $box-shadow,
-            1: $box-shadow-sm,
-            2: $box-shadow-lg,
-            3: $box-shadow-xl,
-            4: $box-shadow-2xl,
-            5: $box-shadow-3xl,
-            6: $box-shadow-4xl,
-            inset: $box-shadow-inset,
-            outline: $box-shadow-outline,
-            focus: $box-shadow-focus,
-            none: none
-        ),
+        values: $utilities-shadows
+    ),
+    "soft-shadow": (
+        property: box-shadow,
+        class: shadow-soft,
+        responsive: true,
+        state: hover focus,
+        values: $utilities-soft-shadows
     ),
 
     // Widths
