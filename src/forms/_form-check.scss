@@ -1,7 +1,9 @@
 //
-// Switch
+// Form checks
 //
 
+
+// Switch
 .form-switch {
     min-height: $form-switch-min-height;
 }
@@ -13,4 +15,13 @@
 
 .form-switch > .form-check-label {
     margin-top: calc((#{$form-switch-min-height} - #{$line-height-base} * 1em) / 2);
+}
+
+// Checkbox with line-through decoration on check
+.form-check-linethrough {
+    .form-check-input {
+        &:checked + .form-check-label {
+            text-decoration: line-through;
+        }
+    }
 }
