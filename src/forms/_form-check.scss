@@ -25,3 +25,27 @@
         }
     }
 }
+
+
+// Checkable form items
+.form-item-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+    display: none;
+}
+
+.form-item-check:hover + .form-item .form-item-click {
+    border-color: $primary;
+}
+
+.form-item-check:checked + .form-item .form-item-click {
+    border-color: $primary;
+}
+
+.form-item-check[disabled] + .form-item .form-item-click,
+.form-item-check:disabled + .form-item .form-item-click {
+    pointer-events: none;
+    filter: none;
+    opacity: .5;
+}
