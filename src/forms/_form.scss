@@ -4,6 +4,10 @@
 // Form
 //
 
+form {
+    margin-block-end: 0;
+}
+
 .form-control {
     &:focus {
         &::placeholder {
