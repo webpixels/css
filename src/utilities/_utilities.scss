@@ -177,8 +177,8 @@ $utilities: (
 
     // Cursor
     "cursor": (
-        property: border-style,
-        class: border,
+        property: cursor,
+        class: cursor,
         responsive: false,
         values: auto pointer wait text,
     ),

@@ -388,3 +388,5 @@ $surface-colors: map-merge((
     "light":        $gray-200,
     "dark":         shade-color($dark, 7%)
 ), $surface-colors);
+
+$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
