@@ -1,0 +1,77 @@
+//
+// Pagination
+
+.pagination {
+    margin-bottom: 0;
+
+    .page-link {
+        font-size: $pagination-font-size;
+    }
+}
+
+
+// Sizing
+
+.pagination-lg .page-link {
+    font-size: $pagination-font-size-lg;
+}
+
+.pagination-sm .page-link {
+    font-size: $pagination-font-size-sm;
+}
+
+// Pagination tabs
+
+.pagination-tabs {
+    border-radius: 0;
+
+    .page-link {
+        margin-top: -$border-width;
+        padding: $pagination-tabs-padding-y $pagination-tabs-padding-x;
+        background-color: $pagination-tabs-bg-color;
+        border-width: $pagination-tabs-border-width 0 0 0;
+        border-color: transparent;
+        border-radius: 0 !important;
+
+        &:hover {
+            color: $pagination-tabs-hover-color;
+        }
+    }
+
+    .page-item.active {
+        .page-link {
+            background-color: $pagination-tabs-bg-color;
+            border-color: $pagination-tabs-active-border-color;
+            color: $pagination-tabs-active-color;
+        }
+    }
+}
+
+.pagination-spaced {
+    border-radius: 0;
+
+    .page-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: $pagination-border-radius;
+        width: 36px;
+        height: 36px;
+    }
+
+    &.pagination-sm {
+        .page-link {
+            width: 30px;
+            height: 30px;
+            border-radius: $border-radius-sm;
+        }
+    }
+
+    &.pagination-lg {
+        .page-link {
+            width: 52px;
+            height: 52px;
+        }
+    }
+}

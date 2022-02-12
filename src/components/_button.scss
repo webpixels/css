@@ -1,0 +1,146 @@
+//
+// Buttons
+//
+
+// Neutral button variant
+.btn-neutral {
+    @include button-variant($btn-neutral-bg, $btn-neutral-border-color, $btn-neutral-color, $btn-neutral-hover-bg, $btn-neutral-hover-border-color, $btn-neutral-hover-color);
+}
+
+//
+// Button square
+//
+
+.btn-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $btn-square-width;
+    height: $btn-square-width;
+    padding: 0;
+
+    &.btn-xs {
+        width: $btn-square-width-xs;
+        height: $btn-square-width-xs;
+    }
+
+    &.btn-sm {
+        width: $btn-square-width-sm;
+        height: $btn-square-width-sm;
+    }
+
+    &.btn-lg {
+        width: $btn-square-width-lg;
+        height: $btn-square-width-lg;
+    }
+
+    &.btn-xl {
+        width: $btn-square-width-xl;
+        height: $btn-square-width-xl;
+    }
+
+    &.btn-2xl {
+        width: $btn-square-width-2xl;
+        height: $btn-square-width-2xl;
+    }
+}
+
+//
+// App buttons
+// App store download buttons for Apple Store or Play Store
+.btn-app {
+    background: $black;
+    color: $white;
+    position: relative;
+    padding-left: 4.5rem;
+    padding-right: 1.5rem;
+    text-align: left;
+
+    i, svg {
+        width: 1em;
+        font-size: 2.5rem;
+        position: absolute;
+        left: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+
+    .btn-text {
+        display: block;
+        font-size: .75rem;
+        line-height: .75rem;
+        margin-bottom: .125rem;
+    }
+
+    .btn-brand {
+        display: block;
+        text-align: left;
+        font-size: 21px;
+        line-height: 21px;
+    }
+
+    &:hover {
+        background-color: shade-color($primary, 7%);
+        color: color-contrast($primary);
+    }
+}
+
+// Animated button
+.btn-animated {
+    position: relative;
+    overflow: hidden;
+
+    .btn-inner-visible {
+        position: relative;
+    }
+    .btn-inner-hidden {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.btn-animated-x {
+    .btn-inner-visible {
+        right: 0;
+        @include transition(right .3s ease 0s);
+
+    }
+    .btn-inner-hidden {
+        right: -100%;
+        @include transition(right .3s ease 0s);
+    }
+
+    &:hover {
+        .btn-inner-hidden {
+            right: 0;
+        }
+
+        .btn-inner-visible {
+            right: 150%;
+        }
+    }
+}
+
+.btn-animated-y {
+    .btn-inner-visible {
+        top: 0;
+        @include transition(top .3s ease 0s);
+    }
+    .btn-inner-hidden {
+        left: 0;
+        top: -100%;
+        @include transition(top .3s ease );
+    }
+
+    &:hover {
+        .btn-inner-hidden {
+            top: 50%;
+        }
+
+        .btn-inner-visible {
+            top: 100px;
+        }
+    }
+}

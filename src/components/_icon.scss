@@ -1,0 +1,87 @@
+//
+// Icon
+//
+
+@use "sass:math";
+
+.icon {
+	font-size: math.div($icon-size, 1.75);
+	line-height: 1;
+
+	svg {
+		width: $svg-icon-size;
+        height: $svg-icon-size;
+	}
+}
+
+.icon + .icon-text {
+	padding-left: 1rem;
+	width: calc(100% - #{$icon-size} - 1);
+}
+
+
+// Size variations
+
+.icon-xl {
+	font-size: math.div($icon-size-xl, 1.75);
+}
+
+.icon-xl + .icon-text {
+	width: calc(100% - #{$icon-size-xl} - 1);
+}
+
+.icon-lg {
+	font-size: math.div($icon-size-lg, 1.75);
+}
+
+.icon-lg + .icon-text {
+	width: calc(100% - #{$icon-size-lg} - 1);
+}
+
+.icon-sm {
+	font-size: math.div($icon-size-sm, 1.75);
+}
+
+.icon-sm + .icon-text {
+	width: calc(100% - #{$icon-size-sm} - 1);
+}
+
+.icon-xs {
+	font-size: math.div($icon-size-xs, 1.75);
+}
+
+.icon-xs + .icon-text {
+	width: calc(100% - #{$icon-size-xs} - 1);
+}
+
+// Shape icons
+.icon-shape {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: $border-radius;
+	width: $icon-size;
+	height: $icon-size;
+
+	&.icon-xl {
+		width: $icon-size-xl;
+		height: $icon-size-xl;
+	}
+
+	&.icon-lg {
+		width: $icon-size-lg;
+		height: $icon-size-lg;
+	}
+
+	&.icon-sm {
+		width: $icon-size-sm;
+		height: $icon-size-sm;
+	}
+
+	&.icon-xs {
+		width: $icon-size-xs;
+		height: $icon-size-xs;
+	}
+}

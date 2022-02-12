@@ -1,0 +1,90 @@
+//
+// Badge
+//
+
+.badge {
+    text-transform: $badge-text-transfom;
+    line-height: $badge-line-height;
+}
+
+// Size variations
+.badge-xs {
+    padding: .1rem .5rem;
+    font-size: 60%;
+}
+
+.badge-md {
+    padding: .4rem 1rem;
+}
+
+.badge-lg {
+    padding: .6rem 1rem;
+    font-size: $badge-lg-font-size;
+}
+
+// Counting badge
+.badge-count {
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    @include font-size(.75rem);
+    font-weight: 600;
+
+    &.badge-xs {
+        width: 1rem;
+        height: 1rem;
+        @include font-size(.5rem);
+    }
+
+    &.badge-md {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &.badge-lg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    svg {
+        margin: 0;
+    }
+}
+
+// Preceding dot badge
+.badge-dot {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    font-weight: $font-weight-normal;
+    color: $body-color;
+
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        width: .375rem;
+        height: .375rem;
+        border-radius: 50%;
+        margin-right: .5rem;
+    }
+
+    &.badge-md {
+        i {
+            width: .5rem;
+            height: .5rem;
+        }
+    }
+
+    &.badge-lg {
+        i {
+            width: .625rem;
+            height: .625rem;
+        }
+    }
+}

@@ -1,0 +1,127 @@
+@import "bootstrap/scss/card";
+
+
+// Card header
+
+.card-header-tabs {
+    margin-top: calc(-#{$card-spacer-y} - 1px);
+    margin-bottom: calc(-#{$card-spacer-y} + 1px);
+    margin-left: 0;
+    margin-right: 0;
+
+    .nav-item {
+        margin-right: .75rem;
+    }
+
+    .nav-link {
+        &.active {
+            background-color: transparent;
+            border-bottom-color: $primary;
+        }
+    }
+}
+
+// Card comment box
+.card-comment-box {
+    width: 100%;
+
+    input,
+    textarea {
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+        padding: .3125rem 0;
+        margin: 0;
+        color: $gray-800;
+        outline: none;
+        resize: none;
+
+        &:focus {
+            background: transparent;
+            box-shadow: none;
+        }
+    }
+}
+
+// Card showing progress
+.card-progress {
+    margin-bottom: .75rem;
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .progress {
+        height: 2px;
+        margin: 2px 4px;
+    }
+}
+
+// Card list
+//
+// Card list
+//
+
+.card-list {
+    background-color: $card-bg;
+    border: $card-border-width solid $card-border-color;
+    padding: 1rem;
+    margin-bottom: $grid-gutter-width;
+    @include border-radius($card-border-radius);
+
+    .card {
+        box-shadow: none !important;
+    }
+}
+
+.card-list-body {
+    .card:last-of-type {
+        margin-bottom: 0 !important;
+    }
+}
+
+.empty-container {
+    &:after {
+        pointer-events: none;
+        content: attr(data-placeholder);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        color: shade-color(#eef2f5, 15%);
+        border: 1px dashed shade-color(#eef2f5, 15%);
+        height: 0;
+        opacity: 0;
+        @include border-radius($card-border-radius);
+        @include transition(opacity .35s ease);
+    }
+
+    &:only-child {
+        &:after {
+            opacity: 1;
+            height: 70px;
+        }
+    }
+}
+
+// Flushed card list
+.card-list-flush {
+    border: 0;
+    border-radius: 0;
+    @include box-shadow(none)
+}
+
+// Placeholder card
+.card-placeholder {
+    padding: 3rem 0;
+    background-color: transparent;
+    border: 1px dashed $gray-300;
+
+    &:hover {
+        border-color: shade-color($gray-300, 7%);
+    }
+    .card-body {
+        text-align: center;
+    }
+}
