@@ -1,9 +1,20 @@
+<<<<<<< Updated upstream
 @import "bootstrap/scss/list-group";
 
 //
 // List group
 //
 
+=======
+//
+// List Group
+//
+// Bootstrap component
+@import "bootstrap/scss/list-group";
+
+// Webpixels CSS styles
+//
+>>>>>>> Stashed changes
 .list-group {
     list-style-type: none;
 }
@@ -23,6 +34,7 @@
 
 // Spaces list items
 
+<<<<<<< Updated upstream
 .list-group-space {
     .list-group-item {
         margin-bottom: 1.5rem;
@@ -35,6 +47,20 @@
 .list-group-item {
     @include font-size($list-group-item-font-size)
 }
+=======
+// .list-group-space {
+//     .list-group-item {
+//         margin-bottom: 1.5rem;
+//         @include border-radius($list-group-border-radius);
+//     }
+// }
+
+// List group components
+
+// .list-group-item {
+//     @include font-size($list-group-item-font-size)
+// }
+>>>>>>> Stashed changes
 
 .list-group-img {
     width: 3rem;
@@ -54,6 +80,7 @@
     }
 }
 
+<<<<<<< Updated upstream
 .list-group-heading {
     color: $gray-800;
 
@@ -63,11 +90,23 @@
         font-weight: 500;
     }
 }
+=======
+// .list-group-heading {
+//     color: $gray-800;
+//
+//     > small {
+//         float: right;
+//         color: $gray-500;
+//         font-weight: 500;
+//     }
+// }
+>>>>>>> Stashed changes
 
 
 // Size variations
 
 .list-group-sm {
+<<<<<<< Updated upstream
     .list-group-item {
         padding: .675rem 1.25rem;
         font-size: $font-size-sm;
@@ -95,3 +134,32 @@
         }
     }
 }
+=======
+  .list-group-item {
+    padding: .675rem 1.25rem;
+    font-size: $font-size-sm;
+  }
+}
+
+// List group emphasized
+// .list-group-emphasized {
+//     .list-group-item {
+//         transform: scale(1);
+//         @include transition($transition-base);
+//
+//         &.active {
+//             z-index: 11;
+//             transform: scale(1.05);
+//             background-color: $list-group-active-bg;
+//             @include box-shadow($box-shadow);
+//             @include border-radius($border-radius);
+//
+//             .media {
+//                 a {
+//                     color: theme-color("primary");
+//                 }
+//             }
+//         }
+//     }
+// }
+>>>>>>> Stashed changes

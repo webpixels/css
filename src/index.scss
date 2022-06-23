@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 //
 // Functions
 // overrides or extension after the Bootstrap's defaults
@@ -8,3 +9,24 @@
 @import "forms";
 @import "components";
 @import "utilities";
+=======
+// Webpixels CSS
+//
+
+// Tokens
+// Are loaded first, since all future Sass variables will be based on these
+@import 'tokens';
+
+// Core
+// Includes all the core file needed by Bootstrap and Webpixels CSS
+// Automatically imports Bootstrap functions and mixins
+@import 'core';
+
+// Base
+// 
+@import 'base';
+
+// Components
+//
+@import 'components';
+>>>>>>> Stashed changes

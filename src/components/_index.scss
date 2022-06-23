@@ -2,6 +2,7 @@
 // Components
 //
 
+<<<<<<< Updated upstream
 // Bootstrap components
 @import "bootstrap/scss/tables";
 @import "bootstrap/scss/forms";
@@ -37,14 +38,48 @@
 @import "card";
 @import "dropdown";
 @import "frames";
+=======
+// Bootstrap: required files
+@import "bootstrap/scss/transitions";
+
+// Tables
+// @import "tables";
+
+// Components
+@import "accordion";
+@import "alert";
+@import "avatar";
+@import "badge";
+@import "breadcrumb";
+@import "button";
+@import "button-group";
+@import "carousel";
+@import "card";
+@import "close";
+@import "dropdown";
+// @import "frames";
+>>>>>>> Stashed changes
 @import "icon";
 @import "list-group";
 @import "modal";
 @import "navbars";
 @import "navs";
+<<<<<<< Updated upstream
 @import "omnisearch";
 @import "pagination";
 @import "popover";
 @import "progress";
 @import "shape";
 @import "tables";
+=======
+@import "offcanvas";
+@import "omnisearch";
+@import "pagination";
+@import "placeholder";
+@import "popover";
+@import "progress";
+@import "shape";
+@import "spinner";
+@import "toast";
+@import "tooltip";
+>>>>>>> Stashed changes

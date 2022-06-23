@@ -1,10 +1,27 @@
 //
 // Buttons
 //
+<<<<<<< Updated upstream
 
 // Neutral button variant
 .btn-neutral {
     @include button-variant($btn-neutral-bg, $btn-neutral-border-color, $btn-neutral-color, $btn-neutral-hover-bg, $btn-neutral-hover-border-color, $btn-neutral-hover-color);
+=======
+// Bootstrap component
+@import "bootstrap/scss/buttons";
+
+// Webpixels CSS styles
+//
+// Neutral button variant
+.btn-neutral {
+  @include button-variant(
+    style('btn-neutral', 'bg'),
+    style('btn-neutral', 'border-color'),
+    style('btn-neutral', 'color'),
+    style('btn-neutral', ':hover', 'border-color'),
+    style('btn-neutral', ':hover', 'color')
+  )
+>>>>>>> Stashed changes
 }
 
 //
@@ -15,6 +32,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+<<<<<<< Updated upstream
     width: $btn-square-width;
     height: $btn-square-width;
     padding: 0;
@@ -42,6 +60,35 @@
     &.btn-2xl {
         width: $btn-square-width-2xl;
         height: $btn-square-width-2xl;
+=======
+    width: token('square-size', 'base', 'size');
+    height: token('square-size', 'base', 'size');
+    padding: 0;
+
+    &.btn-xs {
+        width: token('square-size', 'xs', 'size');
+        height: token('square-size', 'xs', 'size');
+    }
+
+    &.btn-sm {
+        width: token('square-size', 'sm', 'size');
+        height: token('square-size', 'sm', 'size');
+    }
+
+    &.btn-lg {
+        width: token('square-size', 'lg', 'size');
+        height: token('square-size', 'lg', 'size');
+    }
+
+    &.btn-xl {
+        width: token('square-size', 'xl', 'size');
+        height: token('square-size', 'xl', 'size');
+    }
+
+    &.btn-2xl {
+        width: token('square-size', '2xl', 'size');
+        height: token('square-size', '2xl', 'size');
+>>>>>>> Stashed changes
     }
 }
 
@@ -80,8 +127,13 @@
     }
 
     &:hover {
+<<<<<<< Updated upstream
         background-color: shade-color($primary, 7%);
         color: color-contrast($primary);
+=======
+        background-color: shade-color(brand('color', 'primary'), 7%);
+        color: color-contrast(brand('color', 'primary'));
+>>>>>>> Stashed changes
     }
 }
 

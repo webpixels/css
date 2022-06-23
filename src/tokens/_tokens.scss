@@ -1,0 +1,246 @@
+@use 'sass:map';
+
+$theme-tokens: () !default;
+
+$tokens: (
+  'breakpoints': (
+    'xs': 0,
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px,
+    'xxl': 1400px
+  ),
+  'container-max-widths': (
+    'sm': 540px,
+    'md': 720px,
+    'lg': 960px,
+    'xl': 1140px,
+    'xxl': 1320px
+  ),
+  'aspect-ratios': (
+    "1x1": 100%,
+    "4x3": calc(3 / 4 * 100%),
+    "16x9": calc(9 / 16 * 100%),
+    "21x9": calc(9 / 21 * 100%)
+  ),
+  'square-size': (
+    'xs': 1.75rem,
+    'sm': 2.25rem,
+    'base': 2.875rem,
+    'lg': 3.5rem,
+    'xl': 6rem,
+    '2xl': 7.5rem
+  ),
+  'color': (
+    'inherit': color('inherit'),
+    'current': color('current'),
+    'transparent': color('transparent'),
+    'black': color('black'),
+    'white': color('white'),
+    'slate': color('slate'),
+    'gray': color('gray'),
+    'zinc': color('zinc'),
+    'neutral': color('neutral'),
+    'stone': color('stone'),
+    'red': color('red'),
+    'orange': color('orange'),
+    'amber': color('amber'),
+    'yellow': color('yellow'),
+    'lime': color('lime'),
+    'green': color('green'),
+    'emerald': color('emerald'),
+    'teal': color('teal'),
+    'cyan': color('cyan'),
+    'sky': color('sky'),
+    'blue': color('blue'),
+    'indigo': color('indigo'),
+    'violet': color('violet'),
+    'purple': color('purple'),
+    'fuchsia': color('fuchsia'),
+    'pink': color('pink'),
+    'rose': color('rose')
+  ),
+  'font': (
+    'sans': (ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"),
+    'serif': (ui-serif, Georgia, Cambria, "Times New Roman", Times, serif),
+    'mono': (ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace)
+  ),
+  'font-size': (
+    'xs': 0.75rem,
+    'sm': 0.875rem,
+    'base': 1rem,
+    'lg': 1.125rem,
+    'xl': 1.25rem,
+    '2xl': 1.5rem,
+    '3xl': 1.875rem,
+    '4xl': 2.25rem,
+    '5xl': 3rem,
+    '6xl': 3.75rem,
+    '7xl': 4.5rem,
+    '8xl': 6rem,
+    '9xl': 8rem
+  ),
+  'font-weight': (
+    'thin': 100,
+    'extralight': 200,
+    'light': 300,
+    'normal': 400,
+    'medium': 500,
+    'semibold': 600,
+    'bold': 700,
+    'extrabold': 800,
+    'black': 900
+  ),
+  'letter-spacing': (
+    'tighter': -0.05em,
+    'tight': -0.025em,
+    'normal': 0em,
+    'wide': 0.025em,
+    'wider': 0.05em,
+    'widest': 0.1em
+  ),
+  'line-height': (
+    '3': .75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    '7': 1.75rem,
+    '8': 2rem,
+    '9': 2.25rem,
+    '10': 2.5rem,
+    'none': 1,
+    'tight': 1.25,
+    'snug': 1.375,
+    'normal': 1.5,
+    'relaxed': 1.625,
+    'loose': 2,
+  ),
+  'display': (
+    1: 5rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem
+  ),
+  'border-width': (
+    0: 0,
+    null: 1px,
+    2: 2px,
+    3: 3px,
+    4: 4px,
+    5: 5px,
+    6: 6px,
+    7: 7px,
+    8: 8px
+  ),
+  'border-color': (
+    'light': color('gray', 200),
+    'base': color('gray', 300),
+    'dark': color('gray', 400),
+    'translucent': rgba(color('black'), .175)
+  ),
+  'border-radius': (
+    null: .375rem,
+    0: 0,
+    1: .25rem,
+    2: .5rem,
+    3: .75rem,
+    4: .1rem,
+    5: 1.5rem,
+    6: 3rem,
+    7: 4rem,
+    8: 5rem,
+    9: 6rem,
+    10: 7rem,
+    'pill': 50rem,
+    'circle': 50%
+  ),
+  'shadow': (
+    null: (0px 3px 3px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '1': (0px 1px 1px 0px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '2': (0px 6px 6px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '3': (0px 9px 9px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '4': (0px 16px 16px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '5': (0px 32px 40px -2px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    '6': (0px 36px 50px 0 rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%)),
+    'inset': (inset 0 1px 2px rgba(10 22 70 / 10%)),
+    'outline': (0 0 0 3px rgba(66, 153, 225, 0.5)),
+    'focus': (0 0 0 3px rgba(66, 153, 225, 0.5)),
+    'none': none
+  ),
+  'soft-shadow': (
+    null: 0px 3px 3px -1px rgba(10 22 70 / 4%),
+    '1': 0px 1px 1px 0px rgba(10 22 70 / 4%),
+    '2': 0px 6px 6px -1px rgba(10 22 70 / 4%),
+    '3': 0px 9px 9px -1px rgba(10 22 70 / 4%),
+    '4': 0px 16px 16px -1px rgba(10 22 70 / 4%),
+    '5': 0px 32px 40px -2px rgba(10 22 70 / 4%),
+    '6': 0px 36px 50px 0 rgba(10 22 70 / 4%)
+  ),
+  'spacing': (
+    0: 0px,
+    0\.5: 0.125rem,
+    1: 0.25rem,
+    1\.5: 0.375rem,
+    2: 0.5rem,
+    2\.5: 0.625rem,
+    3: 0.75rem,
+    3\.5: 0.875rem,
+    4: 1rem,
+    5: 1.25rem,
+    6: 1.5rem,
+    7: 1.75rem,
+    8: 2rem,
+    9: 2.25rem,
+    10: 2.5rem,
+    11: 2.75rem,
+    12: 3rem,
+    14: 3.5rem,
+    16: 4rem,
+    20: 5rem,
+    24: 6rem,
+    28: 7rem,
+    32: 8rem,
+    36: 9rem,
+    40: 10rem,
+    44: 11rem,
+    48: 12rem,
+    52: 13rem,
+    56: 14rem,
+    60: 15rem,
+    64: 16rem,
+    72: 18rem,
+    80: 20rem,
+    96: 24rem,
+    'px': 1px
+  ),
+  'opacity': (
+    0: 0,
+    5: 0.05,
+    10: 0.1,
+    15: 0.15,
+    20: 0.2,
+    25: 0.25,
+    30: 0.3,
+    40: 0.4,
+    50: 0.5,
+    60: 0.6,
+    70: 0.7,
+    80: 0.8,
+    90: 0.9,
+    100: 1
+  ),
+) !default;
+
+
+// Merge default tokens with the user's
+$tokens: map.deep-merge($tokens, $theme-tokens);
+
+// Functions
+//
+
+@function token($key, $keys...) {
+  @return map.get($tokens, $key, $keys...);
+}

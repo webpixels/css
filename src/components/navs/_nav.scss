@@ -1,5 +1,11 @@
+//
+// Nav
+//
+// Bootstrap component
 @import "bootstrap/scss/nav";
 
+// Webpixels CSS styles
+//
 @include media-breakpoint-up(lg) {
     .nav-link-badge {
         position: relative;

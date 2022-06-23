@@ -1,0 +1,273 @@
+@use 'sass:map';
+
+$theme-styles: () !default;
+
+$styles: (
+  'font': (
+    'font-size': token('font-size', 'base'),
+    'font-weight': token('font-weight', 'normal'),
+    'line-height': token('line-height', 'normal')
+  ),
+  'heading': (
+    'font-family': null,
+    'font-weight': token('font-weight', 'bold'),
+    'font-style': null,
+    'line-height': token('line-height', 'normal'),
+    'color': token('color', 'gray', 900),
+    'h1': token('font-size', 'base') * 2.25,
+    'h2': token('font-size', 'base') * 1.75,
+    'h3': token('font-size', 'base') * 1.375,
+    'h4': token('font-size', 'base') * 1.125,
+    'h5': token('font-size', 'base') * 1,
+    'h6': token('font-size', 'base') * .875
+  ),
+  'display': (
+    'font-family': null,
+    'font-weight': token('font-weight', 'bold'),
+    'font-style': null,
+    'line-height': token('line-height', 'normal'),
+    'color': token('color', 'gray', 900),
+  ),
+  'blockquote': (
+    'font-size': calc(token('font-size', 'base') * 1.25),
+    'footer-color': token('color', 'gray', 600),
+  ),
+  'hr': (
+    'margin-y': token('spacing', '8'),
+    'border-width': 1px,
+    'opacity': token('opacity', 200)
+  ),
+  'dt': (
+    'font-weight': token('font-weight', 'bold')
+  ),
+  'component': (
+    'border-width': 1px,
+    'border-style': solid,
+    'border-color': token('border-color', 'base'),
+    'active-color': token('color', 'white'),
+    'active-bg': brand('color', 'primary'),
+  ),
+  'body': (
+    'bg': token('color', 'white'),
+    'color': token('color', 'gray', 800),
+    'text-align': null
+  ),
+  'link': (
+    'color': brand('color', 'primary'),
+    'decoration': underline,
+    'shade-percentage': 20%
+  ),
+  'table': (
+    'head': (
+      'spacer-y': token('spacing', 5),
+      'font-size': token('font-size', 'sm'),
+      'font-weight': token('font-weight', 'semibold'),
+      'text-transform': uppercase,
+      'letter-spacing': token('letter-spacing', 'wide'),
+      'border-width': 1px,
+      'vertical-align': 'middle'
+    ),
+    'cell': (
+      'padding-y': token('spacing', 2),
+      'padding-x': token('spacing', 2)
+    ),
+    'sm': (
+      'cell': (
+        'padding-y': token('spacing', 2),
+        'padding-x': token('spacing', 2)
+      )
+    )
+  ),
+  'input-btn': (
+    'sm': (
+      'spacer-y': token('spacing', 1),
+      'spacer-x': token('spacing', 2),
+      'font-size': token('font-size', 'sm'),
+    ),
+    'base': (
+      'spacer-y': token('spacing', 1\.5),
+      'spacer-x': token('spacing', 3),
+      'font-size': token('font-size', 'base'),
+    ),
+    'lg': (
+      'spacer-y': token('spacing', 2),
+      'spacer-x': token('spacing', 4),
+      'font-size': token('font-size', 'lg'),
+    )
+  ),
+  'btn': (
+    'font-weight': token('font-weight', 'semibold'),
+    'border-radius': token('border-radius', null),
+    'sm': (
+      'border-radius': token('border-radius', '1')
+    ),
+    'lg': (
+      'border-radius': token('border-radius', '2')
+    )
+  ),
+  'btn-neutral': (
+    'bg': token('color', 'white'),
+    'color': token('color', 'gray', 800),
+    'border-color': token('border-color', 'base'),
+    ':hover': (
+      'border-color': token('border-color', 'dark'),
+      'color': token('border-color', 'dark')
+    )
+  ),
+  'btn-link': (
+    'disabled': (
+      'color': token('color', 'gray', 600)
+    )
+  ),
+  'input': (
+    'border-color': token('color', 'gray', 300),
+    'border-radius': token('border-radius', null),
+    'sm': (
+      'border-radius': token('border-radius', '1')
+    ),
+    'lg': (
+      'border-radius': token('border-radius', '2')
+    ),
+    'disabled': (
+      'bg': token('color', 'gray', 200)
+    )
+  ),
+  'avatar': (
+    'bg': brand('color', 'primary'),
+    'color': token('color', 'white'),
+    'font-weight': token('font-weight', 'bold'),
+    'base': (
+      'size': token('square-size', 'base'),
+      'font-size': token('font-size', 'base'),
+      'border-radius': token('border-radius', null)
+    ),
+    '2xl': (
+      'size': token('square-size', '2xl'),
+      'font-size': token('font-size', '2xl'),
+      'border-radius': token('border-radius', 3)
+    ),
+    'lg': (
+      'size': token('square-size', 'lg'),
+      'font-size': token('font-size', 'lg'),
+      'border-radius': token('border-radius', 2)
+    ),
+    'sm': (
+      'size': token('square-size', 'sm'),
+      'font-size': token('font-size', 'sm'),
+      'border-radius': token('border-radius', null)
+    ),
+    'xs': (
+      'size': token('square-size', 'xs'),
+      'font-size': token('font-size', 'xs'),
+      'border-radius': token('border-radius', 1)
+    )
+  ),
+  'avatar-stack': (
+    'gutter': 2px,
+    'border-color': token('color', 'white')
+  ),
+  'placeholder': (
+    'color': token('color', 'gray', 600)
+  ),
+  'navbar': (
+    'brand': (
+      'font-size': token('font-size', 'lg')
+    ),
+    'toggler': (
+      'font-size': token('font-size', 'lg')
+    )
+  ),
+  'dropdown': (
+    'box-shadow': token('box-shadow', '4')
+  ),
+  'alert': (
+    'padding-y': token('spacing', '5'),
+    'padding-x': token('spacing', '5'),
+    'margin-bottom': token('spacing', '0'),
+    'border-radius':  token('border-radius', null),
+    'link-font-weight': bold,
+    'border-width': 1px,
+    'bg-scale': -80%,
+    'border-scale': -70%,
+    'color-scale':  40%,
+    'dismissible-padding-r': token('spacing', '7')
+  ),
+  'card': (
+    'spacer-y': token('spacing', 5),
+    'spacer-x': token('spacing', 5),
+    'border-width': token('spacing', 5) * .5,
+    'border-color': token('border-color', 'translucent'),
+    'border-radius': token('border-radius', null),
+    'box-shadow': null,
+    'title': (
+      'spacer-y': token('spacing', 5) * .5,
+    ),
+    'cap': (
+      'spacer-y': token('spacing', 5) * .5,
+      'spacer-x':token('spacing', 5),
+      'bg': rgba(token('color', 'black'), 0),
+      'color': null
+    )
+  ),
+  'icon': (
+    'size': (
+      'base': 3rem,
+      'xl': 5rem,
+      'lg': 4rem,
+      'sm': 2rem,
+      'xs': 1.25rem
+    )
+  ),
+  'pagination': (
+    'border-color': token('color', 'gray', 300),
+    'border-radius': token('border-radius', null),
+    'sm': (
+      'border-radius': token('border-radius', '1')
+    ),
+    'lg': (
+      'border-radius': token('border-radius', '2')
+    ),
+    'disabled': (
+      'bg': token('color', 'gray', 200)
+    )
+  ),
+  'tooltip': (
+    'font-size': token('font-size', 'sm')
+  ),
+  'popover': (
+    'font-size': token('font-size', 'sm'),
+    'border-radius': token('border-radius', '2'),
+    'box-shadow': token('shadow', null),
+  ),
+  'svg': (
+    'icon': (
+      'stroke-linecap': round,
+      'size': 1em,
+      'stroke-width': 2px
+    )
+  ),
+  'toast': (
+    'box-shadow': token('shadow', null),
+  ),
+  'badge': (
+    'font-weight': token('font-weight', 'semibold'),
+  ),
+  'modal': (
+    'border-radius': token('border-radius', '3'),
+    'box-shadow': token('shadow', '2'),
+    'xs': (
+      'box-shadow': token('shadow', '1'),
+    )
+  )
+) !default;
+
+// Merge default tokens with the user's
+$styles: map.deep-merge($styles, $theme-styles);
+
+
+// Functions
+//
+
+@function style($key, $keys...) {
+  @return map.get($styles, $key, $keys...);
+}

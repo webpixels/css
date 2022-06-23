@@ -1,8 +1,0 @@
-.filter {
-    --#{$variable-prefix}blur: 0;
-    --#{$variable-prefix}contrast: 0;
-    --#{$variable-prefix}grayscale: 0;
-    --#{$variable-prefix}hue-rotate: 0;
-    --#{$variable-prefix}drop-shadow: 0;
-    filter: blur(var(--#{$variable-prefix}blur));
-}

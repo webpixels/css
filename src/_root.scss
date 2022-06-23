@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use 'sass:list';
+// stylelint-disable custom-property-empty-line-before
+
 :root {
   // Note: Custom variable values only support SassScript inside `#{}`.
 
@@ -5,67 +9,81 @@
   //
   // Generate palettes for full colors, grays, and theme colors.
 
-  @each $color, $value in $colors {
-    --#{$variable-prefix}#{$color}: #{$value};
+  @each $color, $value in map.get($tokens, 'color') {
+    // @each $shade, $shade-value in map.get($tokens, 'color', $color...) {
+    //   @warn $shade;
+    // }
+    @if list.length(map.get($tokens, 'color', $color...)) > 1 {
+      @each $shade, $shade-value in map.get($tokens, 'color', $color...) {
+        --#{$prefix}#{$color}-#{$shade}: #{$shade-value};
+      }
+    }
+    @else {
+      --#{$prefix}#{$color}: #{$value};
+    }
   }
 
-  @each $color, $value in $grays {
-    // --#{$variable-prefix}gray-#{$color}: #{$value};
-  }
-
-  @each $color, $value in $theme-colors {
-    --#{$variable-prefix}#{$color}: #{$value};
-    --#{$variable-prefix}shade-#{$color}: #{shade-color($value, 10%)};
-    --#{$variable-prefix}tint-#{$color}: #{tint-color($value, 10%)};
-  }
-
-  @each $color, $value in $theme-colors-rgb {
-    --#{$variable-prefix}#{$color}-rgb: #{$value};
-  }
-
-  @each $color, $value in $surface-colors {
-      --#{$variable-prefix}surface-#{$color}: #{$value};
-  }
-
-  --#{$variable-prefix}white-rgb: #{to-rgb($white)};
-  --#{$variable-prefix}black-rgb: #{to-rgb($black)};
-  --#{$variable-prefix}muted-rgb: #{to-rgb($text-muted)};
-  --#{$variable-prefix}body-rgb: #{to-rgb($body-color)};
-  --#{$variable-prefix}heading-rgb: #{to-rgb($headings-color)};
-  --#{$variable-prefix}card-rgb: #{to-rgb($card-bg)};
+  // @each $color, $value in $grays {
+  //   --#{$prefix}gray-#{$color}: #{$value};
+  // }
+  //
+  // @each $color, $value in $theme-colors {
+  //   --#{$prefix}#{$color}: #{$value};
+  // }
+  //
+  // @each $color, $value in $theme-colors-rgb {
+  //   --#{$prefix}#{$color}-rgb: #{$value};
+  // }
+  //
+  --#{$prefix}white-rgb: #{to-rgb($white)};
+  --#{$prefix}black-rgb: #{to-rgb($black)};
+  --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
+  --#{$prefix}body-bg-rgb: #{to-rgb($body-bg)};
 
   // Fonts
 
   // Note: Use `inspect` for lists so that quoted items keep the quotes.
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
-
-  --#{$variable-prefix}font-sans-serif: #{inspect($font-sans-serif-bundle)};
-  --#{$variable-prefix}font-monospace: #{inspect($font-monospace-bundle)};
-  --#{$variable-prefix}font-display: #{inspect($font-display-bundle)};
-  --#{$variable-prefix}font-serif: #{inspect($font-serif-bundle)};
-
-
-  // Gradient
-
-  --#{$variable-prefix}gradient: #{$gradient};
-
+  --#{$prefix}font-sans-serif: #{inspect(token('font', 'sans'))};
+  --#{$prefix}font-monospace: #{inspect(token('font', 'mono'))};
+  --#{$prefix}gradient: #{$gradient};
 
   // Root and body
-  // stylelint-disable custom-property-empty-line-before
   // scss-docs-start root-body-variables
   @if $font-size-root != null {
-    --#{$variable-prefix}root-font-size: #{$font-size-root};
+    --#{$prefix}root-font-size: #{$font-size-root};
   }
-  --#{$variable-prefix}body-font-family: #{$font-family-base};
-  --#{$variable-prefix}body-font-size: #{$font-size-base};
-  --#{$variable-prefix}body-font-weight: #{$font-weight-base};
-  --#{$variable-prefix}body-line-height: #{$line-height-base};
-  --#{$variable-prefix}body-color: #{$body-color};
+  --#{$prefix}body-font-family: #{$font-family-base};
+  @include rfs($font-size-base, --#{$prefix}body-font-size);
+  --#{$prefix}body-font-weight: #{$font-weight-base};
+  --#{$prefix}body-line-height: #{$line-height-base};
+  --#{$prefix}body-color: #{$body-color};
   @if $body-text-align != null {
-    --#{$variable-prefix}body-text-align: #{$body-text-align};
+    --#{$prefix}body-text-align: #{$body-text-align};
   }
-  --#{$variable-prefix}body-bg: #{$body-bg};
+  --#{$prefix}body-bg: #{$body-bg};
   // scss-docs-end root-body-variables
-  // stylelint-enable custom-property-empty-line-before
 
+  // scss-docs-start root-border-var
+  --#{$prefix}border-width: #{$border-width};
+  --#{$prefix}border-style: #{$border-style};
+  --#{$prefix}border-color: #{$border-color};
+  --#{$prefix}border-color-translucent: #{$border-color-translucent};
+
+  @each $radius, $value in map.get($tokens, 'border-radius') {
+    @if $radius == null {
+      --#{$prefix}border-radius: #{$value};
+    } @else {
+      --#{$prefix}border-radius-#{$radius}: #{$value};
+    }
+  }
+  // scss-docs-end root-border-var
+  
+  --#{$prefix}heading-color: #{$headings-color};
+  --#{$prefix}link-color: #{$link-color};
+  --#{$prefix}link-hover-color: #{$link-hover-color};
+
+  --#{$prefix}code-color: #{$code-color};
+
+  --#{$prefix}highlight-bg: #{$mark-bg};
 }

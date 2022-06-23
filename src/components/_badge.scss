@@ -1,6 +1,7 @@
 //
 // Badge
 //
+<<<<<<< Updated upstream
 
 .badge {
     text-transform: $badge-text-transfom;
@@ -22,6 +23,13 @@
     font-size: $badge-lg-font-size;
 }
 
+=======
+// Bootstrap component
+@import "bootstrap/scss/badge";
+
+// Webpixels CSS styles
+//
+>>>>>>> Stashed changes
 // Counting badge
 .badge-count {
     text-align: center;
@@ -62,8 +70,13 @@
     align-items: center;
     padding: 0;
     background: transparent;
+<<<<<<< Updated upstream
     font-weight: $font-weight-normal;
     color: $body-color;
+=======
+    font-weight: normal;
+    color: style('body', 'color');
+>>>>>>> Stashed changes
 
     i {
         display: inline-block;

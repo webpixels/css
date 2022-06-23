@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 @use 'sass:map';
 
 $theme: () !default;
@@ -223,3 +224,18 @@ $tokens: map.deep-merge($tokens, $theme);
 @function token($key, $value) {
   @return map.get($tokens, $key, $value);
 }
+=======
+// Tokens
+//
+// Color tokes should be the first to load
+@import 'colors';
+
+// Tokens are the most abstract definitions that will be used in all the other files
+@import 'tokens';
+
+// Brand tokens refer everything related to the brand's appearance (colors and more)
+@import 'brand';
+
+// Style tokens are used to define the overall UI properties for components
+@import 'styles';
+>>>>>>> Stashed changes

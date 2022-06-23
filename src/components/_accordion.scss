@@ -1,7 +1,15 @@
 //
 // Accordion
 //
+<<<<<<< Updated upstream
 
+=======
+// Bootstrap component
+@import "bootstrap/scss/accordion";
+
+// Webpixels CSS styles
+//
+>>>>>>> Stashed changes
 // Card accorion variant
 .accordion-card {
     .card-header {
@@ -37,7 +45,10 @@
 }
 
 .accordion-spaced {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     > .card {
         @include border-radius($card-border-radius !important);
 

@@ -1,34 +1,35 @@
 //
 // Table
 //
-
+// Bootstrap component
 @import "bootstrap/scss/tables";
 
+// Webpixels CSS styles
+//
 // General styles
-
 .table {
     margin-bottom: 0;
 
     thead th {
-        padding-top: $table-th-spacer-y;
-        padding-bottom: $table-th-spacer-y;
-        font-size: $table-th-font-size;
-        font-weight: $table-th-font-weight;
-        text-transform: $table-th-text-transform;
-        letter-spacing: $table-th-letter-spacing;
-        border-bottom-width: $table-border-width;
+        padding-top: style('table', 'head', 'spacer-y');
+        padding-bottom: style('table', 'head', 'spacer-y');
+        font-size: style('table', 'head', 'font-sizee');
+        font-weight: style('table', 'head', 'font-weight');
+        text-transform: style('table', 'head', 'text-transform');
+        letter-spacing: style('table', 'head', 'letter-spacing');
+        border-bottom-width: style('table', 'head', 'border-width');
         white-space: nowrap;
-        vertical-align: $table-cell-vertical-align;
+        vertical-align: style('table', 'head', 'vertical-align');
     }
 
     tbody {
         th {
-            font-size: $table-cell-font-size;
+            font-size: style('table', 'cell', 'font-size');
         }
     }
 
     td {
-        font-size: $table-cell-font-size;
+        font-size: style('table', 'cell', 'font-size');
         white-space: nowrap;
 
         .progress {

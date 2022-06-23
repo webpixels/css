@@ -1,0 +1,28 @@
+@use 'sass:map';
+
+$theme-brand: () !default;
+
+$brand: (
+  'color': (
+    'primary': token('color', 'indigo', 500),
+    'secondary': token('color', 'gray', 200),
+    'tertiary': token('color', 'pink', 500),
+    'success':  token('color', 'green', 500),
+    'info': token('color', 'cyan', 500),
+    'warning': token('color', 'orange', 500),
+    'danger': token('color', 'red', 500),
+    'light': token('color', 'gray', 300),
+    'dark':  token('color', 'gray', 900)
+  ),
+) !default;
+
+
+// Merge default tokens with the user's
+$brand: map.deep-merge($brand, $theme-brand);
+
+// Functions
+//
+
+@function brand($key, $keys...) {
+  @return map.get($brand, $key, $keys...);
+}
