@@ -23,18 +23,14 @@
     }
   }
 
-  // @each $color, $value in $grays {
-  //   --#{$prefix}gray-#{$color}: #{$value};
-  // }
-  //
-  // @each $color, $value in $theme-colors {
-  //   --#{$prefix}#{$color}: #{$value};
-  // }
-  //
-  // @each $color, $value in $theme-colors-rgb {
-  //   --#{$prefix}#{$color}-rgb: #{$value};
-  // }
-  //
+  @each $color, $value in map.get($brand, 'color') {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
   --#{$prefix}white-rgb: #{to-rgb($white)};
   --#{$prefix}black-rgb: #{to-rgb($black)};
   --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
@@ -78,7 +74,7 @@
     }
   }
   // scss-docs-end root-border-var
-  
+
   --#{$prefix}heading-color: #{$headings-color};
   --#{$prefix}link-color: #{$link-color};
   --#{$prefix}link-hover-color: #{$link-hover-color};

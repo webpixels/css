@@ -1,34 +1,18 @@
-//
-<<<<<<< Updated upstream
-// Avatar
-//
-
-
-=======
 // Avatar (Exclusive)
 // Webpixels CSS styles
 //
 
->>>>>>> Stashed changes
 .avatar {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	vertical-align: middle;
-<<<<<<< Updated upstream
-	@include font-size($avatar-font-size);
-	font-weight: $avatar-font-weight;
-	height: $avatar-width;
-	width: $avatar-width;
-	@include border-radius($avatar-border-radius);
-=======
 	@include font-size(style('avatar', 'base', 'font-size'));
 	font-weight: style('avatar', 'font-weight');
 	height: style('avatar', 'base', 'size');
 	width: style('avatar', 'base', 'size');
 	@include border-radius(style('avatar', 'base', 'border-radius'));
->>>>>>> Stashed changes
 
 	img {
 		width: 100%;
@@ -48,37 +32,6 @@
 // Sizes
 
 .avatar-2xl {
-<<<<<<< Updated upstream
-	width: $avatar-width-2xl;
-	height: $avatar-width-2xl;
-	@include font-size($avatar-font-size-2xl);
-}
-
-.avatar-xl {
-	width: $avatar-width-xl;
-	height: $avatar-width-xl;
-	@include font-size($avatar-font-size-xl);
-}
-
-.avatar-lg {
-	width: $avatar-width-lg;
-	height: $avatar-width-lg;
-	@include font-size($avatar-font-size-lg);
-}
-
-.avatar-sm {
-	width: $avatar-width-sm;
-	height: $avatar-width-sm;
-	@include font-size($avatar-font-size-sm);
-	@include border-radius($avatar-border-radius-sm);
-}
-
-.avatar-xs {
-	width: $avatar-width-xs;
-	height: $avatar-width-xs;
-	@include font-size($avatar-font-size-xs);
-	@include border-radius($avatar-border-radius-xs);
-=======
 	width: style('avatar', '2xl', 'size');
 	height: style('avatar', '2xl', 'size');
 	@include font-size(style('avatar', '2xl', 'font-size'));
@@ -111,7 +64,6 @@
 	height: style('avatar', 'xs', 'size');
 	@include font-size(style('avatar', 'xs', 'font-size'));
 	@include border-radius(style('avatar', 'xs', 'border-radius'));
->>>>>>> Stashed changes
 }
 
 //
@@ -144,19 +96,11 @@
 
 	&:hover {
 		.avatar {
-<<<<<<< Updated upstream
-			@include border-start-radius($avatar-border-radius);
-		}
-
-		.avatar-sm {
-			@include border-start-radius($avatar-border-radius-sm);
-=======
 			@include border-start-radius(style('avatar', 'base', 'size'));
 		}
 
 		.avatar-sm {
 			@include border-start-radius(style('avatar', 'sm', 'size'));
->>>>>>> Stashed changes
 		}
 	}
 }

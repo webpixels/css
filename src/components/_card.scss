@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-@import "bootstrap/scss/card";
-
-
-// Card header
-
-=======
 //
 // Card
 //
@@ -14,7 +7,6 @@
 // Webpixels CSS styles
 //
 // Card header
->>>>>>> Stashed changes
 .card-header-tabs {
     margin-top: calc(-#{$card-spacer-y} - 1px);
     margin-bottom: calc(-#{$card-spacer-y} + 1px);
@@ -28,11 +20,7 @@
     .nav-link {
         &.active {
             background-color: transparent;
-<<<<<<< Updated upstream
-            border-bottom-color: $primary;
-=======
             border-bottom-color: brand('color', 'primary');
->>>>>>> Stashed changes
         }
     }
 }
@@ -48,11 +36,7 @@
         background: transparent;
         padding: .3125rem 0;
         margin: 0;
-<<<<<<< Updated upstream
-        color: $gray-800;
-=======
         color: style('input-btn', 'color');
->>>>>>> Stashed changes
         outline: none;
         resize: none;
 
@@ -107,11 +91,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-<<<<<<< Updated upstream
-        font-size: $font-size-sm;
-=======
         font-size: token('font-size', 'sm');
->>>>>>> Stashed changes
         font-weight: 500;
         color: shade-color(#eef2f5, 15%);
         border: 1px dashed shade-color(#eef2f5, 15%);
@@ -140,17 +120,10 @@
 .card-placeholder {
     padding: 3rem 0;
     background-color: transparent;
-<<<<<<< Updated upstream
-    border: 1px dashed $gray-300;
-
-    &:hover {
-        border-color: shade-color($gray-300, 7%);
-=======
     border: 1px dashed $card-border-color;
 
     &:hover {
         border-color: shade-color($card-border-color, 7%);
->>>>>>> Stashed changes
     }
     .card-body {
         text-align: center;

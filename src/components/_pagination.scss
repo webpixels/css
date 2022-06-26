@@ -1,24 +1,16 @@
 //
 // Pagination
-<<<<<<< Updated upstream
-
-=======
 //
 // Bootstrap component
 @import "bootstrap/scss/pagination";
 
 // Webpixels CSS styles
 //
->>>>>>> Stashed changes
 .pagination {
     margin-bottom: 0;
 
     .page-link {
-<<<<<<< Updated upstream
-        font-size: $pagination-font-size;
-=======
         font-size: token('font-size', 'base');
->>>>>>> Stashed changes
     }
 }
 
@@ -26,48 +18,17 @@
 // Sizing
 
 .pagination-lg .page-link {
-<<<<<<< Updated upstream
-    font-size: $pagination-font-size-lg;
-}
-
-.pagination-sm .page-link {
-    font-size: $pagination-font-size-sm;
-=======
     font-size: token('font-size', 'lg');
 }
 
 .pagination-sm .page-link {
     font-size: token('font-size', 'sm');
->>>>>>> Stashed changes
 }
 
 // Pagination tabs
 
 .pagination-tabs {
     border-radius: 0;
-
-<<<<<<< Updated upstream
-    .page-link {
-        margin-top: -$border-width;
-        padding: $pagination-tabs-padding-y $pagination-tabs-padding-x;
-        background-color: $pagination-tabs-bg-color;
-        border-width: $pagination-tabs-border-width 0 0 0;
-        border-color: transparent;
-        border-radius: 0 !important;
-
-        &:hover {
-            color: $pagination-tabs-hover-color;
-        }
-    }
-
-    .page-item.active {
-        .page-link {
-            background-color: $pagination-tabs-bg-color;
-            border-color: $pagination-tabs-active-border-color;
-            color: $pagination-tabs-active-color;
-        }
-    }
-=======
     // .page-link {
     //     margin-top: -$border-width;
     //     padding: $pagination-tabs-padding-y $pagination-tabs-padding-x;
@@ -88,7 +49,6 @@
     //         color: $pagination-tabs-active-color;
     //     }
     // }
->>>>>>> Stashed changes
 }
 
 .pagination-spaced {

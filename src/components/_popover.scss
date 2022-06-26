@@ -1,14 +1,4 @@
-<<<<<<< Updated upstream
-
-//
 // Popover
-//
-
-.popover-header {
-	font-weight: $font-weight-bold;
-=======
-//
-// Accordion
 //
 // Bootstrap component
 @import "bootstrap/scss/popover";
@@ -17,15 +7,10 @@
 //
 .popover-header {
 	font-weight: token('font-weight', 'bold');
->>>>>>> Stashed changes
 }
 
 
 // Color variations
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 @each $color, $value in $theme-colors {
     .popover-#{$color} {
         @include popover-variant($value);

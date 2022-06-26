@@ -97,7 +97,9 @@ $styles: (
   ),
   'btn': (
     'font-weight': token('font-weight', 'semibold'),
-    'border-radius': token('border-radius', null),
+    'base': (
+      'border-radius': token('border-radius', null),
+    ),
     'sm': (
       'border-radius': token('border-radius', '1')
     ),

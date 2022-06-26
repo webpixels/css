@@ -1,4 +1,14 @@
-@import 'bootstrap/scss/functions';
+// Core
+//
+@import 'functions';
+
+// Importing the tokenized Bootstrap variables and maps
+@import "../bootstrap/variables";
+@import "../bootstrap/maps";
+
+// Importing Webpixels CSS functions and variables
 @import "variables";
 @import "maps";
+
+// Bootstrap mixins
 @import 'bootstrap/scss/mixins';

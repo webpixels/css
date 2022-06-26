@@ -1,0 +1,47 @@
+// Blockquotes
+
+.blockquote {
+	.quote {
+		position: absolute;
+
+		&:before {
+			font-family: Arial;
+			content: "\201C";
+			color: theme-color("primary");
+			font-size: 4em;
+			line-height: 1;
+		}
+	}
+
+	.quote + .quote-text {
+		padding-left: 2.25rem;
+	}
+
+	footer {
+		background: transparent;
+	}
+}
+
+.blockquote-border-left {
+	border-left: .5rem solid theme-color("primary");
+}
+
+.blockquote-card {
+	padding: 1.2em 30px 1.2em 75px;
+	border-left: .5rem solid theme-color("primary");
+	position: relative;
+
+	&:before {
+		font-family: Arial;
+		content: "\201C";
+		color: theme-color("primary");
+		font-size: 4em;
+		position: absolute;
+		left: .875rem;
+		top: -.875rem;
+	}
+
+	&:after {
+		content: '';
+	}
+}

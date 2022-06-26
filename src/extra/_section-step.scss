@@ -1,0 +1,80 @@
+//
+// Step section
+// Connect sections through a dotted line
+//
+
+@include media-breakpoint-down(lg) {
+    .section-step-lg {
+        padding-bottom: 3rem;
+
+        + .section-step-lg {
+            padding-top: 3rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .section-step-lg {
+        position: relative;
+        padding-bottom: 5rem;
+
+        + .section-step-lg {
+            padding-top: 5rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+
+        &:not(:last-child) {
+            &:before {
+                content: "";
+                display: block;
+                width: 360px;
+                height: 100px;
+                background: $section-step-bg no-repeat center;
+                background-size: 360px 100px;
+                transform: rotate(40deg);
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                bottom: -80px;
+
+                @include media-breakpoint-down(md) {
+                    transform: rotate(90deg) scale(.7);
+                    bottom: 20px;
+                }
+            }
+        }
+
+        &:nth-child(odd) {
+            .row {
+                > div:first-child {
+                    order: 2;
+                }
+                > div:last-child {
+                    order: 1;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            &:before {
+                background: $section-step-even-bg no-repeat center;
+                background-size: 360px 100px;
+                transform: rotate(-40deg);
+
+                @include media-breakpoint-down(md) {
+                    transform: rotate(-90deg) scale(.7);
+                    bottom: 20px;
+                }
+            }
+        }
+    }
+}

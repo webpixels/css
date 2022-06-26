@@ -2,43 +2,7 @@
 // Components
 //
 
-<<<<<<< Updated upstream
-// Bootstrap components
-@import "bootstrap/scss/tables";
-@import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/transitions";
-@import "bootstrap/scss/dropdown";
-@import "bootstrap/scss/button-group";
-@import "bootstrap/scss/nav";
-@import "bootstrap/scss/navbar";
-@import "bootstrap/scss/card";
-@import "bootstrap/scss/accordion";
-@import "bootstrap/scss/breadcrumb";
-@import "bootstrap/scss/pagination";
-@import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/progress";
-@import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
-@import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal";
-@import "bootstrap/scss/tooltip";
-@import "bootstrap/scss/popover";
-@import "bootstrap/scss/carousel";
-@import "bootstrap/scss/spinners";
-@import "bootstrap/scss/offcanvas";
-@import "bootstrap/scss/placeholders";
 
-// Webpixels CSS components
-@import "accordion";
-@import "avatar";
-@import "badge";
-@import "button";
-@import "card";
-@import "dropdown";
-@import "frames";
-=======
 // Bootstrap: required files
 @import "bootstrap/scss/transitions";
 
@@ -58,20 +22,11 @@
 @import "close";
 @import "dropdown";
 // @import "frames";
->>>>>>> Stashed changes
 @import "icon";
 @import "list-group";
 @import "modal";
 @import "navbars";
 @import "navs";
-<<<<<<< Updated upstream
-@import "omnisearch";
-@import "pagination";
-@import "popover";
-@import "progress";
-@import "shape";
-@import "tables";
-=======
 @import "offcanvas";
 @import "omnisearch";
 @import "pagination";
@@ -80,6 +35,6 @@
 @import "progress";
 @import "shape";
 @import "spinner";
+@import "tables";
 @import "toast";
 @import "tooltip";
->>>>>>> Stashed changes

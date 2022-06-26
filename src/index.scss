@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-//
-// Functions
-// overrides or extension after the Bootstrap's defaults
-//
-
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "base";
-@import "forms";
-@import "components";
-@import "utilities";
-=======
 // Webpixels CSS
 //
 
@@ -23,10 +11,13 @@
 @import 'core';
 
 // Base
-// 
+//
 @import 'base';
 
 // Components
 //
 @import 'components';
->>>>>>> Stashed changes
+
+// Utilities
+//
+@import 'utilities';

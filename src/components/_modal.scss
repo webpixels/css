@@ -1,15 +1,11 @@
 //
 // Modal
 //
-<<<<<<< Updated upstream
-
-=======
 // Bootstrap component
 @import "bootstrap/scss/modal";
 
 // Webpixels CSS styles
 //
->>>>>>> Stashed changes
 .modal-content {
     border: 0;
     @if $enable-rounded {

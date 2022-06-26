@@ -3,6 +3,8 @@
 // overrides or extension after the Bootstrap's defaults
 //
 
+@import 'bootstrap/scss/functions';
+
 // Bootstrap functions
 @function map-collect($maps...) {
   	$collection: ();
