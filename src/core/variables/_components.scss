@@ -146,6 +146,8 @@ $btn-focus-width:             $input-btn-focus-width !default;
 $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
 $btn-active-box-shadow:       $box-shadow-transparent !default;
 
+// Customize how soft a background should be on soft button variants
+$btn-soft-bg-level:           -70% !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius:           $border-radius !default;
