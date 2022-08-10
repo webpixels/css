@@ -25,6 +25,7 @@ $enable-important-utilities:  true !default;
 // Prefix for :root CSS variables
 
 $variable-prefix:             x- !default;
+$prefix:             $variable-prefix !default;
 
 // Tab size for :root tab-size
 $tab-size:  4 !default;
