@@ -1,8 +1,8 @@
 {
     "name": "@webpixels/css",
-    "description": "Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.",
-    "version": "1.1.92",
-    "version_short": "1.1",
+    "description": "Utility and component-centric design system based on Bootstrap for fast, responsive UI development.",
+    "version": "1.2.0",
+    "version_short": "1.2",
     "license": "MIT",
     "style": "dist/index.css",
     "sass": "index.scss",
@@ -33,10 +33,10 @@
     },
     "scripts": {
         "build": "npm run css",
-        "css-compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources src:dist/",
-        "css-lint": "stylelint src/",
-        "css-prefix": "postcss --replace dist/index.css --use autoprefixer --map",
-        "css-purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
+        "css:compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources src:dist/",
+        "css:lint": "stylelint src/",
+        "css:prefix": "postcss --replace dist/index.css --use autoprefixer --map",
+        "css:purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
         "css": "npm-run-all css-compile css-prefix",
         "postpublish": "script/postpublish",
         "prepublishOnly": "script/prepublish",
@@ -46,8 +46,8 @@
         "test": "npm run css-lint && npm run css"
     },
     "peerDependencies": {
-        "@popperjs/core": "^2.9.2",
-        "bootstrap": "^5.2.0"
+        "@popperjs/core": "^2.11.6",
+        "bootstrap": "^5.2.1"
     },
     "devDependencies": {
         "autoprefixer": "^10.2.6",
@@ -58,5 +58,9 @@
         "purgecss": "^4.0.3",
         "sass": "^1.35.1",
         "serve": "^14.0.1"
+    },
+    "dependencies": {
+        "stylelint": "^14.11.0",
+        "stylelint-config-twbs-bootstrap": "^6.0.0"
     }
 }

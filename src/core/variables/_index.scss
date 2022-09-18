@@ -5,26 +5,12 @@
 
 // Enable/Disable options
 @import "./options";
-
-// Color system
 @import "./colors";
-
-// Spacing and Sizing
 @import "./spacing";
 @import "./sizing";
-
-// Common settings
 @import "./global";
 @import "./transitions";
-
-// Layout
 @import "./grid";
-
-// Typography
-@import "./typography"; 
-
-// Components
+@import "./typography";
 @import "./components";
-
-// Utilities
 @import "./utilities";
