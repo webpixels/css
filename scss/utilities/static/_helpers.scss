@@ -2,9 +2,6 @@
 // Helpers
 //
 
-@import "bootstrap/scss/helpers";
-
-
 // Clearfix
 
 .floatfix {
@@ -120,10 +117,6 @@ a.text-current {
 		color: $link-hover-color;
 	}
 }
-
-// a[class*=text-current]:hover {
-//     color: $link-hover-color !important;
-// }
 
 // Fluid title with elipsis ending
 

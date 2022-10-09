@@ -1,13 +1,12 @@
 // Utilities
-
-@import "static/background";
-@import "static/gradient";
-@import "static/filter";
-
+//
 // Transitions
 @import "bootstrap/scss/transitions";
 
 // Static utilities
+@import "static/background";
+@import "static/gradient";
+@import "static/filter";
 @import "static/transform";
 @import "static/animation";
 @import "static/height-calc";
@@ -21,37 +20,12 @@ $utilities: (
   "border": null,
   "opacity": (
     property: opacity,
-    values: (
-      0: 0,
-      10: 0.1,
-      20: 0.2,
-      30: 0.3,
-      40: 0.4,
-      50: 0.5,
-      60: 0.6,
-      70: 0.7,
-      80: 0.8,
-      90: 0.9,
-      100: 1
-    )
+    values: $utilities-opacity-values
   ),
   "zindex": (
     property: z-index,
     class: overlap,
-    values: (
-      10: 10,
-      20: 20,
-      30: 30,
-      40: 40,
-      50: 50,
-      100: 100,
-      200: 200,
-      300: 300,
-      400: 400,
-      500: 500,
-      1000: 1000,
-      auto: auto
-    )
+    values: $utilities-zindex-values
   ),
 
   // Border radius
@@ -153,18 +127,7 @@ $utilities: (
       class: border,
       responsive: true,
       state: hover focus focus-within,
-      values: map-merge(
-          $theme-colors,
-          (
-              "transparent": transparent,
-              "current": currentColor,
-              "base": $border-color,
-              "body": $body-bg,
-              "card": $card-bg,
-              "black": $black,
-              "white": $white
-          )
-      )
+      values: $utilities-border-color-values
   ),
 
   // Border style
@@ -188,26 +151,13 @@ $utilities: (
   "font-family": (
       property: font-family,
       class: font,
-      values: (
-          base: var(--#{$variable-prefix}font-sans-serif),
-          display: var(--#{$variable-prefix}font-display),
-          serif: var(--#{$variable-prefix}font-serif),
-          code: var(--#{$variable-prefix}font-monospace)
-      )
+      values: $utilities-font-family-values
   ),
   "font-size": (
       rfs: true,
       property: font-size,
       class: text,
-      values: (
-          xs: $font-size-xs,
-          sm: $font-size-sm,
-          base: $font-size-base,
-          md: $font-size-md,
-          lg: $font-size-lg,
-          xl: $font-size-xl,
-          2xl: $font-size-2xl
-      )
+      values: $utilities-font-size-values
   ),
   "font-style": (
       property: font-style,
@@ -217,14 +167,7 @@ $utilities: (
   "font-weight": (
       property: font-weight,
       class: font,
-      values: (
-          light: $font-weight-light,
-          lighter: $font-weight-lighter,
-          regular: $font-weight-normal,
-          semibold: $font-weight-semibold,
-          bold: $font-weight-bold,
-          bolder: $font-weight-bolder
-      )
+      values: $utilities-font-weight-values
   ),
   "text-transform": (
       property: text-transform,
@@ -235,46 +178,23 @@ $utilities: (
       property: text-align,
       class: text,
       responsive: true,
-      values: (
-          start: left,
-          end: right,
-          center: center,
-      )
+      values: $utilities-text-align-values
   ),
   "text-decoration": (
       property: text-decoration,
       class: text,
       responsive: false,
-      values: (
-          no-decoration: none,
-          underline: underline,
-          line-through: line-through
-      )
+      values: $utilities-text-decoration-values
   ),
   "line-height": (
       property: line-height,
       class: lh,
-      values: (
-          none: 1,
-          tighter: 1.125,
-          tight: 1.2,
-          snug: 1.375,
-          normal: 1.5,
-          relaxed: 1.625,
-          loose: 2
-      )
+      values: $utilities-line-height-values
   ),
   "letter-spacing": (
       property: letter-spacing,
       class: ls,
-      values: (
-          tighter: -0.05em,
-          tight: -0.025em,
-          normal: 0,
-          wide: 0.025em,
-          wider: 0.05em,
-          widest: 0.1em
-      )
+      values: $utilities-letter-spacing-values
   ),
   "color": (
       property: color,
@@ -297,18 +217,7 @@ $utilities: (
       css-var: true,
       class: text-opacity,
       state: hover focus,
-      values: (
-          10: .1,
-          20: .2,
-          30: .3,
-          40: .4,
-          50: .5,
-          60: .6,
-          70: .7,
-          80: .8,
-          90: .9,
-          100: 1
-      )
+      values: $utilities-opacity-values
   ),
 
   // Background
@@ -321,6 +230,14 @@ $utilities: (
       ),
       values: $utilities-bg-colors
   ),
+  "surface-background-color": (
+      property: background-color,
+      class: bg,
+      local-vars: (
+          "bg-opacity": 1
+      ),
+      values: $utilities-surface-bg-colors
+  ),
   "static-background-color": (
       property: background-color,
       class: bg,
@@ -331,18 +248,7 @@ $utilities: (
       css-var: true,
       class: bg-opacity,
       state: hover focus,
-      values: (
-          10: .1,
-          20: .2,
-          30: .3,
-          40: .4,
-          50: .5,
-          60: .6,
-          70: .7,
-          80: .8,
-          90: .9,
-          100: 1
-      )
+      values: $utilities-opacity-values
   ),
   "background-size": (
       property: background-size,

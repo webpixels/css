@@ -6,5 +6,5 @@
 .sass-cache
 .stylelintcache
 node_modules/
-tmp
+tmp/
 package-lock.json

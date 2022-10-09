@@ -10,8 +10,7 @@ $surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
 // scss-docs-start utilities-colors
 $utilities-colors: map-collect(
   $theme-colors-rgb,
-  $colors-rgb,
-  $surface-colors-rgb
+  $colors-rgb
 ) !default;
 // scss-docs-end utilities-colors
 
@@ -53,6 +52,66 @@ $utilities-static-bg-colors: (
   "current": currentColor
 ) !default;
 
+$utilities-surface-bg-colors: map-loop($surface-colors-rgb, rgba-css-var, "$key", "bg") !default;
+
+// Typography
+$utilities-font-family-values: (
+    base: var(--#{$prefix}font-sans-serif),
+    display: var(--#{$prefix}font-display),
+    serif: var(--#{$prefix}font-serif),
+    code: var(--#{$prefix}font-monospace)
+) !default;
+
+$utilities-font-size-values: (
+    xs: $font-size-xs,
+    sm: $font-size-sm,
+    base: $font-size-base,
+    md: $font-size-md,
+    lg: $font-size-lg,
+    xl: $font-size-xl,
+    2xl: $font-size-2xl
+) !default;
+
+$utilities-font-weight-values: (
+    light: $font-weight-light,
+    lighter: $font-weight-lighter,
+    regular: $font-weight-normal,
+    semibold: $font-weight-semibold,
+    bold: $font-weight-bold,
+    bolder: $font-weight-bolder
+) !default;
+
+$utilities-text-align-values: (
+    start: left,
+    end: right,
+    center: center,
+) !default;
+
+$utilities-text-decoration-values: (
+    no-decoration: none,
+    underline: underline,
+    line-through: line-through
+) !default;
+
+$utilities-line-height-values: (
+    none: 1,
+    tighter: 1.125,
+    tight: 1.2,
+    snug: 1.375,
+    normal: 1.5,
+    relaxed: 1.625,
+    loose: 2
+) !default;
+
+$utilities-letter-spacing-values: (
+    tighter: -0.05em,
+    tight: -0.025em,
+    normal: 0,
+    wide: 0.025em,
+    wider: 0.05em,
+    widest: 0.1em
+) !default;
+
 // Shadows
 $utilities-shadows: (
   null: $box-shadow,
@@ -91,6 +150,16 @@ $utilities-border-widths: (
   8: 8px
 ) !default;
 
+$utilities-border-color-values: map-merge($theme-colors, (
+  "transparent": transparent,
+  "current": currentColor,
+  "base": $border-color,
+  "body": $body-bg,
+  "card": $card-bg,
+  "black": $black,
+  "white": $white
+)) !default;
+
 $utilities-border-radius: (
   null: $border-radius,
   0: 0,
@@ -109,10 +178,39 @@ $utilities-border-radius: (
   card: $card-border-radius
 ) !default;
 
-//
-// Transform
-//
+// Opacity
 
+$utilities-opacity-values: (
+  0: 0,
+  10: .1,
+  20: .2,
+  30: .3,
+  40: .4,
+  50: .5,
+  60: .6,
+  70: .7,
+  80: .8,
+  90: .9,
+  100: 1
+) !default;
+
+// Z-index values
+$utilities-zindex-values: (
+  10: 10,
+  20: 20,
+  30: 30,
+  40: 40,
+  50: 50,
+  100: 100,
+  200: 200,
+  300: 300,
+  400: 400,
+  500: 500,
+  1000: 1000,
+  auto: auto
+) !default;
+
+// Transform
 $utilities-scale-values: (
   0: 0,
   25: .25,

@@ -378,9 +378,9 @@ $body-text-align:           null !default;
 
 $surface-colors: () !default;
 $surface-colors: map-merge((
-    "primary":      $body-bg,
-    "secondary":    $gray-100,
-    "tertiary":     $gray-50,
-    "light":        $gray-200,
-    "dark":         shade-color($dark, 7%)
+  "surface-primary":      $body-bg,
+  "surface-secondary":    $gray-100,
+  "surface-tertiary":     $gray-50,
+  "surface-light":        $gray-200,
+  "surface-dark":         shade-color($dark, 7%)
 ), $surface-colors);

@@ -28,7 +28,7 @@
   }
 
   @each $color, $value in $surface-colors-rgb {
-    --#{$prefix}surface-#{$color}-rgb: #{$value};
+    --#{$prefix}#{$color}-rgb: #{$value};
   }
 
   --#{$prefix}white-rgb: #{to-rgb($white)};
@@ -47,7 +47,6 @@
   --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
   --#{$prefix}font-display: #{inspect($font-display-bundle)};
   --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
-
 
   // Gradient
 
