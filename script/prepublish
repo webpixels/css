@@ -4,8 +4,8 @@ set -e
 # generate the build directory
 npm run --silent build
 
-files=$(git ls-files src | sed -e 's#^src/##' | sed -e 's#/.*$##' | sort -u)
+files=$(git ls-files scss | sed -e 's#^scss/##' | sed -e 's#/.*$##' | sort -u)
 echo $files > publish-files.log
-cd src
+cd scss
 cp -rv $files ..
 cd -
