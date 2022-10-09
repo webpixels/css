@@ -9,8 +9,8 @@ $surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
 // Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
 // scss-docs-start utilities-colors
 $utilities-colors: map-collect(
-  $theme-colors-rgb,
-  $colors-rgb
+  $colors-rgb,
+  $theme-colors-rgb
 ) !default;
 // scss-docs-end utilities-colors
 
@@ -150,15 +150,22 @@ $utilities-border-widths: (
   8: 8px
 ) !default;
 
-$utilities-border-color-values: map-merge($theme-colors, (
+// scss-docs-start utilities-border-colors
+$utilities-border: map-merge(
+  $utilities-colors,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white)
+  )
+) !default;
+$utilities-border-color-values: map-loop($utilities-border, rgba-css-var, "$key", "border") !default;
+// scss-docs-end utilities-border-colors
+
+$utilities-static-border-color-values: (
+  "body": var(--#{$prefix}body-bg),
   "transparent": transparent,
-  "current": currentColor,
-  "base": $border-color,
-  "body": $body-bg,
-  "card": $card-bg,
-  "black": $black,
-  "white": $white
-)) !default;
+  "current": currentColor
+) !default;
 
 $utilities-border-radius: (
   null: $border-radius,

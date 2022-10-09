@@ -1,0 +1,27 @@
+{
+  "name": "vite",
+  "description": "Include @webpixels/css UI components and individual Bootstrap 5 plugins with Vite.",
+  "version": "0.0.0",
+  "private": true,
+  "stackblitz": {
+    "startCommand": "npm start"
+  },
+  "scripts": {
+    "start": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-dependents": "^1.2.5",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.55.0",
+    "vite": "^3.0.9"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@webpixels/css": "^1.2.0",
+    "bootstrap": "^5.2.2"
+  }
+}

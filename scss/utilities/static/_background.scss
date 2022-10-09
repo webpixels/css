@@ -1,17 +1,20 @@
+@each $color, $value in $theme-colors {
+  .bg-soft-#{$color} {
+    background-color: shift-color($value, $bg-soft-level) !important;
+  }
+}
+
 // Loop over each breakpoint
 @each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-
-        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-        .bg#{$infix}-none {
-            background-image: none !important;
-        }
-
-        .bg#{$infix}-between {
-            background-repeat: no-repeat;
-            background-position: left center, right center;
-            background-size: auto 90%;
-        }
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .bg#{$infix}-none {
+      background-image: none !important;
     }
+    .bg#{$infix}-between {
+      background-repeat: no-repeat;
+      background-position: left center, right center;
+      background-size: auto 90%;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "name": "@webpixels/css",
   "description": "Utility and component-centric design system based on Bootstrap for fast, responsive UI development.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "version_short": "1.2",
   "license": "MIT",
   "style": "dist/index.css",
@@ -35,7 +35,7 @@
   },
   "scripts": {
     "build": "npm run css",
-    "css:compile": "sass --load-path=node_modules --style=expanded --source-map --embed-sources scss:dist/",
+    "css:compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources scss:dist/",
     "css:lint": "stylelint \"**/*.{css,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
     "css:prefix": "postcss --replace dist/*.css --use autoprefixer --map",
     "css:purge": "purgecss --css dist/index.css --content index.html --output dist/css/",

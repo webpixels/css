@@ -41,10 +41,10 @@ $font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospac
 $font-serif-bundle:         if($font-serif, #{$font-serif,$font-serif-system}, $font-serif-system) !default;
 $font-display-bundle:       if($font-display, #{$font-display,$font-sans-serif-system}, $font-sans-serif-system) !default;
 
-$font-family-base:           var(--#{$variable-prefix}font-sans-serif) !default;
-$font-family-monospace:      var(--#{$variable-prefix}font-monospace) !default;
-$font-family-display:        var(--#{$variable-prefix}font-display) !default;
-$font-family-serif:          var(--#{$variable-prefix}font-serif) !default;
+$font-family-base:           var(--#{$prefix}font-sans-serif) !default;
+$font-family-monospace:      var(--#{$prefix}font-monospace) !default;
+$font-family-display:        var(--#{$prefix}font-display) !default;
+$font-family-serif:          var(--#{$prefix}font-serif) !default;
 
 // $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
 // $font-size-base effects the font size of the body text
@@ -101,7 +101,7 @@ $display-font-sizes: (
     6: 2.5rem
 ) !default;
 
-$display-font-family:        $font-display !default;
+$display-font-family:        $font-family-display !default;
 $display-font-weight:        $font-weight-bolder !default;
 $display-line-height:        $headings-line-height !default;
 $display-color:              $headings-color !default;
