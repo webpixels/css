@@ -318,10 +318,6 @@ $theme-colors: (
 ) !default;
 // scss-docs-end theme-colors-map
 
-// scss-docs-start theme-colors-rgb
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-// scss-docs-end theme-colors-rgb
-
 $bootstrap:     #7952b3 !default;
 $laravel:       #ff2d20 !default;
 $react:         #61dafb !default;
@@ -388,5 +384,3 @@ $surface-colors: map-merge((
     "light":        $gray-200,
     "dark":         shade-color($dark, 7%)
 ), $surface-colors);
-
-$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;

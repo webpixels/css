@@ -45,7 +45,7 @@ $table-striped-order:           odd !default;
 $table-group-separator-color:   $table-border-color !default;
 
 $table-spaced-row-border-radius:    $border-radius !default;
-$table-spaced-row-shadow:           $box-shadow !default;
+$table-spaced-row-shadow:           null !default;
 
 $table-light-th-bg:             $gray-100 !default;
 $table-light-th-color:          $gray-700 !default;
@@ -146,6 +146,8 @@ $btn-focus-width:             $input-btn-focus-width !default;
 $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
 $btn-active-box-shadow:       $box-shadow-transparent !default;
 
+// Customize how soft a background should be on soft button variants
+$btn-soft-bg-level:           -70% !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius:           $border-radius !default;
@@ -353,17 +355,17 @@ $card-title-spacer-y:               1.5rem !default;
 
 $card-color:                        $body-color !default;
 $card-bg:                           $white !default;
-$card-border-width:                 0 !default;
-$card-border-color:                 tint-color($gray-200, 20%) !default;
+$card-border-width:                 $border-width !default;
+$card-border-color:                 $border-color !default;
 $card-border-radius:                $border-radius-xl !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
-$card-box-shadow:                   $box-shadow !default;
+$card-box-shadow:                   null !default;
 
 $card-cap-padding-y:                1.25rem !default;
 $card-cap-padding-x:                $card-spacer-x !default;
 $card-cap-color:                    $headings-color !default;
-$card-cap-bg:                       transparent !default;
-$card-cap-border-width:             1px !default;
+$card-cap-bg:                       rgba($black, 0) !default;
+$card-cap-border-width:             $card-border-width !default;
 $card-cap-border-color:             $card-border-color !default;
 
 $card-group-margin:                 math.div($grid-gutter-width, 2) !default;

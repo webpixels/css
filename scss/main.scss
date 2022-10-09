@@ -4,7 +4,6 @@
  * Licensed under MIT (https://github.com/webpixels/css/blob/main/LICENSE)
  */
 
-
-@import "core";
-
-@import "extra/index.scss";
+@import "base";
+@import "forms";
+@import "components";

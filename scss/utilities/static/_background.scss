@@ -1,33 +1,32 @@
 // Static classes
 
-@each $color, $value in $colors {
-    .bg-#{$color} {
-        background-color: rgba($value, 1) !important;
-    }
-}
+// @each $color, $value in $colors {
+//     .bg-#{$color} {
+//         background-color: rgba($value, 1) !important;
+//     }
+// }
 
 @each $color, $value in $theme-colors {
+  // Light shades
+  .bg-tint-#{$color} {
+      background-color: tint-color($value, $bg-tint-level) !important;
+  }
 
-    // Light shades
-    .bg-tint-#{$color} {
-        background-color: tint-color($value, $bg-tint-level) !important;
-    }
+  // Dark shades
+  .bg-shade-#{$color} {
+      background-color: shade-color($value, $bg-shade-level) !important;
+  }
 
-    // Dark shades
-    .bg-shade-#{$color} {
-        background-color: shade-color($value, $bg-shade-level) !important;
-    }
-
-    // Soft variants
-    .bg-soft-#{$color} {
-        background-color: shift-color($value, $bg-soft-level) !important;
-    }
+  // Soft variants
+  .bg-soft-#{$color} {
+      background-color: shift-color($value, $bg-soft-level) !important;
+  }
 }
 
 @each $color, $value in $surface-colors {
-    .bg-surface-#{$color} {
-        background-color: $value !important;
-    }
+  .bg-surface-#{$color} {
+    background-color: $value !important;
+  }
 }
 
 // Shaped backgrounds
