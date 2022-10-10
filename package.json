@@ -1,62 +1,72 @@
 {
-    "name": "@webpixels/css",
-    "description": "Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.",
-    "version": "1.1.93",
-    "version_short": "1.1",
-    "license": "MIT",
-    "style": "dist/index.css",
-    "sass": "index.scss",
-    "keywords": [
-        "webpixels",
-        "css",
-        "sass",
-        "mobile-first",
-        "responsive",
-        "front-end",
-        "framework",
-        "web",
-        "bootstrap",
-        "component-centric",
-        "utilities"
-    ],
-    "homepage": "https://webpixels.io",
-    "author": "Webpixels (https://webpixels.io)",
-    "contributors": [
-        "Alexis Enache <alexis@webpixels.io>"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/webpixels/css.git"
-    },
-    "bugs": {
-        "url": "https://github.com/webpixels/css/issues"
-    },
-    "scripts": {
-        "build": "npm run css",
-        "css-compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources src:dist/",
-        "css-lint": "stylelint src/",
-        "css-prefix": "postcss --replace dist/index.css --use autoprefixer --map",
-        "css-purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
-        "css": "npm-run-all css-compile css-prefix",
-        "postpublish": "script/postpublish",
-        "prepublishOnly": "script/prepublish",
-        "server": "serve --listen 3000",
-        "start": "npm-run-all --parallel watch server",
-        "watch": "nodemon -e html,scss -x \"npm run css\"",
-        "test": "npm run css-lint && npm run css"
-    },
-    "peerDependencies": {
-        "@popperjs/core": "^2.9.2",
-        "bootstrap": "^5.1.3"
-    },
-    "devDependencies": {
-        "autoprefixer": "^10.2.6",
-        "nodemon": "^2.0.7",
-        "npm-run-all": "^4.1.5",
-        "postcss": "^8.3.0",
-        "postcss-cli": "^8.3.1",
-        "purgecss": "^4.0.3",
-        "sass": "^1.35.1",
-        "serve": "^11.3.2"
-    }
+  "name": "@webpixels/css",
+  "description": "Utility and component-centric design system based on Bootstrap for fast, responsive UI development.",
+  "version": "1.2.11",
+  "version_short": "1.2",
+  "license": "MIT",
+  "style": "dist/index.css",
+  "sass": "index.scss",
+  "keywords": [
+    "webpixels",
+    "bootstrap",
+    "design-system",
+    "ui-components",
+    "html",
+    "css",
+    "sass",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "component-centric",
+    "utilities"
+  ],
+  "homepage": "https://webpixels.io",
+  "author": "Webpixels (https://webpixels.io)",
+  "contributors": [
+    "Alexis Enache <alexis@webpixels.io>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpixels/css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webpixels/css/issues"
+  },
+  "scripts": {
+    "build": "npm run css",
+    "css:compile": "sass --load-path=node_modules --style=compressed --source-map --embed-sources scss:dist/",
+    "css:lint": "stylelint \"**/*.{css,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
+    "css:prefix": "postcss --replace dist/*.css --use autoprefixer --map",
+    "css:purge": "purgecss --css dist/index.css --content index.html --output dist/css/",
+    "css:fusv": "fusv scss/ site/assets/scss/",
+    "css": "npm-run-all css:compile css:prefix",
+    "postpublish": "script/postpublish",
+    "prepublishOnly": "script/prepublish",
+    "server": "serve --listen 3000",
+    "start": "npm-run-all --parallel watch server",
+    "watch": "nodemon -e html,scss -x \"npm run css\"",
+    "test": "npm run css:lint && npm run css"
+  },
+  "peerDependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "find-unused-sass-variables": "^4.0.4",
+    "install": "^0.13.0",
+    "nodemon": "^2.0.7",
+    "npm": "^8.19.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "purgecss": "^4.0.3",
+    "sass": "^1.35.1",
+    "serve": "^14.0.1",
+    "stylelint": "^14.11.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-config-twbs-bootstrap": "^6.0.0"
+  }
 }

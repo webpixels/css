@@ -1,0 +1,92 @@
+:root {
+  // Note: Custom variable values only support SassScript inside `#{}`.
+
+  // Colors
+  //
+  // Generate palettes for full colors, grays, and theme colors.
+
+  @each $color, $value in $colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$prefix}#{$color}: #{$value};
+    --#{$prefix}shade-#{$color}: #{shade-color($value, 10%)};
+    --#{$prefix}tint-#{$color}: #{tint-color($value, 10%)};
+  }
+
+  @each $color, $value in $surface-colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
+  @each $color, $value in $colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
+  @each $color, $value in $surface-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
+  --#{$prefix}white-rgb: #{to-rgb($white)};
+  --#{$prefix}black-rgb: #{to-rgb($black)};
+  --#{$prefix}muted-rgb: #{to-rgb($text-muted)};
+  --#{$prefix}body-rgb: #{to-rgb($body-color)};
+  --#{$prefix}heading-rgb: #{to-rgb($headings-color)};
+  --#{$prefix}card-rgb: #{to-rgb($card-bg)};
+
+  // Fonts
+
+  // Note: Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+
+  --#{$prefix}font-sans-serif: #{inspect($font-sans-serif-bundle)};
+  --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
+  --#{$prefix}font-display: #{inspect($font-display-bundle)};
+  --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
+
+  // Gradient
+  --#{$prefix}gradient: #{$gradient};
+
+  // Root and body
+  // stylelint-disable custom-property-empty-line-before
+  // scss-docs-start root-body-variables
+  @if $font-size-root != null {
+    --#{$prefix}root-font-size: #{$font-size-root};
+  }
+  --#{$prefix}body-font-family: #{$font-family-base};
+  --#{$prefix}body-font-size: #{$font-size-base};
+  --#{$prefix}body-font-weight: #{$font-weight-base};
+  --#{$prefix}body-line-height: #{$line-height-base};
+  --#{$prefix}body-color: #{$body-color};
+  @if $body-text-align != null {
+    --#{$prefix}body-text-align: #{$body-text-align};
+  }
+  --#{$prefix}body-bg: #{$body-bg};
+  // scss-docs-end root-body-variables
+
+  // scss-docs-start root-border-var
+  --#{$prefix}border-width: #{$border-width};
+  --#{$prefix}border-style: #{$border-style};
+  --#{$prefix}border-color: #{$border-color};
+  --#{$prefix}border-color-translucent: #{$border-color-translucent};
+
+  --#{$prefix}border-radius: #{$border-radius};
+  --#{$prefix}border-radius-sm: #{$border-radius-sm};
+  --#{$prefix}border-radius-lg: #{$border-radius-lg};
+  --#{$prefix}border-radius-xl: #{$border-radius-xl};
+  --#{$prefix}border-radius-2xl: #{$border-radius-2xl};
+  --#{$prefix}border-radius-pill: #{$border-radius-pill};
+  // scss-docs-end root-border-var
+
+  --#{$prefix}link-color: #{$link-color};
+  --#{$prefix}link-hover-color: #{$link-hover-color};
+
+  --#{$prefix}code-color: #{$code-color};
+
+  --#{$prefix}highlight-bg: #{$mark-bg};
+
+}

@@ -1,10 +1,18 @@
-__tests__/
-.changeset/
-.github/
-script/
+*.log
+.DS_Store
+.cache/
+.changelog/
+.sass-cache
+.stylelintcache
+.parcel-cache
+.cache
+.changeset
+.github
+node_modules
+tmp
+integration
+script
+package-lock.json
+
 # we ignore this because everything in src/ is copied out in script/prepublish
 src/
-.*
-*.log
-vercel.json
-*.config.js

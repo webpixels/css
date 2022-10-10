@@ -5,6 +5,9 @@
 .next/
 .sass-cache
 .stylelintcache
+.parcel-cache/
+.cache
 node_modules/
-tmp
+tmp/
+dist/
 package-lock.json

@@ -1,0 +1,47 @@
+//
+// Spaced Rows table
+// table with spaced rows and syles with the card's properties
+//
+
+
+.table-spaced {
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+
+  thead {
+    th {
+      border: 0;
+    }
+  }
+
+  thead tr,
+  tbody tr {
+    th,
+    td {
+      position: relative;
+      background-color: transparent;
+      border-top: $table-border-width solid $table-border-color !important;
+      border-bottom: $table-border-width solid $table-border-color !important;
+
+      &:first-child {
+        border-left: $table-border-width solid $table-border-color !important;
+        @include border-radius($table-spaced-row-border-radius 0 0 $table-spaced-row-border-radius);
+
+        &:after {
+          border-left: $table-border-width solid $table-border-color;
+          @include border-radius($table-spaced-row-border-radius 0 0 $table-spaced-row-border-radius);
+        }
+      }
+
+      &:last-child {
+        border-right: $table-border-width solid $table-border-color !important;
+        @include border-radius(0 $table-spaced-row-border-radius $table-spaced-row-border-radius 0)
+      }
+    }
+  }
+
+  tbody tr {
+    @include box-shadow($table-spaced-row-shadow);
+    @include border-radius($table-spaced-row-border-radius);
+  }
+}

@@ -1,0 +1,856 @@
+@use "sass:math";
+
+// scss-docs-start table-variables
+$table-cell-padding-y:        1rem !default;
+$table-cell-padding-x:        1.5rem !default;
+$table-cell-padding-y-sm:     .5rem !default;
+$table-cell-padding-x-sm:     .5rem !default;
+
+$table-cell-vertical-align:   middle !default;
+$table-cell-font-size:        .8125rem !default;
+
+$table-color:                 $body-color !default;
+$table-bg:                    transparent !default;
+
+$table-th-font-weight:        null !default;
+
+$table-th-spacer-y:         1rem !default;
+$table-th-spacer-x:         1.5rem !default;
+$table-th-font-size:        .675rem !default;
+$table-th-font-weight:      $font-weight-semibold !default;
+$table-th-text-transform:   uppercase !default;
+$table-th-letter-spacing:   0.025em !default;
+$table-th-bg:               transparent !default;
+$table-th-color:            $gray-700 !default;
+$table-action-color:        $gray-500 !default;
+
+$table-striped-color:         $table-color !default;
+$table-striped-bg-factor:     .05 !default;
+$table-striped-bg:            rgba($black, $table-striped-bg-factor) !default;
+
+$table-active-color:          $table-color !default;
+$table-active-bg-factor:      .1 !default;
+$table-active-bg:             rgba($black, $table-active-bg-factor) !default;
+
+$table-hover-color:           $table-color !default;
+$table-hover-bg-factor:       .02 !default;
+$table-hover-bg:              rgba($black, $table-hover-bg-factor) !default;
+
+$table-border-factor:         .1 !default;
+$table-border-width:          $border-width !default;
+$table-border-color:          $border-color !default;
+
+$table-striped-order:           odd !default;
+
+$table-group-separator-color:   $table-border-color !default;
+
+$table-spaced-row-border-radius:    $border-radius !default;
+$table-spaced-row-shadow:           null !default;
+
+$table-light-th-bg:             $gray-100 !default;
+$table-light-th-color:          $gray-700 !default;
+$table-light-action-color:      $gray-700 !default;
+
+$table-dark-bg:               $dark !default;
+$table-dark-accent-bg:        rgba($white, .05) !default;
+$table-dark-hover-bg:         rgba($white, .075) !default;
+$table-dark-border-color:     tint-color($dark, 7%) !default;
+$table-dark-color:            $body-bg !default;
+
+$table-dark-th-bg:          tint-color($dark, 4%) !default;
+$table-dark-th-color:       tint-color($dark, 35%) !default;
+$table-dark-action-color:     tint-color($dark, 35%) !default;
+
+$table-bg-scale:              -80% !default;
+
+$table-variants: (
+    "primary":    shift-color($primary, $table-bg-scale),
+    "secondary":  shift-color($secondary, $table-bg-scale),
+    "success":    shift-color($success, $table-bg-scale),
+    "info":       shift-color($info, $table-bg-scale),
+    "warning":    shift-color($warning, $table-bg-scale),
+    "danger":     shift-color($danger, $table-bg-scale),
+    "light":      $light,
+    "dark":       $dark,
+) !default;
+
+// Sections
+
+$section-step-bg:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg width='355px' height='103px' viewBox='0 0 355 103' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-dasharray='6,12' stroke-linecap='round'%3E%3Cpath stroke='#{$border-color}' stroke-width='3' transform='translate(173.245679, 51.548257) scale(-1, 1) translate(-173.245679, -51.548257)' d='M-6.75432109,1.54825684 C113.245679,110.326533 233.245679,130.359459 353.245679,61.647035'/%3E%3C/g%3E%3C/svg%3E"), "#", "%23") !default;
+$section-step-even-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg width='355px' height='103px' viewBox='0 0 355 103' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' stroke-dasharray='6,12' stroke-linecap='round'%3E%3Cpath stroke='#{$border-color}' stroke-width='3' d='M2.24567891,1.54825684 C122.245679,110.326533 242.245679,130.359459 362.245679,61.647035'/%3E%3C/g%3E%3C/svg%3E"), "#", "%23") !default;
+
+
+// Buttons + Forms
+
+$input-btn-padding-y:         .75rem !default;
+$input-btn-padding-x:         1.25rem !default;
+$input-btn-font-size:         $font-size-base !default;
+$input-btn-line-height:       $line-height-sm !default;
+
+$input-btn-focus-width:         3px !default;
+$input-btn-focus-color-opacity: .25 !default;
+$input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
+$input-btn-focus-blur:          0 !default;
+$input-btn-focus-box-shadow:    0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+
+$input-btn-padding-y-xs:      .375rem !default;
+$input-btn-padding-x-xs:      1rem !default;
+$input-btn-font-size-xs:      $font-size-xs !default;
+$input-btn-line-height-xs:    $input-btn-line-height !default;
+
+$input-btn-padding-y-sm:      .5rem !default;
+$input-btn-padding-x-sm:      1rem !default;
+$input-btn-font-size-sm:      $font-size-sm !default;
+$input-btn-line-height-sm:    $input-btn-line-height !default;
+
+$input-btn-padding-y-lg:      1rem !default;
+$input-btn-padding-x-lg:      1.5rem !default;
+$input-btn-font-size-lg:      $font-size-base !default;
+$input-btn-line-height-lg:    $input-btn-line-height !default;
+
+$input-btn-padding-y-xl:      1.5rem !default;
+$input-btn-padding-x-xl:      2rem !default;
+$input-btn-font-size-xl:      $font-size-base !default;
+$input-btn-line-height-xl:    $input-btn-line-height !default;
+
+$input-btn-border-width:      $border-width !default;
+
+// Buttons
+
+$btn-padding-y:               $input-btn-padding-y !default;
+$btn-padding-x:               $input-btn-padding-x !default;
+$btn-line-height:             $input-btn-line-height !default;
+
+$btn-padding-y-xs:            $input-btn-padding-y-xs !default;
+$btn-padding-x-xs:            $input-btn-padding-x-xs !default;
+$btn-line-height-xs:          $input-btn-line-height-xs !default;
+
+$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+$btn-line-height-sm:          $input-btn-line-height-sm !default;
+
+$btn-padding-y-lg:            $input-btn-padding-y-lg !default;
+$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+$btn-line-height-lg:          $input-btn-line-height-lg !default;
+
+$btn-padding-y-xl:            $input-btn-padding-y-xl !default;
+$btn-padding-x-xl:            $input-btn-padding-x-xl !default;
+$btn-line-height-xl:          $input-btn-line-height-xl !default;
+
+$btn-border-width:            $input-btn-border-width !default;
+$btn-font-weight:             $font-weight-semibold !default;
+$btn-box-shadow:              0 1px 1px rgba($black, .075) !default;
+$btn-hover-width:             0 !default;
+$btn-hover-box-shadow:        0 4px 15px rgba($primary, 0.35) !default;
+$btn-focus-width:             $input-btn-focus-width !default;
+$btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
+$btn-active-box-shadow:       $box-shadow-transparent !default;
+
+// Customize how soft a background should be on soft button variants
+$btn-soft-bg-level:           -70% !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:           $border-radius !default;
+$btn-border-radius-sm:        $border-radius !default;
+$btn-border-radius-lg:        $border-radius-lg !default;
+
+$btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$btn-hover-bg-shade-amount:       20% !default;
+$btn-hover-bg-tint-amount:        20% !default;
+$btn-hover-border-shade-amount:   20% !default;
+$btn-hover-border-tint-amount:    10% !default;
+$btn-active-bg-shade-amount:      20% !default;
+$btn-active-bg-tint-amount:       20% !default;
+$btn-active-border-shade-amount:  25% !default;
+$btn-active-border-tint-amount:   10% !default;
+
+
+// Square/Circle shape buttons
+
+$btn-square-width:                      2.875rem !default;
+$btn-square-width-2xl:                  7.5rem !default;
+$btn-square-width-xl:                   6rem !default;
+$btn-square-width-lg:                   3.5rem !default;
+$btn-square-width-sm:                   2.25rem !default;
+$btn-square-width-xs:                   1.75rem !default;
+
+
+// Neutral button
+
+$btn-neutral-bg:                    $white !default;
+$btn-neutral-color:                 $headings-color !default;
+$btn-neutral-border-color:          $border-color !default;
+$btn-neutral-hover-bg:              $border-color !default;
+$btn-neutral-hover-border-color:    $border-color !default;
+$btn-neutral-hover-color:           $btn-neutral-color !default;
+
+
+// Forms
+
+$form-text-margin-top:                  .25rem !default;
+$form-text-font-size:                   $small-font-size !default;
+$form-text-font-style:                  null !default;
+$form-text-font-weight:                 null !default;
+$form-text-color:                       $text-muted !default;
+
+$form-label-margin-bottom:              .5rem !default;
+$form-label-font-size:                  $font-size-sm !default;
+$form-label-font-style:                 null !default;
+$form-label-font-weight:                $font-weight-semibold !default;
+$form-label-color:                      $gray-900 !default;
+
+$input-padding-y:                       $input-btn-padding-y !default;
+$input-padding-x:                       $input-btn-padding-x !default;
+// $input-font-family:                     $input-btn-font-family !default;
+$input-font-size:                       $input-btn-font-size !default;
+$input-font-weight:                     $font-weight-base !default;
+$input-line-height:                     $input-btn-line-height !default;
+
+$input-padding-y-sm:                    $input-btn-padding-y-sm !default;
+$input-padding-x-sm:                    $input-btn-padding-x-sm !default;
+$input-font-size-sm:                    $input-btn-font-size-sm !default;
+
+$input-padding-y-lg:                    $input-btn-padding-y-lg !default;
+$input-padding-x-lg:                    $input-btn-padding-x-lg !default;
+$input-font-size-lg:                    $input-btn-font-size-lg !default;
+
+$input-bg:                              $white !default;
+$input-disabled-bg:                     $gray-200 !default;
+$input-disabled-border-color:           null !default;
+
+$input-color:                           $gray-900 !default;
+$input-border-color:                    $gray-200 !default;
+$input-border-width:                    $input-btn-border-width !default;
+$input-box-shadow:                      0px 1px 2px rgba(50, 50, 71, 0.08) !default;
+
+$input-border-radius:                   $border-radius !default;
+$input-border-radius-sm:                $border-radius !default;
+$input-border-radius-lg:                $border-radius-lg !default;
+
+$input-focus-bg:                        $input-bg !default;
+$input-focus-border-color:              $primary!default;
+$input-focus-color:                     $input-color !default;
+$input-focus-width:                     $input-btn-focus-width !default;
+$input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
+
+$input-placeholder-color:               $gray-500 !default;
+$input-focus-placeholder-color:         $gray-400 !default;
+
+$input-plaintext-color:                 $body-color !default;
+
+$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$input-muted-bg:                        tint-color($gray-200, 30%) !default;
+$input-muted-focus-bg:                  tint-color($input-muted-bg, 15%) !default;
+
+$input-alt-bg:                   $input-bg !default;
+$input-alt-border-width:         0 !default;
+$input-alt-border-color:         transparent !default;
+$input-alt-box-shadow:           0 0 0 1px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.1) !default;
+
+$input-alt-focus-bg:             $input-alt-bg !default;
+$input-alt-focus-border-color:   transparent !default;
+$input-alt-focus-box-shadow:     0 0 0 2px $primary !default;
+
+$input-group-addon-font-weight:         $input-font-weight !default;
+$input-group-addon-color:               $gray-600 !default;
+$input-group-addon-bg:                  $gray-100 !default;
+$input-group-addon-border-color:        $input-border-color !default;
+
+$form-check-margin-bottom:    0 !default;
+
+$form-switch-width:         2.875em !default;
+$form-switch-min-height:    1.5rem !default;
+$form-switch-padding-start: $form-switch-width + .5em !default;
+
+$form-select-border-width:        $input-border-width !default;
+$form-select-border-color:        $input-border-color !default;
+$form-select-border-radius:       $input-border-radius !default;
+$form-select-box-shadow:          $input-box-shadow !default;
+$form-select-disabled-color:        $input-placeholder-color !default;
+
+// Alerts
+
+$alert-padding-y:                   .875rem !default;
+$alert-padding-x:                   1rem !default;
+$alert-margin-bottom:               0 !default;
+$alert-border-radius:               $border-radius !default;
+$alert-link-font-weight:            $font-weight-bold !default;
+$alert-border-width:                $border-width !default;
+$alert-box-shadow:                  $box-shadow !default;
+
+$alert-bg-scale:                    -90% !default;
+$alert-border-scale:                -80% !default;
+$alert-color-scale:                 10% !default;
+
+// ---
+$alert-dark-bg:                     $dark !default;
+$alert-dark-color:                  color-contrast($alert-dark-bg) !default;
+
+// Avatars
+
+$avatar-width:                      $btn-square-width !default;
+$avatar-font-size:                  1rem !default;
+$avatar-border-radius:              $border-radius !default;
+
+$avatar-width-2xl:                  $btn-square-width-2xl !default;
+$avatar-font-size-2xl:              $avatar-font-size * 2.5 !default;
+$avatar-border-radius-2xl:          $border-radius-lg !default;
+
+$avatar-width-xl:                   $btn-square-width-xl !default;
+$avatar-font-size-xl:               $avatar-font-size * 1.375 !default;
+$avatar-border-radius-xl:           $border-radius-lg !default;
+
+$avatar-width-lg:                   $btn-square-width-lg !default;
+$avatar-font-size-lg:               $avatar-font-size * 1.25 !default;
+$avatar-border-radius-lg:           $border-radius-lg !default;
+
+$avatar-width-sm:                   $btn-square-width-sm !default;
+$avatar-font-size-sm:               $avatar-font-size * .75 !default;
+$avatar-border-radius-sm:           $border-radius-sm !default;
+
+$avatar-width-xs:                   $btn-square-width-xs !default;
+$avatar-font-size-xs:               $avatar-font-size * .675 !default;
+$avatar-border-radius-xs:           $border-radius-sm !default;
+
+$avatar-bg:                         theme-color("primary") !default;
+$avatar-color:                      color-yiq($avatar-bg) !default;
+$avatar-font-weight:                $font-weight-bold !default;
+
+$avatar-stack-gutter:               2px !default;
+$avatar-stack-border-color:         $white !default;
+
+
+// Badges
+
+$badge-font-size:                   .75em !default;
+$badge-lg-font-size:                1em !default;
+$badge-font-weight:                 $font-weight-bold !default;
+$badge-padding-y:                   .2rem !default;
+$badge-padding-x:                   .6rem !default;
+$badge-line-height:                 1rem !default;
+$badge-border-radius:               $border-radius !default;
+$badge-text-transfom:               null !default;
+
+// Breadcrumb
+
+$breadcrumb-font-size:              $font-size-sm;
+$breadcrumb-padding-y:              0;
+$breadcrumb-padding-x:              0;
+$breadcrumb-item-padding-x:         .375rem;
+$breadcrumb-margin-bottom:          0;
+$breadcrumb-bg:                     null;
+$breadcrumb-divider-color:          $gray-400;
+$breadcrumb-active-color:           $headings-color;
+$breadcrumb-divider:                quote("/");
+$breadcrumb-divider-flipped:        $breadcrumb-divider;
+$breadcrumb-border-radius:          null;
+
+// Card
+
+$card-spacer-y:                     1.5rem !default;
+$card-spacer-x:                     1.5rem !default;
+$card-title-spacer-y:               1.5rem !default;
+
+$card-color:                        $body-color !default;
+$card-bg:                           $white !default;
+$card-border-width:                 $border-width !default;
+$card-border-color:                 $border-color !default;
+$card-border-radius:                $border-radius-xl !default;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+$card-box-shadow:                   null !default;
+
+$card-cap-padding-y:                1.25rem !default;
+$card-cap-padding-x:                $card-spacer-x !default;
+$card-cap-color:                    $headings-color !default;
+$card-cap-bg:                       rgba($black, 0) !default;
+$card-cap-border-width:             $card-border-width !default;
+$card-cap-border-color:             $card-border-color !default;
+
+$card-group-margin:                 math.div($grid-gutter-width, 2) !default;
+
+// Accordion
+$accordion-padding-y:                     1.5rem !default;
+$accordion-padding-x:                     1.25rem !default;
+$accordion-color:                         $body-color !default;
+$accordion-bg:                            transparent !default;
+$accordion-border-width:                  $border-width !default;
+$accordion-border-color:                  $border-color !default;
+$accordion-border-radius:                 $border-radius !default;
+
+$accordion-body-padding-y:                $accordion-padding-y !default;
+$accordion-body-padding-x:                $accordion-padding-x !default;
+
+$accordion-button-padding-y:              $accordion-padding-y !default;
+$accordion-button-padding-x:              $accordion-padding-x !default;
+$accordion-button-color:                  $accordion-color !default;
+$accordion-button-bg:                     $accordion-bg !default;
+
+$accordion-button-active-bg:              $accordion-bg !default;
+$accordion-button-active-color:           $headings-color !default;
+
+$accordion-button-focus-border-color:     $accordion-border-color !default;
+$accordion-button-focus-box-shadow:       $btn-focus-box-shadow !default;
+
+$accordion-icon-width:                    1.25rem !default;
+$accordion-icon-color:                    $accordion-color !default;
+$accordion-icon-active-color:             $accordion-button-active-color !default;
+$accordion-icon-transition:               transform .2s ease-in-out !default;
+$accordion-icon-transform:                rotate(180deg) !default;
+
+$accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/></svg>") !default;
+$accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/></svg>") !default;
+
+
+// Dropdown
+
+$dropdown-min-width-sm:             10rem !default;
+$dropdown-min-width:                12rem !default;
+$dropdown-min-width-md:             25rem !default;
+$dropdown-min-width-lg:             30rem !default;
+$dropdown-min-width-xl:             40rem !default;
+$dropdown-min-width-2xl:            50rem !default;
+
+$dropdown-transform:                translateX(-50%) translateY(-3px) scale(.96) !default;
+$dropdown-hover-transform:          translateX(0) translateY(-6px) scale(1) !default;
+$dropdown-left-offset:              50% !default;
+
+$dropdown-padding-x:                0rem !default;
+$dropdown-padding-y:                .5rem !default;
+$dropdown-spacer:                   .125rem !default;
+$dropdown-bg:                       $white !default;
+$dropdown-border-width:             1px !default;
+$dropdown-border-color:             lighten($gray-200, 3%) !default;
+$dropdown-border-radius:            $border-radius-xl !default;
+$dropdown-border-width:             $border-width !default;
+$dropdown-divider-bg:               tint-color($dropdown-border-color, 10%) !default;
+$dropdown-divider-margin-y:         $dropdown-padding-y !default;
+$dropdown-box-shadow:               $box-shadow-2xl !default;
+$dropdown-font-size:                $font-size-sm !default;
+
+$dropdown-secondary-bg:             $gray-100 !default;
+
+$dropdown-heading-color:            $gray-900 !default;
+$dropdown-heading-font-size:        $font-size-base !default;
+$dropdown-heading-font-weight:      $font-weight-semibold !default;
+$dropdown-heading-focus-color:      $primary !default;
+
+$dropdown-helper-color:             $text-muted !default;
+
+$dropdown-link-color:               $gray-900 !default;
+$dropdown-link-bg:                  $white !default;
+$dropdown-link-hover-color:         theme-color("primary") !default;
+$dropdown-link-hover-bg:            transparent !default;
+$dropdown-link-active-color:        theme-color("primary") !default;
+$dropdown-link-active-bg:           transparent !default;
+$dropdown-item-padding-y:           .5rem !default;
+$dropdown-item-padding-x:           1rem !default;
+
+
+// Frames
+
+$frame-iphone-width:            92% !default;
+$frame-iphone-height:           96% !default;
+$frame-iphone-spacing:          4% 4% 0 4% !default;
+
+$frame-laptop-width:            70% !default;
+$frame-laptop-height:           78% !default;
+$frame-laptop-spacing:          2.5% 15% 0 15% !default;
+
+
+// SVG icons
+
+$svg-icon-stroke-linecap:       round !default;
+$svg-icon-size:                 1em !default;
+$svg-icon-stroke-width:         2px !default;
+
+
+// Icons
+
+$icon-size:                     3rem !default;
+$icon-size-xl:                  5rem !default;
+$icon-size-lg:                  4rem !default;
+$icon-size-sm:                  2rem !default;
+$icon-size-xs:                  1.25rem !default;
+$icon-border-width:             3px !default;
+$icon-bg-level:                 -70% !default;
+
+
+// List group
+
+$list-group-bg:                     transparent !default;
+$list-group-border-width:           $border-width !default;
+$list-group-border-color:           $gray-200 !default;
+$list-group-border-radius:          $border-radius !default;
+
+$list-group-item-padding-y:         1.125rem !default;
+$list-group-item-padding-x:         1.5rem !default;
+
+$list-group-item-font-size:         $font-size-sm !default;
+$list-group-hover-bg:               $gray-100 !default;
+$list-group-active-color:           $gray-700 !default;
+$list-group-active-bg:              $gray-100 !default;
+$list-group-active-border-color:    $list-group-border-color !default;
+
+$list-group-disabled-color:         $gray-600 !default;
+$list-group-disabled-bg:            $list-group-bg !default;
+
+$list-group-action-color:           $gray-700 !default;
+$list-group-action-hover-color:     $list-group-action-color !default;
+
+$list-group-action-active-color:    $list-group-action-color !default;
+$list-group-action-active-bg:       $gray-200 !default;
+
+
+// Modals
+
+$modal-inner-padding:               1.5rem !default;
+
+$modal-footer-margin-between:       1rem !default;
+
+$modal-content-bg:                  $white !default;
+$modal-content-border-color:        $border-color !default;
+$modal-content-border-width:        1px !default;
+$modal-content-border-radius:       $card-border-radius !default;
+$modal-content-box-shadow-xs:       0 .25rem .5rem rgba($black, .3) !default;
+$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($black, .3) !default;
+
+$modal-backdrop-bg:                 $black !default;
+$modal-backdrop-opacity:            .4 !default;
+$modal-header-border-color:         $border-color !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-header-border-width:         $modal-content-border-width !default;
+$modal-footer-border-width:         $modal-header-border-width !default;
+$modal-header-padding-y:            $modal-inner-padding !default;
+$modal-header-padding-x:            $modal-inner-padding !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-vertical-width:              350px !default;
+$modal-vertical-lg:                 450px !default;
+$modal-vertical-space-y:            .5rem !default;
+$modal-vertical-space-x:            0 !default;
+$modal-vertical-border-radius:      $modal-content-border-radius 0 0 $modal-content-border-radius !default;
+
+
+// Navs
+
+$nav-link-padding-y:                .5rem !default;
+$nav-link-padding-x:                1rem !default;
+$nav-link-font-size:                $font-size-sm !default;
+$nav-link-font-weight:              $font-weight-semibold !default;
+$nav-link-color:                    $body-color !default;
+$nav-link-hover-color:              $primary !default;
+$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$nav-link-disabled-color:           $gray-400 !default;
+
+$nav-tabs-sm-font-size:             .8125rem !default;
+$nav-tabs-sm-link-margin-x:         .5rem !default;
+
+$nav-tabs-link-margin-x:            1.25rem !default;
+$nav-tabs-link-padding-y:           $card-cap-padding-y !default;
+$nav-tabs-border-color:             $border-color !default;
+$nav-tabs-border-radius:            0 !default;
+$nav-tabs-link-hover-border-color:  transparent transparent transparent !default;
+$nav-tabs-link-active-color:        $primary !default;
+$nav-tabs-link-active-bg:           transparent !default;
+$nav-tabs-link-active-border-width: 1px !default;
+$nav-tabs-link-active-border-color: transparent transparent $primary !default;
+
+$nav-pills-border-radius:           $border-radius !default;
+$nav-pills-link-active-color:       $component-active-color !default;
+$nav-pills-link-active-bg:          $component-active-bg !default;
+
+
+// Navbar
+
+$navbar-transition:                 all .15s linear !default;
+$navbar-padding-y:                  1rem !default;
+$navbar-padding-x:                  1rem !default;
+
+$navbar-box-shadow:                 0 0 10px rgba($black,.03) !default;
+$navbar-fixed-box-shadow:           0 3px 10px rgba($black, .1) !default;
+
+$navbar-icon-min-width:             1.875rem !default;
+// $navbar-icon-spacing:               .5rem !default;
+
+$navbar-breadcrumb-padding-y:       $nav-link-padding-y !default;
+$navbar-breadcrumb-padding-x:       0 !default;
+
+$navbar-nav-link-padding-x:         1.25rem !default;
+$navbar-nav-link-padding-y:         1rem !default;
+
+$navbar-nav-link-font-size:         .925rem !default;
+$navbar-nav-link-font-weight:       $nav-link-font-weight !default;
+$navbar-nav-link-text-transform:    null !default;
+$navbar-nav-link-letter-spacing:    0 !default;
+$navbar-nav-link-border-radius:     0 !default;
+
+$nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
+$navbar-brand-size:                 40px !default;
+$navbar-brand-font-size:            $font-size-base !default;
+$navbar-brand-margin-end:           0 !default;
+$navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-padding-y:            math.div(($nav-link-height - $navbar-brand-height), 2) !default;
+
+$navbar-dark-bg:                    $dark !default;
+$navbar-dark-hover-bg:              rgba(255, 255, 255, .1) !default;
+$navbar-dark-active-bg:             rgba(255, 255, 255, .1) !default;
+$navbar-dark-border-color:          rgba(255, 255, 255, .1) !default;
+$navbar-dark-color:                 rgba($white, .85) !default;
+$navbar-dark-hover-color:           $white !default;
+$navbar-dark-active-color:          $white !default;
+$navbar-dark-disabled-color:        rgba($white, .25) !default;
+$navbar-dark-caret-bg:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-dark-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-dark-icon-color:            $gray-100 !default;
+
+$navbar-light-bg:                   $white !default;
+$navbar-light-border-color:         $border-color !default;
+$navbar-light-hover-bg:             $gray-100 !default;
+$navbar-light-active-bg:            $gray-100 !default;
+$navbar-light-color:                $gray-900 !default;
+$navbar-light-hover-color:          lighten($navbar-light-color, 30%) !default;
+$navbar-light-active-color:         $gray-900 !default;
+$navbar-light-disabled-color:       $gray-500 !default;
+$navbar-light-caret-bg:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-light-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-light-icon-color:           $text-muted !default;
+
+$navbar-toggler-padding-y:          .25rem !default;
+$navbar-toggler-padding-x:          .375rem !default;
+$navbar-toggler-font-size:          $font-size-lg !default;
+$navbar-toggler-border-width:       1px !default;
+$navbar-toggler-border-radius:      $btn-border-radius !default;
+$navbar-toggler-focus-width:        $btn-focus-width !default;
+$navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
+$navbar-toggler-font-size:          $font-size-lg !default;
+
+$navbar-toggler-icon-width:         1.25em !default;
+$navbar-toggler-icon-height:        1.25em !default;
+
+$navbar-light-toggler-color:        $gray-600 !default;
+$navbar-light-toggler-bg:           transparent !default;
+$navbar-light-toggler-icon-bg:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-light-toggler-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-light-toggler-border-color: transparent !default;
+$navbar-light-toggler-focus-color:  transparent !default;
+$navbar-light-toggler-focus-bg:     $gray-100 !default;
+
+$navbar-dark-toggler-color:         $gray-200 !default;
+$navbar-dark-toggler-bg:             transparent !default;
+$navbar-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-toggler-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-dark-toggler-border-color:  transparent !default;
+$navbar-dark-toggler-focus-color:   transparent !default;
+$navbar-dark-toggler-focus-bg:      $gray-100 !default;
+
+// Vertical navbar
+
+$navbar-vertical-box-shadow:            $box-shadow-transparent !important;
+$navbar-vertical-width:                 270px !default;
+$navbar-vertical-open-width:            270px !default;
+
+$navbar-vertical-width-lg:              320px !default;
+$navbar-vertical-open-width-lg:         320px !default;
+
+$navbar-vertical-width-xl:              370px !default;
+$navbar-vertical-open-width-xl:         370px !default;
+
+$navbar-vertical-border-width:          1px !default;
+$navbar-vertical-border-style:          solid !default;
+$navbar-vertical-border-radius:         0 !default;
+$navbar-vertical-open-border-radius:    0 !default;
+
+$navbar-vertical-nav-link-padding-x:    1.5rem !default;
+$navbar-vertical-nav-link-padding-y:    .75rem !default;
+$navbar-vertical-nav-link-font-size:    $font-size-sm !default;
+
+
+// Navbar search
+
+$navbar-search-width:                       250px !default;
+$navbar-search-focus-width:                 380px !default;
+$navbar-search-bg:                          transparent !default;
+$navbar-search-transition:                  $transition-cubic-bezier !default;
+
+$navbar-search-border-radius:               $border-radius-lg !default;
+$navbar-search-border-width:                0 !default;
+
+$navbar-search-dark-bg:                     darken($navbar-dark-bg, 10%) !default;
+$navbar-search-dark-focus-bg:               darken($navbar-dark-bg, 15%) !default;
+$navbar-search-dark-border-color:           darken($navbar-dark-bg, 10%) !default;
+$navbar-search-dark-color:                  rgba(255, 255, 255, .6) !default;
+$navbar-search-dark-focus-border-color:     darken($navbar-dark-bg, 15%) !default;
+$navbar-search-dark-focus-color:            rgba(255, 255, 255, .9) !default;
+
+$navbar-search-light-bg:                    darken($navbar-light-bg, 5%) !default;
+$navbar-search-light-focus-bg:              darken($navbar-light-bg, 10%) !default;
+$navbar-search-light-border-color:          rgba(0, 0, 0, .6) !default;
+$navbar-search-light-color:                 rgba(0, 0, 0, .6) !default;
+$navbar-search-light-focus-border-color:    rgba(0, 0, 0, .9) !default;
+$navbar-search-light-focus-color:           rgba(0, 0, 0, .9) !default;
+
+// Navbar dropdown
+
+// $navbar-dropdown-menu-width:               16rem !default;
+// $navbar-dropdown-padding-y:                1.25rem !default;
+// $navbar-dropdown-padding-x:                1.75rem !default;
+// $navbar-dropdown-spacer:                   .125rem !default;
+// $navbar-dropdown-bg:                       $white !default;
+// $navbar-dropdown-border-width:             0 !default;
+// $navbar-dropdown-border-color:             rgba($black, 0) !default;
+// $navbar-dropdown-border-radius:            $border-radius-lg !default;
+// $navbar-dropdown-border-width:             $border-width !default;
+// $navbar-dropdown-divider-bg:               $gray-200 !default;
+// $navbar-dropdown-box-shadow:               0 1.5rem 4rem rgba($black, .15) !default;
+//
+// $navbar-dropdown-link-font-size:           $font-size-sm !default;
+// $navbar-dropdown-link-font-weight:         $font-weight-normal !default;
+// $navbar-dropdown-link-color:               $gray-800 !default;
+// $navbar-dropdown-link-bg:                  transparent !default;
+//
+// $navbar-dropdown-link-hover-color:         tint-color($navbar-dropdown-link-color, 10%) !default;
+// $navbar-dropdown-link-hover-bg:            $gray-100 !default;
+//
+// $navbar-dropdown-link-active-color:        $navbar-dropdown-link-hover-color !default;
+// $navbar-dropdown-link-active-bg:           transparent !default;
+//
+// $navbar-dropdown-item-padding-y:           .375rem !default;
+// $navbar-dropdown-item-padding-x:           0 !default;
+//
+// $navbar-dropdown-heading-padding-y:        $navbar-dropdown-item-padding-y !default;
+// $navbar-dropdown-heading-color:            tint-color($gray-800, 7%) !default;
+// $navbar-dropdown-heading-font-weight:      $font-weight-semibold !default;
+// $navbar-dropdown-heading-font-size:        $font-size-base !default;
+// $navbar-dropdown-text-color:               $text-muted !default;
+
+// Navbar collapse
+
+$navbar-collapse-bg:                        transparent !default;
+$navbar-collapse-nav-link-color:            $navbar-light-color !default;
+// $navbar-collapse-dropdown-item-color:       $navbar-dropdown-link-color !default;
+// $navbar-collapse-dropdown-heading-color:    $navbar-dropdown-heading-color !default;
+
+// $navbar-collapse-overlay-bg:                $navbar-dropdown-bg !default;
+
+
+// Omnisearch
+
+$omnisearch-width:                 580px !default;
+$omnisearch-input-height:          58px !default;
+
+
+// Pagination
+
+$pagination-padding-y:              .375rem !default;
+$pagination-padding-x:              1rem !default;
+$pagination-font-size:              $font-size-sm !default;
+
+$pagination-padding-y-sm:           .25rem !default;
+$pagination-padding-x-sm:           .75rem !default;
+$pagination-font-size-sm:           $font-size-sm !default;
+
+$pagination-padding-y-lg:           .75rem !default;
+$pagination-padding-x-lg:           1.5rem !default;
+$pagination-font-size-lg:           $font-size-base !default;
+
+$pagination-color:                  $gray-700 !default;
+$pagination-border-radius:          $border-radius !default;
+$pagination-hover-color:            $gray-900 !default;
+$pagination-hover-bg:               $gray-50 !default;
+$pagination-hover-border-color:     $gray-300 !default !default;
+$pagination-focus-color:            $link-hover-color !default;
+$pagination-focus-bg:               $gray-100 !default;
+$pagination-focus-box-shadow:       none !default;
+$pagination-focus-outline:          0 !default;
+$pagination-active-bg:              $primary !default;
+$pagination-tabs-active-color:      color-contrast($pagination-active-bg) !default;
+$pagination-active-border-color:    $pagination-active-bg !default;
+
+$pagination-tabs-padding-y:             1.25rem !default;
+$pagination-tabs-padding-x:             .75rem !default;
+$pagination-tabs-bg-color:              transparent !default;
+$pagination-tabs-border-width:          $border-width !default;
+$pagination-tabs-border-color:          $border-color !default;
+$pagination-tabs-color:                 $pagination-color !default;
+$pagination-tabs-hover-color:           $primary !default;
+$pagination-tabs-active-color:          $primary !default;
+$pagination-tabs-active-border-color:   $primary !default;
+
+
+// Bullet pagination
+
+$pagination-bullet-bg:              $gray-500 !default;
+$pagination-bullet-active-bg:       $primary !default;
+
+
+// Popovers
+
+$popover-font-size:                 $font-size-sm !default;
+$popover-bg:                        $white !default;
+$popover-max-width:                 276px !default;
+$popover-border-width:              1px !default;
+$popover-border-color:              rgba($black, .05) !default;
+$popover-border-radius:             $border-radius-lg !default;
+$popover-box-shadow:                0px .5rem 2rem 0px rgba($black, .2) !default;
+
+$popover-header-bg:                 $popover-bg !default;
+$popover-header-color:              $headings-color !default;
+$popover-header-padding-y:          .75rem !default;
+$popover-header-padding-x:          .75rem !default;
+
+$popover-body-color:                $body-color !default;
+$popover-body-padding-y:            $popover-header-padding-y !default;
+$popover-body-padding-x:            $popover-header-padding-x !default;
+
+$popover-arrow-outer-color:         transparent !default;
+
+
+// Tooltips
+
+$tooltip-padding-y:                 math.div($spacer, 4) !default;
+$tooltip-padding-x:                 math.div($spacer, 2) !default;
+
+// Progress
+
+$progress-height:                   .5rem !default;
+$progress-font-size:                ($font-size-base * .75) !default;
+$progress-bg:                       $gray-200 !default;
+$progress-border-radius:            $border-radius-pill !default;
+$progress-box-shadow:               $box-shadow-transparent !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   theme-color("primary") !default;
+$progress-bar-animation-timing:     1s linear infinite !default;
+$progress-bar-transition:           width .6s ease !default;
+
+
+// Close
+
+$btn-close-width:            1em !default;
+$btn-close-height:           $btn-close-width !default;
+$btn-close-padding-x:        .25em !default;
+$btn-close-padding-y:        $btn-close-padding-x !default;
+$btn-close-color:            currentColor !default;
+$btn-close-bg:               url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>") !default;
+$btn-close-focus-shadow:     $input-btn-focus-box-shadow !default;
+$btn-close-opacity:          .5 !default;
+$btn-close-hover-opacity:    .75 !default;
+$btn-close-focus-opacity:    1 !default;
+$btn-close-disabled-opacity: .25 !default;
+$btn-close-white-filter:     invert(1) grayscale(100%) brightness(200%) !default;
+
+
+// Offcanvas
+
+// scss-docs-start offcanvas-variables
+$offcanvas-padding-y:               $modal-inner-padding !default;
+$offcanvas-padding-x:               $modal-inner-padding !default;
+$offcanvas-horizontal-width:        400px !default;
+$offcanvas-vertical-height:         30vh !default;
+$offcanvas-transition-duration:     .3s !default;
+$offcanvas-border-color:            $modal-content-border-color !default;
+// $offcanvas-border-width:            $modal-content-border-width !default;
+// $offcanvas-title-line-height:       $modal-title-line-height !default;
+// $offcanvas-bg-color:                $modal-content-bg !default;
+// $offcanvas-color:                   $modal-content-color !default;
+// $offcanvas-box-shadow:              $modal-content-box-shadow-xs !default;
+// $offcanvas-backdrop-bg:             $modal-backdrop-bg !default;
+// $offcanvas-backdrop-opacity:        $modal-backdrop-opacity !default;
+// scss-docs-end offcanvas-variables

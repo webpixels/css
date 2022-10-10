@@ -1,0 +1,23 @@
+{
+  "name": "parcel",
+  "description": "Include Bootstrap's source Sass and individual JavaScript plugins with Parcel.",
+  "version": "0.0.0",
+  "private": true,
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel serve src/index.html --public-url / --dist-dir dist",
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "@webpixels/css": "^1.2.1",
+    "bootstrap": "^5.2.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0"
+  }
+}
