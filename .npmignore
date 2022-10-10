@@ -1,10 +1,19 @@
+*.log
+.DS_Store
+.cache/
+.changelog/
+.next/
+.sass-cache
+.stylelintcache
+.parcel-cache/
+.cache
+node_modules/
 tmp/
+dist/
+package-lock.json
+
+# we ignore this because everything in src/ is copied out in script/prepublish
+src/
 .changeset/
 .github/
 script/
-# we ignore this because everything in src/ is copied out in script/prepublish
-src/
-.*
-*.log
-vercel.json
-*.config.js
