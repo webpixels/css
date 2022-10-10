@@ -62,7 +62,7 @@ or pick the parts you need:
 @import "@webpixels/css/components/cards";
 ```
 
-[**Click here**](https://github.com/webpixels/css/blob/master/src/components/_index.scss) to see the complete list of available components.
+[**Click here**](https://github.com/webpixels/css/blob/master/scss/components/_index.scss) to see the complete list of available components.
 
 ### Import the utility classes
 
