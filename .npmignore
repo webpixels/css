@@ -2,18 +2,17 @@
 .DS_Store
 .cache/
 .changelog/
-.next/
 .sass-cache
 .stylelintcache
-.parcel-cache/
+.parcel-cache
 .cache
-node_modules/
-tmp/
-dist/
+.changeset
+.github
+node_modules
+tmp
+integration
+script
 package-lock.json
 
 # we ignore this because everything in src/ is copied out in script/prepublish
 src/
-.changeset/
-.github/
-script/
