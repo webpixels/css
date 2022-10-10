@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@webpixels/css": "^1.2.1",
+    "@webpixels/css": "^1.2.11",
     "bootstrap": "^5.2.2"
   }
 }

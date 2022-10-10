@@ -1,6 +1,6 @@
 // Import our custom CSS
 import '../scss/main.scss'
-// import '../scss/utility.scss'
+import '../scss/utility.scss'
 
 // Import only the Bootstrap components we need
 import { Dropdown, Offcanvas, Popover } from 'bootstrap';
