@@ -100,7 +100,7 @@ Get your new web design project started with these amazing templates, or copy an
 
 Get updates on the development of our CSS tool and chat with the project maintainers and community members.
 
-- Follow [@webpixels_](https://twitter.com/intent/user?screen_name=webpxs) on Twitter
+- Follow [@webpixels_](https://twitter.com/intent/user?screen_name=webpixels_) on Twitter
 - Get inspired through our designs on [Dribbble](https://dribbble.com/webpixels)
 - Read and subscribe to [The Official Webpixels Blog](https://webpixels.io/blog)
 - Join [Github Discussions](https://github.com/webpixels/css/discussions)
