@@ -12,7 +12,11 @@
 @import "static/height-calc";
 @import "static/helpers";
 
-$utilities: (
+// Bootstrap utilities
+@import "bootstrap/scss/utilities";
+
+// Custom utilities
+$utilities: map-merge($utilities, (
   "viewport-height": null,
   "min-viewport-height": null,
   "min-viewport-width": null,
@@ -688,4 +692,4 @@ $utilities: (
     class: skew-x,
     values: negativify-map($utilities-skew-values)
   )
-);
+));
