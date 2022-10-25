@@ -33,13 +33,13 @@ $spacer-values: (
   88: $spacer * 22,
   96: $spacer * 24,
   px: 1px
-);
+) !default;
 
 $spacers:           if(map-has-key($theme, spacers), map-get($theme, spacers), $spacer-values);
 $negative-spacers:  if($enable-negative-margins, negativify-map($spacers), null);
 
 $position-values: (
-    1\/2: 50%,
-    full: 100%,
-    auto: auto
+  1\/2: 50%,
+  full: 100%,
+  auto: auto
 ) !default;

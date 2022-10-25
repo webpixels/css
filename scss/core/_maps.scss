@@ -2,12 +2,6 @@
 //
 // Extends the default `$theme-colors` maps to help create our utilities.
 
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
-$colors-rgb: map-loop($colors, to-rgb, "$value") !default;
-$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
-
-// Come v6, we'll de-dupe these variables. Until then, for backward compatibility, we keep them to reassign.
-// scss-docs-start utilities-colors
 $utilities-colors: map-collect(
   $colors-rgb,
   $theme-colors-rgb
