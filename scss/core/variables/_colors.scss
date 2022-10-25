@@ -180,7 +180,7 @@ $colors: (
   "gray-700": $gray-700,
   "gray-800": $gray-800,
   "gray-900": $gray-900,
-  
+
   "blue-100": $blue-100,
   "blue-200": $blue-200,
   "blue-300": $blue-300,
@@ -385,3 +385,8 @@ $surface-colors: map-merge((
   "surface-light":        $gray-200,
   "surface-dark":         shade-color($dark, 7%)
 ), $surface-colors);
+
+// RGB color maps used for generating utility classes
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
+$colors-rgb: map-loop($colors, to-rgb, "$value") !default;
+$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
