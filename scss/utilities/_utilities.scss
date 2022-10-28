@@ -88,37 +88,6 @@ $utilities: map-merge($utilities, (
   ),
 
   // Border
-  "border-width": (
-    css-var: true,
-    css-variable-name: border-width,
-    class: border,
-    values: $utilities-border-widths
-  ),
-  "border-opacity": (
-    css-var: true,
-    class: border-opacity,
-    values: $utilities-opacity-values
-  ),
-  "border-color": (
-    property: border-color,
-    class: border,
-    state: hover focus,
-    local-vars: (
-      "border-opacity": 1
-    ),
-    values: $utilities-border-color-values
-  ),
-  "static-border-color": (
-    property: border-color,
-    class: border,
-    values: $utilities-static-border-color-values
-  ),
-  "border-style": (
-    css-var: true,
-    css-variable-name: border-style,
-    class: border,
-    values: solid dashed dotted double groove none
-  ),
   "border": (
     property: border,
     responsive: true,
@@ -163,7 +132,38 @@ $utilities: map-merge($utilities, (
       0: 0,
     )
   ),
-
+  "border-width": (
+    css-var: true,
+    css-variable-name: border-width,
+    class: border,
+    values: $utilities-border-widths
+  ),
+  "border-opacity": (
+    css-var: true,
+    class: border-opacity,
+    values: $utilities-opacity-values
+  ),
+  "border-color": (
+    property: border-color,
+    class: border,
+    state: hover focus,
+    local-vars: (
+      "border-opacity": 1
+    ),
+    values: $utilities-border-color-values
+  ),
+  "static-border-color": (
+    property: border-color,
+    class: border,
+    values: $utilities-static-border-color-values
+  ),
+  "border-style": (
+    css-var: true,
+    css-variable-name: border-style,
+    class: border,
+    values: solid dashed dotted double groove none
+  ),
+  
   // Cursor
   "cursor": (
     property: cursor,
