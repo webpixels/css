@@ -306,16 +306,16 @@ $dark:          $gray-900 !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "tertiary":   $tertiary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "white":      $white,
-    "light":      $light,
-    "dark":       $dark
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "tertiary":   $tertiary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "white":      $white,
+  "light":      $light,
+  "dark":       $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -333,17 +333,17 @@ $reddit:        #FF4301 !default;
 
 // scss-docs-start theme-colors-map
 $brand-colors: (
-    "bootstrap":    $bootstrap,
-    "laravel":      $laravel,
-    "react":        $react,
-    "facebook":     $facebook,
-    "twitter":      $twitter,
-    "instagram":    $instagram,
-    "pinterest":    $pinterest,
-    "youtube":      $youtube,
-    "dribbble":     $dribbble,
-    "github":       $github,
-    "reddit":       $reddit
+  "bootstrap":    $bootstrap,
+  "laravel":      $laravel,
+  "react":        $react,
+  "facebook":     $facebook,
+  "twitter":      $twitter,
+  "instagram":    $instagram,
+  "pinterest":    $pinterest,
+  "youtube":      $youtube,
+  "dribbble":     $dribbble,
+  "github":       $github,
+  "reddit":       $reddit
 ) !default;
 // scss-docs-end brand-colors-map
 
@@ -377,13 +377,19 @@ $body-text-align:           null !default;
 //
 // Colors used for content area background colors
 
+$surface-primary: $body-bg !default;
+$surface-secondary: $gray-100 !default;
+$surface-tertiary: $gray-50 !default;
+$surface-light: $gray-200 !default;
+$surface-dark: shade-color($dark, 7%) !default;
+
 $surface-colors: () !default;
 $surface-colors: map-merge((
-  "surface-primary":      $body-bg,
-  "surface-secondary":    $gray-100,
-  "surface-tertiary":     $gray-50,
-  "surface-light":        $gray-200,
-  "surface-dark":         shade-color($dark, 7%)
+  "surface-primary":      $surface-primary,
+  "surface-secondary":    $surface-secondary,
+  "surface-tertiary":     $surface-tertiary,
+  "surface-light":        $surface-light,
+  "surface-dark":         $surface-dark
 ), $surface-colors);
 
 // RGB color maps used for generating utility classes

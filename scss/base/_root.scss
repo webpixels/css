@@ -11,8 +11,6 @@
 
   @each $color, $value in $theme-colors {
     --#{$prefix}#{$color}: #{$value};
-    --#{$prefix}shade-#{$color}: #{shade-color($value, 10%)};
-    --#{$prefix}tint-#{$color}: #{tint-color($value, 10%)};
   }
 
   @each $color, $value in $surface-colors {
@@ -85,8 +83,9 @@
   --#{$prefix}link-color: #{$link-color};
   --#{$prefix}link-hover-color: #{$link-hover-color};
 
-  --#{$prefix}code-color: #{$code-color};
+  --#{$prefix}headings-color: #{$gray-900};
 
+  --#{$prefix}code-color: #{$code-color};
   --#{$prefix}highlight-bg: #{$mark-bg};
 
 }

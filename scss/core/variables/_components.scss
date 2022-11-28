@@ -3,8 +3,8 @@
 // scss-docs-start table-variables
 $table-cell-padding-y:        1rem !default;
 $table-cell-padding-x:        1.5rem !default;
-$table-cell-padding-y-sm:     .5rem !default;
-$table-cell-padding-x-sm:     .5rem !default;
+$table-cell-padding-y-sm:     .375rem !default;
+$table-cell-padding-x-sm:     1.5rem !default;
 
 $table-cell-vertical-align:   middle !default;
 $table-cell-font-size:        .8125rem !default;
@@ -25,16 +25,16 @@ $table-th-color:            $gray-700 !default;
 $table-action-color:        $gray-500 !default;
 
 $table-striped-color:         $table-color !default;
-$table-striped-bg-factor:     .05 !default;
-$table-striped-bg:            rgba($black, $table-striped-bg-factor) !default;
+$table-striped-bg-factor:     .40 !default;
+$table-striped-bg:            rgba($gray-100, $table-striped-bg-factor) !default;
 
 $table-active-color:          $table-color !default;
-$table-active-bg-factor:      .1 !default;
-$table-active-bg:             rgba($black, $table-active-bg-factor) !default;
+$table-active-bg-factor:      .80 !default;
+$table-active-bg:             rgba($gray-100, $table-active-bg-factor) !default;
 
 $table-hover-color:           $table-color !default;
-$table-hover-bg-factor:       .02 !default;
-$table-hover-bg:              rgba($black, $table-hover-bg-factor) !default;
+$table-hover-bg-factor:       .80 !default;
+$table-hover-bg:              rgba($gray-100, $table-hover-bg-factor) !default;
 
 $table-border-factor:         .1 !default;
 $table-border-width:          $border-width !default;
@@ -181,10 +181,12 @@ $btn-square-width-xs:                   1.75rem !default;
 $btn-neutral-bg:                    $white !default;
 $btn-neutral-color:                 $headings-color !default;
 $btn-neutral-border-color:          $border-color !default;
-$btn-neutral-hover-bg:              $border-color !default;
-$btn-neutral-hover-border-color:    $border-color !default;
+$btn-neutral-hover-bg:              $btn-neutral-border-color !default;
+$btn-neutral-hover-border-color:    $btn-neutral-border-color !default;
 $btn-neutral-hover-color:           $btn-neutral-color !default;
-
+$btn-neutral-active-bg:             $btn-neutral-border-color !default;
+$btn-neutral-active-border-color:   $btn-neutral-border-color !default;
+$btn-neutral-active-color:          $btn-neutral-color !default;
 
 // Forms
 
@@ -580,12 +582,6 @@ $navbar-breadcrumb-padding-x:       0 !default;
 $navbar-nav-link-padding-x:         1.25rem !default;
 $navbar-nav-link-padding-y:         1rem !default;
 
-$navbar-nav-link-font-size:         .925rem !default;
-$navbar-nav-link-font-weight:       $nav-link-font-weight !default;
-$navbar-nav-link-text-transform:    null !default;
-$navbar-nav-link-letter-spacing:    0 !default;
-$navbar-nav-link-border-radius:     0 !default;
-
 $nav-link-height:                   $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
 $navbar-brand-size:                 40px !default;
 $navbar-brand-font-size:            $font-size-base !default;
@@ -593,27 +589,29 @@ $navbar-brand-margin-end:           0 !default;
 $navbar-brand-height:               $navbar-brand-font-size * $line-height-base !default;
 $navbar-brand-padding-y:            math.div(($nav-link-height - $navbar-brand-height), 2) !default;
 
-$navbar-dark-bg:                    $dark !default;
-$navbar-dark-hover-bg:              rgba(255, 255, 255, .1) !default;
-$navbar-dark-active-bg:             rgba(255, 255, 255, .1) !default;
-$navbar-dark-border-color:          rgba(255, 255, 255, .1) !default;
-$navbar-dark-color:                 rgba($white, .85) !default;
-$navbar-dark-hover-color:           $white !default;
-$navbar-dark-active-color:          $white !default;
-$navbar-dark-disabled-color:        rgba($white, .25) !default;
-$navbar-dark-caret-bg:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-dark-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$navbar-dark-icon-color:            $gray-100 !default;
+$navbar-nav-link-bg:              $white !default;
+$navbar-nav-link-color:           $gray-900 !default;
+$navbar-icon-color:               $text-muted !default;
+$navbar-caret-bg:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-nav-link-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$navbar-light-bg:                   $white !default;
-$navbar-light-border-color:         $border-color !default;
-$navbar-light-hover-bg:             $gray-100 !default;
-$navbar-light-active-bg:            $gray-100 !default;
-$navbar-light-color:                $gray-900 !default;
-$navbar-light-hover-color:          lighten($navbar-light-color, 30%) !default;
-$navbar-light-active-color:         $gray-900 !default;
-$navbar-light-disabled-color:       $gray-500 !default;
-$navbar-light-caret-bg:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-light-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$navbar-light-icon-color:           $text-muted !default;
+$navbar-nav-link-hover-bg:        $gray-100 !default;
+$navbar-nav-link-hover-color:     lighten($navbar-nav-link-color, 30%) !default;
+$navbar-nav-link-active-bg:       $gray-100 !default;
+$navbar-nav-link-active-color:    lighten($navbar-nav-link-color, 30%) !default;
+$navbar-disabled-bg:              transparent !default;
+$navbar-disabled-color:           $gray-500 !default;
+
+$navbar-dark-nav-link-bg:              transparent !default;
+$navbar-dark-nav-link-color:           rgba($white, .85) !default;
+$navbar-dark-icon-color:               $gray-100 !default;
+$navbar-dark-nav-link-hover-bg:        rgba(255, 255, 255, .1) !default;
+$navbar-dark-nav-link-hover-color:     $white !default;
+$navbar-dark-nav-link-active-bg:       rgba(255, 255, 255, .1) !default;
+$navbar-dark-nav-link-active-color:    $white !default;
+$navbar-dark-caret-bg:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-dark-nav-link-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$navbar-dark-disabled-bg:              transparent !default;
+$navbar-dark-disabled-color:           $gray-500 !default;
 
 $navbar-toggler-padding-y:          .25rem !default;
 $navbar-toggler-padding-x:          .375rem !default;
@@ -665,27 +663,27 @@ $navbar-vertical-nav-link-font-size:    $font-size-sm !default;
 
 // Navbar search
 
-$navbar-search-width:                       250px !default;
-$navbar-search-focus-width:                 380px !default;
-$navbar-search-bg:                          transparent !default;
-$navbar-search-transition:                  $transition-cubic-bezier !default;
-
-$navbar-search-border-radius:               $border-radius-lg !default;
-$navbar-search-border-width:                0 !default;
-
-$navbar-search-dark-bg:                     darken($navbar-dark-bg, 10%) !default;
-$navbar-search-dark-focus-bg:               darken($navbar-dark-bg, 15%) !default;
-$navbar-search-dark-border-color:           darken($navbar-dark-bg, 10%) !default;
-$navbar-search-dark-color:                  rgba(255, 255, 255, .6) !default;
-$navbar-search-dark-focus-border-color:     darken($navbar-dark-bg, 15%) !default;
-$navbar-search-dark-focus-color:            rgba(255, 255, 255, .9) !default;
-
-$navbar-search-light-bg:                    darken($navbar-light-bg, 5%) !default;
-$navbar-search-light-focus-bg:              darken($navbar-light-bg, 10%) !default;
-$navbar-search-light-border-color:          rgba(0, 0, 0, .6) !default;
-$navbar-search-light-color:                 rgba(0, 0, 0, .6) !default;
-$navbar-search-light-focus-border-color:    rgba(0, 0, 0, .9) !default;
-$navbar-search-light-focus-color:           rgba(0, 0, 0, .9) !default;
+// $navbar-search-width:                       250px !default;
+// $navbar-search-focus-width:                 380px !default;
+// $navbar-search-bg:                          transparent !default;
+// $navbar-search-transition:                  $transition-cubic-bezier !default;
+//
+// $navbar-search-border-radius:               $border-radius-lg !default;
+// $navbar-search-border-width:                0 !default;
+//
+// $navbar-search-dark-bg:                     darken($navbar-dark-bg, 10%) !default;
+// $navbar-search-dark-focus-bg:               darken($navbar-dark-bg, 15%) !default;
+// $navbar-search-dark-border-color:           darken($navbar-dark-bg, 10%) !default;
+// $navbar-search-dark-color:                  rgba(255, 255, 255, .6) !default;
+// $navbar-search-dark-focus-border-color:     darken($navbar-dark-bg, 15%) !default;
+// $navbar-search-dark-focus-color:            rgba(255, 255, 255, .9) !default;
+//
+// $navbar-search-light-bg:                    darken($navbar-light-bg, 5%) !default;
+// $navbar-search-light-focus-bg:              darken($navbar-light-bg, 10%) !default;
+// $navbar-search-light-border-color:          rgba(0, 0, 0, .6) !default;
+// $navbar-search-light-color:                 rgba(0, 0, 0, .6) !default;
+// $navbar-search-light-focus-border-color:    rgba(0, 0, 0, .9) !default;
+// $navbar-search-light-focus-color:           rgba(0, 0, 0, .9) !default;
 
 // Navbar dropdown
 
@@ -724,7 +722,7 @@ $navbar-search-light-focus-color:           rgba(0, 0, 0, .9) !default;
 // Navbar collapse
 
 $navbar-collapse-bg:                        transparent !default;
-$navbar-collapse-nav-link-color:            $navbar-light-color !default;
+$navbar-collapse-nav-link-color:            $navbar-nav-link-color !default;
 // $navbar-collapse-dropdown-item-color:       $navbar-dropdown-link-color !default;
 // $navbar-collapse-dropdown-heading-color:    $navbar-dropdown-heading-color !default;
 
@@ -816,10 +814,19 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius-pill !default;
 $progress-box-shadow:               $box-shadow-transparent !default;
 $progress-bar-color:                $white !default;
-$progress-bar-bg:                   theme-color("primary") !default;
+$progress-bar-bg:                   $primary !default;
 $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
 
+$progress-circle-size:              $btn-square-width !default;
+$progress-circle-bg:                $progress-bg !default;
+$progress-circle-color:             $primary !default;
+$progress-circle-bar-bg:            $progress-bar-bg !default;
+
+$progress-circle-size-2xl:          $btn-square-width-2xl !default;
+$progress-circle-size-xl:           $btn-square-width-xl !default;
+$progress-circle-size-lg:           $btn-square-width-lg !default;
+$progress-circle-size-sm:           $btn-square-width-sm !default;
 
 // Close
 
