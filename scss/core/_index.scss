@@ -1,17 +1,4 @@
-// Webpixels CSS functions
 @import "functions";
-
-// Webpixels CSS overrides
 @import "variables";
 @import "maps";
-
-// Bootstrap functions, bariables, and mixins
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-
-// Webpixels CSS mixins
-@import "mixins/forms";
-@import "mixins/link";
-@import "mixins/modals";
-@import "mixins/popover";
+@import "mixins"

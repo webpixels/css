@@ -11,6 +11,7 @@
 @import "static/animation";
 @import "static/height-calc";
 @import "static/helpers";
+@import "static/group";
 
 // Bootstrap utilities
 @import "bootstrap/scss/utilities";
@@ -163,7 +164,7 @@ $utilities: map-merge($utilities, (
     class: border,
     values: solid dashed dotted double groove none
   ),
-  
+
   // Cursor
   "cursor": (
     property: cursor,

@@ -40,7 +40,7 @@ $container-max-widths: (
 $grid-columns:          if(map-has-key($theme, grid, columns), map-get($theme, grid, columns), 12) !default;
 $grid-row-columns:      if(map-has-key($theme, grid, row-columns), map-get($theme, grid, row-columns), 6) !default;
 
-$grid-gutter-width:     if(map-has-key($theme, gutter, width), map-get($theme, gutter, width), 3rem) !default;
+$grid-gutter-width:     if(map-has-key($theme, gutter, width), map-get($theme, gutter, width), 1.5rem) !default;
 $gutter:                if(map-has-key($theme, gutter, values), map-get($theme, gutter, values), $spacers) !default;
 
 // Container padding
