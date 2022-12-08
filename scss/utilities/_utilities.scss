@@ -472,6 +472,39 @@ $utilities: map-merge($utilities, (
     values: auto hidden visible scroll
   ),
 
+  // Scroll
+  "scroll-behaviour": (
+    property: scroll-behaviour,
+    class: scroll,
+    values: auto smooth
+  ),
+  "scroll-snap-align": (
+    property: scroll-snap-align,
+    class: scroll-snap,
+    values: start end center none
+  ),
+  "scroll-snap-stop": (
+    property: scroll-snap-stop,
+    class: scroll-snap,
+    values: normal always
+  ),
+  "scroll-snap-type": (
+    property: scroll-snap-type,
+    class: scroll-snap,
+    values: (
+      none: none,
+      x: x var(--x-scroll-snap-strictness),
+      y: y var(--x-scroll-snap-strictness),
+      both: both var(--x-scroll-snap-strictness),
+    )
+  ),
+  "scroll-snap-strictness": (
+    css-var: true,
+    css-variable-name: scroll-snap-strictness,
+    class: scroll-snap,
+    values: mandatory proximity
+  ),
+  
   // Transitions
   "transition-property": (
     property: transition-property,
