@@ -6,12 +6,12 @@
 // scss-docs-start grid-breakpoints
 
 $breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
 ) !default;
 
 $grid-breakpoints: if(map-has-key($theme, breakpoints), map-get($theme, breakpoints), $breakpoints);
@@ -22,11 +22,11 @@ $grid-breakpoints: if(map-has-key($theme, breakpoints), map-get($theme, breakpoi
 
 // scss-docs-start container-max-widths
 $container-max-widths: (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1140px,
-    xxl: 1360px
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1360px
 ) !default;
 // scss-docs-end container-max-widths
 

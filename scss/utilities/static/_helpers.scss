@@ -20,27 +20,37 @@
 //
 
 .scrollable-x {
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .scrollable-y {
-    white-space: nowrap;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
+
+// Screen offset based on screen sizes
+@each $size, $value in $screen-widths {
+  .offset-left-#{$size} {
+    padding-left: max($grid-gutter-width * 0.5, calc((100% - $value) / 2 + $grid-gutter-width * 0.5));
+  }
+  .offset-right-#{$size} {
+    padding-right: max($grid-gutter-width * 0.5, calc((100% - $value) / 2 + $grid-gutter-width * 0.5));
+  }
+}
 
 // Fading elements
 

@@ -24,8 +24,9 @@
 .navbar-nav {
   --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
   --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-  
-  > .nav-item > .nav-link {
+
+  > .nav-item > .nav-link,
+  > .nav-link {
     background-color: var(--#{$prefix}navbar-bg);
     color: var(--#{$prefix}navbar-color);
     padding-top: var(--#{$prefix}navbar-nav-link-padding-y);
