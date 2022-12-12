@@ -1,0 +1,164 @@
+// Color system
+
+// White/Grays/Black colors
+$white:    #FFF !default;
+$gray-50:  #FAFAFA !default;    // Alternate background
+$gray-100: #F5F9FC !default;    // Base background
+$gray-200: #E7EAF0 !default;
+$gray-300: #CFD6DF !default;
+$gray-400: #ABB6C5 !default;
+$gray-500: #8898A9 !default;    // Disabled text
+$gray-600: #6B7B93 !default;    // Placeholder text
+$gray-700: #525F7F !default;    // Text content
+$gray-800: #2D3748 !default;    // Text content old(44444e)
+$gray-900: #16192C !default;    // Text content
+$black:    #000 !default;
+
+// Base colors
+$blue:    #0099FF !default;
+$indigo:  #5C60F5 !default;
+$purple:  #8957FF !default;
+$pink:    #FF579A !default;
+$magenta: #EE33FF !default;
+$red:     #FF3366 !default;
+$orange:  #FF8C00 !default;
+$yellow:  #FFBB00 !default;
+$lime:    #84cc16 !default;
+$green:   #00CC88 !default;
+$teal:    #22DDDD !default;
+$cyan:    #00D4FF !default;
+
+// fusv-disable
+$blue-100: tint-color($blue, 80%) !default;
+$blue-200: tint-color($blue, 60%) !default;
+$blue-300: tint-color($blue, 40%) !default;
+$blue-400: tint-color($blue, 20%) !default;
+$blue-500: $blue !default;
+$blue-600: shade-color($blue, 20%) !default;
+$blue-700: shade-color($blue, 40%) !default;
+$blue-800: shade-color($blue, 60%) !default;
+$blue-900: shade-color($blue, 80%) !default;
+
+$indigo-100: tint-color($indigo, 80%) !default;
+$indigo-200: tint-color($indigo, 60%) !default;
+$indigo-300: tint-color($indigo, 40%) !default;
+$indigo-400: tint-color($indigo, 20%) !default;
+$indigo-500: $indigo !default;
+$indigo-600: shade-color($indigo, 20%) !default;
+$indigo-700: shade-color($indigo, 40%) !default;
+$indigo-800: shade-color($indigo, 60%) !default;
+$indigo-900: shade-color($indigo, 80%) !default;
+
+$purple-100: tint-color($purple, 80%) !default;
+$purple-200: tint-color($purple, 60%) !default;
+$purple-300: tint-color($purple, 40%) !default;
+$purple-400: tint-color($purple, 20%) !default;
+$purple-500: $purple !default;
+$purple-600: shade-color($purple, 20%) !default;
+$purple-700: shade-color($purple, 40%) !default;
+$purple-800: shade-color($purple, 60%) !default;
+$purple-900: shade-color($purple, 80%) !default;
+
+$pink-100: tint-color($pink, 80%) !default;
+$pink-200: tint-color($pink, 60%) !default;
+$pink-300: tint-color($pink, 40%) !default;
+$pink-400: tint-color($pink, 20%) !default;
+$pink-500: $pink !default;
+$pink-600: shade-color($pink, 20%) !default;
+$pink-700: shade-color($pink, 40%) !default;
+$pink-800: shade-color($pink, 60%) !default;
+$pink-900: shade-color($pink, 80%) !default;
+
+$magenta-100: tint-color($magenta, 80%) !default;
+$magenta-200: tint-color($magenta, 60%) !default;
+$magenta-300: tint-color($magenta, 40%) !default;
+$magenta-400: tint-color($magenta, 20%) !default;
+$magenta-500: $magenta !default;
+$magenta-600: shade-color($magenta, 20%) !default;
+$magenta-700: shade-color($magenta, 40%) !default;
+$magenta-800: shade-color($magenta, 60%) !default;
+$magenta-900: shade-color($magenta, 80%) !default;
+
+$red-100: tint-color($red, 80%) !default;
+$red-200: tint-color($red, 60%) !default;
+$red-300: tint-color($red, 40%) !default;
+$red-400: tint-color($red, 20%) !default;
+$red-500: $red !default;
+$red-600: shade-color($red, 20%) !default;
+$red-700: shade-color($red, 40%) !default;
+$red-800: shade-color($red, 60%) !default;
+$red-900: shade-color($red, 80%) !default;
+
+$orange-100: tint-color($orange, 80%) !default;
+$orange-200: tint-color($orange, 60%) !default;
+$orange-300: tint-color($orange, 40%) !default;
+$orange-400: tint-color($orange, 20%) !default;
+$orange-500: $orange !default;
+$orange-600: shade-color($orange, 20%) !default;
+$orange-700: shade-color($orange, 40%) !default;
+$orange-800: shade-color($orange, 60%) !default;
+$orange-900: shade-color($orange, 80%) !default;
+
+$yellow-100: tint-color($yellow, 80%) !default;
+$yellow-200: tint-color($yellow, 60%) !default;
+$yellow-300: tint-color($yellow, 40%) !default;
+$yellow-400: tint-color($yellow, 20%) !default;
+$yellow-500: $yellow !default;
+$yellow-600: shade-color($yellow, 20%) !default;
+$yellow-700: shade-color($yellow, 40%) !default;
+$yellow-800: shade-color($yellow, 60%) !default;
+$yellow-900: shade-color($yellow, 80%) !default;
+
+$lime-100: tint-color($lime, 80%) !default;
+$lime-200: tint-color($lime, 60%) !default;
+$lime-300: tint-color($lime, 40%) !default;
+$lime-400: tint-color($lime, 20%) !default;
+$lime-500: $lime !default;
+$lime-600: shade-color($lime, 20%) !default;
+$lime-700: shade-color($lime, 40%) !default;
+$lime-800: shade-color($lime, 60%) !default;
+$lime-900: shade-color($lime, 80%) !default;
+
+$green-100: tint-color($green, 80%) !default;
+$green-200: tint-color($green, 60%) !default;
+$green-300: tint-color($green, 40%) !default;
+$green-400: tint-color($green, 20%) !default;
+$green-500: $green !default;
+$green-600: shade-color($green, 20%) !default;
+$green-700: shade-color($green, 40%) !default;
+$green-800: shade-color($green, 60%) !default;
+$green-900: shade-color($green, 80%) !default;
+
+$teal-100: tint-color($teal, 80%) !default;
+$teal-200: tint-color($teal, 60%) !default;
+$teal-300: tint-color($teal, 40%) !default;
+$teal-400: tint-color($teal, 20%) !default;
+$teal-500: $teal !default;
+$teal-600: shade-color($teal, 20%) !default;
+$teal-700: shade-color($teal, 40%) !default;
+$teal-800: shade-color($teal, 60%) !default;
+$teal-900: shade-color($teal, 80%) !default;
+
+$cyan-100: tint-color($cyan, 80%) !default;
+$cyan-200: tint-color($cyan, 60%) !default;
+$cyan-300: tint-color($cyan, 40%) !default;
+$cyan-400: tint-color($cyan, 20%) !default;
+$cyan-500: $cyan !default;
+$cyan-600: shade-color($cyan, 20%) !default;
+$cyan-700: shade-color($cyan, 40%) !default;
+$cyan-800: shade-color($cyan, 60%) !default;
+$cyan-900: shade-color($cyan, 80%) !default;
+// fusv-enable
+
+// Brand colors
+$bootstrap:     #7952b3 !default;
+$laravel:       #ff2d20 !default;
+$react:         #61dafb !default;
+$facebook:      #3b5999 !default;
+$twitter:       #1da1f2 !default;
+$instagram:     #e4405f !default;
+$pinterest:     #bd081c !default;
+$youtube:       #cd201f !default;
+$dribbble:      #ea4c89 !default;
+$github:        #222222 !default;
+$reddit:        #FF4301 !default;
