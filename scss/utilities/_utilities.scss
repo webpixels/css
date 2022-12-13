@@ -137,6 +137,7 @@ $utilities: map-merge($utilities, (
     css-var: true,
     css-variable-name: border-width,
     class: border,
+    responsive: true,
     values: $utilities-border-widths
   ),
   "border-opacity": (
@@ -504,7 +505,7 @@ $utilities: map-merge($utilities, (
     class: scroll-snap,
     values: mandatory proximity
   ),
-  
+
   // Transitions
   "transition-property": (
     property: transition-property,
