@@ -28,6 +28,14 @@
     background-image: linear-gradient(to top left, var(--#{$prefix}gradient)) !important;
   }
 
+  // For transparent values
+  .start-transparent,
+  .start-transparent-hover:hover {
+    --#{$prefix}start-color: transparent;
+    --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}end-color, rgba(0, 0, 0, 0));
+  }
+
+  // For color values
   @each $color, $value in $colors {
     $end-color: rgba(0, 0, 0, 0);
     .start-#{$color},
@@ -35,6 +43,12 @@
       --#{$prefix}start-color: var(--#{$prefix}#{$color});
       --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}end-color, #{$end-color});
     }
+  }
+
+  .middle-transparent,
+  .middle-transparent-hover:hover {
+    --#{$prefix}middle-color: transparent;
+    --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}middle-color), var(--#{$prefix}end-color, rgba(0, 0, 0, 0));
   }
 
   @each $color, $value in $colors {
@@ -46,6 +60,11 @@
     }
   }
 
+  .end-transparent,
+  .end-transparent-hover:hover {
+    --#{$prefix}end-color: transparent;
+  }
+  
   @each $color, $value in $colors {
     .end-#{$color},
     .end-#{$color}-hover:hover {
