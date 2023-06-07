@@ -1,7 +1,7 @@
 {
   "name": "@webpixels/css",
   "description": "Utility and component-centric design system based on Bootstrap for fast, responsive UI development.",
-  "version": "1.2.6",
+  "version": "1.2.5",
   "version_short": "1.2",
   "license": "MIT",
   "style": "dist/index.css",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
@@ -62,7 +62,7 @@
     "postcss": "^8.3.0",
     "postcss-cli": "^8.3.1",
     "purgecss": "^4.0.3",
-    "sass": "^1.35.1",
+    "sass": "^1.62.1",
     "serve": "^14.0.1",
     "stylelint": "^14.11.0",
     "stylelint-config-prettier-scss": "^0.0.1",

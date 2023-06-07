@@ -1,0 +1,125 @@
+@import "bootstrap/scss/buttons";
+
+// Soft color variation
+@each $color, $value in $theme-colors {
+  .btn-soft-#{$color} {
+    @include button-variant(shift-color($value, $btn-soft-bg-level), shift-color($value, $btn-soft-bg-level), $value, $value, color-contrast($value));
+  }
+}
+
+// Neutral button variant
+.btn-neutral {
+  @include button-variant(
+    $btn-neutral-bg,
+    $btn-neutral-border-color,
+    $btn-neutral-color,
+    $btn-neutral-hover-bg,
+    $btn-neutral-hover-border-color,
+    $btn-neutral-hover-color,
+    $btn-neutral-active-bg, 
+    $btn-neutral-active-border-color, 
+    $btn-neutral-active-color
+  );
+}
+
+// Alternative sizes
+.btn-xs {
+  --#{$prefix}btn-padding-y: #{$btn-padding-y-xs};
+  --#{$prefix}btn-padding-x: #{$btn-padding-x-xs};
+  --#{$prefix}btn-font-size: #{$font-size-xs};
+}
+
+// Squared button
+.btn-square {
+  --#{$prefix}btn-size: #{$btn-square-size};
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: var(--#{$prefix}btn-size);
+  height: var(--#{$prefix}btn-size);
+
+  &.btn-xs {
+    --#{$prefix}btn-size: #{$btn-square-size-xs};
+  }
+
+  &.btn-sm {
+    --#{$prefix}btn-size: #{$btn-square-size-sm};
+  }
+
+  &.btn-lg {
+    --#{$prefix}btn-size: #{$btn-square-size-lg};
+  }
+
+  &.btn-xl {
+    --#{$prefix}btn-size: #{$btn-square-size-xl};
+  }
+
+  &.btn-2xl {
+    --#{$prefix}btn-size: #{$btn-square-size-2xl};
+  }
+}
+
+// Animated button
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+
+  .btn-inner-visible {
+    position: relative;
+  }
+
+  .btn-inner-hidden {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.btn-animated-x {
+    .btn-inner-visible {
+      right: 0;
+      @include transition(right .3s ease 0s);
+    }
+
+    .btn-inner-hidden {
+      right: -100%;
+      @include transition(right .3s ease 0s);
+    }
+
+    &:hover {
+      .btn-inner-hidden {
+        right: 0;
+      }
+
+      .btn-inner-visible {
+        right: 150%;
+      }
+    }
+}
+
+.btn-animated-y {
+  .btn-inner-visible {
+    top: 0;
+    @include transition(top .3s ease 0s);
+  }
+
+  .btn-inner-hidden {
+    left: 0;
+    top: -100%;
+    @include transition(top .3s ease );
+  }
+
+  &:hover {
+    .btn-inner-hidden {
+      top: 50%;
+    }
+
+    .btn-inner-visible {
+      top: 100px;
+    }
+  }
+}
+

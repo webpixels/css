@@ -1,0 +1,105 @@
+//
+// Avatar
+//
+
+.avatar {
+  --#{$prefix}avatar-size: #{$avatar-size};
+  --#{$prefix}avatar-border-radius: #{$avatar-border-radius};
+  --#{$prefix}avatar-font-size: #{$avatar-font-size};
+  --#{$prefix}avatar-font-weight: #{$avatar-font-weight};
+
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	font-weight: var(--#{$prefix}avatar-font-weight);
+	height: var(--#{$prefix}avatar-size);
+	width: var(--#{$prefix}avatar-size);
+	@include font-size(var(--#{$prefix}avatar-font-size));
+	@include border-radius(var(--#{$prefix}avatar-border-radius));
+	
+	img {
+		width: 100%;
+		@include border-radius(inherit);
+	}
+
+	+ .avatar {
+		margin-left: .25rem;
+	}
+
+	+ .avatar-content {
+		display: inline-block;
+		margin-left: .75rem;
+	}
+}
+
+// Sizes
+.avatar-xs {
+	--#{$prefix}avatar-size: #{$avatar-size-2xl};
+	--#{$prefix}avatar-font-size: #{$avatar-font-size-2xl};
+}
+
+.avatar-xl {
+	--#{$prefix}avatar-size: #{$avatar-size-xl};
+	--#{$prefix}avatar-font-size: #{$avatar-font-size-xl};
+}
+
+.avatar-lg {
+	--#{$prefix}avatar-size: #{$avatar-size-lg};
+	--#{$prefix}avatar-font-size: #{$avatar-font-size-lg};
+}
+
+.avatar-sm {
+	--#{$prefix}avatar-size: #{$avatar-size-sm};
+	--#{$prefix}avatar-font-size: #{$avatar-font-size-sm};
+  --#{$prefix}avatar-border-radius: #{$avatar-border-radius-sm};
+}
+
+.avatar-xs {
+	--#{$prefix}avatar-size: #{$avatar-size-xs};
+	--#{$prefix}avatar-font-size: #{$avatar-font-size-xs};
+  --#{$prefix}avatar-border-radius: #{$avatar-border-radius-xs};
+}
+
+
+// Avatar group
+.avatar-group {
+	display: inline-block;
+	line-height: 1;
+
+	.avatar {
+		z-index: 1;
+		@include transition(margin .15s ease-in-out);
+
+		&:hover {
+			z-index: 2;
+		}
+	}
+
+	.avatar + .avatar {
+		margin-left: -1.25rem;
+		@include border-start-radius(0);
+	}
+
+	.avatar-sm + .avatar-sm,
+	.avatar-xs + .avatar-xs, {
+		margin-left: -1rem;
+	}
+
+	&:hover {
+		.avatar {
+			@include border-start-radius($avatar-border-radius);
+		}
+
+		.avatar-sm {
+			@include border-start-radius($avatar-border-radius-sm);
+		}
+	}
+}
+
+.avatar-ungroup-hover:hover {
+	.avatar:not(:first-child) {
+		margin-left: 0;
+	}
+}

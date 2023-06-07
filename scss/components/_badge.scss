@@ -1,0 +1,102 @@
+//
+// Badge
+//
+
+@import "bootstrap/scss/badge";
+
+.badge {
+    --#{$prefix}badge-text-transform: #{$badge-text-transform};
+    --#{$prefix}badge-line-height: #{$badge-line-height};
+
+    text-transform: var(--#{$prefix}badge-text-transform);
+    line-height: var(--#{$prefix}badge-line-height);
+
+}
+
+// Size variations
+.badge-xs {
+    --#{$prefix}badge-padding-x: .5rem;
+    --#{$prefix}badge-padding-y: .1rem;
+    font-size: 60%;
+}
+
+.badge-md {
+    --#{$prefix}badge-padding-x: .4rem;
+    --#{$prefix}badge-padding-y: .1rem;
+}
+
+.badge-lg {
+    --#{$prefix}badge-padding-x: .6rem;
+    --#{$prefix}badge-padding-y: .1rem;
+    @include font-size($badge-lg-font-size);
+}
+
+// Badge with indicator 
+.badge-dot {
+    --#{$prefix}badge-color: #{$badge-dot-color};
+    --#{$prefix}badge-font-weight: #{$badge-dot-font-weight};
+
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    font-weight: var(--#{$prefix}badge-font-weight);
+    color: var(--#{$prefix}badge-color);
+
+    i {
+        display: inline-block;
+        vertical-align: middle;
+        width: .375rem;
+        height: .375rem;
+        border-radius: 50%;
+        margin-right: .5rem;
+    }
+
+    &.badge-md {
+        i {
+            width: .5rem;
+            height: .5rem;
+        }
+    }
+
+    &.badge-lg {
+        i {
+            width: .625rem;
+            height: .625rem;
+        }
+    }
+}
+
+// Badge count 
+.badge-count {
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    @include font-size(.75rem);
+    font-weight: 600;
+
+    &.badge-xs {
+        width: 1rem;
+        height: 1rem;
+        @include font-size(.5rem);
+    }
+
+    &.badge-md {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &.badge-lg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    svg {
+        margin: 0;
+    }
+}
