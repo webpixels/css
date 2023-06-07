@@ -8,30 +8,6 @@ $min-contrast-ratio:   2 !default;
 $color-contrast-dark:      $black !default;
 $color-contrast-light:     $white !default;
 
-$grays: (
-  "50":  $gray-50,
-  "100": $gray-100,
-  "200": $gray-200,
-  "300": $gray-300,
-  "400": $gray-400,
-  "500": $gray-500,
-  "600": $gray-600,
-  "700": $gray-700,
-  "800": $gray-800,
-  "900": $gray-900
-) !default;
-
-// Theme colors
-$primary:       $indigo !default;
-$secondary:     $gray-300 !default;
-$tertiary:      $pink !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $orange !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
-
 // Bg Soft level
 $bg-soft-level:           -80% !default;
 $bg-shade-level:           15% !default;
@@ -50,18 +26,18 @@ $body-text-align:           null !default;
 // Surfaces
 // Colors used for content area background colors
 
-$surface-primary: $body-bg !default;
-$surface-secondary: $gray-100 !default;
-$surface-tertiary: $gray-50 !default;
-$surface-light: $gray-200 !default;
-$surface-dark: shade-color($dark, 7%) !default;
+// $surface-primary: $body-bg !default;
+// $surface-secondary: $gray-100 !default;
+// $surface-tertiary: $gray-50 !default;
+// $surface-light: $gray-200 !default;
+// $surface-dark: shade-color($dark, 7%) !default;
 
-$surface-colors: () !default;
-$surface-colors: map-merge((
-  "surface-primary":      $surface-primary,
-  "surface-secondary":    $surface-secondary,
-  "surface-tertiary":     $surface-tertiary,
-  "surface-light":        $surface-light,
-  "surface-dark":         $surface-dark
-), $surface-colors);
+// $surface-colors: () !default;
+// $surface-colors: map-merge((
+//   "surface-primary":      $surface-primary,
+//   "surface-secondary":    $surface-secondary,
+//   "surface-tertiary":     $surface-tertiary,
+//   "surface-light":        $surface-light,
+//   "surface-dark":         $surface-dark
+// ), $surface-colors);
 
