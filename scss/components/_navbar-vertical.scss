@@ -5,11 +5,12 @@
 @use "sass:math";
 
 .navbar-vertical {
-  --#{$prefix}nav-link-padding-x: #{$navbar-vertical-nav-link-padding-x};
-  --#{$prefix}nav-link-padding-y: #{$navbar-vertical-nav-link-padding-y};
   @include rfs($navbar-vertical-nav-link-font-size, --#{$prefix}nav-link-font-size);
 
   .navbar-nav {
+    --#{$prefix}nav-link-padding-x: #{$navbar-vertical-nav-link-padding-x};
+    --#{$prefix}nav-link-padding-y: #{$navbar-vertical-nav-link-padding-y};
+    
     .nav-link {
       position: relative;
       display: flex;

@@ -28,6 +28,10 @@
 
 
 // Checkable form items
+.form-item-checkable {
+    margin: 2px;
+}
+
 .form-item-check {
     position: absolute;
     clip: rect(0, 0, 0, 0);
@@ -35,12 +39,13 @@
     display: none;
 }
 
-.form-item-check:hover + .form-item .form-item-click {
-    border-color: $primary;
-}
+// .form-item-check:hover + .form-item .form-item-click {
+//     border-color: $primary;
+// }
 
 .form-item-check:checked + .form-item .form-item-click {
     border-color: $primary;
+    box-shadow: 0 0 0 1px $primary;
 }
 
 .form-item-check[disabled] + .form-item .form-item-click,

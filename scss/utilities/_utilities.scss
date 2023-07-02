@@ -3,32 +3,98 @@
 $utilities: map-merge($utilities, (
   "rounded": map-merge(
     map-get($utilities, "rounded"),
-    ( 
+    (
+      values: $utilities-border-radius,
       responsive: true 
     ),
   ),
   "rounded-top": map-merge(
     map-get($utilities, "rounded-top"),
     ( 
+      values: $utilities-border-radius,
       responsive: true 
     ),
   ),
   "rounded-bottom": map-merge(
     map-get($utilities, "rounded-bottom"),
     ( 
+      values: $utilities-border-radius,
       responsive: true 
     ),
   ),
   "rounded-start": map-merge(
     map-get($utilities, "rounded-start"),
     ( 
+      values: $utilities-border-radius,
       responsive: true 
     ),
   ),
   "rounded-end": map-merge(
     map-get($utilities, "rounded-end"),
     ( 
+      values: $utilities-border-radius,
       responsive: true 
+    ),
+  ),
+  // added in webpixels
+  "rounded-top-start": (
+    property: border-top-left-radius,
+    class: rounded-top-start,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-top-end": (
+    property: border-top-right-radius,
+    class: rounded-top-end,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-bottom-end": (
+    property: border-bottom-right-radius,
+    class: rounded-bottom-end,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-bottom-start": (
+    property: border-bottom-left-radius,
+    class: rounded-bottom-start,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "border": map-merge(
+    map-get($utilities, "border"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-top": map-merge(
+    map-get($utilities, "border-top"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-end": map-merge(
+    map-get($utilities, "border-end"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-bottom": map-merge(
+    map-get($utilities, "border-bottom"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-start": map-merge(
+    map-get($utilities, "border-start"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-opacity": map-merge(
+    map-get($utilities, "border-opacity"),
+    ( 
+      state: hover
     ),
   ),
   "static-border-color": (
@@ -42,7 +108,7 @@ $utilities: map-merge($utilities, (
   "border-style": ( 
     property: border-style,
     class: border,
-    values: solid dashed dotted double groove none
+    values: solid dashed dotted none
   ),
   "cursor": (
     property: cursor,
@@ -103,12 +169,14 @@ $utilities: map-merge($utilities, (
   "background-color": map-merge(
     map-get($utilities, "background-color"),
     (
-      values: map-merge(
+      values: map-merge-multiple(
         map-get(map-get($utilities, "background-color"), "values"),
         (
           "card": to-rgb($card-bg)
-        )
+        ),
+        $custom-utilities-bg-colors
       ),
+      state: hover
     ),
   ),
   "static-background-color": (
@@ -169,7 +237,7 @@ $utilities: map-merge($utilities, (
     property: width,
     class: w-rem,
     responsive: true,
-    values: map-collect(
+    values: map-merge-multiple(
       $spacers,
       $percentage-sizers,
       $screen-widths,
@@ -200,11 +268,23 @@ $utilities: map-merge($utilities, (
   ),
 
   // Heights
+  "height": map-merge(
+    map-get($utilities, "height"),
+    (
+      responsive: true
+    ),
+  ),
   "rem-height": (
     property: height,
     class: h-rem,
     responsive: true,
     values: $spacers
+  ),
+  "viewport-height": map-merge(
+    map-get($utilities, "viewport-height"),
+    (
+      responsive: true
+    ),
   ),
   // "min-height": (
   //   property: min-height,
@@ -220,7 +300,7 @@ $utilities: map-merge($utilities, (
   //   property: max-height,
   //   class: max-h,
   //   responsive: true,
-  //   values: map-collect(
+  //   values: map-merge-multiple(
   //     $spacers,
   //     (
   //       px: 1px,

@@ -2,16 +2,16 @@
 
 // White/Grays/Black colors
 $white:    #FFF !default;
-$gray-50:  #FAFAFA !default;    // Alternate background
-$gray-100: #F5F9FC !default;    // Base background
-$gray-200: #E7EAF0 !default;
-$gray-300: #CFD6DF !default;
-$gray-400: #ABB6C5 !default;
-$gray-500: #8898A9 !default;    // Disabled text
-$gray-600: #6B7B93 !default;    // Placeholder text
-$gray-700: #525F7F !default;    // Text content
-$gray-800: #2D3748 !default;    // Text content old(44444e)
-$gray-900: #16192C !default;    // Text content
+$gray-50:  #f9fafb !default;
+$gray-100: #f3f4f6 !default;
+$gray-200: #e5e7eb !default;
+$gray-300: #d1d5db !default;
+$gray-400: #9ca3af !default;
+$gray-500: #6b7280 !default;
+$gray-600: #4b5563 !default;
+$gray-700: #374151 !default; // Used for text color
+$gray-800: #1f2937 !default; // Used for headings color
+$gray-900: #111827 !default;
 $black:    #000 !default;
 
 // Base colors
@@ -38,3 +38,12 @@ $warning:       $orange !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
+
+// Surfaces
+// Colors used for content area background colors
+
+$surface-primary: 	$white !default;
+$surface-secondary: $gray-100 !default;
+$surface-tertiary: 	$gray-50 !default;
+$surface-light: 		$gray-200 !default;
+$surface-dark: 			shade-color($dark, 7%) !default;

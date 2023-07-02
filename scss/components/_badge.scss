@@ -2,8 +2,6 @@
 // Badge
 //
 
-@import "bootstrap/scss/badge";
-
 .badge {
     --#{$prefix}badge-text-transform: #{$badge-text-transform};
     --#{$prefix}badge-line-height: #{$badge-line-height};
@@ -21,13 +19,13 @@
 }
 
 .badge-md {
-    --#{$prefix}badge-padding-x: .4rem;
-    --#{$prefix}badge-padding-y: .1rem;
+    --#{$prefix}badge-padding-x: .675rem;
+    --#{$prefix}badge-padding-y: .375rem;
 }
 
 .badge-lg {
-    --#{$prefix}badge-padding-x: .6rem;
-    --#{$prefix}badge-padding-y: .1rem;
+    --#{$prefix}badge-padding-x: 1rem;
+    --#{$prefix}badge-padding-y: .875rem;
     @include font-size($badge-lg-font-size);
 }
 

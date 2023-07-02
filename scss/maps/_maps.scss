@@ -1,6 +1,13 @@
 // Maps
 // 
 
+// Surface colors 
+
+// RGB color maps used for generating utility classes
+$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
+$custom-utilities-bg: $surface-colors-rgb !default;
+$custom-utilities-bg-colors: map-loop($custom-utilities-bg, rgba-css-var, "$key", "bg") !default;
+
 // Typography
 $utilities-font-family-values: (
   base: var(--#{$prefix}font-sans-serif),
@@ -61,6 +68,21 @@ $utilities-soft-shadows: (
   5: $box-soft-shadow-3xl,
   6: $box-soft-shadow-4xl,
   none: none
+) !default;
+
+// Border radius
+$utilities-border-radius: (
+  null: $border-radius,
+  0: 0,
+  1: $border-radius-sm,
+  2: $border-radius-lg,
+  3: $border-radius-xl,
+  4: $border-radius-2xl,
+  5: $border-radius-3xl,
+  6: $border-radius-4xl,
+  pill: $border-radius-pill,
+  circle: $border-radius-circle,
+  card: $card-border-radius
 ) !default;
 
 // Transform

@@ -38,6 +38,12 @@
 }
 
 
+// Border
+// .border-body is used to easily switch from light/dark
+.border-body {
+  --#{$prefix}border-color: var(--#{$prefix}body-bg);
+}
+
 // Screen offset based on screen sizes
 @each $size, $value in $screen-widths {
   .offset-start-#{$size} {

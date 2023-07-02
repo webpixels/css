@@ -1,5 +1,3 @@
-@import "bootstrap/scss/buttons";
-
 // Soft color variation
 @each $color, $value in $theme-colors {
   .btn-soft-#{$color} {
@@ -22,11 +20,25 @@
   );
 }
 
+.btn-white {
+  @include button-variant(
+    $white,
+    $white,
+    $dark,
+    $primary,
+    $primary,
+    $white,
+    $primary, 
+    $primary, 
+    $white
+  );
+}
+
 // Alternative sizes
 .btn-xs {
   --#{$prefix}btn-padding-y: #{$btn-padding-y-xs};
   --#{$prefix}btn-padding-x: #{$btn-padding-x-xs};
-  --#{$prefix}btn-font-size: #{$font-size-xs};
+  --#{$prefix}btn-font-size: #{$font-size-sm};
 }
 
 // Squared button

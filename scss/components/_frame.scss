@@ -1,0 +1,99 @@
+// Frames
+
+// Laptop
+.frame-laptop {
+  position: relative;
+
+  .frame-inner {
+    position: absolute;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $frame-laptop-width;
+    height: $frame-laptop-height;
+    margin: $frame-laptop-spacing;
+  }
+}
+
+// Phone frame
+.frame-iphone {
+  position: relative;
+  z-index: 100;
+
+  .frame-inner {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: $frame-iphone-width;
+    height: $frame-iphone-height;
+    margin: $frame-iphone-spacing;
+    @include border-radius(5%);
+  }
+}
+
+// Stack
+.frame-stack {
+  position: relative;
+
+  .frame {
+    position: absolute
+  }
+}
+
+.frame-stack-iphone-iphone {
+  padding-bottom: 130.250482%;
+
+  > .frame-iphone {
+    &:first-child {
+      bottom: 0;
+      left: 0;
+      width: 65.5260116%;
+      z-index: 1
+    }
+
+    &:last-child {
+      top: 0;
+      right: 0;
+      width: 72.8323699%
+    }
+  }
+}
+
+.frame-stack-iphone-laptop,
+.frame-stack-laptop-iphone {
+  padding-bottom: 62.4260355%
+}
+
+.frame-stack-iphone-laptop > .frame-laptop,
+.frame-stack-laptop-iphone > .frame-laptop {
+  width: 91.7159763%
+}
+
+.frame-stack-iphone-laptop > .frame-iphone,
+.frame-stack-laptop-iphone > .frame-iphone {
+  width: 27.9585799%;
+  z-index: 1
+}
+
+.frame-stack-laptop-iphone > .frame-laptop {
+  top: 0;
+  left: 0
+}
+
+.frame-stack-iphone-laptop > .frame-laptop {
+  top: 0;
+  right: 0
+}
+
+.frame-stack-laptop-iphone > .frame-iphone {
+  bottom: 0;
+  right: 0
+}
+
+.frame-stack-iphone-laptop > .frame-iphone {
+  bottom: 0;
+  left: 0
+}

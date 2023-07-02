@@ -1,0 +1,109 @@
+// Articles
+
+.article,
+.prose {
+	--#{$prefix}article-font-size: #{$article-font-size};
+	--#{$prefix}article-color: #{$article-color};
+	--#{$prefix}article-line-height: #{$article-text-line-height};
+	--#{$prefix}article-img-border-radius: #{$article-img-border-radius};
+	--#{$prefix}article-pre-border-radius: #{$article-pre-border-radius};
+
+	font-size: var(--#{$prefix}article-font-size);
+	color: var(--#{$prefix}article-color);
+	line-height: var(--#{$prefix}article-line-height);
+
+	> p {
+		margin-top: 1.25rem;
+		margin-bottom: 1.25rem;
+    }
+
+	> h2 {
+		@include font-size(1.5em);
+		font-weight: $font-weight-bolder;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3333333;
+    letter-spacing: -.025em;
+
+		&:first-child {
+			margin-top: 1em;
+		}
+	}
+
+	> h3 {
+		@include font-size(1.25em);
+		font-weight: $font-weight-bold;
+		margin-top: 1.6em;
+		margin-bottom: .6em;
+	}
+
+	> h4 {
+		@include font-size(1em);
+		font-weight: 500;
+		margin-top: 2em;
+	}
+
+	> img {
+		@include border-radius(var(--#{$prefix}article-img-border-radius));
+	}
+
+	> figure,
+	> img,
+	> video {
+	    margin-top: 2em;
+	    margin-bottom: 2em;
+	}
+
+	pre {
+		@include font-size(.875em);
+		line-height: 1.7;
+		padding: 1rem 1rem;
+		margin-top: 1.75em;
+   	margin-bottom: 1.75em;
+    overflow-x: auto;
+    background-color: $dark;
+    color: color-contrast($dark);
+		@include border-radius(var(--#{$prefix}article-pre-border-radius));
+	}
+
+	& > :first-child {
+  	margin-top: 0;
+	}
+
+	h2 + *,
+	h3 + *,
+	hr + * {
+  	margin-top: 0;
+	}
+
+	> hr {
+		margin-top: $article-hr-spacing-y;
+		margin-bottom: $article-hr-spacing-y;
+	}
+
+	> ul,
+	> ol {
+		padding-left: 1.5rem;
+
+		li {
+			padding: .25rem 0;
+		}
+	}
+
+	> blockquote {
+	    font-weight: 500;
+		@include font-size($font-size-lg);
+		color: $headings-color;
+	    letter-spacing: -.012em;
+	    padding: 1.5rem 3.5rem;
+		margin-top: 3em;
+		margin-bottom: 3em;
+		background-color: var(--x-surface-secondary);
+		@include border-radius($border-radius-lg);
+
+		> p {
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+	    }
+	}
+}
