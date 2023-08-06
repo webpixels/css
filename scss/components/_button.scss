@@ -34,11 +34,17 @@
   );
 }
 
-// Alternative sizes
+// sizes added in webpixels
 .btn-xs {
   --#{$prefix}btn-padding-y: #{$btn-padding-y-xs};
   --#{$prefix}btn-padding-x: #{$btn-padding-x-xs};
-  --#{$prefix}btn-font-size: #{$font-size-sm};
+  --#{$prefix}btn-font-size: #{$input-btn-font-size-xs};
+}
+
+.btn-xl {
+  --#{$prefix}btn-padding-y: #{$btn-padding-y-xl};
+  --#{$prefix}btn-padding-x: #{$btn-padding-x-xl};
+  --#{$prefix}btn-font-size: #{$input-btn-font-size-xl};
 }
 
 // Squared button
@@ -52,9 +58,9 @@
   width: var(--#{$prefix}btn-size);
   height: var(--#{$prefix}btn-size);
 
-  &.btn-xs {
-    --#{$prefix}btn-size: #{$btn-square-size-xs};
-  }
+  // &.btn-xs {
+  //   --#{$prefix}btn-size: #{$btn-square-size-xs};
+  // }
 
   &.btn-sm {
     --#{$prefix}btn-size: #{$btn-square-size-sm};

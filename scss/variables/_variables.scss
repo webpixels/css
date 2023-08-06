@@ -61,28 +61,10 @@ $bg-soft-level:           -80% !default;
 $bg-shade-level:           15% !default;
 $bg-tint-level:            15% !default;
 
-// Add a custom color to $theme-colors
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "tertiary":   $tertiary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
-
-$tertiary-text-emphasis:   shade-color($tertiary, 60%) !default;
-$tertiary-bg-subtle:       tint-color($tertiary, 80%) !default;
-$tertiary-border-subtle:   tint-color($tertiary, 60%) !default;
-
 // Surface colors
 $surface-colors: (
   "surface-primary":      $surface-primary,
   "surface-secondary":    $surface-secondary,
-  "surface-tertiary":     $surface-tertiary,
   "surface-light":        $surface-light,
   "surface-dark":         $surface-dark
 ) !default;
@@ -92,7 +74,7 @@ $surface-colors: (
 // Settings for the `<body>` element.
 
 $body-bg:                   $white !default;
-$body-color:                $gray-700 !default;
+$body-color:                $gray-600 !default;
 
 // Spacing
 //
@@ -126,6 +108,7 @@ $spacers: (
   64: $spacer * 16,
   72: $spacer * 18,
   80: $spacer * 20,
+  px: 1px,
 ) !default;
 
 
@@ -336,6 +319,7 @@ $font-family-serif:          var(--#{$prefix}font-serif) !default;
 $font-size-root:              null !default;
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 
+$font-size-xxs:               $font-size-base * .625 !default;
 $font-size-xs:                $font-size-base * .75 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-md:                $font-size-base * 1.125 !default;
@@ -493,61 +477,71 @@ $section-step-even-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Cs
 
 // Buttons + Forms
 
-$input-btn-padding-y:         .75rem !default;
-$input-btn-padding-x:         1.25rem !default;
-$input-btn-font-size:         $font-size-base !default;
-$input-btn-line-height:       $line-height-sm !default;
+// size added in webpixels
+$input-btn-padding-y-xs:      .25rem !default;
+$input-btn-padding-x-xs:      .5rem !default;
+$input-btn-font-size-xs:      $font-size-xs !default;
+$input-btn-line-height-xs:    1rem !default;
 
-$input-btn-focus-width:         3px !default;
+// bootstrap overrides
+$input-btn-padding-y-sm:      .25rem !default;
+$input-btn-padding-x-sm:      .5rem !default;
+$input-btn-font-size-sm:      $font-size-sm !default;
+$input-btn-line-height-sm:    1.25 !default;
+
+$input-btn-padding-y:         .375rem !default;
+$input-btn-padding-x:         .625rem !default;
+$input-btn-font-size:         $font-size-sm !default;
+$input-btn-line-height:       1.25 !default;
+
+$input-btn-padding-y-lg:      .5rem !default;
+$input-btn-padding-x-lg:      .75rem !default;
+$input-btn-font-size-lg:      $font-size-sm !default;
+$input-btn-line-height-lg:    1.25 !default;
+
+// size added in webpixels
+$input-btn-padding-y-xl:      .625rem !default;
+$input-btn-padding-x-xl:      .875rem !default;
+$input-btn-font-size-xl:      $font-size-sm !default;
+$input-btn-line-height-xl:    1.25 !default;
+
+$input-btn-border-width:      $border-width !default;
+
+$input-btn-focus-width:         2px !default;
 $input-btn-focus-color-opacity: .25 !default;
 $input-btn-focus-color:         rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
 $input-btn-focus-blur:          0 !default;
 $input-btn-focus-box-shadow:    0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
 
-$input-btn-padding-y-xs:      .375rem !default;
-$input-btn-padding-x-xs:      .675rem !default;
-$input-btn-font-size-xs:      $font-size-xs !default;
-$input-btn-line-height-xs:    $input-btn-line-height !default;
-
-$input-btn-padding-y-sm:      .625rem !default;
-$input-btn-padding-x-sm:      1rem !default;
-$input-btn-font-size-sm:      $font-size-sm !default;
-$input-btn-line-height-sm:    $input-btn-line-height !default;
-
-$input-btn-padding-y-lg:      1rem !default;
-$input-btn-padding-x-lg:      1.5rem !default;
-$input-btn-font-size-lg:      $font-size-base !default;
-$input-btn-line-height-lg:    $input-btn-line-height !default;
-
-$input-btn-padding-y-xl:      1.5rem !default;
-$input-btn-padding-x-xl:      2rem !default;
-$input-btn-font-size-xl:      $font-size-base !default;
-$input-btn-line-height-xl:    $input-btn-line-height !default;
-
-$input-btn-border-width:      $border-width !default;
 
 // Buttons
 
-$btn-padding-y:               $input-btn-padding-y !default;
-$btn-padding-x:               $input-btn-padding-x !default;
-$btn-line-height:             $input-btn-line-height !default;
+// $btn-padding-y:               $input-btn-padding-y !default;
+// $btn-padding-x:               $input-btn-padding-x !default;
+// $btn-line-height:             $input-btn-line-height !default;
 
+// $btn-padding-y-xs:            $input-btn-padding-y-xs !default;
+// $btn-padding-x-xs:            $input-btn-padding-x-xs !default;
+// $btn-line-height-xs:          $input-btn-line-height-xs !default;
+
+// $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+// $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+// $btn-line-height-sm:          $input-btn-line-height-sm !default;
+
+// $btn-padding-y-lg:            $input-btn-padding-y-lg !default;
+// $btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+// $btn-line-height-lg:          $input-btn-line-height-lg !default;
+
+// added in webpixels
 $btn-padding-y-xs:            $input-btn-padding-y-xs !default;
 $btn-padding-x-xs:            $input-btn-padding-x-xs !default;
 $btn-line-height-xs:          $input-btn-line-height-xs !default;
-
-$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
-$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
-$btn-line-height-sm:          $input-btn-line-height-sm !default;
-
-$btn-padding-y-lg:            $input-btn-padding-y-lg !default;
-$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
-$btn-line-height-lg:          $input-btn-line-height-lg !default;
 
 $btn-padding-y-xl:            $input-btn-padding-y-xl !default;
 $btn-padding-x-xl:            $input-btn-padding-x-xl !default;
 $btn-line-height-xl:          $input-btn-line-height-xl !default;
 
+// bootstrap overrides
 $btn-border-width:            $input-btn-border-width !default;
 $btn-font-weight:             $font-weight-semibold !default;
 $btn-box-shadow:              0 1px 1px rgba($black, .075) !default;
@@ -589,11 +583,11 @@ $btn-square-size-xs:                   2rem !default;
 
 // Neutral button
 
-$btn-neutral-bg:                    $gray-100 !default;
+$btn-neutral-bg:                    $white !default;
 $btn-neutral-color:                 $gray-700 !default;
 $btn-neutral-border-color:          $gray-300 !default;
-$btn-neutral-hover-bg:              $gray-200 !default;
-$btn-neutral-hover-border-color:    $gray-300 !default;
+$btn-neutral-hover-bg:              $gray-100 !default;
+$btn-neutral-hover-border-color:    $gray-200 !default;
 $btn-neutral-hover-color:           $gray-700 !default;
 $btn-neutral-active-bg:             $gray-200 !default;
 $btn-neutral-active-border-color:   $gray-300 !default;
@@ -614,20 +608,20 @@ $form-label-font-style:                 null !default;
 $form-label-font-weight:                $font-weight-semibold !default;
 $form-label-color:                      $gray-900 !default;
 
-$input-padding-y:                       $input-btn-padding-y !default;
-$input-padding-x:                       $input-btn-padding-x !default;
+// $input-padding-y:                       $input-btn-padding-y !default;
+// $input-padding-x:                       $input-btn-padding-x !default;
 // $input-font-family:                     $input-btn-font-family !default;
-$input-font-size:                       $input-btn-font-size !default;
-$input-font-weight:                     $font-weight-base !default;
-$input-line-height:                     $input-btn-line-height !default;
+// $input-font-size:                       $input-btn-font-size !default;
+// $input-font-weight:                     $font-weight-base !default;
+// $input-line-height:                     $input-btn-line-height !default;
 
-$input-padding-y-sm:                    $input-btn-padding-y-sm !default;
-$input-padding-x-sm:                    $input-btn-padding-x-sm !default;
-$input-font-size-sm:                    $input-btn-font-size-sm !default;
+// $input-padding-y-sm:                    $input-btn-padding-y-sm !default;
+// $input-padding-x-sm:                    $input-btn-padding-x-sm !default;
+// $input-font-size-sm:                    $input-btn-font-size-sm !default;
 
-$input-padding-y-lg:                    $input-btn-padding-y-lg !default;
-$input-padding-x-lg:                    $input-btn-padding-x-lg !default;
-$input-font-size-lg:                    $input-btn-font-size-lg !default;
+// $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
+// $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
+// $input-font-size-lg:                    $input-btn-font-size-lg !default;
 
 $input-bg:                              $white !default;
 $input-disabled-bg:                     $gray-200 !default;
@@ -667,7 +661,7 @@ $input-alt-focus-bg:             $input-alt-bg !default;
 $input-alt-focus-border-color:   transparent !default;
 $input-alt-focus-box-shadow:     0 0 0 2px $primary !default;
 
-$input-group-addon-font-weight:         $input-font-weight !default;
+// $input-group-addon-font-weight:         $input-font-weight !default;
 $input-group-addon-color:               $gray-600 !default;
 $input-group-addon-bg:                  $gray-100 !default;
 $input-group-addon-border-color:        $input-border-color !default;
@@ -768,7 +762,9 @@ $breadcrumb-border-radius:          null;
 
 $card-spacer-y:                     1.5rem !default;
 $card-spacer-x:                     1.5rem !default;
-$card-title-spacer-y:               1.5rem !default;
+
+$card-title-spacer-y:               0.5rem !default;
+$card-title-color:                  $headings-color !default;
 
 $card-color:                        $body-color !default;
 $card-bg:                           $white !default;
@@ -1214,7 +1210,7 @@ $tooltip-padding-x:                 calc($spacer / 2) !default;
 
 // Progress
 
-$progress-height:                   .5rem !default;
+$progress-height:                   .25rem !default;
 $progress-font-size:                ($font-size-base * .75) !default;
 $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius-pill !default;

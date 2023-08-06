@@ -4,6 +4,7 @@
 
 .list-group-borderless {
   --#{$prefix}list-group-border-width: 0;
+  --#{$prefix}list-group-item-padding-y: 0;
 }
 
 // Checkable list group

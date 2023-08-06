@@ -29,9 +29,8 @@ $teal:    #22DDDD !default;
 $cyan:    #00D4FF !default;
 
 // Theme colors
-$primary:       $indigo !default;
-$secondary:     $gray-300 !default;
-$tertiary:      $pink !default;
+$primary:       $gray-900 !default;
+$secondary:     $lime !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $orange !default;
@@ -44,6 +43,5 @@ $dark:          $gray-900 !default;
 
 $surface-primary: 	$white !default;
 $surface-secondary: $gray-100 !default;
-$surface-tertiary: 	$gray-50 !default;
 $surface-light: 		$gray-200 !default;
 $surface-dark: 			shade-color($dark, 7%) !default;
