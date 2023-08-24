@@ -58,9 +58,9 @@
   width: var(--#{$prefix}btn-size);
   height: var(--#{$prefix}btn-size);
 
-  // &.btn-xs {
-  //   --#{$prefix}btn-size: #{$btn-square-size-xs};
-  // }
+  &.btn-xs {
+    --#{$prefix}btn-size: #{$btn-square-size-xs};
+  }
 
   &.btn-sm {
     --#{$prefix}btn-size: #{$btn-square-size-sm};
@@ -72,10 +72,6 @@
 
   &.btn-xl {
     --#{$prefix}btn-size: #{$btn-square-size-xl};
-  }
-
-  &.btn-2xl {
-    --#{$prefix}btn-size: #{$btn-square-size-2xl};
   }
 }
 

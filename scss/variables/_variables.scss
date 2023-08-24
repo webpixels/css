@@ -198,7 +198,7 @@ $caret-spacing:               $caret-width * .85 !default;
 // Transitions
 //
 
-$transition-base-duration:      		.2s;
+$transition-base-duration:      		.4s !default;
 $transition-fade:               		opacity $transition-base-duration linear !default;
 $transition-collapse:           		height $transition-base-duration ease !default;
 $transition-cubic-bezier:       		all $transition-base-duration cubic-bezier(.77, 0, .2, 2.25) !default;
@@ -573,12 +573,11 @@ $btn-active-border-tint-amount:   10% !default;
 
 // Square/Circle shape buttons
 
-$btn-square-size:                      2.875rem !default;
-$btn-square-size-2xl:                  7.5rem !default;
-$btn-square-size-xl:                   6rem !default;
-$btn-square-size-lg:                   3.5rem !default;
-$btn-square-size-sm:                   2.5125rem !default;
-$btn-square-size-xs:                   2rem !default;
+$btn-square-size:                      1.96875rem !default;
+$btn-square-size-xl:                   2.46875rem !default;
+$btn-square-size-lg:                   2.21875rem !default;
+$btn-square-size-sm:                   1.71875rem !default;
+$btn-square-size-xs:                   1.5625rem !default;
 
 
 // Neutral button
@@ -698,27 +697,23 @@ $alert-dark-color:                  color-contrast($alert-dark-bg) !default;
 
 // Avatars
 
-$avatar-size:                       $btn-square-size !default;
+$avatar-size:                       2.5rem !default;
 $avatar-font-size:                  1rem !default;
 $avatar-border-radius:              $border-radius !default;
 
-$avatar-size-2xl :                  $btn-square-size-2xl !default;
-$avatar-font-size-2xl:              $avatar-font-size * 2.5 !default;
-$avatar-border-radius-2xl:          $border-radius-lg !default;
-
-$avatar-size-xl:                    $btn-square-size-xl !default;
+$avatar-size-xl:                    3.5rem !default;
 $avatar-font-size-xl:               $avatar-font-size * 1.375 !default;
 $avatar-border-radius-xl:           $border-radius-lg !default;
 
-$avatar-size-lg:                    $btn-square-size-lg !default;
+$avatar-size-lg:                    3rem !default;
 $avatar-font-size-lg:               $avatar-font-size * 1.25 !default;
 $avatar-border-radius-lg:           $border-radius-lg !default;
 
-$avatar-size-sm:                    $btn-square-size-sm !default;
+$avatar-size-sm:                    2rem !default;
 $avatar-font-size-sm:               $avatar-font-size * .75 !default;
 $avatar-border-radius-sm:           $border-radius-sm !default;
 
-$avatar-size-xs:                    $btn-square-size-xs !default;
+$avatar-size-xs:                    1.5rem !default;
 $avatar-font-size-xs:               $avatar-font-size * .675 !default;
 $avatar-border-radius-xs:           $border-radius-sm !default;
 
@@ -1225,7 +1220,6 @@ $progress-circle-bg:                $progress-bg !default;
 $progress-circle-color:             $primary !default;
 $progress-circle-bar-bg:            $progress-bar-bg !default;
 
-$progress-circle-size-2xl:          $btn-square-size-2xl !default;
 $progress-circle-size-xl:           $btn-square-size-xl !default;
 $progress-circle-size-lg:           $btn-square-size-lg !default;
 $progress-circle-size-sm:           $btn-square-size-sm !default;

@@ -35,11 +35,6 @@
 }
 
 // Sizes
-.avatar-2xl {
-	--#{$prefix}avatar-size: #{$avatar-size-2xl};
-	--#{$prefix}avatar-font-size: #{$avatar-font-size-2xl};
-}
-
 .avatar-xl {
 	--#{$prefix}avatar-size: #{$avatar-size-xl};
 	--#{$prefix}avatar-font-size: #{$avatar-font-size-xl};
@@ -78,13 +73,13 @@
 	}
 
 	.avatar + .avatar {
-		margin-left: -1.25rem;
+		margin-left: -1rem;
 		@include border-start-radius(0);
 	}
 
 	.avatar-sm + .avatar-sm,
 	.avatar-xs + .avatar-xs, {
-		margin-left: -1rem;
+		margin-left: -.75rem;
 	}
 
 	&:hover {
