@@ -1,14 +1,7 @@
 :root,
 [data-bs-theme="light"] {
 
-	@each $color, $value in $surface-colors {
-    --#{$prefix}#{$color}: #{$value};
-  }
 
-  @each $color, $value in $surface-colors-rgb {
-    --#{$prefix}#{$color}-rgb: #{$value};
-  }
-  
 }
 
 @if $enable-dark-mode {

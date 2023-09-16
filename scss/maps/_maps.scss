@@ -1,13 +1,6 @@
 // Maps
 // 
 
-// Surface colors 
-
-// RGB color maps used for generating utility classes
-$surface-colors-rgb: map-loop($surface-colors, to-rgb, "$value") !default;
-$custom-utilities-bg: $surface-colors-rgb !default;
-$custom-utilities-bg-colors: map-loop($custom-utilities-bg, rgba-css-var, "$key", "bg") !default;
-
 // Typography
 $utilities-font-family-values: (
   base: var(--#{$prefix}font-sans-serif),

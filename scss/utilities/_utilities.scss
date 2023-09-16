@@ -150,6 +150,7 @@ $utilities: map-merge($utilities, (
           "heading": var(--#{$prefix}heading-color)
         )
       ),
+      state: hover 
     ),
   ),
   "static-color": (
@@ -169,13 +170,6 @@ $utilities: map-merge($utilities, (
   "background-color": map-merge(
     map-get($utilities, "background-color"),
     (
-      values: map-merge-multiple(
-        map-get(map-get($utilities, "background-color"), "values"),
-        (
-          "card": to-rgb($card-bg)
-        ),
-        $custom-utilities-bg-colors
-      ),
       state: hover
     ),
   ),
@@ -320,7 +314,11 @@ $utilities: map-merge($utilities, (
   "top": map-merge(
     map-get($utilities, "top"),
     ( 
-      responsive: true 
+      responsive: true,
+      values: map-merge-multiple(
+        map-get(map-get($utilities, "top"), "values"),
+        $spacers
+      ),
     ),
   ),
   "bottom": map-merge(

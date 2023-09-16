@@ -41,12 +41,6 @@
   --#{$prefix}btn-font-size: #{$input-btn-font-size-xs};
 }
 
-.btn-xl {
-  --#{$prefix}btn-padding-y: #{$btn-padding-y-xl};
-  --#{$prefix}btn-padding-x: #{$btn-padding-x-xl};
-  --#{$prefix}btn-font-size: #{$input-btn-font-size-xl};
-}
-
 // Squared button
 .btn-square {
   --#{$prefix}btn-size: #{$btn-square-size};
