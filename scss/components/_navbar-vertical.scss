@@ -127,7 +127,7 @@
           overflow-y: auto;
           z-index: 1000;
           @include border-radius($navbar-vertical-border-radius);
-          @include transition($transition-base);
+          // @include transition($transition-base);
 
           @if $enable-shadows {
             @include box-shadow($navbar-vertical-box-shadow);

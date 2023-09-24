@@ -1,12 +1,38 @@
 :root,
 [data-bs-theme="light"] {
+  // Logo
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: block;
+  }
 
-
+  // Fonts
+  --#{$prefix}font-display: #{inspect($font-display-bundle)};
+  --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
 }
 
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
-    // color-scheme: dark;
+    // Logo
+    .logo-light {
+      display: block;
+    }
+    .logo-dark {
+      display: none;
+    }
 
+
+    // Buttons
+    .btn-neutral {
+      --#{$prefix}btn-bg: var(--#{$prefix}gray-800);
+      --#{$prefix}btn-border-color: var(--#{$prefix}gray-800);
+      --#{$prefix}btn-color: var(--#{$prefix}gray-100);
+      --#{$prefix}btn-hover-bg: var(--#{$prefix}gray-700);
+      --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+      --#{$prefix}btn-hover-border-color: var(--#{$prefix}gray-700);
+      // --#{$prefix}btn-hover-color: #{color-contrast($dark)};
+    }
   }
 }

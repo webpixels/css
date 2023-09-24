@@ -1,3 +1,7 @@
+// 
+// Buttons 
+// 
+
 // Soft color variation
 @each $color, $value in $theme-colors {
   .btn-soft-#{$color} {
