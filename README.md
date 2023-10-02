@@ -1,6 +1,6 @@
-<p align="center"><a href="https://webpixels.io/start" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/logo.png" width="200" height=""></a></p>
+<p align="center"><a href="https://webpixels.io?ref=github" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/logo.png" width="200" height=""></a></p>
 
-<h3 align="center">Webpixels CSS</h3>
+<h3 align="center">Webpixels CSS <sup>2</sup></h3>
 
 <p align="center">
   Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.
@@ -17,7 +17,7 @@
   <a href="https://webpixels.io/blog/">Blog</a>
 </p>
 
-<p align="center"><a href="https://webpixels.io/start" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/products/css.png" ></a></p>
+<p align="center"><a href="https://webpixels.io?ref=github" target="_blank"><img src="https://webpixels.s3.eu-central-1.amazonaws.com/public/github/products/css.png" ></a></p>
 
 ## Install via npm
 
@@ -41,28 +41,12 @@ In your `scss` folder create two new files and name them:
 In your main.scss, you’ll import the source Sass files. Bootstrap is automatically loaded when you use the source files, so you don't need to worry about what Bootstrap files should you incorporate in your styles.
 
 ```scss
-@import "@webpixels/css/base";
-@import "@webpixels/css/forms";
+// Functions
+@import "bootstrap/scss/functions";
 
-// Load all the components
-@import "@webpixels/css/components";
+// Main   
+@import "@webpixels/css/main";
 ```
-
-or pick the parts you need:
-
-```scss
-@import "@webpixels/css/base";
-@import "@webpixels/css/forms";
-
-// Load only the components you use
-@import "@webpixels/css/components/alerts";
-@import "@webpixels/css/components/avatars";
-@import "@webpixels/css/components/buttons";
-@import "@webpixels/css/components/navbars";
-@import "@webpixels/css/components/cards";
-```
-
-[**Click here**](https://github.com/webpixels/css/blob/master/scss/components/_index.scss) to see the complete list of available components.
 
 ### Import the utility classes
 
@@ -71,7 +55,7 @@ In Webpixels CSS you'll notice that we don't create custom styles, but rather ma
 In your utility.scss you'll import all the utilities:
 
 ```scss
-@import "@webpixels/css/utilities";
+@import "@webpixels/css/utility";
 ```
 
 ## Documentation
@@ -107,7 +91,7 @@ Get updates on the development of our CSS tool and chat with the project maintai
 
 ## Thank you
 
-- [Mark Otto and the Team](https://github.com/twbs/bootstrap)
+- [Bootstrap](https://github.com/twbs/bootstrap)
 
 ## License
 
