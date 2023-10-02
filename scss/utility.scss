@@ -1,8 +1,26 @@
-/*!
- * Webpixels CSS v1.2.6 (https://webpixels.io/)
- * Copyright 2023 Webpixels
- * Licensed under MIT (https://github.com/webpixels/css/blob/main/LICENSE)
- */
+// /*!
+//  * Webpixels CSS v2.0.0 (https://webpixels.io/)
+//  * Copyright 2023 Webpixels
+//  * Licensed under MIT (https://github.com/webpixels/css/blob/main/LICENSE)
+//  */
 
-@import "utilities";
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// Include any default variable overrides here
+@import "./variables";
+
+// Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// Include any default map overrides here
+@import "./maps";
+
+// Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+
+// // Utilites
+@import "./utilities"; 
 @import "bootstrap/scss/utilities/api";

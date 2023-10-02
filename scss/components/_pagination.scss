@@ -1,0 +1,34 @@
+// Spaced pagination
+
+.pagination {
+    margin: 0;
+}
+
+.pagination-spaced {
+    border-radius: 0;
+
+    .page-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: $pagination-border-radius;
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    &.pagination-sm {
+        .page-link {
+            width: 1.875rem;
+            height: 1.875rem;
+            border-radius: $border-radius-sm;
+        }
+    }
+
+    &.pagination-lg {
+        .page-link {
+            width: 3.25rem;
+            height: 3.25rem;
+        }
+    }
+}

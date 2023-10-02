@@ -1,10 +1,16 @@
 // Articles
 
-.article {
+.article,
+.prose {
+	--#{$prefix}article-font-size: #{$article-font-size};
+	--#{$prefix}article-color: #{$article-color};
+	--#{$prefix}article-line-height: #{$article-text-line-height};
+	--#{$prefix}article-img-border-radius: #{$article-img-border-radius};
+	--#{$prefix}article-pre-border-radius: #{$article-pre-border-radius};
 
-	font-size: $article-font-size;
-	color: $article-color;
-	line-height: $article-text-line-height;
+	font-size: var(--#{$prefix}article-font-size);
+	color: var(--#{$prefix}article-color);
+	line-height: var(--#{$prefix}article-line-height);
 
 	> p {
 		margin-top: 1.25rem;
@@ -14,10 +20,10 @@
 	> h2 {
 		@include font-size(1.5em);
 		font-weight: $font-weight-bolder;
-	    margin-top: 2em;
-	    margin-bottom: 1em;
-	    line-height: 1.3333333;
-	    letter-spacing: -.025em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3333333;
+    letter-spacing: -.025em;
 
 		&:first-child {
 			margin-top: 1em;
@@ -38,7 +44,7 @@
 	}
 
 	> img {
-		@include border-radius($border-radius);
+		@include border-radius(var(--#{$prefix}article-img-border-radius));
 	}
 
 	> figure,
@@ -53,21 +59,21 @@
 		line-height: 1.7;
 		padding: 1rem 1rem;
 		margin-top: 1.75em;
-	   	margin-bottom: 1.75em;
-	    overflow-x: auto;
-	    background-color: $dark;
-	    color: color-contrast($dark);
-		@include border-radius($border-radius);
+   	margin-bottom: 1.75em;
+    overflow-x: auto;
+    background-color: $dark;
+    color: color-contrast($dark);
+		@include border-radius(var(--#{$prefix}article-pre-border-radius));
 	}
 
 	& > :first-child {
-    	margin-top: 0;
+  	margin-top: 0;
 	}
 
 	h2 + *,
 	h3 + *,
 	hr + * {
-    	margin-top: 0;
+  	margin-top: 0;
 	}
 
 	> hr {
@@ -85,14 +91,14 @@
 	}
 
 	> blockquote {
-	    font-weight: 500;
+	   font-weight: 500;
 		@include font-size($font-size-lg);
 		color: $headings-color;
-	    letter-spacing: -.012em;
-	    padding: 1.5rem 3.5rem;
-		margin-top: 3em;
-		margin-bottom: 3em;
-		background-color: var(--x-surface-secondary);
+    letter-spacing: -.012em;
+    padding: 1.5rem 3.5rem;
+		margin-top: 2em;
+		margin-bottom: 2em;
+		background-color: var(--#{$prefix}surface-secondary);
 		@include border-radius($border-radius-lg);
 
 		> p {

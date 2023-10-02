@@ -1,0 +1,163 @@
+// Navbar
+
+.navbar {
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-light-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-light-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-light-nav-link-active-bg};
+  --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+  --#{$prefix}navbar-nav-link-padding-y: #{$navbar-nav-link-padding-y};
+  --#{$prefix}navbar-nav-link-border-radius: #{$navbar-nav-link-border-radius};
+  --#{$prefix}navbar-icon-color: #{$navbar-light-icon-color};
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-light-collapse-border-color};
+}
+
+.navbar-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar-img-brand {
+  font-size: initial;
+}
+
+// Collapse
+
+.navbar-collapse {
+  &:before {
+    content: '';
+    display: block;
+    margin: .75rem -1rem;
+    opacity: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--#{$prefix}navbar-collapse-border-color);
+    // @include transition($transition-base);
+  }
+
+  &.show,
+  &.collapsing {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+// Generate series of `.navbar-expand-*` responsive classes for configuring
+// where your navbar collapses.
+
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        .navbar-nav {
+          --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+          --#{$prefix}navbar-nav-link-padding-y: #{$nav-link-padding-y};
+
+          > .nav-item > .nav-link,
+          > .nav-link {
+            background-color: var(--#{$prefix}navbar-nav-link-bg);
+            padding-top: var(--#{$prefix}navbar-nav-link-padding-y);
+            padding-bottom: var(--#{$prefix}navbar-nav-link-padding-y);
+            @include border-radius(var(--#{$prefix}navbar-nav-link-border-radius));
+
+            &:hover,
+            &:focus {
+              background-color: var(--#{$prefix}navbar-nav-link-hover-bg);
+            }
+
+            &.active {
+              background-color: var(--#{$prefix}navbar-nav-link-active-bg);
+            }
+          }
+        }
+
+        // Brand
+        .navbar-brand {
+          &.dropdown-toggle {
+            &:after {
+              display: none;
+            }
+          }
+        }
+
+        // Navbar collapse
+        .navbar-collapse {
+          .collapse-header {
+            display: none;
+          }
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Navbar toggler
+// Button for toggling the navbar when in its collapsed state
+.navbar-toggler {
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+  @include font-size($navbar-toggler-font-size);
+  line-height: 1;
+  background-color: transparent; // remove default button style
+  border: $navbar-toggler-border-width solid transparent; // remove default button style
+  @include border-radius($navbar-toggler-border-radius);
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 $navbar-toggler-focus-width;
+  }
+}
+
+.navbar-light {
+  .navbar-toggler {
+    color: $navbar-light-toggler-color;
+    background-color: $navbar-light-toggler-bg;
+    border-color: $navbar-light-toggler-border-color;
+
+    &:focus {
+      color: $navbar-light-toggler-focus-color;
+      background-color: $navbar-light-toggler-focus-bg;
+    }
+  }
+}
+
+.navbar-dark {
+  .navbar-toggler {
+    color: $navbar-dark-toggler-color;
+    background-color: $navbar-dark-toggler-bg;
+    border-color: $navbar-dark-toggler-border-color;
+
+    &:focus {
+      color: $navbar-dark-toggler-focus-color;
+      background-color: $navbar-dark-toggler-focus-bg;
+    }
+  }
+}
+
+.navbar-toggler-icon {
+  width: $navbar-toggler-icon-width;
+  height: $navbar-toggler-icon-height;
+}
+
+
+.navbar-dark,
+.navbar[data-bs-theme="dark"] {
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-dark-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-dark-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-dark-nav-link-active-bg};
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-dark-collapse-border-color};
+}

@@ -1,0 +1,21 @@
+// Height (dynamic height calc)
+// options to pass to the utility API
+//
+
+// Dynamic height calculation
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .h#{$infix}-calc {
+            --#{$prefix}h#{$infix}: 0px;
+            height: calc(100vh - var(--#{$prefix}h#{$infix}));
+        }
+
+        .w#{$infix}-calc {
+            --#{$prefix}w#{$infix}: 0px;
+            width: calc(100vw - var(--#{$prefix}w#{$infix}));
+        }
+
+    }
+}

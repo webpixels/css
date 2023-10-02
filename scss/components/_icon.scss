@@ -1,0 +1,45 @@
+//
+// Icon
+//
+
+.icon {
+	--#{$prefix}size: #{$icon-size};
+
+	font-size: calc(var(--#{$prefix}size) / 1.75);
+	line-height: 1;
+
+	svg {
+		width: $svg-icon-size;
+    height: $svg-icon-size;
+	}
+}
+
+// Size variations
+.icon-xl {
+	--#{$prefix}size: #{$icon-size-xl};
+}
+
+.icon-lg {
+	--#{$prefix}size: #{$icon-size-lg};
+}
+
+.icon-sm {
+	--#{$prefix}size: #{$icon-size-sm};
+}
+
+.icon-xs {
+	--#{$prefix}size: #{$icon-size-xs};
+}
+
+
+// Icon shape
+.icon-shape {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: $border-radius;
+	width: var(--#{$prefix}size);
+	height: var(--#{$prefix}size);
+}
