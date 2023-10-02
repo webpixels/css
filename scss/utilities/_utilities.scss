@@ -94,7 +94,15 @@ $utilities: map-merge($utilities, (
   "border-opacity": map-merge(
     map-get($utilities, "border-opacity"),
     ( 
-      state: hover
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      )
     ),
   ),
   "static-border-color": (

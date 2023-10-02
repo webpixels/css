@@ -8,13 +8,13 @@
         $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
         .h#{$infix}-calc {
-            --#{$variable-prefix}h#{$infix}: 0px;
-            height: calc(100vh - var(--#{$variable-prefix}h#{$infix}));
+            --#{$prefix}h#{$infix}: 0px;
+            height: calc(100vh - var(--#{$prefix}h#{$infix}));
         }
 
         .w#{$infix}-calc {
-            --#{$variable-prefix}w#{$infix}: 0px;
-            width: calc(100vw - var(--#{$variable-prefix}w#{$infix}));
+            --#{$prefix}w#{$infix}: 0px;
+            width: calc(100vw - var(--#{$prefix}w#{$infix}));
         }
 
     }

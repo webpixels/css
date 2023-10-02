@@ -1,25 +1,14 @@
 // Navbar
 
 .navbar {
-  --#{$prefix}navbar-bg: #{$navbar-nav-link-bg};
-  --#{$prefix}navbar-color: #{$navbar-nav-link-color};
-  --#{$prefix}navbar-icon-color: #{$navbar-icon-color};
-  --#{$prefix}navbar-hover-bg: #{$navbar-nav-link-hover-bg};
-  --#{$prefix}navbar-hover-color: #{$navbar-nav-link-hover-color};
-  --#{$prefix}navbar-active-bg: #{$navbar-nav-link-active-bg};
-  --#{$prefix}navbar-active-color: #{$navbar-nav-link-active-color};
-  
-  --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
-  --#{$prefix}nav-link-padding-y: #{$navbar-nav-link-padding-y};
-  --#{$prefix}nav-link-border-radius: #{$navbar-nav-link-border-radius};
-
-  position: relative;
-  z-index: 100;
-
-  // Container
-  [class^="container"] {
-    position: relative;
-  }
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-light-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-light-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-light-nav-link-active-bg};
+  --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+  --#{$prefix}navbar-nav-link-padding-y: #{$navbar-nav-link-padding-y};
+  --#{$prefix}navbar-nav-link-border-radius: #{$navbar-nav-link-border-radius};
+  --#{$prefix}navbar-icon-color: #{$navbar-light-icon-color};
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-light-collapse-border-color};
 }
 
 .navbar-user {
@@ -33,35 +22,18 @@
   font-size: initial;
 }
 
-// Top navbar
-
-.navbar-top {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  .navbar-nav {
-    flex-direction: row;
-    .nav-item:last-child {
-      margin-right: 0;
-    }
-    .nav-link {
-      padding: .5rem .5rem;
-    }
-  }
-}
-
 // Collapse
 
 .navbar-collapse {
   &:before {
     content: '';
     display: block;
-    border-top-width: 1px;
-    border-top-style: solid;
     margin: .75rem -1rem;
     opacity: 0;
-    @include transition($transition-base);
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--#{$prefix}navbar-collapse-border-color);
+    // @include transition($transition-base);
   }
 
   &.show,
@@ -71,38 +43,6 @@
     }
   }
 }
-
-.navbar-light {
-  .navbar-collapse::before {
-    border-top-color: rgba($dark, .1);
-  }
-
-  .collapse .nav {
-    &:before {
-      border-color: rgba($dark, .1);
-    }
-  }
-}
-
-.navbar-dark {
-  --#{$prefix}navbar-bg: #{$navbar-dark-nav-link-bg};
-  --#{$prefix}navbar-color: #{$navbar-dark-nav-link-color};
-  --#{$prefix}navbar-hover-bg: #{$navbar-dark-nav-link-hover-bg};
-  --#{$prefix}navbar-hover-color: #{$navbar-dark-nav-link-hover-color};
-  --#{$prefix}navbar-active-bg: #{$navbar-dark-nav-link-active-bg};
-  --#{$prefix}navbar-active-color: #{$navbar-dark-nav-link-active-color};
-
-  .navbar-collapse::before {
-    border-top-color: rgba($white, .2);
-  }
-
-  .collapse .nav {
-    &:before {
-      border-color: rgba($white, .2);
-    }
-  }
-}
-
 
 // Generate series of `.navbar-expand-*` responsive classes for configuring
 // where your navbar collapses.
@@ -115,37 +55,29 @@
     &#{$infix} {
       @include media-breakpoint-up($next) {
         .navbar-nav {
-          --#{$prefix}nav-link-padding-x: #{$navbar-nav-link-padding-x};
-          --#{$prefix}nav-link-padding-y: #{$nav-link-padding-y};
+          --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+          --#{$prefix}navbar-nav-link-padding-y: #{$nav-link-padding-y};
 
           > .nav-item > .nav-link,
           > .nav-link {
-            background-color: var(--#{$prefix}navbar-bg);
-            color: var(--#{$prefix}navbar-color);
-            padding-top: var(--#{$prefix}nav-link-padding-y);
-            padding-bottom: var(--#{$prefix}nav-link-padding-y);
-            @include transition($navbar-transition);
-            @include border-radius(var(--#{$prefix}nav-link-border-radius));
+            background-color: var(--#{$prefix}navbar-nav-link-bg);
+            padding-top: var(--#{$prefix}navbar-nav-link-padding-y);
+            padding-bottom: var(--#{$prefix}navbar-nav-link-padding-y);
+            @include border-radius(var(--#{$prefix}navbar-nav-link-border-radius));
 
             &:hover,
             &:focus {
-              background-color: var(--#{$prefix}navbar-hover-bg);
-              color: var(--#{$prefix}navbar-hover-color);
+              background-color: var(--#{$prefix}navbar-nav-link-hover-bg);
             }
 
             &.active {
-              background-color: var(--#{$prefix}navbar-active-bg);
-              color: var(--#{$prefix}navbar-active-color);
+              background-color: var(--#{$prefix}navbar-nav-link-active-bg);
             }
           }
         }
 
         // Brand
         .navbar-brand {
-          img {
-            height: $navbar-brand-size;
-          }
-
           &.dropdown-toggle {
             &:after {
               display: none;
@@ -172,52 +104,60 @@
 // Navbar toggler
 // Button for toggling the navbar when in its collapsed state
 .navbar-toggler {
-    padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
-    @include font-size($navbar-toggler-font-size);
-    line-height: 1;
-    background-color: transparent; // remove default button style
-    border: $navbar-toggler-border-width solid transparent; // remove default button style
-    @include border-radius($navbar-toggler-border-radius);
-    @include transition($navbar-toggler-transition);
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+  @include font-size($navbar-toggler-font-size);
+  line-height: 1;
+  background-color: transparent; // remove default button style
+  border: $navbar-toggler-border-width solid transparent; // remove default button style
+  @include border-radius($navbar-toggler-border-radius);
 
-    &:hover {
-        text-decoration: none;
-    }
+  &:hover {
+    text-decoration: none;
+  }
 
-    &:focus {
-        text-decoration: none;
-        outline: 0;
-        box-shadow: 0 0 0 $navbar-toggler-focus-width;
-    }
+  &:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 $navbar-toggler-focus-width;
+  }
 }
 
 .navbar-light {
-    .navbar-toggler {
-        color: $navbar-light-toggler-color;
-        background-color: $navbar-light-toggler-bg;
-        border-color: $navbar-light-toggler-border-color;
+  .navbar-toggler {
+    color: $navbar-light-toggler-color;
+    background-color: $navbar-light-toggler-bg;
+    border-color: $navbar-light-toggler-border-color;
 
-        &:focus {
-            color: $navbar-light-toggler-focus-color;
-            background-color: $navbar-light-toggler-focus-bg;
-        }
+    &:focus {
+      color: $navbar-light-toggler-focus-color;
+      background-color: $navbar-light-toggler-focus-bg;
     }
+  }
 }
 
 .navbar-dark {
-    .navbar-toggler {
-        color: $navbar-dark-toggler-color;
-        background-color: $navbar-dark-toggler-bg;
-        border-color: $navbar-dark-toggler-border-color;
+  .navbar-toggler {
+    color: $navbar-dark-toggler-color;
+    background-color: $navbar-dark-toggler-bg;
+    border-color: $navbar-dark-toggler-border-color;
 
-        &:focus {
-            color: $navbar-dark-toggler-focus-color;
-            background-color: $navbar-dark-toggler-focus-bg;
-        }
+    &:focus {
+      color: $navbar-dark-toggler-focus-color;
+      background-color: $navbar-dark-toggler-focus-bg;
     }
+  }
 }
 
 .navbar-toggler-icon {
   width: $navbar-toggler-icon-width;
   height: $navbar-toggler-icon-height;
+}
+
+
+.navbar-dark,
+.navbar[data-bs-theme="dark"] {
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-dark-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-dark-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-dark-nav-link-active-bg};
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-dark-collapse-border-color};
 }

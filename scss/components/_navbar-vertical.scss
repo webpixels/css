@@ -84,7 +84,7 @@
       .nav-link {
         &[data-bs-toggle="collapse"] {
           &:after {
-            background-image: $navbar-caret-bg;
+            background-image: $navbar-light-caret-bg;
           }
         }
       }

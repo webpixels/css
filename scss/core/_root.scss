@@ -11,6 +11,8 @@
   // Fonts
   --#{$prefix}font-display: #{inspect($font-display-bundle)};
   --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
+  --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
+
 }
 
 @if $enable-dark-mode {
