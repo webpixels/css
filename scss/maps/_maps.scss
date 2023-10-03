@@ -1,6 +1,8 @@
 // Maps
 // 
 
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
 // Typography
 $utilities-font-family-values: (
   base: var(--#{$prefix}font-sans-serif),

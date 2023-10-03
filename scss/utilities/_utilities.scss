@@ -178,8 +178,14 @@ $utilities: map-merge($utilities, (
   "background-color": map-merge(
     map-get($utilities, "background-color"),
     (
-      state: hover
-    ),
+      state: hover,
+      values: map-merge(
+        map-get(map-get($utilities, "background-color"), "values"),
+        (
+          $all-colors
+        )
+      )
+    )
   ),
   "static-background-color": (
     property: background-color,
