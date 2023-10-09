@@ -91,17 +91,15 @@ $utilities: map-merge($utilities, (
       responsive: true 
     ),
   ),
-  "border-opacity": map-merge(
-    map-get($utilities, "border-opacity"),
+  "border-color": map-merge(
+    map-get($utilities, "border-color"),
     ( 
-      state: hover,
-      values: (
-        0: 0,
-        10: .10,
-        25: .25,
-        50: .5,
-        75: .75,
-        100: 1,
+      responsive: true,
+      values: map-merge(
+        map-get(map-get($utilities, "border-color"), "values"),
+        (
+          $all-colors
+        )
       )
     ),
   ),
@@ -114,9 +112,24 @@ $utilities: map-merge($utilities, (
     )
   ),
   "border-style": ( 
-    property: border-style,
+    css-var: true,
+    css-variable-name: border-style,
     class: border,
     values: solid dashed dotted none
+  ),
+  "border-opacity": map-merge(
+    map-get($utilities, "border-opacity"),
+    ( 
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    ),
   ),
   "cursor": (
     property: cursor,
