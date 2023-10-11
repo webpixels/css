@@ -114,6 +114,7 @@ $utilities: map-merge($utilities, (
   "border-style": ( 
     css-var: true,
     css-variable-name: border-style,
+    // property: border-style,
     class: border,
     values: solid dashed dotted none
   ),
@@ -394,6 +395,12 @@ $utilities: map-merge($utilities, (
     map-get($utilities, "overflow-y"),
     ( 
       responsive: true 
+    ),
+  ),
+  "z-index": map-merge(
+    map-get($utilities, "z-index"),
+    ( 
+      state: hover 
     ),
   ),
   "scroll-behaviour": (

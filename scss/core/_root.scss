@@ -1,5 +1,10 @@
 :root,
 [data-bs-theme="light"] {
+
+  @each $color, $value in $all-colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
   // Logo
   .logo-light {
     display: none;
@@ -34,7 +39,6 @@
       --#{$prefix}btn-hover-bg: var(--#{$prefix}gray-700);
       --#{$prefix}btn-hover-color: var(--#{$prefix}white);
       --#{$prefix}btn-hover-border-color: var(--#{$prefix}gray-700);
-      // --#{$prefix}btn-hover-color: #{color-contrast($dark)};
     }
   }
 }

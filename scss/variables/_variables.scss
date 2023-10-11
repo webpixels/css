@@ -5,10 +5,6 @@
 
 @import '../core/colors';
 
-// Theme object init
-$theme: () !default;
-$theme-utilities: () !default;
-
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
@@ -27,7 +23,10 @@ $enable-rfs:                  true !default;
 $enable-validation-icons:     true !default;
 $enable-negative-margins:     true !default;
 $enable-deprecation-messages: true !default;
-$enable-important-utilities:  false !default;
+$enable-important-utilities:  true !default;
+
+// added in wpx
+$enable-gradient-utilities:   true !default;
 
 // Prefix for :root CSS variables
 $prefix:    x- !default;
@@ -50,7 +49,7 @@ $bg-tint-level:            15% !default;
 // Settings for the `<body>` element.
 
 $body-bg:     $white !default;
-$body-color:  $gray-800 !default;
+$body-color:  $gray-700 !default;
 
 $body-secondary-color:      rgba($body-color, .75) !default;
 $body-secondary-bg:         $gray-100 !default;
@@ -681,36 +680,29 @@ $dropdown-left-offset:              50% !default;
 $dropdown-padding-x:                .5rem !default;
 $dropdown-padding-y:                .5rem !default;
 $dropdown-spacer:                   .125rem !default;
-$dropdown-bg:                       $white !default;
-$dropdown-border-width:             1px !default;
-$dropdown-border-color:             lighten($gray-200, 3%) !default;
-$dropdown-border-radius:            $border-radius-xl !default;
-$dropdown-border-width:             $border-width !default;
-$dropdown-divider-bg:               tint-color($dropdown-border-color, 10%) !default;
+$dropdown-color:                    var(--#{$prefix}body-color) !default;
+$dropdown-bg:                       var(--#{$prefix}body-bg) !default;
+$dropdown-border-color:             var(--#{$prefix}border-color) !default;
+$dropdown-border-radius:            var(--#{$prefix}border-radius-lg) !default;
+$dropdown-divider-bg:               var(--#{$prefix}border-color) !default;
 $dropdown-divider-margin-y:         $dropdown-padding-y !default;
 $dropdown-box-shadow:               $box-shadow-2xl !default;
 $dropdown-font-size:                $font-size-sm !default;
 
-$dropdown-secondary-bg:             $gray-100 !default;
+$dropdown-secondary-bg:             var(--#{$prefix}secondary-bg) !default;
 
-$dropdown-heading-color:            $gray-900 !default;
+$dropdown-heading-color:            var(--#{$prefix}heading-color) !default;
 $dropdown-heading-font-size:        $font-size-base !default;
 $dropdown-heading-font-weight:      $font-weight-semibold !default;
 $dropdown-heading-focus-color:      $primary !default;
 
 $dropdown-helper-color:             $text-muted !default;
 
-$dropdown-link-border-radius:       $border-radius !default;
-$dropdown-link-color:               $gray-900 !default;
-$dropdown-link-bg:                  $white !default;
-$dropdown-link-hover-color:         $gray-900 !default;
-$dropdown-link-hover-bg:            $gray-100 !default;
-$dropdown-link-active-color:        $primary !default;
-$dropdown-link-active-bg:           transparent !default;
+$dropdown-link-border-radius:       var(--#{$prefix}border-radius-lg) !default;
 
 $dropdown-item-padding-y:           .5rem !default;
 $dropdown-item-padding-x:           1rem !default;
-$dropdown-item-border-radius:       $border-radius !default; 
+$dropdown-item-border-radius:       var(--#{$prefix}border-radius-lg) !default; 
 
 // Frames
 

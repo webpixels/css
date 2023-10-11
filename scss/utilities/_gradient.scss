@@ -2,7 +2,7 @@
 // options to pass to the utility API
 //
 
-@if(map-get($theme, gradient, disable) != true) {
+@if($enable-gradient-utilities == true) {
   .gradient-top {
     background-image: linear-gradient(to top, var(--#{$prefix}gradient)) !important;
   }
