@@ -1,0 +1,12 @@
+// Import the default variables and function
+@import "bootstrap/scss/functions";
+
+// Your theme's variables
+@import "./variables";
+
+// Webpixels CSS (includes Bootstrap)
+@import "@webpixels/css"; 
+
+// Import extras (optional)
+// @import "@webpixels/css/article";
+// @import "@webpixels/css/section-step";
