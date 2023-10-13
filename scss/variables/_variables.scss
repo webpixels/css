@@ -66,7 +66,6 @@ $body-emphasis-color:       $gray-900 !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer: 1rem !default;
-
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
@@ -262,21 +261,21 @@ $font-serif-system:         ui-serif, Georgia, Cambria, "Times New Roman", Times
 $font-monospace-system:     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 // Additional variable to add custom fonts
-$font-sans-serif:           "Inter" !default;
-$font-display:              $font-sans-serif !default;
-$font-monospace:            null !default;
+$font-sans-serif:           null !default;
 $font-serif:                null !default;
+$font-display:              null !default;
+$font-monospace:            null !default;
 
 // Generate the font family by adding the custom font to the collection if that exists
 $font-sans-serif-bundle:    if($font-sans-serif, #{$font-sans-serif,$font-sans-serif-system}, $font-sans-serif-system) !default;
-$font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospace-system}, $font-monospace-system) !default;
 $font-serif-bundle:         if($font-serif, #{$font-serif,$font-serif-system}, $font-serif-system) !default;
 $font-display-bundle:       if($font-display, #{$font-display,$font-sans-serif-system}, $font-sans-serif-system) !default;
+$font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospace-system}, $font-monospace-system) !default;
 
-$font-family-base:           var(--#{$prefix}font-sans-serif) !default;
-$font-family-monospace:      var(--#{$prefix}font-monospace) !default;
-$font-family-display:        var(--#{$prefix}font-display) !default;
-$font-family-serif:          var(--#{$prefix}font-serif) !default;
+$font-family-base:          var(--#{$prefix}font-sans-serif) !default;
+$font-family-serif:         var(--#{$prefix}font-serif) !default;
+$font-family-display:       var(--#{$prefix}font-display) !default;
+$font-family-monospace:     var(--#{$prefix}font-monospace) !default;
 
 // $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
 // $font-size-base effects the font size of the body text

@@ -1,13 +1,30 @@
 // Maps
 // 
 
+// We created this map because the one in Bootstrap doesn't contain the gray word as key
+// to get bg-gray-100
+
+$gray-colors: (
+  "gray-50": $gray-50,
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "gray-950": $gray-950
+) !default;
+
 $all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
 
 // Typography
 $utilities-font-family-values: (
   base: var(--#{$prefix}font-sans-serif),
-  display: var(--#{$prefix}font-display),
   serif: var(--#{$prefix}font-serif),
+  display: var(--#{$prefix}font-display),
   code: var(--#{$prefix}font-monospace)
 ) !default;
 

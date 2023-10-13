@@ -193,11 +193,11 @@ $utilities: map-merge($utilities, (
     map-get($utilities, "background-color"),
     (
       state: hover,
-      values: map-merge(
+      values: map-merge-multiple(
         map-get(map-get($utilities, "background-color"), "values"),
-        (
-          $all-colors
-        )
+        $all-colors,
+        $gray-colors
+
       )
     )
   ),

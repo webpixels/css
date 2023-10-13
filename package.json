@@ -1,7 +1,7 @@
 {
   "name": "@webpixels/css",
   "description": "Utility and component-centric design system based on Bootstrap for fast, responsive UI development.",
-  "version": "2.0.0-beta.13",
+  "version": "2.0.0-beta.14",
   "version_short": "2.0",
   "license": "MIT",
   "style": "dist/index.css",
@@ -33,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/webpixels/css/issues"
   },
-   "bin": {
+  "bin": {
     "webpixels": "./bin.js"
   },
   "scripts": {
@@ -58,13 +58,16 @@
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "find-unused-sass-variables": "^4.0.4",
+    "fs-extra": "^11.1.1",
     "install": "^0.13.0",
+    "minimist": "^1.2.8",
     "nodemon": "^2.0.7",
     "npm": "^8.19.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.0",
     "postcss-cli": "^8.3.1",
     "purgecss": "^4.0.3",
+    "replace-in-file": "^7.0.1",
     "sass": "^1.62.1",
     "serve": "^14.0.1",
     "stylelint": "^14.11.0",

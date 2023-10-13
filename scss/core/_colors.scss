@@ -9,28 +9,41 @@ $gray-300: #cbd5e1 !default;
 $gray-400: #94a3b8 !default;
 $gray-500: #64748b !default;
 $gray-600: #475569 !default;
-$gray-700: #334155 !default; // Used for text color
-$gray-800: #1e293b !default; // Used for headings color
+$gray-700: #334155 !default;
+$gray-800: #1e293b !default;
 $gray-900: #0f172a !default;
+$gray-950: #020617 !default;
 $black:    #000 !default;
 
+$grays: (
+	"50": $gray-50,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
+  "950": $gray-950
+) !default;
+
 // Base colors
-$blue:    #0099FF !default;
-$indigo:  #5C60F5 !default;
-$purple:  #8957FF !default;
-$pink:    #FF579A !default;
-$magenta: #EE33FF !default;
-$red:     #FF3366 !default;
-$orange:  #FF8C00 !default;
-$yellow:  #FFBB00 !default;
-$lime:    #84cc16 !default;
-$green:   #00CC88 !default;
-$teal:    #22DDDD !default;
-$cyan:    #00D4FF !default;
+$blue:    #3b82f6 !default;
+$indigo:  #6366f1 !default;
+$purple:  #8b5cf6 !default;
+$pink:    #ec4899 !default;
+$red:     #ef4444 !default;
+$orange:  #f97316 !default;
+$yellow:  #eab308 !default;
+$green:   #22c55e !default;
+$teal:    #14b8a6 !default;
+$cyan:    #06b6d4 !default;
 
 // Theme colors
-$primary:       $gray-900 !default;
-$secondary:     $lime !default;
+$primary:       $purple !default;
+$secondary:     $gray-900 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $orange !default;

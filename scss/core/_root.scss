@@ -5,6 +5,11 @@
     --#{$prefix}#{$color}: #{$value};
   }
 
+  // Fonts
+  --#{$prefix}font-display: #{inspect($font-display-bundle)};
+  --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
+  --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
+
   // Logo
   .logo-light {
     display: none;
@@ -12,12 +17,6 @@
   .logo-dark {
     display: block;
   }
-
-  // Fonts
-  --#{$prefix}font-display: #{inspect($font-display-bundle)};
-  --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
-  --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
-
 }
 
 @if $enable-dark-mode {
@@ -29,7 +28,6 @@
     .logo-dark {
       display: none;
     }
-
 
     // Buttons
     .btn-neutral {

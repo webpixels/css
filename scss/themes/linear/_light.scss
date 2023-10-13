@@ -1,0 +1,90 @@
+@mixin light {
+  $primary: #3D5A80;
+  $secondary: #98C1D9;
+  $tertiary: #EE6C4D;
+  $dark: #252422;
+
+  $body-bg: #fff;
+  $surface-secondary: #f1f5f9;
+
+  --x-body-bg: #{$body-bg};
+
+  --x-surface-secondary: #{$surface-secondary};
+  --x-surface-secondary-rgb: #{to-rgb($surface-secondary)};
+  --x-primary: #{$primary};
+  --x-primary-rgb: #{to-rgb($primary)};
+  --x-secondary: #{$secondary};
+  --x-secondary-rgb: #{to-rgb($secondary)};
+  --x-tertiary: #{$tertiary};
+  --x-tertiary-rgb: #{to-rgb($tertiary)};
+  --x-dark: #{$dark};
+  --x-dark-rgb: #{to-rgb($dark)};
+
+  --x-link-color: rgba(var(--x-primary-rgb), .8);
+  --x-link-hover-color: rgba(var(--x-primary-rgb), 1); 
+  
+  --x-border-color: var(--x-gray-200);
+
+  .btn-primary {
+    --x-btn-bg: var(--x-primary);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-primary);
+    --x-btn-hover-bg: #{lighten($primary, 6%)};
+    --x-btn-hover-color: #{color-contrast($primary)};
+    --x-btn-hover-border-color: #{lighten($primary, 6%)};
+    --x-btn-active-bg: #{lighten($primary, 6%)};
+    --x-btn-active-color: #{color-contrast($primary)};
+    --x-btn-active-border-color: #{lighten($primary, 6%)};
+  }
+
+  .btn-secondary {
+    --x-btn-bg: var(--x-secondary);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-secondary);
+    --x-btn-hover-bg: #{lighten($secondary, 6%)};
+    --x-btn-hover-color: #{color-contrast($secondary)};
+    --x-btn-hover-border-color: #{lighten($secondary, 6%)};
+    --x-btn-active-bg: #{lighten($secondary, 6%)};
+    --x-btn-active-color: #{color-contrast($secondary)};
+    --x-btn-active-border-color: #{lighten($secondary, 6%)};
+  }
+
+  .btn-tertiary {
+    --x-btn-bg: var(--x-tertiary);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-tertiary);
+    --x-btn-hover-bg: #{lighten($tertiary, 6%)};
+    --x-btn-hover-color: var(--x-white);
+    --x-btn-hover-border-color: #{lighten($tertiary, 6%)};
+    --x-btn-active-bg: #{lighten($tertiary, 6%)};
+    --x-btn-active-color: var(--x-white);
+    --x-btn-active-border-color: #{lighten($tertiary, 6%)};
+  }
+
+  .btn-dark {
+    --x-btn-bg: var(--x-dark);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-dark);
+    --x-btn-hover-bg: #{lighten($dark, 6%)};
+    --x-btn-hover-color: #{color-contrast($dark)};
+    --x-btn-hover-border-color: #{lighten($dark, 6%)};
+    --x-btn-active-bg: #{lighten($dark, 6%)};
+    --x-btn-active-color: #{color-contrast($dark)};
+    --x-btn-active-border-color: #{lighten($dark, 6%)};
+  }
+  
+  .btn-neutral {
+    --x-btn-hover-bg: var(--x-dark);
+    --x-btn-hover-border-color: var(--x-dark);
+    --x-btn-hover-color: #{color-contrast($dark)};
+  }
+
+  .navbar {
+    --x-navbar-hover-bg: var(--x-gray-200);
+    --x-navbar-active-bg: var(--x-gray-200);
+  }
+
+  .card {
+    --x-card-border-color: var(--x-border-color);
+  }
+}
