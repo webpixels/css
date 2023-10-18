@@ -18,7 +18,11 @@ $gray-colors: (
   "gray-950": $gray-950
 ) !default;
 
-$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+$all-colors: map-merge-multiple($gray-colors, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+$all-colors-rgb: map-loop($all-colors, to-rgb, "$value") !default;
+
+$utilities-all-bg-colors: map-loop($all-colors, rgba-css-var, "$key", "bg") !default;
+$utilities-all-border-colors: map-loop($all-colors, rgba-css-var, "$key", "border") !default;
 
 // Typography
 $utilities-font-family-values: (
@@ -61,26 +65,23 @@ $utilities-letter-spacing-values: (
 // Shadows
 $utilities-shadows: (
   null: $box-shadow,
-  1: $box-shadow-sm,
-  2: $box-shadow-lg,
-  3: $box-shadow-xl,
-  4: $box-shadow-2xl,
-  5: $box-shadow-3xl,
-  6: $box-shadow-4xl,
+  1: $box-shadow-1,
+  2: $box-shadow-2,
+  3: $box-shadow-3,
+  4: $box-shadow-4,
+  5: $box-shadow-5,
+  6: $box-shadow-6,
   inset: $box-shadow-inset,
-  outline: $box-shadow-outline,
-  focus: $box-shadow-focus,
   none: none
 ) !default;
 
 $utilities-soft-shadows: (
-  1: $box-soft-shadow-sm,
-  2: $box-soft-shadow-lg,
-  3: $box-soft-shadow-xl,
-  4: $box-soft-shadow-2xl,
-  5: $box-soft-shadow-3xl,
-  6: $box-soft-shadow-4xl,
-  none: none
+  1: $box-soft-shadow-1,
+  2: $box-soft-shadow-2,
+  3: $box-soft-shadow-3,
+  4: $box-soft-shadow-4,
+  5: $box-soft-shadow-5,
+  6: $box-soft-shadow-6,
 ) !default;
 
 // Border radius
@@ -88,11 +89,10 @@ $utilities-border-radius: (
   null: $border-radius,
   0: 0,
   1: $border-radius-sm,
-  2: $border-radius-lg,
-  3: $border-radius-xl,
-  4: $border-radius-2xl,
-  5: $border-radius-3xl,
-  6: $border-radius-4xl,
+  2: $border-radius,
+  3: $border-radius-lg,
+  4: $border-radius-xl,
+  5: $border-radius-xxl,
   pill: $border-radius-pill,
   circle: $border-radius-circle,
   card: $card-border-radius

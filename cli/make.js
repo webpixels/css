@@ -5,7 +5,7 @@ const replace = require('replace-in-file');
 module.exports = {
   makeTheme(name = 'starter', dist = 'scss') {
   
-    const sourceFolder = 'stubs/theme-starter/';
+    const sourceFolder = 'node_modules/@webpixels/css/stubs/theme-starter/';
     const destinationFolder = dist+'/themes/';
     const replaceString = 'THEME_STARTER';
     const themeName = name;

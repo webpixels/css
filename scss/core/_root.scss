@@ -5,10 +5,30 @@
     --#{$prefix}#{$color}: #{$value};
   }
 
+  @each $color, $value in $all-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+  
   // Fonts
   --#{$prefix}font-display: #{inspect($font-display-bundle)};
   --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
   --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
+
+  // Shadows
+  --#{$prefix}box-shadow: #{$box-shadow};
+  --#{$prefix}box-shadow-1: #{$box-shadow-1};
+  --#{$prefix}box-shadow-2: #{$box-shadow-2};
+  --#{$prefix}box-shadow-3: #{$box-shadow-3};
+  --#{$prefix}box-shadow-4: #{$box-shadow-4};
+  --#{$prefix}box-shadow-5: #{$box-shadow-5};
+  --#{$prefix}box-shadow-6: #{$box-shadow-6};
+
+  --#{$prefix}box-soft-shadow-1: #{$box-soft-shadow-1};
+  --#{$prefix}box-soft-shadow-2: #{$box-soft-shadow-2};
+  --#{$prefix}box-soft-shadow-3: #{$box-soft-shadow-3};
+  --#{$prefix}box-soft-shadow-4: #{$box-soft-shadow-4};
+  --#{$prefix}box-soft-shadow-5: #{$box-soft-shadow-5};
+  --#{$prefix}box-soft-shadow-6: #{$box-soft-shadow-6};
 
   // Logo
   .logo-light {

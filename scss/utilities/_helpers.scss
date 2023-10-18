@@ -2,18 +2,6 @@
 // Helpers
 //
 
-// Clearfix
-.floatfix {
-  &:before,
-  &:after {
-    content: '';
-    display: table;
-  }
-  &:after {
-      clear: both;
-  }
-}
-
 // Scrollable areas
 .scrollable-x {
   white-space: nowrap;
