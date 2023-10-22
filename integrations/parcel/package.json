@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "@webpixels/css": "^1.2.11",
-    "bootstrap": "^5.2.2",
+    "@webpixels/css": "^1.2.6",
+    "bootstrap": "5.2.3",
     "parcel": "^2.7.0"
   }
 }
