@@ -24,7 +24,8 @@
   );
 }
 
-.btn-white {
+.btn-white,
+.btn-inverse {
   @include button-variant(
     $white,
     $white,

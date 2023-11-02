@@ -173,7 +173,7 @@ $component-active-bg:         $primary !default;
 
 $focus-ring-width:            .15rem !default;
 $focus-ring-opacity:          .25 !default;
-$focus-ring-color:            rgba($primary, $focus-ring-opacity) !default;
+$focus-ring-color:            var(--#{$prefix}primary-bg-subtle) !default;
 $focus-ring-blur:             0 !default;
 $focus-ring-box-shadow:       0 0 $focus-ring-blur $focus-ring-width $focus-ring-color !default;
 
@@ -319,10 +319,6 @@ $headings-font-style:         null !default;
 $headings-font-weight:        $font-weight-bold !default;
 $headings-line-height:        1.3 !default;
 $headings-color:              $gray-900 !default;
-
-$large-headings-font-weight:  $headings-font-weight !default;
-$small-headings-font-weight:  $font-weight-bold !default;
-
 
 // scss-docs-start display-headings
 $display-font-sizes: (
@@ -536,6 +532,7 @@ $input-alt-focus-border-color:       transparent !default;
 $input-alt-focus-box-shadow:         0 0 0 2px $primary !default;
 
 $form-check-margin-bottom:           0 !default;
+$form-check-input-checked-bg-color:  var(--#{$prefix}primary) !default;
 
 $form-switch-width:                  2.875em !default;
 $form-switch-min-height:             1.5rem !default;
@@ -629,7 +626,7 @@ $card-border-color:                 var(--#{$prefix}border-color) !default;
 $card-border-radius:                var(--#{$prefix}border-radius) !default;
 $card-box-shadow:                   $box-soft-shadow !default;
 
-$card-cap-padding-y:                $card-spacer-y * .5 !default;
+$card-cap-padding-y:                1rem !default;
 $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), 0) !default;
 $card-cap-color:                    var(--#{$prefix}heading-color) !default;
 

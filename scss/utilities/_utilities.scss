@@ -4,7 +4,12 @@ $utilities: map-merge($utilities, (
   "rounded": map-merge(
     map-get($utilities, "rounded"),
     (
-      values: $utilities-border-radius,
+      values: map-merge(
+        $utilities-border-radius,
+        (
+          "inherit": inherit
+        )
+      ),
       responsive: true 
     ),
   ),

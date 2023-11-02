@@ -1,0 +1,41 @@
+@mixin retro-light {
+  $primary: $green-600;
+
+  --x-primary: #{$primary};
+  --x-primary-rgb: #{to-rgb($primary)};
+
+  --x-border-radius: #{$border-radius-lg};
+  --x-border-color: #{$gray-950};
+  --x-border-width: 1.5px;
+
+
+  // Cards
+  .card {
+    --x-card-bg: #{$white};
+    --x-card-box-shadow: #{$box-soft-shadow-1};
+  }
+
+  .btn {
+    --x-btn-border-radius: #{$border-radius};
+  }
+
+  .dropdown-menu {
+    --x-dropdown-bg: #{$white};
+  }
+  
+  .btn-neutral {
+    --x-btn-border-color: var(--x-border-color);
+  }
+
+  .btn-primary {
+    --x-btn-bg: var(--x-primary);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-primary);
+    --x-btn-hover-bg: #{lighten($primary, 6%)};
+    --x-btn-hover-color: #{color-contrast($primary)};
+    --x-btn-hover-border-color: #{lighten($primary, 6%)};
+    --x-btn-active-bg: #{lighten($primary, 6%)};
+    --x-btn-active-color: #{color-contrast($primary)};
+    --x-btn-active-border-color: #{lighten($primary, 6%)};
+  }
+}

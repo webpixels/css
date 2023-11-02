@@ -1,0 +1,18 @@
+@mixin indigo-light {
+  $primary: $indigo;
+
+  --x-primary: #{$primary};
+  --x-primary-rgb: #{to-rgb($primary)};
+ 
+ .btn-primary {
+    --x-btn-bg: var(--x-primary);
+    --x-btn-color: var(--x-white);
+    --x-btn-border-color: var(--x-primary);
+    --x-btn-hover-bg: #{lighten($primary, 6%)};
+    --x-btn-hover-color: #{color-contrast($primary)};
+    --x-btn-hover-border-color: #{lighten($primary, 6%)};
+    --x-btn-active-bg: #{lighten($primary, 6%)};
+    --x-btn-active-color: #{color-contrast($primary)};
+    --x-btn-active-border-color: #{lighten($primary, 6%)};
+  }
+}
