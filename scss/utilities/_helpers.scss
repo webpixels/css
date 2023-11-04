@@ -2,6 +2,16 @@
 // Helpers
 //
 
+// Hover animations
+[class*='hover-'] {
+  @include transition($transition-base);
+}
+
+// Shadows
+[class*="shadow"] {
+  @include transition($transition-base);
+}
+
 // Scrollable areas
 .scrollable-x {
   white-space: nowrap;
@@ -95,16 +105,6 @@
 }
 
 
-// Hover animations
-[class*='hover-'] {
-  @include transition($transition-base);
-}
-
-// Shadows
-[class*="shadow"] {
-	@include transition($transition-base);
-}
-
 // Contextual colors
 a.text-muted,
 a.text-heading,
@@ -114,35 +114,6 @@ a.text-current {
 	}
 }
 
-// Fluid title with elipsis ending
-
-.txt-limit {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-// SVG helpers
-.svg-fluid {
-  svg {
-    max-width: 100%;
-    height: 100%;
-  }
-}
-
-.svg-current {
-  svg [fill]:not([fill=none]) {
-    fill: currentColor !important;
- 	}
-}
-
-// Image alignment
-.img-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 // Image filters
 .img-grayscale {
   filter: grayscale(100%);
@@ -150,31 +121,6 @@ a.text-current {
 
 .img-saturate {
   filter: saturate(150%)
-}
-
-// SVG icons
-
-.svg-icon {
-  display: inline-flex;
-  align-self: center;
-
-  svg {
-    width: $svg-icon-size;
-    height: $svg-icon-size;
-    position: relative;
-  }
-
-  &[class*=text-] {
-	> svg [fill]:not([fill=none]) {
-	   fill: currentColor !important;
-   	}
-  }
-}
-
-.svg-align-baseline {
-  svg {
-    top: .125em;
-  }
 }
 
 
@@ -210,4 +156,13 @@ a.text-current {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+
+// Text highlighting
+@each $color, $value in $theme-colors {
+  .text-highlight-#{$color} {
+    background-image: linear-gradient(transparent 66%, rgba($value, .15) 34%);
+    background-repeat: repeat-x;
+  }
 }

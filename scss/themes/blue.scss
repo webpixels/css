@@ -1,0 +1,43 @@
+/**
+ * Theme: blue
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "blue/variables";
+
+// Mixins
+@import "blue/light";
+@import "blue/dark";
+@import "blue/styles";
+
+.theme-blue {
+	@include blue-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-blue {
+    @include blue-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-blue {
+      @include blue-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-blue {
+    @include blue-dark;
+  }
+}

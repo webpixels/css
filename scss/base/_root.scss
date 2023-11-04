@@ -51,12 +51,15 @@
 
     // Buttons
     .btn-neutral {
-      --#{$prefix}btn-bg: var(--#{$prefix}gray-800);
-      --#{$prefix}btn-border-color: var(--#{$prefix}gray-800);
-      --#{$prefix}btn-color: var(--#{$prefix}gray-100);
-      --#{$prefix}btn-hover-bg: var(--#{$prefix}gray-700);
-      --#{$prefix}btn-hover-color: var(--#{$prefix}white);
-      --#{$prefix}btn-hover-border-color: var(--#{$prefix}gray-700);
+      --#{$prefix}btn-bg: #{$btn-neutral-bg-dark};
+      --#{$prefix}btn-border-color: #{$btn-neutral-border-color-dark};
+      --#{$prefix}btn-color: #{$btn-neutral-color-dark};
+      --#{$prefix}btn-hover-bg: #{$btn-neutral-hover-bg-dark};
+      --#{$prefix}btn-hover-color: #{$btn-neutral-hover-color-dark};
+      --#{$prefix}btn-hover-border-color: #{$btn-neutral-hover-border-color-dark};
+      --#{$prefix}btn-active-bg: #{$btn-neutral-active-bg-dark};
+      --#{$prefix}btn-active-color: #{$btn-neutral-active-color-dark};
+      --#{$prefix}btn-active-border-color: #{$btn-neutral-active-border-color-dark};
     }
   }
 }
