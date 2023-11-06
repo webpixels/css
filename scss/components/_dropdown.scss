@@ -1,90 +1,93 @@
-// Dropdown menu fluid
-@each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint) {
-        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-        .dropdown-menu#{$infix}-fluid {
-            width: calc(100% - (var(--#{$prefix}gutter-x, 1.5rem) * 2));
-            left: var(--#{$prefix}gutter-x, 1.5rem) !important;
-
-            &[data-bs-popper] {
-                left: var(--#{$prefix}gutter-x, 1.5rem);
-            }
-        }
-    }
-}
-
-// Sizing
-@include media-breakpoint-up(md) {
-    .dropdown-menu-sm {
-        min-width: $dropdown-min-width-sm !important;
-
-        &.dropdown-menu-arrow {
-          &.dropdown-menu-right {
-            &:before {
-              right: 2rem;
-              left: auto;
-            }
-          }
-        }
-    }
-
-    .dropdown-menu-md {
-        min-width: $dropdown-min-width-md !important;
-    }
-
-    .dropdown-menu-lg {
-        min-width: $dropdown-min-width-lg !important;
-    }
-
-    .dropdown-menu-xl {
-        min-width: $dropdown-min-width-xl !important;
-    }
-
-    .dropdown-menu-2xl {
-        min-width: $dropdown-min-width-2xl !important;
-    }
-
-    // Positioning
-    .dropdown-menu-centered {
-        left: $dropdown-left-offset !important;
-        transform: $dropdown-transform;
-    }
-}
+// 
+// Dropdown
+// additional styles added in Webpixels
+// 
 
 .dropdown-item {
-	// Added by Webpixels 
 	--#{$prefix}dropdown-item-border-radius: #{$dropdown-item-border-radius};
 
 	@include border-radius(var(--#{$prefix}dropdown-item-border-radius, 0));
 }
 
-// Added in Webpixels
+// Dropdown menu fluid
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .dropdown-menu#{$infix}-fluid {
+      width: calc(100% - (var(--#{$prefix}gutter-x, 1.5rem) * 2));
+      left: var(--#{$prefix}gutter-x, 1.5rem) !important;
 
+      &[data-bs-popper] {
+        left: var(--#{$prefix}gutter-x, 1.5rem);
+      }
+    }
+  }
+}
+
+// Sizing
+@include media-breakpoint-up(md) {
+  .dropdown-menu-sm {
+    --#{$prefix}dropdown-min-width: #{$dropdown-min-width-sm};
+
+    &.dropdown-menu-arrow {
+      &.dropdown-menu-right {
+        &:before {
+          right: 2rem;
+          left: auto;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu-md {
+    --#{$prefix}dropdown-min-width: #{$dropdown-min-width-md};
+  }
+
+  .dropdown-menu-lg {
+    --#{$prefix}dropdown-min-width: #{$dropdown-min-width-lg};
+  }
+
+  .dropdown-menu-xl {
+    --#{$prefix}dropdown-min-width: #{$dropdown-min-width-xl};
+  }
+
+  .dropdown-menu-2xl {
+    --#{$prefix}dropdown-min-width: #{$dropdown-min-width-2xl};
+  }
+
+  // Positioning
+  .dropdown-menu-centered {
+      left: $dropdown-left-offset !important;
+      transform: $dropdown-transform;
+  }
+}
+
+// Additional dropdown elements
 .dropdown-body {
-    padding-left: var(--#{$prefix}dropdown-item-padding-x);
-    padding-right: var(--#{$prefix}dropdown-item-padding-x);
+  padding-left: var(--#{$prefix}dropdown-item-padding-x);
+  padding-right: var(--#{$prefix}dropdown-item-padding-x);
 }
 
 .dropdown-heading {
-    color: $dropdown-heading-color;
-    font-size: $dropdown-heading-font-size;
-    font-weight: $dropdown-heading-font-weight;
+  color: $dropdown-heading-color;
+  font-size: $dropdown-heading-font-size;
+  font-weight: $dropdown-heading-font-weight;
 }
 
 .dropdown-helper {
-    color: $dropdown-helper-color;
+  color: $dropdown-helper-color;
 }
 
 .dropdown-group {
-    display: block;
+  display: block;
 
-    &:hover {
-        .dropdown-heading {
-            color: $dropdown-heading-focus-color;
-        }
+  &:hover {
+    .dropdown-heading {
+      color: $dropdown-heading-focus-color;
     }
+  }
 }
 
 .dropdown-secondary {
-    background-color: $dropdown-secondary-bg;
+  background-color: $dropdown-secondary-bg;
 }

@@ -1,0 +1,43 @@
+/**
+ * Theme: yellow
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "yellow/variables";
+
+// Mixins
+@import "yellow/light";
+@import "yellow/dark";
+@import "yellow/styles";
+
+.theme-yellow {
+	@include yellow-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-yellow {
+    @include yellow-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-yellow {
+      @include yellow-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-yellow {
+    @include yellow-dark;
+  }
+}

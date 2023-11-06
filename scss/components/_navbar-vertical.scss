@@ -2,8 +2,6 @@
 // Vertical navbar
 //
 
-@use "sass:math";
-
 .navbar-vertical {
   @include rfs($navbar-vertical-nav-link-font-size, --#{$prefix}nav-link-font-size);
 
@@ -27,7 +25,7 @@
         border: none;
 
         .dropdown-menu {
-          margin-left: math.div($dropdown-item-padding-x, 2);
+          margin-left: calc($dropdown-item-padding-x / 2);
         }
       }
 

@@ -1,0 +1,43 @@
+/**
+ * Theme: playful
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "playful/variables";
+
+// Mixins
+@import "playful/light";
+@import "playful/dark";
+@import "playful/styles";
+
+.theme-playful {
+	@include playful-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-playful {
+    @include playful-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-playful {
+      @include playful-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-playful {
+    @include playful-dark;
+  }
+}

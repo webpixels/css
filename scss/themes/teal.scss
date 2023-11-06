@@ -1,0 +1,43 @@
+/**
+ * Theme: teal
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "teal/variables";
+
+// Mixins
+@import "teal/light";
+@import "teal/dark";
+@import "teal/styles";
+
+.theme-teal {
+	@include teal-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-teal {
+    @include teal-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-teal {
+      @include teal-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-teal {
+    @include teal-dark;
+  }
+}

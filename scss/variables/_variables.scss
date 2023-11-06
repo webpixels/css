@@ -3,11 +3,7 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
-@import '../core/colors';
-
-// Theme object init
-$theme: () !default;
-$theme-utilities: () !default;
+@import './colors';
 
 // Options
 //
@@ -28,6 +24,9 @@ $enable-validation-icons:     true !default;
 $enable-negative-margins:     true !default;
 $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
+
+// added in wpx
+$enable-gradient-utilities:   true !default;
 
 // Prefix for :root CSS variables
 $prefix:    x- !default;
@@ -50,7 +49,7 @@ $bg-tint-level:            15% !default;
 // Settings for the `<body>` element.
 
 $body-bg:     $white !default;
-$body-color:  $gray-800 !default;
+$body-color:  $gray-700 !default;
 
 $body-secondary-color:      rgba($body-color, .75) !default;
 $body-secondary-bg:         $gray-100 !default;
@@ -67,7 +66,6 @@ $body-emphasis-color:       $gray-900 !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer: 1rem !default;
-
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
@@ -135,33 +133,34 @@ $border-color:                $gray-200 !default;
 $border-radius-sm:            .25rem !default;
 $border-radius:               .375rem !default;
 $border-radius-lg:            .5rem !default;
-$border-radius-xl:            .75rem !default;
-$border-radius-2xl:            1rem !default;
-$border-radius-3xl:            1.5rem !default;
-$border-radius-4xl:            3rem !default;
-$border-radius-5xl:            4rem !default;
-$border-radius-6xl:            5rem !default;
-$border-radius-7xl:            6rem !default;
-$border-radius-8xl:            7rem !default;
+$border-radius-xl:             1rem !default;
+$border-radius-xxl:            2rem !default;
+
 $border-radius-pill:           50rem !default;
-$border-radius-circle:         50% !default;
+$border-radius-circle:         50% !default; 
 
 // Box shadow
 $box-shadow-sm:               0px 1px 1px 0px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
 $box-shadow:                  0px 3px 3px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
 $box-shadow-lg:               0px 6px 6px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
-$box-shadow-xl:               0px 9px 9px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
-$box-shadow-2xl:              0px 16px 16px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
-$box-shadow-3xl:              0px 32px 40px -2px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
-$box-shadow-4xl:              0px 36px 50px 0 rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
 
-$box-soft-shadow-sm:          0px 1px 1px 0px rgba(10 22 70 / 4%) !default;
+// added in wpx
+$box-shadow-1:                $box-shadow-sm !default;
+$box-shadow:                  $box-shadow !default;
+$box-shadow-2:                $box-shadow-lg !default;
+$box-shadow-3:                0px 9px 9px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
+$box-shadow-4:                0px 16px 16px -1px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
+$box-shadow-5:                0px 32px 40px -2px rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
+$box-shadow-6:                0px 36px 50px 0 rgba(10 22 70 / 10%), 0px 0px 1px 0px rgb(10 22 70 / 6%) !default;
+
+$box-soft-shadow-1:           0px 1px 1px 0px rgba(10 22 70 / 4%) !default;
 $box-soft-shadow:             0px 3px 3px -1px rgba(10 22 70 / 4%) !default;
-$box-soft-shadow-lg:          0px 6px 6px -1px rgba(10 22 70 / 4%) !default;
-$box-soft-shadow-xl:          0px 9px 9px -1px rgba(10 22 70 / 4%) !default;
-$box-soft-shadow-2xl:         0px 16px 16px -1px rgba(10 22 70 / 4%) !default;
-$box-soft-shadow-3xl:         0px 32px 40px -2px rgba(10 22 70 / 4%) !default;
-$box-soft-shadow-4xl:         0px 36px 50px 0 rgba(10 22 70 / 4%) !default;
+$box-soft-shadow-2:           0px 6px 6px -1px rgba(10 22 70 / 4%) !default;
+$box-soft-shadow-3:           0px 9px 9px -1px rgba(10 22 70 / 4%) !default;
+$box-soft-shadow-4:           0px 16px 16px -1px rgba(10 22 70 / 4%) !default;
+$box-soft-shadow-5:           0px 32px 40px -2px rgba(10 22 70 / 4%) !default;
+$box-soft-shadow-6:           0px 36px 50px 0 rgba(10 22 70 / 4%) !default;
+// end wpx
 
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 $box-shadow-outline:          0 0 0 3px rgba(66, 153, 225, 0.5) !default;
@@ -174,7 +173,7 @@ $component-active-bg:         $primary !default;
 
 $focus-ring-width:            .15rem !default;
 $focus-ring-opacity:          .25 !default;
-$focus-ring-color:            rgba($primary, $focus-ring-opacity) !default;
+$focus-ring-color:            var(--#{$prefix}primary-bg-subtle) !default;
 $focus-ring-blur:             0 !default;
 $focus-ring-box-shadow:       0 0 $focus-ring-blur $focus-ring-width $focus-ring-color !default;
 
@@ -263,21 +262,21 @@ $font-serif-system:         ui-serif, Georgia, Cambria, "Times New Roman", Times
 $font-monospace-system:     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 // Additional variable to add custom fonts
-$font-sans-serif:           "Inter" !default;
-$font-display:              $font-sans-serif !default;
-$font-monospace:            null !default;
+$font-sans-serif:           null !default;
 $font-serif:                null !default;
+$font-display:              null !default;
+$font-monospace:            null !default;
 
 // Generate the font family by adding the custom font to the collection if that exists
 $font-sans-serif-bundle:    if($font-sans-serif, #{$font-sans-serif,$font-sans-serif-system}, $font-sans-serif-system) !default;
-$font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospace-system}, $font-monospace-system) !default;
 $font-serif-bundle:         if($font-serif, #{$font-serif,$font-serif-system}, $font-serif-system) !default;
 $font-display-bundle:       if($font-display, #{$font-display,$font-sans-serif-system}, $font-sans-serif-system) !default;
+$font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospace-system}, $font-monospace-system) !default;
 
-$font-family-base:           var(--#{$prefix}font-sans-serif) !default;
-$font-family-monospace:      var(--#{$prefix}font-monospace) !default;
-$font-family-display:        var(--#{$prefix}font-display) !default;
-$font-family-serif:          var(--#{$prefix}font-serif) !default;
+$font-family-base:          var(--#{$prefix}font-sans-serif) !default;
+$font-family-serif:         var(--#{$prefix}font-serif) !default;
+$font-family-display:       var(--#{$prefix}font-display) !default;
+$font-family-monospace:     var(--#{$prefix}font-monospace) !default;
 
 // $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
 // $font-size-base effects the font size of the body text
@@ -320,10 +319,6 @@ $headings-font-style:         null !default;
 $headings-font-weight:        $font-weight-bold !default;
 $headings-line-height:        1.3 !default;
 $headings-color:              $gray-900 !default;
-
-$large-headings-font-weight:  $headings-font-weight !default;
-$small-headings-font-weight:  $font-weight-bold !default;
-
 
 // scss-docs-start display-headings
 $display-font-sizes: (
@@ -496,11 +491,11 @@ $btn-border-radius-sm:        var(--#{$prefix}border-radius) !default;
 $btn-border-radius-lg:        var(--#{$prefix}border-radius-lg) !default;
 
 // Square/Circle shape buttons
-$btn-square-size:                   2.75rem !default;
-$btn-square-size-xl:                4rem !default;
-$btn-square-size-lg:                3.25rem !default;
-$btn-square-size-sm:                2.296875rem !default;
-$btn-square-size-xs:                2.046875rem !default;
+$btn-square-size:                   44px !default;
+$btn-square-size-xl:                56px !default;
+$btn-square-size-lg:                52px !default;
+$btn-square-size-sm:                36.75px !default;
+$btn-square-size-xs:                35.5px !default;
 
 // Neutral button
 $btn-neutral-bg:                    $white !default;
@@ -537,6 +532,7 @@ $input-alt-focus-border-color:       transparent !default;
 $input-alt-focus-box-shadow:         0 0 0 2px $primary !default;
 
 $form-check-margin-bottom:           0 !default;
+$form-check-input-checked-bg-color:  var(--#{$prefix}primary) !default;
 
 $form-switch-width:                  2.875em !default;
 $form-switch-min-height:             1.5rem !default;
@@ -627,12 +623,12 @@ $card-title-spacer-y:               0.5rem !default;
 $card-title-color:                  var(--#{$prefix}heading-color) !default;
 
 $card-border-color:                 var(--#{$prefix}border-color) !default;
-$card-border-radius:                var(--#{$prefix}border-radius-xl) !default;
+$card-border-radius:                var(--#{$prefix}border-radius) !default;
 $card-box-shadow:                   $box-soft-shadow !default;
 
-$card-cap-padding-y:                1.25rem !default;
+$card-cap-padding-y:                1rem !default;
+$card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), 0) !default;
 $card-cap-color:                    var(--#{$prefix}heading-color) !default;
-
 
 // Accordion
 $accordion-padding-y:                     1.5rem !default;
@@ -681,36 +677,29 @@ $dropdown-left-offset:              50% !default;
 $dropdown-padding-x:                .5rem !default;
 $dropdown-padding-y:                .5rem !default;
 $dropdown-spacer:                   .125rem !default;
-$dropdown-bg:                       $white !default;
-$dropdown-border-width:             1px !default;
-$dropdown-border-color:             lighten($gray-200, 3%) !default;
-$dropdown-border-radius:            $border-radius-xl !default;
-$dropdown-border-width:             $border-width !default;
-$dropdown-divider-bg:               tint-color($dropdown-border-color, 10%) !default;
+$dropdown-color:                    var(--#{$prefix}body-color) !default;
+$dropdown-bg:                       var(--#{$prefix}body-bg) !default;
+$dropdown-border-color:             var(--#{$prefix}border-color) !default;
+$dropdown-border-radius:            var(--#{$prefix}border-radius-lg) !default;
 $dropdown-divider-margin-y:         $dropdown-padding-y !default;
-$dropdown-box-shadow:               $box-shadow-2xl !default;
+$dropdown-divider-bg:               var(--#{$prefix}border-color) !default;
+$dropdown-box-shadow:               var(--#{$prefix}box-shadow-4) !default;
 $dropdown-font-size:                $font-size-sm !default;
 
-$dropdown-secondary-bg:             $gray-100 !default;
+$dropdown-secondary-bg:             var(--#{$prefix}secondary-bg) !default;
 
-$dropdown-heading-color:            $gray-900 !default;
+$dropdown-heading-color:            var(--#{$prefix}heading-color) !default;
 $dropdown-heading-font-size:        $font-size-base !default;
 $dropdown-heading-font-weight:      $font-weight-semibold !default;
 $dropdown-heading-focus-color:      $primary !default;
 
 $dropdown-helper-color:             $text-muted !default;
 
-$dropdown-link-border-radius:       $border-radius !default;
-$dropdown-link-color:               $gray-900 !default;
-$dropdown-link-bg:                  $white !default;
-$dropdown-link-hover-color:         $gray-900 !default;
-$dropdown-link-hover-bg:            $gray-100 !default;
-$dropdown-link-active-color:        $primary !default;
-$dropdown-link-active-bg:           transparent !default;
+$dropdown-link-border-radius:       var(--#{$prefix}border-radius-lg) !default;
 
 $dropdown-item-padding-y:           .5rem !default;
 $dropdown-item-padding-x:           1rem !default;
-$dropdown-item-border-radius:       $border-radius !default; 
+$dropdown-item-border-radius:       var(--#{$prefix}border-radius-lg) !default; 
 
 // Frames
 

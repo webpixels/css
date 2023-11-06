@@ -33,7 +33,6 @@
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: var(--#{$prefix}navbar-collapse-border-color);
-    // @include transition($transition-base);
   }
 
   &.show,

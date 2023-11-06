@@ -1,0 +1,52 @@
+// Color system
+
+// White/Grays/Black colors
+$white:    #FFF !default;
+$gray-50:  #f8fafc !default;
+$gray-100: #f1f5f9 !default;
+$gray-200: #e2e8f0 !default;
+$gray-300: #cbd5e1 !default;
+$gray-400: #94a3b8 !default;
+$gray-500: #64748b !default;
+$gray-600: #475569 !default;
+$gray-700: #334155 !default;
+$gray-800: #1e293b !default;
+$gray-900: #0f172a !default;
+$gray-950: #020617 !default;
+$black:    #000 !default;
+
+$grays: (
+	"50": $gray-50,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
+  "950": $gray-950
+) !default;
+
+// Base colors
+$blue:    #3b82f6 !default;
+$indigo:  #6366f1 !default;
+$purple:  #8b5cf6 !default;
+$pink:    #ec4899 !default;
+$red:     #ef4444 !default;
+$orange:  #f97316 !default;
+$yellow:  #eab308 !default;
+$green:   #22c55e !default;
+$teal:    #14b8a6 !default;
+$cyan:    #06b6d4 !default;
+
+// Theme colors
+$primary:       $purple !default;
+$secondary:     $gray-900 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $orange !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;

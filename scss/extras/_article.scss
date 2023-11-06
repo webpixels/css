@@ -15,15 +15,16 @@
 	> p {
 		margin-top: 1.25rem;
 		margin-bottom: 1.25rem;
-    }
+  }
 
 	> h2 {
 		@include font-size(1.5em);
 		font-weight: $font-weight-bolder;
     margin-top: 2em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     line-height: 1.3333333;
     letter-spacing: -.025em;
+    white-space: pre-wrap;
 
 		&:first-child {
 			margin-top: 1em;
@@ -35,6 +36,7 @@
 		font-weight: $font-weight-bold;
 		margin-top: 1.6em;
 		margin-bottom: .6em;
+		white-space: pre-wrap;
 	}
 
 	> h4 {
@@ -63,7 +65,10 @@
     overflow-x: auto;
     background-color: $dark;
     color: color-contrast($dark);
+    max-width: 100%;
+    white-space: pre-wrap;  
 		@include border-radius(var(--#{$prefix}article-pre-border-radius));
+
 	}
 
 	& > :first-child {
@@ -91,7 +96,7 @@
 	}
 
 	> blockquote {
-	   font-weight: 500;
+	  font-weight: 500;
 		@include font-size($font-size-lg);
 		color: $headings-color;
     letter-spacing: -.012em;
@@ -104,6 +109,6 @@
 		> p {
 			margin-top: 1.5rem;
 			margin-bottom: 1.5rem;
-	    }
+	  }
 	}
 }

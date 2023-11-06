@@ -4,7 +4,12 @@ $utilities: map-merge($utilities, (
   "rounded": map-merge(
     map-get($utilities, "rounded"),
     (
-      values: $utilities-border-radius,
+      values: map-merge(
+        $utilities-border-radius,
+        (
+          "inherit": inherit
+        )
+      ),
       responsive: true 
     ),
   ),
@@ -91,17 +96,15 @@ $utilities: map-merge($utilities, (
       responsive: true 
     ),
   ),
-  "border-opacity": map-merge(
-    map-get($utilities, "border-opacity"),
+  "border-color": map-merge(
+    map-get($utilities, "border-color"),
     ( 
-      state: hover,
-      values: (
-        0: 0,
-        10: .10,
-        25: .25,
-        50: .5,
-        75: .75,
-        100: 1,
+      responsive: true,
+      values: map-merge(
+        map-get(map-get($utilities, "border-color"), "values"),
+        (
+          $utilities-all-border-colors
+        )
       )
     ),
   ),
@@ -114,9 +117,25 @@ $utilities: map-merge($utilities, (
     )
   ),
   "border-style": ( 
-    property: border-style,
+    css-var: true,
+    css-variable-name: border-style,
+    // property: border-style,
     class: border,
     values: solid dashed dotted none
+  ),
+  "border-opacity": map-merge(
+    map-get($utilities, "border-opacity"),
+    ( 
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    ),
   ),
   "cursor": (
     property: cursor,
@@ -181,9 +200,7 @@ $utilities: map-merge($utilities, (
       state: hover,
       values: map-merge(
         map-get(map-get($utilities, "background-color"), "values"),
-        (
-          $all-colors
-        )
+        $utilities-all-bg-colors
       )
     )
   ),
@@ -197,8 +214,16 @@ $utilities: map-merge($utilities, (
   "bg-opacity": map-merge(
     map-get($utilities, "bg-opacity"),
     ( 
-      state: hover
-    ),
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    )
   ),
   "background-size": (
     property: background-size,
@@ -245,18 +270,7 @@ $utilities: map-merge($utilities, (
     property: width,
     class: w-rem,
     responsive: true,
-    values: map-merge-multiple(
-      $spacers,
-      $percentage-sizers,
-      $screen-widths,
-      (
-        auto: auto,
-        full: 100%,
-        screen: 100vw,
-        min: min-content,
-        max: max-content
-      )
-    )
+    values: $spacers
   ),
   "max-width": map-merge(
     map-get($utilities, "max-width"),
@@ -265,10 +279,8 @@ $utilities: map-merge($utilities, (
         $screen-widths,
         (
           0: 0,
-          full: 100%,
-          read: 65ch,
-          min: min-content,
-          max: max-content
+          100: 100%,
+          read: 65ch
         )
       ),
       responsive: true
@@ -294,31 +306,8 @@ $utilities: map-merge($utilities, (
       responsive: true
     ),
   ),
-  // "min-height": (
-  //   property: min-height,
-  //   class: min-h,
-  //   responsive: true,
-  //   values: (
-  //     0: 0,
-  //     100: 100%,
-  //     screen: 100vh
-  //   )
-  // ),
-  // "max-height": (
-  //   property: max-height,
-  //   class: max-h,
-  //   responsive: true,
-  //   values: map-merge-multiple(
-  //     $spacers,
-  //     (
-  //       px: 1px,
-  //       full: 100%,
-  //       screen: 100vh
-  //     )
-  //   )
-  // ),
 
-  // // Position
+  // Position
   "position": map-merge(
     map-get($utilities, "position"),
     ( 
@@ -383,6 +372,25 @@ $utilities: map-merge($utilities, (
       responsive: true 
     ),
   ),
+  "z-index": map-merge(
+    map-get($utilities, "z-index"),
+    ( 
+      state: hover 
+    ),
+  ),
+  "opacity": map-merge(
+    map-get($utilities, "opacity"),
+    ( 
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    )
+  ),
   "scroll-behaviour": (
     property: scroll-behaviour,
     class: scroll,
@@ -415,6 +423,7 @@ $utilities: map-merge($utilities, (
     values: mandatory proximity
   ),
 
+  // Transition
   "transition-property": (
     property: transition-property,
     class: transition,
@@ -449,10 +458,7 @@ $utilities: map-merge($utilities, (
       75: 75ms,
       100: 100ms,
       150: 150ms,
-      300: 300ms,
-      500: 500ms,
-      700: 700ms,
-      1000: 1000ms,
+      300: 300ms
     )
   ),
   "transition-delay": (
@@ -462,12 +468,11 @@ $utilities: map-merge($utilities, (
       75: 75ms,
       100: 100ms,
       150: 150ms,
-      300: 300ms,
-      500: 500ms,
-      700: 700ms,
-      1000: 1000ms,
+      300: 300ms
     )
   ),
+
+  // Animations
   "animation": (
     property: animation,
     values: (
@@ -482,8 +487,10 @@ $utilities: map-merge($utilities, (
       move-slow-right: slideRight 15s linear infinite,
     )
   ),
+
+  // Blur
   "blur": (
-    property: --#{$variable-prefix}blur,
+    property: --#{$prefix}blur,
     class: blur,
     values: (
       5: 5px,
@@ -497,6 +504,8 @@ $utilities: map-merge($utilities, (
       200: 200px
     )
   ),
+
+  // Transform
   "transform": (
     property: transform,
     values: none,
@@ -508,75 +517,87 @@ $utilities: map-merge($utilities, (
     values: (
       center: center,
       top: top,
-      top-right: top right,
-      right: right,
-      bottom-right: bottom right,
+      top-end: top right,
+      end: right,
+      bottom-end: bottom right,
       bottom: bottom,
-      bottom-left: bottom left,
+      bottom-start: bottom left,
       left: left,
-      top-left: top left
+      top-start: top left
     )
   ),
   "scale": (
-    property: --#{$variable-prefix}scale-x --#{$variable-prefix}scale-y,
+    property: --#{$prefix}scale-x --#{$prefix}scale-y,
     class: scale,
     state: hover,
     responsive: true,
     values: $utilities-scale-values
   ),
   "rotate":  (
-    property: --#{$variable-prefix}rotate,
+    property: --#{$prefix}rotate,
     class: rotate,
     state: hover,
     responsive: true,
     values: $utilities-rotate-values
   ),
   "negative-rotate":  (
-    property: --#{$variable-prefix}rotate,
+    property: --#{$prefix}rotate,
     class: rotate,
     state: hover,
     responsive: true,
     values: negativify-map($utilities-rotate-values)
   ),
   "negative-rotate-y": (
-    property: --#{$variable-prefix}rotate-y,
+    property: --#{$prefix}rotate-y,
     class: rotate-y,
     state: hover,
     responsive: true,
     values: negativify-map($utilities-rotate-values)
   ),
   "negative-rotate-x": (
-    property: --#{$variable-prefix}rotate-x,
+    property: --#{$prefix}rotate-x,
     class: rotate-x,
     responsive: true,
     values: negativify-map($utilities-rotate-values)
   ),
   "translate-y": (
-    property: --#{$variable-prefix}translate-y,
+    property: --#{$prefix}translate-y,
     class: translate-y,
     state: hover,
     responsive: true,
     values: $utilities-translate-values
   ),
   "negative-translate-y": (
-    property: --#{$variable-prefix}translate-y,
+    property: --#{$prefix}translate-y,
     class: translate-y,
     state: hover,
     responsive: true,
     values: negativify-map($utilities-translate-values)
   ),
   "translate-x": (
-    property: --#{$variable-prefix}translate-x,
+    property: --#{$prefix}translate-x,
     class: translate-x,
     state: hover,
     responsive: true,
     values: $utilities-translate-values
   ),
   "negative-translate-x": (
-    property: --#{$variable-prefix}translate-x,
+    property: --#{$prefix}translate-x,
     class: translate-x,
     state: hover,
     responsive: true,
     values: negativify-map($utilities-translate-values)
+  ),
+  "skew-y": (
+    property: --#{$prefix}skew-y,
+    class: skew-y,
+    responsive: true,
+    values: $utilities-skew-values
+  ),
+  "skew-x": (
+    property: --#{$prefix}skew-x, 
+    class: skew-x,
+    responsive: true,
+    values: $utilities-skew-values
   ),
 ));
