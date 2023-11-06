@@ -5,14 +5,12 @@
 <p align="center">
   Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.
   <br>
-  <a href="https://webpixels.io/docs"><strong>Explore Documentation »</strong></a>
+  <a href="https://learn.webpixels.io"><strong>Explore Documentation »</strong></a>
   <br>
   <br>
-  <a href="https://github.com/webpixels/css/issues/new?template=bug_report.md">Report bug</a>
+  <a href="https://github.com/orgs/webpixels/discussions">Discussions</a>
   ·
-  <a href="https://github.com/webpixels/css/issues/new?template=feature_request.md">Request feature</a>
-  ·
-  <a href="https://webpixels.io/components/">UI Components</a>
+  <a href="https://webpixels.io">Components</a>
   ·
   <a href="https://webpixels.io/blog/">Blog</a>
 </p>
@@ -24,7 +22,7 @@
 For most projects (and to take advantage of the customization features), you'll want to install Webpixels CSS and its peer-dependencies via npm.
 
 ```txt
-npm install @webpixels/css@latest bootstrap@latest --save-dev
+npm install -D @webpixels/css@2.0.0-beta.19 bootstrap@5.3.2
 ```
 
 This will automatically install the latest Bootstrap version, so you don't need to do that manually.
@@ -40,11 +38,7 @@ In your `scss` folder create two new files and name them:
 
 In your main.scss, you’ll import the source Sass files. Bootstrap is automatically loaded when you use the source files, so you don't need to worry about what Bootstrap files should you incorporate in your styles.
 
-```scss
-// Functions
-@import "bootstrap/scss/functions";
-
-// Main   
+```scss 
 @import "@webpixels/css/main";
 ```
 
@@ -60,15 +54,15 @@ In your utility.scss you'll import all the utilities:
 
 ## Documentation
 
-Check out our [documentation website](https://webpixels.io/docs?ref=github).
+Check out our [documentation website](https://learn.webpixels.io?ref=github).
 
-## Integrations
+## Build Tools
 
-If you want to see how it works, check out these functional examples of using Bootstrap and Webpixels CSS in common JS frameworks like Webpack, Parcel, Vite, and more!
+If you want to see how it works, check out these functional examples of using Bootstrap and Webpixels in common JS frameworks like Parcel, Vite, and more!
 
-[See all integrations](https://github.com/webpixels/css/tree/master/integrations)
+[See all examples](https://github.com/webpixels/css/tree/master/examples)
 
-## Detailed UI components library
+## UI components library
 
 Explore, copy, use and mix hundreds of carefully crafted components made just for Bootstrap.
 
