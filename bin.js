@@ -23,7 +23,7 @@ if(cmd == 'make:theme'){
 	}
 
   if(dist == undefined){
-    console.log('Please specify the location of you Sass files. Ex: scss/');
+    console.log('Please specify the location of your Sass files. Ex: scss/');
     return;
   }
 

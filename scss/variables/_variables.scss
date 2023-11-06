@@ -491,11 +491,11 @@ $btn-border-radius-sm:        var(--#{$prefix}border-radius) !default;
 $btn-border-radius-lg:        var(--#{$prefix}border-radius-lg) !default;
 
 // Square/Circle shape buttons
-$btn-square-size:                   2.75rem !default;
-$btn-square-size-xl:                4rem !default;
-$btn-square-size-lg:                3.25rem !default;
-$btn-square-size-sm:                2.296875rem !default;
-$btn-square-size-xs:                2.046875rem !default;
+$btn-square-size:                   44px !default;
+$btn-square-size-xl:                56px !default;
+$btn-square-size-lg:                52px !default;
+$btn-square-size-sm:                36.75px !default;
+$btn-square-size-xs:                35.5px !default;
 
 // Neutral button
 $btn-neutral-bg:                    $white !default;

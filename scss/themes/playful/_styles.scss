@@ -43,7 +43,7 @@
     --x-btn-active-border-color: #{lighten($secondary, 6%)};
   }
 
-  .btn-white {
+  .btn-inverse {
     --x-btn-bg: var(--x-white);
     --x-btn-color: var(--x-dark);
     --x-btn-border-color: var(--x-white);
