@@ -140,7 +140,7 @@ $utilities: map-merge($utilities, (
   "cursor": (
     property: cursor,
     class: cursor,
-    values: auto pointer wait text,
+    values: auto default pointer wait text,
   ),
   "font-family": map-merge(
     map-get($utilities, "font-family"),
