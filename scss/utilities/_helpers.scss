@@ -166,3 +166,11 @@ a.text-current {
     background-repeat: repeat-x;
   }
 }
+
+// SVG
+.svg-fluid {
+  svg {
+    max-width: 100%;
+    height: 100%;
+  }
+}   
