@@ -371,7 +371,7 @@ $mark-bg:                     #fcf8e3 !default;
 
 
 // Surtitle
-$surtitle-color:              $gray-700 !default;
+$surtitle-color:              var(--#{$prefix}body-color) !default;
 $surtitle-font-size:          .75rem !default;
 $surtitle-font-weight:        $font-weight-semibold !default;
 $surtitle-text-transform:     uppercase !default;
@@ -701,6 +701,13 @@ $dropdown-item-padding-y:           .5rem !default;
 $dropdown-item-padding-x:           1rem !default;
 $dropdown-item-border-radius:       var(--#{$prefix}border-radius-lg) !default; 
 
+$dropdown-link-color:               var(--#{$prefix}body-color) !default;
+$dropdown-link-hover-color:         $dropdown-link-color !default;
+$dropdown-link-hover-bg:            var(--#{$prefix}secondary-bg) !default;
+
+$dropdown-link-active-color:        $dropdown-link-color !default;
+$dropdown-link-active-bg:           var(--#{$prefix}secondary-bg) !default;
+
 // Frames
 
 $frame-iphone-width:            92% !default;
@@ -756,11 +763,13 @@ $nav-link-padding-y:                .5rem !default;
 $nav-link-padding-x:                1rem !default;
 $nav-link-font-size:                $font-size-sm !default;
 $nav-link-font-weight:              $font-weight-semibold !default;
-$nav-link-color:                    var(--#{$prefix}body-color) !default;
+$nav-link-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .65) !default;
+$nav-link-hover-color:              rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
+$nav-link-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
 
 // Navbar
 
-// $navbar-transition:                 all .15s linear !default;
+// $navbar-transition:                  all .15s linear !default;
 $navbar-padding-y:                      1rem !default;
 $navbar-padding-x:                      1rem !default;
 
@@ -771,8 +780,8 @@ $navbar-nav-link-padding-y:             .375rem !default;
 $navbar-nav-link-border-radius:         var(--#{$prefix}border-radius);
 
 $navbar-light-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .65) !default;
-$navbar-light-hover-color:              rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
-$navbar-light-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), 1) !default;
+$navbar-light-hover-color:              rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
+$navbar-light-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
 $navbar-light-disabled-color:           rgba(var(--#{$prefix}emphasis-color-rgb), .3) !default;
 
 // start wpx

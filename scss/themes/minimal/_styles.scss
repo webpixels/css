@@ -50,18 +50,6 @@
     --x-btn-active-border-color: #{lighten($secondary, 6%)};
   }
 
-  .btn-inverse {
-    --x-btn-bg: var(--x-white);
-    --x-btn-color: var(--x-dark);
-    --x-btn-border-color: var(--x-white);
-    --x-btn-hover-bg: #{lighten($dark, 6%)};
-    --x-btn-hover-color: #{color-contrast($dark)};
-    --x-btn-hover-border-color: #{lighten($dark, 6%)};
-    --x-btn-active-bg: #{lighten($dark, 6%)};
-    --x-btn-active-color: #{color-contrast($dark)};
-    --x-btn-active-border-color: #{lighten($dark, 6%)};
-  }
-
   .btn-outline-primary {
     --x-btn-color: var(--x-primary);
     --x-btn-border-color: var(--x-primary);
@@ -82,27 +70,6 @@
     --x-btn-active-bg: #{$secondary};
     --x-btn-active-color: #{color-contrast($secondary)};
     --x-btn-active-border-color: #{lighten($secondary, 6%)};
-  }
-
-  // Cards
-  .card {
-    --x-card-bg: #{$gray-50};
-    --x-card-border-color: #{$gray-100};
-    --x-card-box-shadow: none;
-  }
-
-  // List group
-  .list-group {
-    --x-list-group-bg: #{$gray-50};
-  }
-
-  // Table
-  .table {
-    --x-table-bg: #{$gray-50};
-  }
-
-  .dropdown-menu {
-    --x-dropdown-bg: #{$white};
   }
 
   .form-control {
