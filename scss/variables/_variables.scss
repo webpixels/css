@@ -9,7 +9,7 @@
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-caret:                true !default;
+$enable-caret:                true !default; 
 $enable-rounded:              true !default;
 $enable-shadows:              true !default;
 $enable-gradients:            false !default;
@@ -363,8 +363,6 @@ $mark-padding:                0 !default;
 
 $dt-font-weight:              $font-weight-bold !default;
 
-$nested-kbd-font-weight:      $font-weight-bold !default;
-
 $list-inline-padding:         .5rem !default;
 
 $mark-bg:                     #fcf8e3 !default;
@@ -519,8 +517,11 @@ $input-focus-border-color:           var(--#{$prefix}primary) !default;
 $input-focus-width:                  $input-btn-focus-width !default;
 $input-focus-box-shadow:             $input-btn-focus-box-shadow !default;
 
-$input-muted-bg:                     tint-color($gray-200, 30%) !default;
-$input-muted-focus-bg:               tint-color($input-muted-bg, 15%) !default;
+$input-muted-bg:                     var(--#{$prefix}secondary-bg) !default;
+$input-muted-border-color:           $input-muted-bg !default;
+
+$input-muted-focus-bg:               var(--#{$prefix}body-bg) !default;
+$input-muted-focus-border-color:     var(--#{$prefix}border-color) !default;
 
 $input-alt-bg:                       var(--#{$prefix}body-bg) !default;
 $input-alt-border-width:             0 !default;
@@ -537,6 +538,9 @@ $form-check-input-checked-bg-color:  var(--#{$prefix}primary) !default;
 $form-switch-width:                  2.875em !default;
 $form-switch-min-height:             1.5rem !default;
 $form-switch-padding-start:          $form-switch-width + .5em !default;
+
+$input-group-addon-bg:               var(--#{$prefix}body-bg) !default;
+$input-group-addon-color:            var(--#{$prefix}secondary-color) !default;
 
 // Alerts
 
@@ -639,7 +643,7 @@ $accordion-border-width:                  $border-width !default;
 $accordion-border-color:                  $border-color !default;
 $accordion-border-radius:                 $border-radius !default;
 
-$accordion-body-padding-y:                $accordion-padding-y !default;
+$accordion-body-padding-y:                0 $accordion-padding-y !default;
 $accordion-body-padding-x:                $accordion-padding-x !default;
 
 $accordion-button-padding-y:              $accordion-padding-y !default;
@@ -650,7 +654,7 @@ $accordion-button-font-weight:            $font-weight-bold !default;
 $accordion-button-active-bg:              $accordion-bg !default;
 $accordion-button-active-color:           $primary !default;
 
-$accordion-button-focus-border-color:     $accordion-border-color !default;
+$accordion-button-focus-box-shadow:       none !default;
 
 $accordion-icon-width:                    1.25rem !default;
 $accordion-icon-color:                    $accordion-color !default;
@@ -773,21 +777,21 @@ $nav-link-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), .9
 $navbar-padding-y:                      1rem !default;
 $navbar-padding-x:                      1rem !default;
 
-$navbar-icon-min-width:                 1.875rem !default;
+$navbar-icon-min-width:                 1.625rem !default;
 
 $navbar-nav-link-padding-x:             1rem !default;
 $navbar-nav-link-padding-y:             .375rem !default;
 $navbar-nav-link-border-radius:         var(--#{$prefix}border-radius);
 
-$navbar-light-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .65) !default;
+$navbar-light-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .85) !default;
 $navbar-light-hover-color:              rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
 $navbar-light-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), .95) !default;
 $navbar-light-disabled-color:           rgba(var(--#{$prefix}emphasis-color-rgb), .3) !default;
 
 // start wpx
 $navbar-light-nav-link-bg:              transparent !default;
-$navbar-light-nav-link-hover-bg:        $gray-200 !default;
-$navbar-light-nav-link-active-bg:       $gray-200 !default;
+$navbar-light-nav-link-hover-bg:        $gray-100 !default;
+$navbar-light-nav-link-active-bg:       $gray-100 !default;
 
 $navbar-light-icon-color:               $gray-800 !default;
 $navbar-light-caret-bg:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-light-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -946,7 +950,6 @@ $btn-close-focus-opacity:    1 !default;
 $btn-close-disabled-opacity: .25 !default;
 $btn-close-white-filter:     invert(1) grayscale(100%) brightness(200%) !default;
 
-
 // Offcanvas
 $offcanvas-padding-y:               $modal-inner-padding !default;
 $offcanvas-padding-x:               $modal-inner-padding !default;
@@ -954,3 +957,4 @@ $offcanvas-horizontal-width:        400px !default;
 $offcanvas-vertical-height:         30vh !default;
 $offcanvas-transition-duration:     .3s !default;
 $offcanvas-border-color:            $modal-content-border-color !default;
+
