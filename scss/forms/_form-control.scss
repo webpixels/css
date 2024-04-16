@@ -9,7 +9,7 @@ form {
 .form-control-muted {
     background-color: $input-muted-bg;
     border-color: $input-muted-bg;
-
+    
     &:focus {
         background-color: $input-muted-focus-bg;
     }
@@ -40,7 +40,7 @@ form {
         background-color: transparent;
         box-shadow: none;
         border-width: 0;
-    }
+    } 
 }
 
 // Textarea

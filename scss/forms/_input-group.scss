@@ -6,7 +6,9 @@
     @include box-shadow($input-box-shadow);
     @include border-radius($input-border-radius);
 
-    .form-control {
+    .form-control,
+    .form-select,
+    .dropdown {
         box-shadow: none;
     }
 
@@ -23,7 +25,9 @@
             border-color: $input-focus-border-color;
         }
 
-        .form-control {
+        .form-control,
+        .form-select,
+        .dropdown {
             box-shadow: none;
             border-color: $input-focus-border-color;
         }
@@ -64,15 +68,36 @@
         background: $input-bg;
     }
 
+    // When uses .form-control-muted
+    &:has(.form-control-muted) {
+        .input-group-text {
+            background-color: $input-muted-bg;
+            border-color: $input-muted-border-color;
+        }
+    }
+
     > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
         margin-left: 0 !important;
         border-left: 0;
-        padding-left: .25rem;
+        padding-left: $input-padding-x;
     }
 
     > :not(:last-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback)  {
         margin-right: 0 !important;
         border-right: 0;
-        padding-right: .25rem;
+        padding-right: 0;
+    }
+
+    &:focus-within {
+        .form-control-muted {
+            border-color: $input-muted-focus-border-color;
+        }
+
+        &:has(.form-control-muted) {
+            .input-group-text {
+                background-color: $input-muted-focus-bg;
+                border-color: $input-muted-focus-border-color;
+            }
+        }
     }
 }
