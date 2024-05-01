@@ -758,8 +758,8 @@ $modal-header-border-color:         var(--#{$prefix}border-color) !default;
 $modal-fade-transform:             translate(0, 15px) scale(0.95) !default;
 $modal-transition:                  all $transition-base-duration ease-out !default;
 
-$modal-backdrop-bg:                 rgba($gray-900, .25);
-$modal-backdrop-opacity:            1;
+$modal-backdrop-bg:                 rgba($gray-900, .25) !default;
+$modal-backdrop-opacity:            1 !default; 
 
 // Navs
 
