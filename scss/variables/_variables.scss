@@ -749,7 +749,7 @@ $list-group-item-font-size:         $font-size-sm !default;
 
 // Modals
 
-$modal-inner-padding:               1.5rem !default;
+$modal-inner-padding:               2rem !default;
 $modal-footer-margin-between:       .75rem !default;
 $modal-content-border-color:        var(--#{$prefix}border-color) !default;
 
@@ -951,9 +951,9 @@ $btn-close-disabled-opacity: .25 !default;
 $btn-close-white-filter:     invert(1) grayscale(100%) brightness(200%) !default;
 
 // Offcanvas
-$offcanvas-padding-y:               $modal-inner-padding !default;
+$offcanvas-padding-y:               calc($modal-inner-padding / 1.5) !default;
 $offcanvas-padding-x:               $modal-inner-padding !default;
-$offcanvas-horizontal-width:        400px !default;
+$offcanvas-horizontal-width:        448px !default;
 $offcanvas-vertical-height:         30vh !default;
 $offcanvas-transition-duration:     .3s !default;
 $offcanvas-border-color:            $modal-content-border-color !default;
