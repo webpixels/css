@@ -96,14 +96,14 @@
 	}
 
 	> blockquote {
-	  font-weight: 500;
 		@include font-size($font-size-lg);
+		font-weight: 500;
 		color: $headings-color;
     letter-spacing: -.012em;
     padding: 1.5rem 3.5rem;
 		margin-top: 2em;
 		margin-bottom: 2em;
-		background-color: var(--#{$prefix}surface-secondary);
+		background-color: var(--#{$prefix}body-secondary);
 		@include border-radius($border-radius-lg);
 
 		> p {
