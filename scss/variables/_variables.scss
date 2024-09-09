@@ -391,7 +391,7 @@ $article-pre-border-radius:   var(--#{$prefix}border-radius) !default;
 
 // Tables
 
-$table-cell-padding-y:          1rem !default;
+$table-cell-padding-y:          .75rem !default;
 $table-cell-padding-x:          1.5rem !default;
 $table-cell-padding-y-sm:       .375rem !default;
 $table-cell-padding-x-sm:       1.5rem !default;
@@ -419,8 +419,8 @@ $table-striped-bg-factor:     .03 !default;
 // $table-active-bg-factor:        .8 !default;
 // $table-active-bg:               rgba($gray-100, $table-active-bg-factor) !default;
 
-// $table-hover-bg-factor:         .8 !default;
-// $table-hover-bg:                rgba($gray-100, $table-hover-bg-factor) !default;
+$table-hover-bg-factor:         .4 !default;
+$table-hover-bg:                rgba($gray-100, $table-hover-bg-factor) !default;
 
 // wpx-add
 $table-spaced-row-border-radius: var(--#{$prefix}border-radius) !default;

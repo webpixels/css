@@ -83,6 +83,23 @@
   }
 }
 
+
+// Rounded head columns
+.thead-rounded > tr {
+    th {
+      border: 0;
+    }
+    
+    th:first-child {
+      border-top-left-radius: var(--#{$prefix}border-radius);
+      // border-bottom-left-radius: var(--#{$prefix}border-radius);
+    }
+    th:last-child {
+      border-top-right-radius: var(--#{$prefix}border-radius);
+      // border-bottom-right-radius: var(--#{$prefix}border-radius);
+    }
+  }
+
 // Spaced Rows table
 // table with spaced rows and syles with the card's properties
 
