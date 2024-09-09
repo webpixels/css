@@ -38,8 +38,49 @@ $red:     #ef4444 !default;
 $orange:  #f97316 !default;
 $yellow:  #eab308 !default;
 $green:   #22c55e !default;
+$lime:    #c8ff6a !default;
 $teal:    #14b8a6 !default;
 $cyan:    #06b6d4 !default;
+
+$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "lime":       $lime,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "black":      $black,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+) !default;
+
+$lime-100: tint-color($lime, 80%) !default;
+$lime-200: tint-color($lime, 60%) !default;
+$lime-300: tint-color($lime, 40%) !default;
+$lime-400: tint-color($lime, 20%) !default;
+$lime-500: $lime !default;
+$lime-600: shade-color($lime, 20%) !default;
+$lime-700: shade-color($lime, 40%) !default;
+$lime-800: shade-color($lime, 60%) !default;
+$lime-900: shade-color($lime, 80%) !default;
+
+$limes: (
+  "lime-100": $lime-100,
+  "lime-200": $lime-200,
+  "lime-300": $lime-300,
+  "lime-400": $lime-400,
+  "lime-500": $lime-500,
+  "lime-600": $lime-600,
+  "lime-700": $lime-700,
+  "lime-800": $lime-800,
+  "lime-900": $lime-900
+) !default;
 
 // Theme colors
 $primary:       $purple !default;

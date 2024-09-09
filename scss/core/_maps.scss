@@ -18,7 +18,7 @@ $gray-colors: (
   "gray-950": $gray-950
 ) !default;
 
-$all-colors: map-merge-multiple($gray-colors, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+$all-colors: map-merge-multiple($gray-colors, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $limes, $teals, $cyans);
 $all-colors-rgb: map-loop($all-colors, to-rgb, "$value") !default;
 
 $utilities-all-bg-colors: map-loop($all-colors, rgba-css-var, "$key", "bg") !default;
