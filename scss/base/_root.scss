@@ -39,16 +39,20 @@
   }
 }
 
+.navbar-dark,
+[data-bs-theme="dark"] .navbar {
+  // Logo
+  .logo-light {
+    display: block;
+  }
+  .logo-dark {
+    display: none;
+  }
+}
+
+
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
-    // Logo
-    .logo-light {
-      display: block;
-    }
-    .logo-dark {
-      display: none;
-    }
-
     // Buttons
     .btn-neutral {
       --#{$prefix}btn-bg: #{$btn-neutral-bg-dark};

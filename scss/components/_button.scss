@@ -48,30 +48,13 @@
 
 // Squared button
 .btn-square {
-  --#{$prefix}btn-size: #{$btn-square-size};
+  --#{$prefix}btn-size: calc((var(--#{$prefix}btn-font-size) * var(--#{$prefix}btn-line-height)) + 2 * var(--#{$prefix}btn-padding-y));
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  width: var(--#{$prefix}btn-size);
   height: var(--#{$prefix}btn-size);
-
-  &.btn-xs {
-    --#{$prefix}btn-size: #{$btn-square-size-xs};
-  }
-
-  &.btn-sm {
-    --#{$prefix}btn-size: #{$btn-square-size-sm};
-  }
-
-  &.btn-lg {
-    --#{$prefix}btn-size: #{$btn-square-size-lg};
-  }
-
-  &.btn-xl {
-    --#{$prefix}btn-size: #{$btn-square-size-xl};
-  }
+  width: var(--#{$prefix}btn-size);
 }
 
 // Animated button

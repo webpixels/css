@@ -140,7 +140,7 @@ $utilities: map-merge($utilities, (
   "cursor": (
     property: cursor,
     class: cursor,
-    values: auto pointer wait text,
+    values: auto default pointer wait text,
   ),
   "font-family": map-merge(
     map-get($utilities, "font-family"),
@@ -189,10 +189,18 @@ $utilities: map-merge($utilities, (
     )
   ),
   "text-opacity": map-merge(
-      map-get($utilities, "text-opacity"),
-      ( 
-        state: hover
-      ),
+    map-get($utilities, "text-opacity"),
+    ( 
+      state: hover
+    ),
+  ),
+  "all-text-color": (
+    property: color,
+    class: text,
+    local-vars: (
+      "text-opacity": 1
+    ),
+    values: $utilities-all-text-colors
   ),
   "background-color": map-merge(
     map-get($utilities, "background-color"),

@@ -2,17 +2,17 @@
 
 // White/Grays/Black colors
 $white:    #FFF !default;
-$gray-50:  #f8fafc !default;
-$gray-100: #f1f5f9 !default;
-$gray-200: #e2e8f0 !default;
-$gray-300: #cbd5e1 !default;
-$gray-400: #94a3b8 !default;
-$gray-500: #64748b !default;
-$gray-600: #475569 !default;
-$gray-700: #334155 !default;
-$gray-800: #1e293b !default;
-$gray-900: #0f172a !default;
-$gray-950: #020617 !default;
+$gray-50:  #F9FAFB !default;
+$gray-100: #F3F4F6 !default;
+$gray-200: #E5E7EB !default;
+$gray-300: #D1D5DB !default;
+$gray-400: #9CA3AF !default;
+$gray-500: #6B7280 !default;
+$gray-600: #4B5563 !default;
+$gray-700: #374151 !default;
+$gray-800: #1F2937 !default;
+$gray-900: #111827 !default;
+$gray-950: #0F172A !default;
 $black:    #000 !default;
 
 $grays: (
@@ -30,17 +30,17 @@ $grays: (
 ) !default;
 
 // Base colors
-$blue:    #3b82f6 !default;
+$cyan:    #7fc2ff !default;
+$blue:    #335ccf !default;
 $indigo:  #6366f1 !default;
-$purple:  #8b5cf6 !default;
-$pink:    #ec4899 !default;
-$red:     #ef4444 !default;
-$orange:  #f97316 !default;
-$yellow:  #eab308 !default;
-$green:   #22c55e !default;
+$purple:  #7d52f4 !default;
+$pink:    #fb4ba3 !default;
+$red:     #fb3748 !default;
+$orange:  #ff9147 !default;
+$yellow:  #f6b51e !default;
+$green:   #1fc16b !default;
 $lime:    #c8ff6a !default;
-$teal:    #14b8a6 !default;
-$cyan:    #06b6d4 !default;
+$teal:    #22d3bb !default;
 
 $colors: (
   "blue":       $blue,
@@ -71,7 +71,7 @@ $lime-800: shade-color($lime, 60%) !default;
 $lime-900: shade-color($lime, 80%) !default;
 
 $limes: (
-  "lime-100": $lime-100,
+  "lime-100": $lime-100, 
   "lime-200": $lime-200,
   "lime-300": $lime-300,
   "lime-400": $lime-400,
@@ -83,11 +83,24 @@ $limes: (
 ) !default;
 
 // Theme colors
-$primary:       $purple !default;
-$secondary:     $gray-900 !default;
+$primary:       $indigo !default;
+$secondary:     $gray-500 !default;
+$accent:        $gray-50 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $orange !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "accent":     $accent,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;

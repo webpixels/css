@@ -20,6 +20,8 @@
     font-weight: var(--#{$prefix}table-th-font-weight);
     text-transform: var(--#{$prefix}table-th-text-transform);
     letter-spacing: var(--#{$prefix}table-th-letter-spacing);
+    background-color: var(--#{$prefix}table-th-bg);
+    color: var(--#{$prefix}table-th-color);
     border-bottom-width: $table-border-width;
     white-space: nowrap;
     vertical-align: $table-cell-vertical-align;
@@ -92,11 +94,11 @@
     
     th:first-child {
       border-top-left-radius: var(--#{$prefix}border-radius);
-      // border-bottom-left-radius: var(--#{$prefix}border-radius);
+      border-bottom-left-radius: var(--#{$prefix}border-radius);
     }
     th:last-child {
       border-top-right-radius: var(--#{$prefix}border-radius);
-      // border-bottom-right-radius: var(--#{$prefix}border-radius);
+      border-bottom-right-radius: var(--#{$prefix}border-radius);
     }
   }
 

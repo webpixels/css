@@ -33,16 +33,16 @@ $prefix:    x- !default;
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
-$min-contrast-ratio:   2.3 !default;
+$min-contrast-ratio:   2 !default;
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark:      $black !default;
 $color-contrast-light:     $white !default;
 
-// Bg Soft level
-$bg-soft-level:           -80% !default;
-$bg-shade-level:           15% !default;
-$bg-tint-level:            15% !default;
+// // Bg Soft level
+// $bg-soft-level:           -80% !default;
+// $bg-shade-level:           15% !default;
+// $bg-tint-level:            15% !default;
 
 // Body
 //
@@ -68,6 +68,7 @@ $body-emphasis-color:       $gray-900 !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
+  0\.5: $spacer * 0.125,
   1: $spacer * 0.25,
   2: $spacer * 0.5,
   3: $spacer * 0.75,
@@ -90,6 +91,8 @@ $spacers: (
   64: $spacer * 16,
   72: $spacer * 18,
   80: $spacer * 20,
+  88: $spacer * 22,
+  96: $spacer * 24,
   px: 1px,
 ) !default;
 
@@ -130,11 +133,11 @@ $border-width:                1px !default;
 $border-color:                $gray-200 !default;
 
 // Border radius
-$border-radius-sm:            .25rem !default;
-$border-radius:               .375rem !default;
-$border-radius-lg:            .5rem !default;
-$border-radius-xl:             1rem !default;
-$border-radius-xxl:            2rem !default;
+$border-radius-sm:            0.375rem !default;
+$border-radius:               0.5rem !default;  
+$border-radius-lg:            0.75rem !default; 
+$border-radius-xl:            1.25rem !default; 
+$border-radius-xxl:           2.5rem !default; 
 
 $border-radius-pill:           50rem !default;
 $border-radius-circle:         50% !default; 
@@ -399,18 +402,20 @@ $table-cell-padding-x-sm:       1.5rem !default;
 $table-cell-vertical-align:     middle !default;
 
 // wpx-add
-$table-cell-font-size:          .8125rem !default;
+$table-cell-font-size:          $font-size-sm !default;
 // wpx-end
 
 $table-th-font-weight:          $font-weight-semibold !default;
 
 // wpx-add
-$table-th-font-size:            .675rem !default;
-$table-th-text-transform:       uppercase !default;
-$table-th-letter-spacing:       0.025em !default;
-$table-th-bg:                   transparent !default;
-$table-th-color:                $gray-700 !default;
+$table-th-font-size:            $font-size-sm !default;
+$table-th-text-transform:       none !default;
+$table-th-letter-spacing:       0 !default;
+$table-th-bg:                   var(--#{$prefix}tertiary-bg) !default;
+$table-th-color:                $gray-600 !default;
 // wpx-end
+
+$table-color:                   var(--#{$prefix}secondary-color) !default;
 
 // $table-striped-color:         $table-color !default;
 $table-striped-bg-factor:     .03 !default;
@@ -486,8 +491,8 @@ $btn-font-size-xs:            $input-btn-font-size-xs !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius:           var(--#{$prefix}border-radius) !default;
-$btn-border-radius-xs:        var(--#{$prefix}border-radius) !default;
-$btn-border-radius-sm:        var(--#{$prefix}border-radius) !default;
+$btn-border-radius-xs:        var(--#{$prefix}border-radius-sm) !default;
+$btn-border-radius-sm:        var(--#{$prefix}border-radius-sm) !default;
 $btn-border-radius-lg:        var(--#{$prefix}border-radius-lg) !default;
 
 // Square/Circle shape buttons
@@ -514,6 +519,10 @@ $form-label-font-size:               $font-size-sm !default;
 $form-label-font-weight:             $font-weight-semibold !default;
 
 $input-box-shadow:                   0px 1px 2px rgba(50, 50, 71, 0.08) !default;
+
+$input-border-radius:                var(--#{$prefix}border-radius) !default;
+$input-border-radius-sm:             var(--#{$prefix}border-radius-sm) !default;
+$input-border-radius-lg:             var(--#{$prefix}border-radius-lg) !default;
 
 $input-focus-border-color:           var(--#{$prefix}primary) !default;
 $input-focus-width:                  $input-btn-focus-width !default;
@@ -543,7 +552,7 @@ $form-switch-padding-start:          $form-switch-width + .5em !default;
 $alert-padding-y:                   .875rem !default;
 $alert-padding-x:                   1rem !default;
 $alert-margin-bottom:               0 !default;
-$alert-border-radius:               $border-radius !default;
+$alert-border-radius:               $border-radius-lg !default;
 $alert-link-font-weight:            $font-weight-bold !default;
 $alert-border-width:                $border-width !default;
 $alert-box-shadow:                  $box-shadow !default;
@@ -588,14 +597,16 @@ $avatar-stack-border-color:         $white !default;
 
 // Badges
 
-$badge-font-size:                   .75em !default;
-$badge-lg-font-size:                1em !default;
-$badge-font-weight:                 $font-weight-bold !default;
+$badge-font-size:                   $font-size-xs !default;
+$badge-lg-font-size:                $font-size-sm !default;
+$badge-font-weight:                 $font-weight-semibold !default;
+
 $badge-padding-y:                   .2rem !default;
 $badge-padding-x:                   .6rem !default;
+
 $badge-line-height:                 1rem !default;
-$badge-border-radius:               $border-radius !default;
-$badge-text-transform:               null !default;
+$badge-text-transform:              null !default;
+$badge-border-radius:               var(--#{$prefix}border-radius-sm) !default;
 
 $badge-dot-color:                   var(--#{$prefix}body-color) !default;
 $badge-dot-font-weight:             $font-weight-normal !default;
@@ -623,7 +634,7 @@ $card-title-spacer-y:               0.5rem !default;
 $card-title-color:                  var(--#{$prefix}heading-color) !default;
 
 $card-border-color:                 var(--#{$prefix}border-color) !default;
-$card-border-radius:                var(--#{$prefix}border-radius) !default;
+$card-border-radius:                var(--#{$prefix}border-radius-lg) !default;
 $card-box-shadow:                   $box-soft-shadow !default;
 
 $card-cap-padding-y:                1rem !default;
@@ -631,13 +642,14 @@ $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), 0) !de
 $card-cap-color:                    var(--#{$prefix}heading-color) !default;
 
 // Accordion
-$accordion-padding-y:                     1.5rem !default;
+$accordion-padding-y:                     1.25rem !default;
 $accordion-padding-x:                     1.25rem !default;
+
 $accordion-color:                         var(--#{$prefix}body-color) !default;
 $accordion-bg:                            transparent !default;
-$accordion-border-width:                  $border-width !default;
-$accordion-border-color:                  $border-color !default;
-$accordion-border-radius:                 $border-radius !default;
+$accordion-border-width:                  var(--#{$prefix}border-width) !default;
+$accordion-border-color:                  var(--#{$prefix}border-color) !default;
+$accordion-border-radius:                 var(--#{$prefix}border-radius-lg) !default;
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
 $accordion-body-padding-x:                $accordion-padding-x !default;
@@ -695,11 +707,20 @@ $dropdown-heading-focus-color:      $primary !default;
 
 $dropdown-helper-color:             $text-muted !default;
 
-$dropdown-link-border-radius:       var(--#{$prefix}border-radius-lg) !default;
-
 $dropdown-item-padding-y:           .5rem !default;
 $dropdown-item-padding-x:           1rem !default;
-$dropdown-item-border-radius:       var(--#{$prefix}border-radius-lg) !default; 
+
+// added in wpx
+$dropdown-item-border-radius:       var(--#{$prefix}border-radius) !default; 
+// end wpx
+
+$dropdown-link-color:               var(--#{$prefix}body-color) !default;
+$dropdown-link-hover-color:         $dropdown-link-color !default;
+$dropdown-link-hover-bg:            var(--#{$prefix}accent) !default;
+
+$dropdown-link-active-color:        $dropdown-link-color !default;
+$dropdown-link-active-bg:           var(--#{$prefix}accent) !default;
+
 
 // Frames
 
@@ -736,6 +757,8 @@ $list-group-item-padding-y:         1.125rem !default;
 $list-group-item-padding-x:         1.25rem !default;
 $list-group-item-font-size:         $font-size-sm !default;
 
+$list-group-hover-bg:               var(--#{$prefix}secondary-bg) !default;
+
 // Modals
 
 $modal-inner-padding:               1.5rem !default;
@@ -764,21 +787,22 @@ $nav-link-color:                    var(--#{$prefix}body-color) !default;
 $navbar-padding-y:                      1rem !default;
 $navbar-padding-x:                      1rem !default;
 
-$navbar-icon-min-width:                 1.875rem !default;
+$navbar-icon-min-width:                 2rem !default;
+$navbar-icon-font-size:                 1.125rem !default;
 
 $navbar-nav-link-padding-x:             1rem !default;
-$navbar-nav-link-padding-y:             .375rem !default;
+$navbar-nav-link-padding-y:             .5rem !default;
 $navbar-nav-link-border-radius:         var(--#{$prefix}border-radius);
 
-$navbar-light-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .65) !default;
+$navbar-light-color:                    rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
 $navbar-light-hover-color:              rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
-$navbar-light-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), 1) !default;
-$navbar-light-disabled-color:           rgba(var(--#{$prefix}emphasis-color-rgb), .3) !default;
+$navbar-light-active-color:             rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
+$navbar-light-disabled-color:           rgba(var(--#{$prefix}emphasis-color-rgb), .5) !default;
 
 // start wpx
 $navbar-light-nav-link-bg:              transparent !default;
-$navbar-light-nav-link-hover-bg:        $gray-200 !default;
-$navbar-light-nav-link-active-bg:       $gray-200 !default;
+$navbar-light-nav-link-hover-bg:        rgba($gray-950, .05) !default;
+$navbar-light-nav-link-active-bg:       rgba($gray-950, .05) !default;
 
 $navbar-light-icon-color:               $gray-800 !default;
 $navbar-light-caret-bg:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-light-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -839,8 +863,8 @@ $navbar-vertical-border-style:          solid !default;
 $navbar-vertical-border-radius:         0 !default;
 $navbar-vertical-open-border-radius:    0 !default;
 
-$navbar-vertical-nav-link-padding-x:    1rem !default;
-$navbar-vertical-nav-link-padding-y:    .675rem !default;
+$navbar-vertical-nav-link-padding-x:    .5rem !default;
+$navbar-vertical-nav-link-padding-y:    .5rem !default;
 $navbar-vertical-nav-link-font-size:    $font-size-sm !default;
 
 // Pagination
@@ -943,5 +967,5 @@ $offcanvas-padding-y:               $modal-inner-padding !default;
 $offcanvas-padding-x:               $modal-inner-padding !default;
 $offcanvas-horizontal-width:        400px !default;
 $offcanvas-vertical-height:         30vh !default;
-$offcanvas-transition-duration:     .3s !default;
+$offcanvas-transition-duration:     .15s !default;
 $offcanvas-border-color:            $modal-content-border-color !default;
