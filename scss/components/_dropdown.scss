@@ -5,7 +5,6 @@
 
 .dropdown-item {
 	--#{$prefix}dropdown-item-border-radius: #{$dropdown-item-border-radius};
-
 	@include border-radius(var(--#{$prefix}dropdown-item-border-radius, 0));
 }
 

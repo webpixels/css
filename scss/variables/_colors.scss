@@ -2,17 +2,17 @@
 
 // White/Grays/Black colors
 $white:    #FFF !default;
-$gray-50:  #F9FAFB !default;
-$gray-100: #F3F4F6 !default;
-$gray-200: #E5E7EB !default;
-$gray-300: #D1D5DB !default;
-$gray-400: #9CA3AF !default;
-$gray-500: #6B7280 !default;
-$gray-600: #4B5563 !default;
-$gray-700: #374151 !default;
-$gray-800: #1F2937 !default;
-$gray-900: #111827 !default;
-$gray-950: #0F172A !default;
+$gray-50:  #fafafa !default;
+$gray-100: #f5f5f5 !default;
+$gray-200: #e5e5e5 !default;
+$gray-300: #d4d4d4 !default;
+$gray-400: #a1a1a1 !default;
+$gray-500: #737373 !default;
+$gray-600: #525252 !default;
+$gray-700: #404040 !default;
+$gray-800: #262626 !default;
+$gray-900: #171717 !default;
+$gray-950: #0a0a0a !default;
 $black:    #000 !default;
 
 $grays: (
@@ -83,9 +83,9 @@ $limes: (
 ) !default;
 
 // Theme colors
-$primary:       $indigo !default;
+$primary:       $gray-950 !default;
 $secondary:     $gray-500 !default;
-$accent:        $gray-50 !default;
+$accent:        $gray-100 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $orange !default;

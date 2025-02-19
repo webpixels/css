@@ -3,14 +3,6 @@
 // 
 
 // Progress circle
-@keyframes progressCircleGrow {
-  0%, 33% {
-    --#{$prefix}progress-circle-percentage: 0;
-  }
-  100% {
-    --#{$prefix}progress-circle-percentage: var(--value);
-  }
-}
 
 @property --#{$prefix}progress-circle-percentage {
   syntax: '<number>';
@@ -25,7 +17,6 @@
   --#{$prefix}progress-circle-bar-bg: #{$progress-circle-bar-bg};
   --#{$prefix}progress-circle-percentage: var(--value);
 
-  animation: progressCircleGrow 3s 1 forwards;
   width: var(--#{$prefix}progress-circle-size);
   height: var(--#{$prefix}progress-circle-size);
   border-radius: 50%;
@@ -34,6 +25,10 @@
   background: radial-gradient(closest-side, currentColor 80%, transparent 0 99.9%, currentColor 0),
     conic-gradient(var(--#{$prefix}progress-circle-bar-bg) calc(var(--#{$prefix}progress-circle-percentage) * 1%), var(--#{$prefix}progress-circle-bg) 0);
   font-size: calc(var(--#{$prefix}progress-circle-size) / 5);
+}
+
+.progress-circle-animate {
+  animation: progressCircleGrow 3s 1 forwards;
 }
 
 .progress-circle-counter {
@@ -60,5 +55,16 @@
   .progress-circle-#{$color} {
     --#{$prefix}progress-circle-color: var(--#{$prefix}#{$color});
     --#{$prefix}progress-circle-bar-bg: var(--#{$prefix}#{$color});
+  }
+}
+
+// Keyframes
+
+@keyframes progressCircleGrow {
+  0%, 33% {
+    --#{$prefix}progress-circle-percentage: 0;
+  }
+  100% {
+    --#{$prefix}progress-circle-percentage: var(--value);
   }
 }

@@ -100,6 +100,7 @@ $utilities: map-merge($utilities, (
     map-get($utilities, "border-color"),
     ( 
       responsive: true,
+      state: hover,
       values: map-merge(
         map-get(map-get($utilities, "border-color"), "values"),
         (

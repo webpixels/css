@@ -23,7 +23,8 @@
             border-color: $input-focus-border-color;
         }
 
-        .form-control {
+        .form-control,
+        .form-select {
             box-shadow: none;
             border-color: $input-focus-border-color;
         }
@@ -67,12 +68,14 @@
     > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
         margin-left: 0 !important;
         border-left: 0;
+        box-shadow: none;
         padding-left: .25rem;
     }
 
     > :not(:last-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback)  {
         margin-right: 0 !important;
         border-right: 0;
+        box-shadow: none;
         padding-right: .25rem;
     }
 }

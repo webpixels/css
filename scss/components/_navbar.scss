@@ -16,6 +16,9 @@
   > .nav-item > .nav-link,
   > .nav-link {
     padding: var(--#{$prefix}navbar-nav-link-padding-y) var(--#{$prefix}navbar-nav-link-padding-x);
+  }
+
+  .nav-link {
     background-color: var(--#{$prefix}navbar-nav-link-bg);
     @include border-radius(var(--#{$prefix}navbar-nav-link-border-radius));
 
@@ -35,6 +38,8 @@
     color: var(--#{$prefix}navbar-color);
   }
 }
+
+
 
 .navbar-user {
   display: flex;
