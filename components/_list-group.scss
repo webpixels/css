@@ -1,0 +1,84 @@
+// 
+// List group
+// 
+
+.list-group-flush {
+  --#{$prefix}list-group-item-padding-x: 0;
+}
+
+.list-group-borderless {
+  --#{$prefix}list-group-border-width: 0;
+  --#{$prefix}list-group-item-padding-y: 0;
+}
+
+// Checkable list group
+.list-group {
+  .form-check-input:checked + .form-checked-content {
+    opacity: .5;
+  }
+
+  .form-check-input-placeholder {
+    border-style: dashed;
+  }
+  
+  [contenteditable]:focus {
+    outline: 0;
+  }
+}
+
+.list-group-checkable {
+  .list-group-item {
+    cursor: pointer;
+  }
+}
+
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+
+  &:hover + .list-group-item {
+    color: var(--#{$prefix}list-group-action-hover-color);
+    background-color: var(--#{$prefix}list-group-action-hover-bg);
+    border-color: var(--#{$prefix}list-group-action-hover-bg);
+  }
+
+  &:checked + .list-group-item {
+    color: var(--#{$prefix}list-group-action-active-color);
+    background-color: var(--#{$prefix}list-group-action-active-bg);
+    border-color: var(--#{$prefix}list-group-action-active-bg);
+
+  }
+
+  &[disabled] + .list-group-item,
+  &:disabled + .list-group-item {
+    pointer-events: none;
+    filter: none;
+    opacity: .5;
+  }
+}
+
+.list-group-radio {
+   --#{$prefix}list-group-checked-border-color: var(--#{$prefix}primary);
+   --#{$prefix}list-group-checked-shadow-color: var(--#{$prefix}primary);
+
+  .list-group-item {
+    cursor: pointer;
+  }
+
+  .form-check-input {
+    z-index: 2;
+    margin-top: -.5em;
+
+    &:checked + .list-group-item {
+      border-color: var(--#{$prefix}list-group-checked-border-color);
+      box-shadow: 0 0 0 1px var(--#{$prefix}list-group-checked-shadow-color);
+    }
+
+    &[disabled] + .list-group-item,
+    &:disabled + .list-group-item {
+      pointer-events: none;
+      filter: none;
+      opacity: .5;
+    }
+  }
+}

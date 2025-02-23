@@ -1,0 +1,28 @@
+// 
+// Nav
+// 
+
+// Flushed nav tabs
+// used next to the default .nav-tabs class
+.nav-tabs-flush {
+  --#{$prefix}nav-link-padding-x: 0;
+  --#{$prefix}nav-tabs-border-radius: 0;
+  --#{$prefix}nav-tabs-link-active-border-color: #{$primary};
+
+  border: 0;
+
+  .nav-item {
+    &.show {
+      .nav-link {
+        border-color: transparent;
+      }
+    }
+  }
+
+  .nav-link {
+    border-bottom: var(--#{$prefix}nav-tabs-border-width) solid transparent;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+  }
+}

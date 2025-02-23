@@ -1,0 +1,43 @@
+/**
+ * Theme: green
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "green/variables";
+
+// Mixins
+@import "green/light";
+@import "green/dark";
+@import "green/styles";
+
+.theme-green {
+	@include green-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-green {
+    @include green-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-green {
+      @include green-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-green {
+    @include green-dark;
+  }
+}

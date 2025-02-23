@@ -1,0 +1,97 @@
+//
+// Vertical navbar
+//
+
+.navbar-vertical-nav {
+  --#{$prefix}navbar-nav-link-padding-x: #{$navbar-vertical-nav-link-padding-x};
+  --#{$prefix}navbar-nav-link-padding-y: #{$navbar-vertical-nav-link-padding-y};
+  --#{$prefix}navbar-nav-caret-bg: #{$navbar-light-caret-bg};  
+  @include rfs($navbar-vertical-nav-link-font-size, --#{$prefix}nav-link-font-size);
+  
+  & > .nav-item {
+    margin-top: 2px;
+  }
+
+  .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &[data-bs-toggle="collapse"] {
+      &:after {
+        background-image: var(--#{$prefix}navbar-nav-caret-bg);
+      }
+    }
+
+    i,
+    svg {
+      min-width: $navbar-icon-min-width;
+      font-size: $navbar-icon-font-size;
+      line-height: 1.25;
+    }
+
+    // Dropdown
+    .dropdown-menu {
+      border: none;
+
+      .dropdown-menu {
+        margin-left: calc($dropdown-item-padding-x / 2);
+      }
+    }
+
+    &[data-bs-toggle="collapse"] {
+      &:after {
+        display: inline-block;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: .875rem .875rem;
+        width: .875rem;
+        height: .875rem;
+        margin-left: auto;
+        @include transition($transition-base);
+      }
+
+      // Expanded
+      &[aria-expanded="true"] {
+        &:after {
+          color: $primary;
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  // Nav with sm links
+  .nav-sm .nav-link {
+    font-size: $font-size-sm;
+  }
+
+  // Second level
+  .nav {
+    margin-top: var(--#{$prefix}navbar-nav-link-padding-y);
+
+    .nav-link {
+      padding: calc(var(--#{$prefix}navbar-nav-link-padding-y) / 1.75) .5rem;
+      margin-left: $navbar-icon-min-width;
+      margin-right: $navbar-icon-min-width;
+      color: var(--#{$prefix}navbar-color);
+      font-weight: 400;
+
+      &:hover {
+        color: var(--#{$prefix}navbar-hover-color);
+      }
+
+      &:focus,
+      &.active {
+        color: var(--#{$prefix}navbar-active-color);
+      }
+    }
+  }
+
+  // Third level
+  .nav .nav .nav-link {
+    padding-left: $navbar-icon-min-width * 1.5;
+  }
+}
+

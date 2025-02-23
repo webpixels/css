@@ -1,0 +1,612 @@
+// Utilities
+
+$utilities: map-merge($utilities, (
+  "rounded": map-merge(
+    map-get($utilities, "rounded"),
+    (
+      values: map-merge(
+        $utilities-border-radius,
+        (
+          "inherit": inherit
+        )
+      ),
+      responsive: true 
+    ),
+  ),
+  "rounded-top": map-merge(
+    map-get($utilities, "rounded-top"),
+    ( 
+      values: $utilities-border-radius,
+      responsive: true 
+    ),
+  ),
+  "rounded-bottom": map-merge(
+    map-get($utilities, "rounded-bottom"),
+    ( 
+      values: $utilities-border-radius,
+      responsive: true 
+    ),
+  ),
+  "rounded-start": map-merge(
+    map-get($utilities, "rounded-start"),
+    ( 
+      values: $utilities-border-radius,
+      responsive: true 
+    ),
+  ),
+  "rounded-end": map-merge(
+    map-get($utilities, "rounded-end"),
+    ( 
+      values: $utilities-border-radius,
+      responsive: true 
+    ),
+  ),
+  // added in webpixels
+  "rounded-top-start": (
+    property: border-top-left-radius,
+    class: rounded-top-start,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-top-end": (
+    property: border-top-right-radius,
+    class: rounded-top-end,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-bottom-end": (
+    property: border-bottom-right-radius,
+    class: rounded-bottom-end,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "rounded-bottom-start": (
+    property: border-bottom-left-radius,
+    class: rounded-bottom-start,
+    responsive: true,
+    values: $utilities-border-radius
+  ),
+  "border": map-merge(
+    map-get($utilities, "border"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-top": map-merge(
+    map-get($utilities, "border-top"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-end": map-merge(
+    map-get($utilities, "border-end"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-bottom": map-merge(
+    map-get($utilities, "border-bottom"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-start": map-merge(
+    map-get($utilities, "border-start"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "border-color": map-merge(
+    map-get($utilities, "border-color"),
+    ( 
+      responsive: true,
+      state: hover,
+      values: map-merge(
+        map-get(map-get($utilities, "border-color"), "values"),
+        (
+          $utilities-all-border-colors
+        )
+      )
+    ),
+  ),
+  "static-border-color": (
+    property: border-color,
+    class: border,
+    values: (
+      "transparent": transparent,
+      "current": currentColor
+    )
+  ),
+  "border-style": ( 
+    css-var: true,
+    css-variable-name: border-style,
+    // property: border-style,
+    class: border,
+    values: solid dashed dotted none
+  ),
+  "border-opacity": map-merge(
+    map-get($utilities, "border-opacity"),
+    ( 
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    ),
+  ),
+  "cursor": (
+    property: cursor,
+    class: cursor,
+    values: auto default pointer wait text,
+  ),
+  "font-family": map-merge(
+    map-get($utilities, "font-family"),
+    (
+      values: map-merge-multiple(
+        map-get(map-get($utilities, "font-family"), "values"),
+        $utilities-font-family-values
+      ),
+    ),
+  ),
+  "alt-font-size": (
+    rfs: true,
+    property: font-size,
+    class: text,
+    values: $utilities-font-size-values
+  ),
+  "line-height": map-merge(
+    map-get($utilities, "line-height"),
+    (
+      values: $utilities-line-height-values,
+    ),
+  ),
+  "letter-spacing": (
+    property: letter-spacing,
+    class: ls,
+    values: $utilities-letter-spacing-values
+  ),
+  "color": map-merge(
+    map-get($utilities, "color"),
+    (
+      values: map-merge(
+        map-get(map-get($utilities, "color"), "values"),
+        (
+          "heading": var(--#{$prefix}heading-color)
+        )
+      ),
+      state: hover 
+    ),
+  ),
+  "static-color": (
+    property: color,
+    class: text,
+    values: (
+      "transparent": transparent,
+      "current": currentColor
+    )
+  ),
+  "text-opacity": map-merge(
+    map-get($utilities, "text-opacity"),
+    ( 
+      state: hover
+    ),
+  ),
+  "all-text-color": (
+    property: color,
+    class: text,
+    local-vars: (
+      "text-opacity": 1
+    ),
+    values: $utilities-all-text-colors
+  ),
+  "background-color": map-merge(
+    map-get($utilities, "background-color"),
+    (
+      state: hover,
+      values: map-merge(
+        map-get(map-get($utilities, "background-color"), "values"),
+        $utilities-all-bg-colors
+      )
+    )
+  ),
+  "static-background-color": (
+    property: background-color,
+    class: bg,
+    values: (
+      "current": currentColor
+    )
+  ),
+  "bg-opacity": map-merge(
+    map-get($utilities, "bg-opacity"),
+    ( 
+      state: hover,
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    )
+  ),
+  "background-size": (
+    property: background-size,
+    class: bg,
+    values: auto cover contain
+  ),
+  "background-clip": (
+    property: background-clip,
+    class: bg-clip,
+    values: (
+      border: border-box,
+      padding: padding-box,
+      content: content-box,
+      text: text
+    )
+  ),
+  "shadow": (
+    property: box-shadow,
+    class: shadow,
+    responsive: true,
+    state: hover,
+    values: $utilities-shadows
+  ),
+  "soft-shadow": (
+    property: box-shadow,
+    class: shadow-soft,
+    responsive: true,
+    state: hover,
+    values: $utilities-soft-shadows
+  ),
+  "width": map-merge(
+    map-get($utilities, "width"),
+    (
+      values: map-merge(
+        $percentage-sizers,
+        (
+          auto: auto
+        )
+      ),
+      responsive: true
+    ),
+  ),
+  "rem-width": (
+    property: width,
+    class: w-rem,
+    responsive: true,
+    values: $spacers
+  ),
+  "max-width": map-merge(
+    map-get($utilities, "max-width"),
+    (
+      values: map-merge-multiple(
+        $screen-widths,
+        (
+          0: 0,
+          100: 100%,
+          read: 65ch
+        )
+      ),
+      responsive: true
+    ),
+  ),
+
+  // Heights
+  "height": map-merge(
+    map-get($utilities, "height"),
+    (
+      responsive: true
+    ),
+  ),
+  "rem-height": (
+    property: height,
+    class: h-rem,
+    responsive: true,
+    values: $spacers
+  ),
+  "viewport-height": map-merge(
+    map-get($utilities, "viewport-height"),
+    (
+      responsive: true
+    ),
+  ),
+
+  // Position
+  "position": map-merge(
+    map-get($utilities, "position"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "top": map-merge(
+    map-get($utilities, "top"),
+    ( 
+      responsive: true,
+      values: map-merge-multiple(
+        map-get(map-get($utilities, "top"), "values"),
+        $spacers
+      ),
+    ),
+  ),
+  "bottom": map-merge(
+    map-get($utilities, "bottom"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "start": map-merge(
+    map-get($utilities, "start"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "end": map-merge(
+    map-get($utilities, "end"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "flex": map-merge(
+    map-get($utilities, "flex"),
+    (
+      values: map-merge-multiple(
+        map-get(map-get($utilities, "flex"), "values"),
+        (
+          initial: 0 1 auto,
+          none: none
+        )
+      ),
+    ),
+  ),
+  "overflow": map-merge(
+    map-get($utilities, "overflow"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "overflow-x": map-merge(
+    map-get($utilities, "overflow-x"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "overflow-y": map-merge(
+    map-get($utilities, "overflow-y"),
+    ( 
+      responsive: true 
+    ),
+  ),
+  "z-index": map-merge(
+    map-get($utilities, "z-index"),
+    ( 
+      state: hover 
+    ),
+  ),
+  "opacity": map-merge(
+    map-get($utilities, "opacity"),
+    ( 
+      values: (
+        0: 0,
+        10: .10,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ) 
+    )
+  ),
+  "scroll-behaviour": (
+    property: scroll-behaviour,
+    class: scroll,
+    values: auto smooth
+  ),
+  "scroll-snap-align": (
+    property: scroll-snap-align,
+    class: scroll-snap,
+    values: start end center none
+  ),
+  "scroll-snap-stop": (
+    property: scroll-snap-stop,
+    class: scroll-snap,
+    values: normal always
+  ),
+  "scroll-snap-type": (
+    property: scroll-snap-type,
+    class: scroll-snap,
+    values: (
+      none: none,
+      x: x var(--x-scroll-snap-strictness),
+      y: y var(--x-scroll-snap-strictness),
+      both: both var(--x-scroll-snap-strictness),
+    )
+  ),
+  "scroll-snap-strictness": (
+    css-var: true,
+    css-variable-name: scroll-snap-strictness,
+    class: scroll-snap,
+    values: mandatory proximity
+  ),
+
+  // Transition
+  "transition-property": (
+    property: transition-property,
+    class: transition,
+    responsive: true,
+    values: (
+      null: $transition-property,
+      none: none,
+      all: all,
+      colors: $transition-property-colors,
+      opacity: opacity,
+      shadow: box-shadow,
+      transform: transform,
+    ),
+  ),
+  "transition-timing-function": (
+    property: transition-timing-function,
+    class: ease,
+    responsive: true,
+    values: (
+      base: $transition-timing-function,
+      linear: linear,
+      in: $transition-in-timing-function,
+      out: $transition-out-timing-function,
+      in-out: $transition-in-out-timing-function,
+    )
+  ),
+  "transition-duration": (
+    property: transition-duration,
+    class: duration,
+    values: (
+      base: 150ms,
+      75: 75ms,
+      100: 100ms,
+      150: 150ms,
+      300: 300ms
+    )
+  ),
+  "transition-delay": (
+    property: transition-delay,
+    class: delay,
+    values: (
+      75: 75ms,
+      100: 100ms,
+      150: 150ms,
+      300: 300ms
+    )
+  ),
+
+  // Animations
+  "animation": (
+    property: animation,
+    values: (
+      none: none,
+      spin: spin 1s linear infinite,
+      ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite,
+      pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite,
+      bounce: bounce 1s infinite,
+      slide-left: slideLeft 3s infinite,
+      slide-right: slideRight 3s infinite,
+      move-slow-left: slideLeft 15s linear infinite,
+      move-slow-right: slideRight 15s linear infinite,
+    )
+  ),
+
+  // Blur
+  "blur": (
+    property: --#{$prefix}blur,
+    class: blur,
+    values: (
+      5: 5px,
+      10: 10px,
+      25: 25px,
+      50: 50px,
+      75: 75px,
+      100: 100px,
+      125: 125px,
+      150: 150px,
+      200: 200px
+    )
+  ),
+
+  // Transform
+  "transform": (
+    property: transform,
+    values: none,
+    responsive: true
+  ),
+  "transform-origin": (
+    property: transform-origin,
+    class: origin,
+    values: (
+      center: center,
+      top: top,
+      top-end: top right,
+      end: right,
+      bottom-end: bottom right,
+      bottom: bottom,
+      bottom-start: bottom left,
+      left: left,
+      top-start: top left
+    )
+  ),
+  "scale": (
+    property: --#{$prefix}scale-x --#{$prefix}scale-y,
+    class: scale,
+    state: hover,
+    responsive: true,
+    values: $utilities-scale-values
+  ),
+  "rotate":  (
+    property: --#{$prefix}rotate,
+    class: rotate,
+    state: hover,
+    responsive: true,
+    values: $utilities-rotate-values
+  ),
+  "negative-rotate":  (
+    property: --#{$prefix}rotate,
+    class: rotate,
+    state: hover,
+    responsive: true,
+    values: negativify-map($utilities-rotate-values)
+  ),
+  "negative-rotate-y": (
+    property: --#{$prefix}rotate-y,
+    class: rotate-y,
+    state: hover,
+    responsive: true,
+    values: negativify-map($utilities-rotate-values)
+  ),
+  "negative-rotate-x": (
+    property: --#{$prefix}rotate-x,
+    class: rotate-x,
+    responsive: true,
+    values: negativify-map($utilities-rotate-values)
+  ),
+  "translate-y": (
+    property: --#{$prefix}translate-y,
+    class: translate-y,
+    state: hover,
+    responsive: true,
+    values: $utilities-translate-values
+  ),
+  "negative-translate-y": (
+    property: --#{$prefix}translate-y,
+    class: translate-y,
+    state: hover,
+    responsive: true,
+    values: negativify-map($utilities-translate-values)
+  ),
+  "translate-x": (
+    property: --#{$prefix}translate-x,
+    class: translate-x,
+    state: hover,
+    responsive: true,
+    values: $utilities-translate-values
+  ),
+  "negative-translate-x": (
+    property: --#{$prefix}translate-x,
+    class: translate-x,
+    state: hover,
+    responsive: true,
+    values: negativify-map($utilities-translate-values)
+  ),
+  "skew-y": (
+    property: --#{$prefix}skew-y,
+    class: skew-y,
+    responsive: true,
+    values: $utilities-skew-values
+  ),
+  "skew-x": (
+    property: --#{$prefix}skew-x, 
+    class: skew-x,
+    responsive: true,
+    values: $utilities-skew-values
+  ),
+));

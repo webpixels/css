@@ -1,0 +1,127 @@
+// Navbar
+
+.navbar {
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-light-collapse-border-color};
+}
+
+.navbar-nav {
+  --#{$prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-padding-x};
+  --#{$prefix}navbar-nav-link-padding-y: #{$navbar-nav-link-padding-y};
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-light-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-light-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-light-nav-link-active-bg};
+  --#{$prefix}navbar-nav-link-border-radius: #{$navbar-nav-link-border-radius};
+  --#{$prefix}navbar-nav-icon-color: #{$navbar-light-icon-color};
+
+  > .nav-item > .nav-link,
+  > .nav-link {
+    padding: var(--#{$prefix}navbar-nav-link-padding-y) var(--#{$prefix}navbar-nav-link-padding-x);
+  }
+
+  .nav-link {
+    background-color: var(--#{$prefix}navbar-nav-link-bg);
+    @include border-radius(var(--#{$prefix}navbar-nav-link-border-radius));
+
+    &:hover,
+    &:focus {
+      background-color: var(--#{$prefix}navbar-nav-link-hover-bg);
+    }
+
+    &.active,
+    &[aria-expanded="true"] {
+      background-color: var(--#{$prefix}navbar-nav-link-active-bg);
+    }
+  }
+
+  .nav-link-text,
+  .navbar-heading {
+    color: var(--#{$prefix}navbar-color);
+  }
+}
+
+
+
+.navbar-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar-img-brand {
+  font-size: initial;
+}
+
+// Collapse
+.navbar-collapse {
+  &:before {
+    content: '';
+    display: block;
+    margin: .75rem -1rem;
+    opacity: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--#{$prefix}navbar-collapse-border-color);
+  }
+
+  &.show,
+  &.collapsing {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+.navbar-toggler-icon {
+  width: $navbar-toggler-icon-width;
+  height: $navbar-toggler-icon-height;
+}
+
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        // Brand
+        .navbar-brand {
+          &.dropdown-toggle {
+            &:after {
+              display: none;
+            }
+          }
+        }
+
+        // Navbar collapse
+        .navbar-collapse {
+          .collapse-header {
+            display: none;
+          }
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark mode
+.navbar-dark,
+[data-bs-theme="dark"] .navbar {
+  --#{$prefix}navbar-nav-link-bg: #{$navbar-dark-nav-link-bg};
+  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-dark-nav-link-hover-bg};
+  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-dark-nav-link-active-bg};
+  --#{$prefix}navbar-nav-caret-bg: #{$navbar-dark-caret-bg};
+  --#{$prefix}navbar-collapse-border-color: #{$navbar-dark-collapse-border-color};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .navbar-toggler-icon {
+      --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
+    }
+  }
+}

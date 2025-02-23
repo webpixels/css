@@ -1,0 +1,38 @@
+// Dark forms
+
+.form-dark {
+    .form-control {
+        color: rgba($white, .9);
+        background-color: tint-color($dark, 10%);
+        border: $input-border-width solid tint-color($dark, 10%);
+
+        // Placeholder
+        &::placeholder {
+            color: transparentize(color-contrast($dark), .2);
+        }
+
+        &:focus {
+            background-color: tint-color($dark, 5%);
+            border: $input-border-width solid tint-color($dark, 5%);
+
+            &::placeholder {
+                color: transparentize(color-contrast($dark), .4);
+            }
+        }
+    }
+
+    .input-group {
+        .input-group-text {
+            background-color: tint-color($dark, 10%);
+            border-color: tint-color($dark, 10%);
+            color: rgba($white, .9);
+        }
+
+        &:focus-within {
+            .input-group-text {
+                background-color: tint-color($dark, 5%);
+                border-color: tint-color($dark, 5%);
+            }
+        }
+    }
+}

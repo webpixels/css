@@ -1,0 +1,13 @@
+// 
+// Variables
+// 
+
+
+// Webpixels variables
+// includes only the necessary variables to build our default style
+@import "./variables";
+@import "./variables-dark";
+
+// Bootstrap variables
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";

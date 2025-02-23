@@ -1,0 +1,36 @@
+//
+// Reboot
+// additional styles for normalizing CSS
+// 
+
+iframe {
+  display: block;
+  vertical-align: middle;
+}
+
+figcaption,
+figure,
+main {
+  display: block;
+  margin: 0;
+}
+
+figure {
+  max-width: 100%;
+  min-height: 1px;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+a {
+  outline: none;
+}

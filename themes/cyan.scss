@@ -1,0 +1,43 @@
+/**
+ * Theme: cyan
+ */
+
+// Functions, variables, maps, and mixins
+@import "../core";
+
+@import "cyan/variables";
+
+// Mixins
+@import "cyan/light";
+@import "cyan/dark";
+@import "cyan/styles";
+
+.theme-cyan {
+	@include cyan-styles;
+}
+
+[data-bs-theme="light"],
+:root:not([data-bs-theme="dark"]) {
+  .theme-cyan {
+    @include cyan-light;
+  }
+}
+
+// Dark theme (Auto)
+// Automatically enabled if user has Dark mode enabled
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-bs-theme]) {
+    .theme-cyan {
+      @include cyan-dark;
+    }
+  }
+}
+
+// Dark theme (Forced)
+// Enabled if forced with data-theme="dark"
+[data-bs-theme="dark"] {
+  .theme-cyan {
+    @include cyan-dark;
+  }
+}

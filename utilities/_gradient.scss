@@ -1,0 +1,76 @@
+// Gradient
+// options to pass to the utility API
+//
+
+@if($enable-gradient-utilities == true) {
+  .gradient-top {
+    background-image: linear-gradient(to top, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-top-right {
+    background-image: linear-gradient(to top right, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-right {
+    background-image: linear-gradient(to right, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-bottom-right {
+    background-image: linear-gradient(to bottom right, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-bottom {
+    background-image: linear-gradient(to bottom, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-bottom-left {
+    background-image: linear-gradient(to bottom left, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-left {
+    background-image: linear-gradient(to left, var(--#{$prefix}gradient)) !important;
+  }
+  .gradient-top-left {
+    background-image: linear-gradient(to top left, var(--#{$prefix}gradient)) !important;
+  }
+
+  // For transparent values
+  .start-transparent,
+  .start-transparent-hover:hover {
+    --#{$prefix}start-color: transparent;
+    --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}end-color, rgba(0, 0, 0, 0));
+  }
+
+  $gradient-colors: map-merge($gray-colors, $all-colors);
+  
+  // For color values
+  @each $color, $value in $gradient-colors {
+    $end-color: rgba(0, 0, 0, 0);
+    .start-#{$color},
+    .start-#{$color}-hover:hover {
+      --#{$prefix}start-color: var(--#{$prefix}#{$color});
+      --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}end-color, #{$end-color});
+    }
+  }
+
+  .middle-transparent,
+  .middle-transparent-hover:hover {
+    --#{$prefix}middle-color: transparent;
+    --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}middle-color), var(--#{$prefix}end-color, rgba(0, 0, 0, 0));
+  }
+
+  @each $color, $value in $gradient-colors {
+    $end-color: rgba($value, 0);
+    .middle-#{$color},
+    .middle-#{$color}-hover:hover {
+      --#{$prefix}middle-color: var(--#{$prefix}#{$color});
+      --#{$prefix}gradient: var(--#{$prefix}start-color), var(--#{$prefix}middle-color), var(--#{$prefix}end-color, #{$end-color});
+    }
+  }
+
+  .end-transparent,
+  .end-transparent-hover:hover {
+    --#{$prefix}end-color: transparent;
+  }
+  
+  @each $color, $value in $gradient-colors {
+    .end-#{$color},
+    .end-#{$color}-hover:hover {
+      --#{$prefix}end-color: var(--#{$prefix}#{$color});
+    }
+  }
+}

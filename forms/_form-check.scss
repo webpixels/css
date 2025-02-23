@@ -1,0 +1,56 @@
+//
+// Form checks
+//
+
+
+// Switch
+.form-switch {
+    min-height: $form-switch-min-height;
+}
+
+.form-switch > .form-check-input {
+    height: $form-switch-min-height;
+    margin-top: 0; // Form switch input height is always equal to the height of the switch
+}
+
+.form-switch > .form-check-label {
+    margin-top: calc((#{$form-switch-min-height} - #{$line-height-base} * 1em) / 2);
+}
+
+// Checkbox with line-through decoration on check
+.form-check-linethrough {
+    .form-check-input {
+        &:checked + .form-check-label {
+            text-decoration: line-through;
+        }
+    }
+}
+
+
+// Checkable form items
+.form-item-checkable {
+    margin: 2px;
+}
+
+.form-item-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+    display: none;
+}
+
+// .form-item-check:hover + .form-item .form-item-click {
+//     border-color: $primary;
+// }
+
+.form-item-check:checked + .form-item .form-item-click {
+    border-color: $primary;
+    box-shadow: 0 0 0 1px $primary;
+}
+
+.form-item-check[disabled] + .form-item .form-item-click,
+.form-item-check:disabled + .form-item .form-item-click {
+    pointer-events: none;
+    filter: none;
+    opacity: .5;
+}
