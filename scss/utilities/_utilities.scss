@@ -216,9 +216,18 @@ $utilities: map-merge($utilities, (
   "additional-background-color": (
     property: background-color,
     class: bg,
+    local-vars: (
+      "bg-opacity": 1
+    ),
+    values: (
+      "accent": rgba(var(--#{$prefix}accent-bg-rgb), var(--#{$prefix}bg-opacity)),
+    )
+  ),
+  "static-background-color": (
+    property: background-color,
+    class: bg,
     values: (
       "current": currentColor,
-      "accent": rgba(var(--#{$prefix}accent-bg-rgb), var(--#{$prefix}bg-opacity)),
     )
   ),
   "bg-opacity": map-merge(
