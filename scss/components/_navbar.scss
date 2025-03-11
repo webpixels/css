@@ -110,18 +110,13 @@
 
 // Dark mode
 .navbar-dark,
-[data-bs-theme="dark"] .navbar {
-  --#{$prefix}navbar-nav-link-bg: #{$navbar-dark-nav-link-bg};
-  --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-dark-nav-link-hover-bg};
-  --#{$prefix}navbar-nav-link-active-bg: #{$navbar-dark-nav-link-active-bg};
-  --#{$prefix}navbar-nav-caret-bg: #{$navbar-dark-caret-bg};
-  --#{$prefix}navbar-collapse-border-color: #{$navbar-dark-collapse-border-color};
-}
-
-@if $enable-dark-mode {
-  @include color-mode(dark) {
-    .navbar-toggler-icon {
-      --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
-    }
+.navbar[data-bs-theme="dark"] {
+  .navbar-nav {
+    --#{$prefix}navbar-nav-link-bg: #{$navbar-dark-nav-link-bg};
+    --#{$prefix}navbar-nav-link-hover-bg: #{$navbar-dark-nav-link-hover-bg};
+    --#{$prefix}navbar-nav-link-active-bg: #{$navbar-dark-nav-link-active-bg};
+    --#{$prefix}navbar-nav-caret-bg: #{$navbar-dark-caret-bg};
+    --#{$prefix}navbar-collapse-border-color: #{$navbar-dark-collapse-border-color};
   }
 }
+

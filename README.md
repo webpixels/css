@@ -5,12 +5,12 @@
 <p align="center">
   Utility and component-centric Design System based on Bootstrap for fast, responsive UI development.
   <br>
-  <a href="https://learn.webpixels.io"><strong>Explore Documentation »</strong></a>
+  <a href="https://docs.webpixels.io"><strong>Explore Documentation »</strong></a>
   <br>
   <br>
-  <a href="https://github.com/orgs/webpixels/discussions">Discussions</a>
+  <a href="https://github.com/orgs/webpixels/discussions">Community</a>
   ·
-  <a href="https://webpixels.io">Components</a>
+  <a href="https://webpixels.io/library">Components</a>
   ·
   <a href="https://webpixels.io/blog/">Blog</a>
 </p>
@@ -22,7 +22,7 @@
 For most projects (and to take advantage of the customization features), you'll want to install Webpixels CSS and its peer-dependencies via npm.
 
 ```txt
-npm install -D @webpixels/css@2.0.0-beta.19 bootstrap@5.3.2
+npm install -D @webpixels/css@2.0.0 bootstrap@5.3.3
 ```
 
 This will automatically install the latest Bootstrap version, so you don't need to do that manually.
@@ -78,10 +78,10 @@ Get your new web design project started with these amazing templates, or copy an
 
 Get updates on the development of our CSS tool and chat with the project maintainers and community members.
 
-- Follow [@webpixels_](https://twitter.com/intent/user?screen_name=webpixels_) on Twitter
+- Follow [@webpixels_](https://twitter.com/intent/user?screen_name=webpixels_) on Twitter (X)
 - Get inspired through our designs on [Dribbble](https://dribbble.com/webpixels)
 - Read and subscribe to [The Official Webpixels Blog](https://webpixels.io/blog)
-- Join [Github Discussions](https://github.com/webpixels/css/discussions)
+- Join our community on [GitHub](https://github.com/orgs/webpixels/discussions)
 
 ## Thank you
 

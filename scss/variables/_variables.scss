@@ -39,10 +39,6 @@ $min-contrast-ratio:   2 !default;
 $color-contrast-dark:      $black !default;
 $color-contrast-light:     $white !default;
 
-// // Bg Soft level
-// $bg-soft-level:           -80% !default;
-// $bg-shade-level:           15% !default;
-// $bg-tint-level:            15% !default;
 
 // Body
 //
@@ -58,6 +54,14 @@ $body-tertiary-color:       rgba($body-color, .5) !default;
 $body-tertiary-bg:          $gray-50 !default;
 
 $body-emphasis-color:       $gray-900 !default;
+
+// Accent
+// 
+// Background and text colors used for adding interactions on elements
+
+$accent-bg:         $gray-100 !default;
+$accent-color:      $gray-800 !default;
+
 
 // Spacing
 //
@@ -172,8 +176,8 @@ $box-shadow-focus:            0 0 0 3px rgba(66, 153, 225, 0.5) !default;
 
 $box-shadow-transparent:      0 0 0 0 rgba(0, 0, 0, 0) !default;
 
-$component-active-color:      $white !default;
-$component-active-bg:         $primary !default;
+$component-active-color:      $accent-color !default;
+$component-active-bg:         $accent-bg !default;
 
 $focus-ring-width:            .15rem !default;
 $focus-ring-opacity:          .25 !default;
@@ -742,10 +746,10 @@ $dropdown-item-border-radius:       var(--#{$prefix}border-radius) !default;
 
 $dropdown-link-color:               var(--#{$prefix}body-color) !default;
 $dropdown-link-hover-color:         $dropdown-link-color !default;
-$dropdown-link-hover-bg:            var(--#{$prefix}accent) !default;
+$dropdown-link-hover-bg:            var(--#{$prefix}accent-bg) !default;
 
 $dropdown-link-active-color:        $dropdown-link-color !default;
-$dropdown-link-active-bg:           var(--#{$prefix}accent) !default;
+$dropdown-link-active-bg:           var(--#{$prefix}accent-bg) !default;
 
 
 // Frames
@@ -807,6 +811,8 @@ $nav-link-font-size:                $font-size-sm !default;
 $nav-link-font-weight:              $font-weight-normal !default;
 $nav-link-color:                    var(--#{$prefix}body-color) !default;
 
+$nav-tabs-link-active-bg:           transparent !default;
+
 // Navbar
 
 // $navbar-transition:                 all .15s linear !default;
@@ -827,8 +833,8 @@ $navbar-light-disabled-color:           rgba(var(--#{$prefix}emphasis-color-rgb)
 
 // start wpx
 $navbar-light-nav-link-bg:              transparent !default;
-$navbar-light-nav-link-hover-bg:        var(--#{$prefix}accent) !default;
-$navbar-light-nav-link-active-bg:       var(--#{$prefix}accent) !default;
+$navbar-light-nav-link-hover-bg:        var(--#{$prefix}accent-bg) !default;
+$navbar-light-nav-link-active-bg:       var(--#{$prefix}accent-bg) !default;
 
 $navbar-light-icon-color:               $navbar-light-color !default;
 $navbar-light-caret-bg:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 16 16' fill='#{$navbar-light-color}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"), "#", "%23") !default;

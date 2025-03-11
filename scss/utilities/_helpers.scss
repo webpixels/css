@@ -12,6 +12,11 @@
   @include transition($transition-base);
 }
 
+// Scrollbar
+.scrollbar {
+  scrollbar-width: none;
+}
+
 // Scrollable areas
 .scrollable-x {
   white-space: nowrap;

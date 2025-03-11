@@ -9,6 +9,13 @@
     --#{$prefix}#{$color}-rgb: #{$value};
   }
   
+  // Accent
+  --#{$prefix}accent-bg: #{$accent-bg};
+  --#{$prefix}accent-bg-rgb: #{to-rgb($accent-bg)};
+
+  --#{$prefix}accent-color: #{$accent-color};
+  --#{$prefix}accent-color-rgb: #{to-rgb($accent-color)};
+
   // Fonts
   --#{$prefix}font-display: #{inspect($font-display-bundle)};
   --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
@@ -41,7 +48,6 @@
 
 .navbar-dark,
 [data-bs-theme="dark"] .navbar {
-  // Logo
   .logo-light {
     display: block;
   }
@@ -53,6 +59,12 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
+    // Accent
+    --#{$prefix}accent-bg: #{$accent-bg-dark};
+    --#{$prefix}accent-bg-rgb: #{to-rgb($accent-bg-dark)};
+    --#{$prefix}accent-color: #{$accent-color-dark};
+    --#{$prefix}accent-color-rgb: #{to-rgb($accent-color-dark)};
+
     // Buttons
     .btn-neutral {
       --#{$prefix}btn-bg: #{$btn-neutral-bg-dark};

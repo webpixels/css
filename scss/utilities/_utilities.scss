@@ -213,11 +213,12 @@ $utilities: map-merge($utilities, (
       )
     )
   ),
-  "static-background-color": (
+  "additional-background-color": (
     property: background-color,
     class: bg,
     values: (
-      "current": currentColor
+      "current": currentColor,
+      "accent": rgba(var(--#{$prefix}accent-bg-rgb), var(--#{$prefix}bg-opacity)),
     )
   ),
   "bg-opacity": map-merge(
