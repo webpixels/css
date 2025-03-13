@@ -30,19 +30,21 @@ $grays: (
 ) !default;
 
 // Base colors
-$cyan:    #7fc2ff !default;
-$blue:    #335ccf !default;
-$indigo:  #6366f1 !default;
-$purple:  #7d52f4 !default;
-$pink:    #fb4ba3 !default;
-$red:     #fb3748 !default;
-$orange:  #ff9147 !default;
-$yellow:  #f6b51e !default;
-$green:   #1fc16b !default;
-$lime:    #c8ff6a !default;
-$teal:    #22d3bb !default;
+$cyan:      #7fc2ff !default;
+$sky-blue:  #0690f1 !default; 
+$blue:      #335ccf !default;
+$indigo:    #6366f1 !default;
+$purple:    #7d52f4 !default;
+$pink:      #fb4ba3 !default;
+$red:       #fb3748 !default;
+$orange:    #ff9147 !default;
+$yellow:    #f6b51e !default;
+$green:     #1fc16b !default;
+$lime:      #c8ff6a !default;
+$teal:      #22d3bb !default;
 
 $colors: (
+  "sky-blue":   $sky-blue,
   "blue":       $blue,
   "indigo":     $indigo,
   "purple":     $purple,
@@ -82,8 +84,30 @@ $limes: (
   "lime-900": $lime-900
 ) !default;
 
+$sky-blue-100: tint-color($sky-blue, 80%) !default;
+$sky-blue-200: tint-color($sky-blue, 60%) !default;
+$sky-blue-300: tint-color($sky-blue, 40%) !default;
+$sky-blue-400: tint-color($sky-blue, 20%) !default;
+$sky-blue-500: $sky-blue !default;
+$sky-blue-600: shade-color($sky-blue, 20%) !default;
+$sky-blue-700: shade-color($sky-blue, 40%) !default;
+$sky-blue-800: shade-color($sky-blue, 60%) !default;
+$sky-blue-900: shade-color($sky-blue, 80%) !default;
+
+$sky-blues: (
+  "sky-blue-100": $sky-blue-100, 
+  "sky-blue-200": $sky-blue-200,
+  "sky-blue-300": $sky-blue-300,
+  "sky-blue-400": $sky-blue-400,
+  "sky-blue-500": $sky-blue-500,
+  "sky-blue-600": $sky-blue-600,
+  "sky-blue-700": $sky-blue-700,
+  "sky-blue-800": $sky-blue-800,
+  "sky-blue-900": $sky-blue-900
+) !default;
+
 // Theme colors
-$primary:       $gray-950 !default;
+$primary:       $sky-blue-400 !default;
 $secondary:     $gray-500 !default;
 $success:       $green !default;
 $info:          $cyan !default;

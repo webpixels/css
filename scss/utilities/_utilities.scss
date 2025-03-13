@@ -216,6 +216,7 @@ $utilities: map-merge($utilities, (
   "additional-background-color": (
     property: background-color,
     class: bg,
+    state: hover,
     local-vars: (
       "bg-opacity": 1
     ),
