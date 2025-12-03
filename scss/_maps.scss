@@ -1,0 +1,197 @@
+// Maps
+//
+
+$grays: (
+  "50": $gray-50,
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900,
+  "950": $gray-950
+);
+
+$colors: (
+  "sky": $sky,
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "lime": $lime,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "black": $black,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800
+) !default;
+
+// Addition color maps (not available in Bootstrap)
+$skys: (
+  "sky-100": $sky-100,
+  "sky-200": $sky-200,
+  "sky-300": $sky-300,
+  "sky-400": $sky-400,
+  "sky-500": $sky-500,
+  "sky-600": $sky-600,
+  "sky-700": $sky-700,
+  "sky-800": $sky-800,
+  "sky-900": $sky-900
+);
+
+$limes: (
+  "lime-100": $lime-100,
+  "lime-200": $lime-200,
+  "lime-300": $lime-300,
+  "lime-400": $lime-400,
+  "lime-500": $lime-500,
+  "lime-600": $lime-600,
+  "lime-700": $lime-700,
+  "lime-800": $lime-800,
+  "lime-900": $lime-900
+);
+
+// Theme colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "highlight": $highlight,
+  "light": $light,
+  "dark": $dark
+);
+
+// Typography
+$utilities-font-family-values: (
+  base: var(--#{$prefix}font-sans-serif),
+  serif: var(--#{$prefix}font-serif),
+  display: var(--#{$prefix}font-display),
+  code: var(--#{$prefix}font-monospace)
+) !default;
+
+$utilities-font-size-values: (
+  xxs: $font-size-xxs,
+  xs: $font-size-xs,
+  sm: $font-size-sm,
+  base: $font-size-base,
+  md: $font-size-md,
+  lg: $font-size-lg,
+  xl: $font-size-xl,
+  2xl: $font-size-2xl
+) !default;
+
+$utilities-line-height-values: (
+  1: 1,
+  xxs: 1.125,
+  xs: 1.2,
+  sm: 1.375,
+  base: 1.5,
+  lg: 1.625,
+  xl: 2
+) !default;
+
+$utilities-letter-spacing-values: (
+  tighter: -0.05em,
+  tight: -0.025em,
+  normal: 0,
+  wide: 0.025em,
+  wider: 0.05em,
+  widest: 0.1em
+) !default;
+
+// Shadows
+$utilities-shadows: (
+  null: $box-shadow,
+  1: $box-shadow-1,
+  2: $box-shadow-2,
+  3: $box-shadow-3,
+  4: $box-shadow-4,
+  5: $box-shadow-5,
+  6: $box-shadow-6,
+  inset: $box-shadow-inset,
+  none: none
+) !default;
+
+$utilities-soft-shadows: (
+  1: $box-shadow-soft-1,
+  2: $box-shadow-soft-2,
+  3: $box-shadow-soft-3,
+  4: $box-shadow-soft-4,
+  5: $box-shadow-soft-5,
+  6: $box-shadow-soft-6,
+) !default;
+
+$utilities-elevated-shadows: (
+  1: $box-shadow-elevated-1,
+  2: $box-shadow-elevated-2,
+  3: $box-shadow-elevated-3,
+  4: $box-shadow-elevated-4,
+) !default;
+
+// Border radius
+$utilities-border-radius: (
+  null: $border-radius,
+  0: 0,
+  1: $border-radius-sm,
+  2: $border-radius,
+  3: $border-radius-lg,
+  4: $border-radius-xl,
+  5: $border-radius-xxl,
+  pill: $border-radius-pill,
+  circle: $border-radius-circle,
+  card: $card-border-radius,
+  modal: $modal-content-inner-border-radius,
+) !default;
+
+// Transform
+$utilities-scale-values: (
+  0: 0,
+  25: .25,
+  50: .5,
+  75: .75,
+  100: 1,
+  105: 1.05,
+  110: 1.1
+) !default;
+
+$utilities-rotate-values: (
+  0: 0deg,
+  1: 1deg,
+  2: 2deg,
+  3: 3deg,
+  6: 6deg,
+  12: 12deg,
+  30: 30deg,
+  45: 45deg,
+  90: 90deg,
+  180: 180deg,
+) !default;
+
+$utilities-translate-values: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+) !default;
+
+$utilities-skew-values: (
+  0: 0deg,
+  1: 1deg,
+  2: 2deg,
+  3: 3deg,
+  6: 6deg,
+  12: 12deg,
+) !default;
