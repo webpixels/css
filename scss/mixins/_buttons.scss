@@ -1,0 +1,47 @@
+// scss-docs-start btn-gradient-shiny-variant-mixin
+@mixin button-gradient-variant(
+  $background,
+  $border: rgba($black, .25),
+  $color: color-contrast($background)
+) {
+  // core colors
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-bg: #{$background};
+  --#{$prefix}btn-border-color: #{$border};
+
+  // gradient background
+  --#{$prefix}gradient: linear-gradient(to top, #{$background}, #{rgba($background, .85)});
+
+  // ring + shadow system
+  --#{$prefix}btn-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  box-shadow: var(--#{$prefix}btn-box-shadow);
+
+  // subtle inset ring like Tailwind's `ring-1 ring-inset`
+  box-shadow: var(--#{$prefix}btn-box-shadow), inset 0 0 0 1px rgba(#fff, .2);
+
+  // states
+  --#{$prefix}btn-hover-color: #{$color};
+  --#{$prefix}btn-hover-bg: #{$background};
+  --#{$prefix}btn-hover-border-color: #{$border};
+
+  --#{$prefix}btn-active-color: #{$color};
+  --#{$prefix}btn-active-bg: #{$background};
+  --#{$prefix}btn-active-border-color: #{$border};
+
+  --#{$prefix}btn-disabled-color: #{$color};
+  --#{$prefix}btn-disabled-bg: #{$background};
+  --#{$prefix}btn-disabled-border-color: #{$border};
+
+  // focus ring
+  --#{$prefix}btn-focus-shadow-rgb: #{to-rgb(#fff)};
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--#{$prefix}btn-box-shadow), inset 0 0 0 1px rgba(#fff, .2),
+    0 0 0 .2rem rgba($background, .4);
+  }
+
+  // brightness transitions
+  transition: filter .2s ease-in-out, box-shadow .2s ease-in-out;
+  &:hover   { filter: brightness(1.1); }
+  &:active  { filter: brightness(0.9); }
+}

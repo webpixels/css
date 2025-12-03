@@ -19,7 +19,7 @@
 
 	> h2 {
 		@include font-size(1.5em);
-		font-weight: $font-weight-bolder;
+		font-weight: $headings-font-weight;
     margin-top: 2em;
     margin-bottom: .5em;
     line-height: 1.3333333;
@@ -33,7 +33,7 @@
 
 	> h3 {
 		@include font-size(1.25em);
-		font-weight: $font-weight-bold;
+		font-weight: $headings-font-weight;
 		margin-top: 1.6em;
 		margin-bottom: .6em;
 		white-space: pre-wrap;

@@ -1,8 +1,0 @@
-// Additional form labels
-
-.form-check-label {
-    @include font-size($form-label-font-size);
-    font-style: $form-label-font-style;
-    font-weight: $form-label-font-weight;
-    color: $form-label-color;
-}
