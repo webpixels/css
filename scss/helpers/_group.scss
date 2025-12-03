@@ -1,0 +1,15 @@
+// Group hover visibility toggle 
+
+.group-item-invisible {
+  .group-item {
+    visibility: hidden;
+  }
+}
+
+.group-item-visible-hover {
+  &:hover {
+    .group-item {
+      visibility: visible;
+    }
+  }
+}

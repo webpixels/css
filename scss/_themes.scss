@@ -1,0 +1,10 @@
+// @use "./light" as *;
+// @use "./dark" as *;
+@import "./themes/minimal";
+// @use "./neon" as *;
+@import "mixins/themes";
+
+// @include generate-theme("light", $theme-light);
+// @include generate-theme("dark", $theme-dark);
+@include generate-theme("minimal", $minimal-light, $minimal-dark);
+// @include generate-theme("neon", $theme-neon);

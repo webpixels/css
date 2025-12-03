@@ -1,0 +1,94 @@
+@import "bootstrap/scss/card";
+
+// Variants
+// Plain card (removes borders from header and footer)
+.card-plain {
+	.card-header {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.card-footer {
+		border-top: 0;
+		padding-top: 0;
+	}
+}
+
+// Contained card
+.card-contained {
+	--#{$prefix}card-bg: #{$card-contained-bg};
+	--#{$prefix}card-spacer-y: #{$card-contained-spacer-y};
+  --#{$prefix}card-spacer-x: #{$card-contained-spacer-x};
+  --#{$prefix}card-cap-padding-y: #{$card-contained-cap-padding-y};
+  --#{$prefix}card-cap-padding-x: #{$card-contained-cap-padding-x};
+
+	--#{$prefix}card-padding: #{$card-contained-padding};
+	--#{$prefix}card-body-bg: #{$card-contained-body-bg};
+	--#{$prefix}card-body-border-color: #{$card-contained-body-border-color};
+
+	padding: var(--#{$prefix}card-padding);
+
+	> .card-img {
+		margin-bottom: var(--#{$prefix}card-padding);
+	}
+
+	> .card-header {
+		border-bottom: 0;
+	}
+
+	> .card-footer {
+		border-top: 0;
+	}
+
+	> .card-body {
+		border-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+		border: 1px solid var(--#{$prefix}card-body-border-color);
+		background-color: var(--#{$prefix}card-body-bg);
+
+		> .table-responsive {
+			border-radius: var(--#{$prefix}card-border-radius);
+		}
+
+		> .table-responsive .table,
+		> .table {
+			// because we want to add this on table head first child also
+			tr:first-child {
+				> *:first-child {
+		      border-top-left-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+		    }
+		    > *:last-child {
+		      border-top-right-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+		    }
+		  }
+
+		  tbody {
+		  	tr:last-child {
+		  	> *:first-child {
+		      border-bottom-left-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+		    }
+		    > *:last-child {
+		      border-bottom-right-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+		    }
+		  	td {
+		      border-bottom: 0;
+		    }
+		  }
+		  }
+		  
+		}
+	}
+}
+
+// Elevated card
+.card-elevated {
+	--#{$prefix}card-border-width: 0;
+	--#{$prefix}card-box-shadow: #{$card-elevated-box-shadow};
+}
+
+// Sizes
+.card-sm {
+	--#{$prefix}card-spacer-y: #{$card-sm-spacer-y};
+  --#{$prefix}card-spacer-x: #{$card-sm-spacer-x};
+  --#{$prefix}card-cap-padding-y: #{$card-sm-cap-padding-y};
+  --#{$prefix}card-cap-padding-x: #{$card-sm-cap-padding-x};
+}

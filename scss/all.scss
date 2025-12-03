@@ -1,0 +1,46 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+@import "core";
+
+// 3. Include component overrides or custom built ones
+@import "type";
+@import "accordion";
+@import "avatar";
+@import "badge";
+@import "breadcrumb";
+@import "buttons";
+@import "button-group";
+@import "card";
+@import "carousel";
+@import "close";
+@import "dropdowns";
+@import "forms";
+@import "frame";
+@import "icon";
+@import "images";
+@import "list-group";
+@import "modal";
+@import "nav";
+@import "navbar";
+@import "navbar-vertical";
+@import "offcanvas";
+@import "pagination";
+@import "placeholders";
+@import "popover";
+@import "progress";
+@import "spinners";
+@import "tables";
+@import "toasts";
+@import "tooltip";
+
+// 4. Helpers
+@import "helpers";
+
+// Libs
+@import "libs/apexcharts";
+
+// 6. Utilities
+@import "utilities";
+@import "bootstrap/scss/utilities/api";

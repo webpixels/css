@@ -1,0 +1,20 @@
+// Scrollable areas
+.scrollable-x {
+  white-space: nowrap;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scrollable-y {
+  white-space: nowrap;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
