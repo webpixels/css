@@ -2,6 +2,12 @@
 // Form checks
 //
 
+.form-check-label {
+  @include font-size($form-label-font-size);
+  font-style: $form-label-font-style;
+  font-weight: $form-label-font-weight;
+  color: $form-label-color;
+}
 
 // Switch
 .form-switch {
