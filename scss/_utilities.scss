@@ -5,30 +5,35 @@ $utilities: map-merge($utilities, (
   "rounded": map-merge(
     map-get($utilities, "rounded"),
     (
+      responsive: true,
       values: $utilities-border-radius
     ),
   ),
   "rounded-top": map-merge(
     map-get($utilities, "rounded-top"),
     ( 
+      responsive: true,
       values: $utilities-border-radius
     ),
   ),
   "rounded-bottom": map-merge(
     map-get($utilities, "rounded-bottom"),
     ( 
+      responsive: true,
       values: $utilities-border-radius
     ),
   ),
   "rounded-start": map-merge(
     map-get($utilities, "rounded-start"),
     ( 
+      responsive: true,
       values: $utilities-border-radius
     ),
   ),
   "rounded-end": map-merge(
     map-get($utilities, "rounded-end"),
     ( 
+      responsive: true,
       values: $utilities-border-radius
     ),
   ),
@@ -36,21 +41,25 @@ $utilities: map-merge($utilities, (
   "rounded-top-start": (
     property: border-top-left-radius,
     class: rounded-top-start,
+    responsive: true,
     values: $utilities-border-radius
   ),
   "rounded-top-end": (
     property: border-top-right-radius,
     class: rounded-top-end,
+    responsive: true,
     values: $utilities-border-radius
   ),
   "rounded-bottom-end": (
     property: border-bottom-right-radius,
     class: rounded-bottom-end,
+    responsive: true,
     values: $utilities-border-radius
   ),
   "rounded-bottom-start": (
     property: border-bottom-left-radius,
     class: rounded-bottom-start,
+    responsive: true,
     values: $utilities-border-radius
   ),
   "border": map-merge(
@@ -236,6 +245,7 @@ $utilities: map-merge($utilities, (
   "elevation-shadow": (
     property: box-shadow,
     class: shadow-el,
+    responsive: true,
     values: $utilities-elevated-shadows
   ),
   "width": map-merge(
