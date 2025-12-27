@@ -1,11 +1,24 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-# generate the build directory
+# Generate the build directory
 npm run --silent build
 
-files=$(git ls-files scss | sed -e 's#^scss/##' | sed -e 's#/.*$##' | sort -u)
-echo $files > publish-files.log
+file="publish-files.log"
+
+# Get unique top-level scss directories
+git ls-files scss \
+  | sed 's#^scss/##' \
+  | cut -d/ -f1 \
+  | sort -u \
+  > "$file"
+
+# Copy files safely
 cd scss
-cp -rv $files ..
+
+while IFS= read -r path; do
+  [[ -z "$path" ]] && continue
+  cp -rv -- "$path" ..
+done < "../$file"
+
 cd -
