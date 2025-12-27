@@ -76,6 +76,9 @@ $theme-colors: (
   "dark": $dark
 );
 
+$all-colors: map-merge-multiple($grays, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $limes, $teals, $cyans);
+$all-colors-rgb: map-loop($all-colors, to-rgb, "$value") !default;
+
 // Typography
 $utilities-font-family-values: (
   base: var(--#{$prefix}font-sans-serif),

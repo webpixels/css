@@ -99,12 +99,13 @@ $utilities: map-merge($utilities, (
       state: hover
     ),
   ),
-  "static-border-color": (
+  "other-border-color": (
     property: border-color,
     class: border,
     values: (
       "transparent": transparent,
-      "current": currentColor
+      "current": currentColor,
+      "body": var(--#{$prefix}body-bg)
     )
   ),
   "border-style": ( 
@@ -375,20 +376,23 @@ $utilities: map-merge($utilities, (
   ),
   "overflow": map-merge(
     map-get($utilities, "overflow"),
-    ( 
-      responsive: true 
+    (
+      values: auto hidden clip visible scroll,
+      responsive: true
     ),
   ),
   "overflow-x": map-merge(
     map-get($utilities, "overflow-x"),
-    ( 
-      responsive: true 
+    (
+      values: auto hidden clip visible scroll,
+      responsive: true
     ),
   ),
   "overflow-y": map-merge(
     map-get($utilities, "overflow-y"),
-    ( 
-      responsive: true 
+    (
+      values: auto hidden clip visible scroll,
+      responsive: true
     ),
   ),
   "z-index": map-merge(

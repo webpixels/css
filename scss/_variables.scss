@@ -1,11 +1,114 @@
-// Styleguide
-@import './styleguide/colors';
-@import './styleguide/options';
-@import './styleguide/spacing';
-@import './styleguide/sizing';
+// Colors
+@import './colors';
+
+// Options
+$enable-caret:                true;
+$enable-rounded:              true;
+$enable-shadows:              true;
+$enable-gradients:            false;
+$enable-transitions:          true;
+$enable-reduced-motion:       true;
+$enable-smooth-scroll:        true;
+$enable-grid-classes:         true;
+$enable-cssgrid:              true;
+$enable-button-pointers:      true;
+$enable-rfs:                  true;
+$enable-validation-icons:     true;
+$enable-negative-margins:     true;
+$enable-deprecation-messages: false;
+$enable-important-utilities:  true;
+$enable-gradient-utilities:   true;
 
 // Prefix for :root CSS variables
 $prefix:                x- !default;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  0\.5: $spacer * 0.125,
+  1: $spacer * 0.25,
+  1\.5: $spacer * 0.375,
+  2: $spacer * 0.5,
+  3: $spacer * 0.75,
+  4: $spacer,
+  5: $spacer * 1.25,
+  6: $spacer * 1.5,
+  7: $spacer * 1.75,
+  8: $spacer * 2,
+  10: $spacer * 2.5,
+  12: $spacer * 3,
+  14: $spacer * 3.5,
+  16: $spacer * 4,
+  18: $spacer * 4.5,
+  20: $spacer * 5,
+  24: $spacer * 6,
+  32: $spacer * 8,
+  40: $spacer * 10,
+  48: $spacer * 12,
+  56: $spacer * 14,
+  64: $spacer * 16,
+  72: $spacer * 18,
+  80: $spacer * 20,
+  88: $spacer * 22,
+  96: $spacer * 24,
+  px: 1px,
+  base: $spacer
+) !default;
+
+// Sizing
+// This variable affects the `.w-*`, `.min-w-*`, `.mw-*` classes.
+$percentage-sizers: (
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  80: 80%,
+  90: 90%,
+  100: 100%
+);
+
+// This variable affects the `.w-screen-*`, `.max-w-screen-*` classes.
+$screen-width-sm:   640px;
+$screen-width-md:   768px;
+$screen-width-lg:   1024px;
+$screen-width-xl:   1280px;
+$screen-width-xxl:  1536px;
+
+// Screen widths
+$screen-widths: (
+  screen-sm: $screen-width-sm,
+  screen-md: $screen-width-md,
+  screen-lg: $screen-width-lg,
+  screen-xl: $screen-width-xl,
+  screen-xxl: $screen-width-xxl
+);
+
+// Container widths
+$container-width-xs: 20rem;
+$container-width-sm: 24rem;
+$container-width-md: 28rem;
+$container-width-lg: 32rem;
+$container-width-xl: 36rem;
+$container-width-2xl: 42rem;
+$container-width-3xl: 48rem;
+$container-width-4xl: 56rem;
+$container-width-5xl: 64rem;
+$container-width-6xl: 72rem;
+$container-width-7xl: 80rem;
+
+$container-widths: (
+  xs: $container-width-xs,
+  sm: $container-width-sm,
+  md: $container-width-md,
+  lg: $container-width-lg,
+  xl: $container-width-xl,
+  2xl: $container-width-2xl,
+  3xl: $container-width-3xl,
+  4xl: $container-width-4xl,
+  5xl: $container-width-5xl,
+  6xl: $container-width-6xl,
+  7xl: $container-width-7xl,
+);
 
 // Contrast ratio
 $min-contrast-ratio:    3 !default;
@@ -246,7 +349,7 @@ $table-th-font-weight:          $font-weight-semibold !default;
 $table-th-font-size:            $font-size-sm !default;
 $table-th-text-transform:       none !default;
 $table-th-letter-spacing:       0 !default;
-$table-th-bg:                   var(--#{$prefix}secondary-bg) !default;
+$table-th-bg:                   var(--#{$prefix}tertiary-bg) !default;
 $table-th-color:                var(--#{$prefix}secondary-color) !default;
 
 $table-color:                   var(--#{$prefix}body-color) !default;
@@ -338,7 +441,6 @@ $btn-neutral-active-color:          $gray-700 !default;
 // Forms
 $form-label-font-size:               $font-size-sm !default;
 $form-label-font-weight:             $font-weight-semibold !default;
-$form-label-margin-bottom:           0 !default;
 
 $input-box-shadow:                   0px 1px 2px rgba(50, 50, 71, 0.08) !default;
 
@@ -473,16 +575,16 @@ $card-cap-color:                    var(--#{$prefix}heading-color) !default;
 // added in wpx
 $card-sm-spacer-y:                  $spacer !default;
 $card-sm-spacer-x:                  $spacer !default;
-$card-sm-cap-padding-y:             $card-sm-spacer-y !default;
+$card-sm-cap-padding-y:             .75rem !default;
 $card-sm-cap-padding-x:             $card-sm-spacer-x !default;
 
 $card-contained-padding:            $spacer * .125 !default;
 $card-contained-bg:                 var(--#{$prefix}tertiary-bg) !default;
 $card-contained-body-bg:            var(--#{$prefix}body-bg) !default;
 $card-contained-body-border-color:  $card-border-color !default;
-$card-contained-spacer-y:           $spacer * 1.25 !default;
-$card-contained-spacer-x:           $spacer * 1.25 !default;
-$card-contained-cap-padding-y:      $spacer !default;
+$card-contained-spacer-y:           $spacer !default;
+$card-contained-spacer-x:           $spacer !default;
+$card-contained-cap-padding-y:      $spacer * .75 !default;
 $card-contained-cap-padding-x:      $spacer !default;
 
 $card-elevated-box-shadow:          rgba(41, 41, 41, 0.04) 0px 1px 1px 0.5px, rgba(41, 41, 41, 0.02) 0px 3px 3px -1.5px, rgba(41, 41, 41, 0.04) 0px 6px 6px -3px, rgba(41, 41, 41, 0.04) 0px 12px 12px -6px, rgba(41, 41, 41, 0.04) 0px 24px 24px -12px, rgba(41, 41, 41, 0.04) 0px 48px 48px -24px, rgba(41, 41, 41, 0.04) 0px 0px 0px 1px, rgba(51, 51, 51, 0.06) 0px -1px 1px -0.5px inset !default;
@@ -594,7 +696,7 @@ $icon-border-width:             3px !default;
 $icon-bg-level:                 -70% !default;
 
 // List group
-$list-group-item-padding-y:         1.125rem !default;
+$list-group-item-padding-y:         1rem !default;
 $list-group-item-padding-x:         1.25rem !default;
 $list-group-item-font-size:         $font-size-sm !default;
 
