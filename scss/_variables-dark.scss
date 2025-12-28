@@ -1,6 +1,21 @@
+// Dark color mode variables
+//
+// Custom variables for the `[data-bs-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+
+$body-color-dark:                   $gray-300 !default;
+$body-bg-dark:                      mix($gray-900, $gray-950, 70%) !default;
+$body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark:            $gray-800 !default;
+$body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
+$body-tertiary-bg-dark:             $gray-950 !default;
+$body-emphasis-color-dark:          $white !default;
+$border-color-dark:                 darken($gray-700, 5%) !default;
+$border-color-translucent-dark:     color-mix(in srgb, var(--#{$prefix}white) 7%, transparent) !default;
+$headings-color-dark:               inherit !default;
+
 // Accent
-$accent-bg-dark:			$gray-800;
-$accent-color-dark:		$gray-100;
+$accent-bg-dark: $gray-800;
+$accent-color-dark: $gray-100;
 
 // Neutral button
 $btn-neutral-bg-dark:                    $gray-800;
@@ -14,4 +29,11 @@ $btn-neutral-active-border-color-dark:   $gray-500;
 $btn-neutral-active-color-dark:          $gray-50;
 
 // Headings
-$headings-color-dark:               		 	$white;
+$headings-color-dark: $white;
+
+// Cards
+$card-bg-dark: color-mix(in srgb, $body-bg-dark 50%, transparent) !default;		
+$card-contained-body-bg-dark: var(--#{$prefix}body-bg) !default;
+
+// Forms
+$input-bg-dark: var(--#{$prefix}secondary-bg) !default;

@@ -105,7 +105,8 @@ $utilities: map-merge($utilities, (
     values: (
       "transparent": transparent,
       "current": currentColor,
-      "body": var(--#{$prefix}body-bg)
+      "body": var(--#{$prefix}body-bg),
+      "translucent": light-dark($border-color-translucent, $border-color-translucent-dark)
     )
   ),
   "border-style": ( 

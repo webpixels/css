@@ -143,6 +143,7 @@ $link-hover-decoration: none;
 // Border
 $border-width:                1px !default;
 $border-color:                $gray-200 !default;
+$border-color-translucent:    color-mix(in srgb, $gray-200 70%, transparent) !default;
 
 // Border radius
 $border-radius-xs:            0.375rem !default;
@@ -442,6 +443,7 @@ $btn-neutral-active-color:          $gray-700 !default;
 $form-label-font-size:               $font-size-sm !default;
 $form-label-font-weight:             $font-weight-semibold !default;
 
+$input-bg:                           transparent !default; 
 $input-box-shadow:                   0px 1px 2px rgba(50, 50, 71, 0.08) !default;
 
 $input-border-radius:                var(--#{$prefix}border-radius) !default;
@@ -564,7 +566,7 @@ $card-spacer-x:                     $spacer * 1.5 !default;
 $card-title-spacer-y:               0.5rem !default;
 $card-title-color:                  var(--#{$prefix}heading-color) !default;
 
-$card-border-color:                 var(--#{$prefix}border-color) !default;
+$card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
 $card-border-radius:                var(--#{$prefix}border-radius-lg) !default;
 $card-box-shadow:                   none !default;
 
@@ -578,10 +580,11 @@ $card-sm-spacer-x:                  $spacer !default;
 $card-sm-cap-padding-y:             .75rem !default;
 $card-sm-cap-padding-x:             $card-sm-spacer-x !default;
 
-$card-contained-padding:            $spacer * .125 !default;
-$card-contained-bg:                 var(--#{$prefix}tertiary-bg) !default;
+$card-contained-padding:            $spacer * .325 !default;
+$card-contained-bg:                 color-mix(in srgb, var(--#{$prefix}secondary-bg) 50%, transparent) !default;
 $card-contained-body-bg:            var(--#{$prefix}body-bg) !default;
 $card-contained-body-border-color:  $card-border-color !default;
+$card-contained-body-box-shadow:    $box-shadow-elevated-1 !default;
 $card-contained-spacer-y:           $spacer !default;
 $card-contained-spacer-x:           $spacer !default;
 $card-contained-cap-padding-y:      $spacer * .75 !default;
@@ -700,7 +703,7 @@ $list-group-item-padding-y:         1rem !default;
 $list-group-item-padding-x:         1.25rem !default;
 $list-group-item-font-size:         $font-size-sm !default;
 
-$list-group-bg: null !default;
+$list-group-bg:                     transparent !default;
 $list-group-hover-bg:               var(--#{$prefix}secondary-bg) !default;
 
 // Modals
