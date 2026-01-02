@@ -1,9 +1,15 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-file=publish-files.log
-if [[ -f $file ]]; then
-    echo "deleting all files listed in $file..."
-    cat $file | xargs rm -rfv
-    rm $file
+file="publish-files.log"
+
+if [[ -f "$file" ]]; then
+  echo "Deleting files listed in $file..."
+
+  while IFS= read -r path; do
+    [[ -z "$path" ]] && continue
+    rm -rfv -- "$path"
+  done < "$file"
+
+  rm -f "$file"
 fi

@@ -1,6 +1,8 @@
+// 
 // Maps
 //
 
+// Gray colors
 $grays: (
   "50": $gray-50,
   "100": $gray-100,
@@ -15,6 +17,7 @@ $grays: (
   "950": $gray-950
 );
 
+// Colors
 $colors: (
   "sky": $sky,
   "blue": $blue,
@@ -34,7 +37,7 @@ $colors: (
   "gray-dark": $gray-800
 ) !default;
 
-// Addition color maps (not available in Bootstrap)
+// Additional color maps (not available in Bootstrap)
 $skys: (
   "sky-100": $sky-100,
   "sky-200": $sky-200,
@@ -72,6 +75,9 @@ $theme-colors: (
   "light": $light,
   "dark": $dark
 );
+
+$all-colors: map-merge-multiple($grays, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $limes, $teals, $cyans);
+$all-colors-rgb: map-loop($all-colors, to-rgb, "$value") !default;
 
 // Typography
 $utilities-font-family-values: (

@@ -25,6 +25,7 @@
 	--#{$prefix}card-padding: #{$card-contained-padding};
 	--#{$prefix}card-body-bg: #{$card-contained-body-bg};
 	--#{$prefix}card-body-border-color: #{$card-contained-body-border-color};
+	--#{$prefix}card-body-box-shadow: #{$card-contained-body-box-shadow};
 
 	padding: var(--#{$prefix}card-padding);
 
@@ -44,6 +45,7 @@
 		border-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
 		border: 1px solid var(--#{$prefix}card-body-border-color);
 		background-color: var(--#{$prefix}card-body-bg);
+		@include box-shadow(var(--#{$prefix}card-body-box-shadow));
 
 		> .table-responsive {
 			border-radius: var(--#{$prefix}card-border-radius);
@@ -92,3 +94,14 @@
   --#{$prefix}card-cap-padding-y: #{$card-sm-cap-padding-y};
   --#{$prefix}card-cap-padding-x: #{$card-sm-cap-padding-x};
 }
+
+// Dark mode
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .card-contained {
+    	--#{$prefix}card-bg: #{$card-bg-dark};
+			--#{$prefix}card-body-bg: #{$card-contained-body-bg-dark};
+		}
+  }
+}
+

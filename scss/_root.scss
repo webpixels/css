@@ -1,6 +1,15 @@
 :root,
 [data-bs-theme="light"] {
 
+  // Colors
+  @each $color, $value in $all-colors {
+    --#{$prefix}#{$color}: #{$value};
+  }
+
+  @each $color, $value in $all-colors-rgb {
+    --#{$prefix}#{$color}-rgb: #{$value};
+  }
+
   // Gradient stops
   @each $color, $value in $gradient-stops {
     --#{$prefix}#{$color}: #{$value};

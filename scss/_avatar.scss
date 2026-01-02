@@ -16,13 +16,9 @@
 	font-weight: var(--#{$prefix}avatar-font-weight);
 	height: var(--#{$prefix}avatar-size);
 	width: var(--#{$prefix}avatar-size);
+	overflow: clip;
 	@include font-size(var(--#{$prefix}avatar-font-size));
 	@include border-radius(var(--#{$prefix}avatar-border-radius));
-	
-	img {
-		width: 100%;
-		@include border-radius(inherit);
-	}
 
 	+ .avatar {
 		margin-left: .25rem;
