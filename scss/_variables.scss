@@ -249,7 +249,7 @@ $font-serif-bundle:         if($font-serif, #{$font-serif,$font-serif-system}, $
 $font-display-bundle:       if($font-display, #{$font-display,$font-sans-serif-system}, $font-sans-serif-system) !default;
 $font-monospace-bundle:     if($font-monospace, #{$font-monospace,$font-monospace-system}, $font-monospace-system) !default;
 
-$font-family-base:          var(--#{$prefix}font-sans-serif) !default;
+$font-family-sans-serif:    var(--#{$prefix}font-sans-serif) !default;
 $font-family-serif:         var(--#{$prefix}font-serif) !default;
 $font-family-display:       var(--#{$prefix}font-display) !default;
 $font-family-monospace:     var(--#{$prefix}font-monospace) !default;

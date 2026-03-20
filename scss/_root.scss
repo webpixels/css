@@ -23,6 +23,7 @@
   --#{$prefix}accent-color-rgb: #{to-rgb($accent-color)};
 
   // Fonts
+  --#{$prefix}font-sans-serif: #{inspect($font-sans-serif-bundle)};
   --#{$prefix}font-display: #{inspect($font-display-bundle)};
   --#{$prefix}font-serif: #{inspect($font-serif-bundle)};
   --#{$prefix}font-monospace: #{inspect($font-monospace-bundle)};
