@@ -522,6 +522,7 @@ $utilities: map-merge($utilities, (
     property: --#{$prefix}blur,
     class: blur,
     values: (
+      2: 2px,
       5: 5px,
       10: 10px,
       25: 25px,

@@ -46,8 +46,13 @@
 // Flushed table
 .table-flush {
   th, td {
-    border-left: 0;
-    border-right: 0;
+    &:first-child {
+      border-left: 0;
+    }
+      
+    &:last-child {
+      border-right: 0;
+    }
   }
 
   thead > tr {
