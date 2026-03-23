@@ -60,6 +60,10 @@
   justify-content: center;
   height: var(--#{$prefix}btn-size);
   width: var(--#{$prefix}btn-size);
+
+  svg {
+    flex: none;
+  }
 }
 
 // Animated button

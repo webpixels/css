@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.2
+
+### Fixes
+
+- Fix `btn-icon` SVG shrinking by adding `flex: none` to nested SVGs
+
 ## v3.0.1
 
 ### Features
