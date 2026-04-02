@@ -9,7 +9,7 @@ $body-secondary-bg-dark:            $gray-800 !default;
 $body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
 $body-tertiary-bg-dark:             $gray-950 !default;
 $body-emphasis-color-dark:          $white !default;
-$border-color-dark:                 darken($gray-700, 5%) !default;
+$border-color-dark:                 $gray-800 !default;
 $border-color-translucent-dark:     color-mix(in srgb, var(--#{$prefix}white) 7%, transparent) !default;
 $headings-color-dark:               inherit !default;
 

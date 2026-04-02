@@ -33,14 +33,6 @@
 		margin-bottom: var(--#{$prefix}card-padding);
 	}
 
-	> .card-header {
-		border-bottom: 0;
-	}
-
-	> .card-footer {
-		border-top: 0;
-	}
-
 	> .card-body {
 		border-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
 		border: 1px solid var(--#{$prefix}card-body-border-color);
@@ -65,19 +57,35 @@
 
 		  tbody {
 		  	tr:last-child {
-		  	> *:first-child {
-		      border-bottom-left-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
-		    }
-		    > *:last-child {
-		      border-bottom-right-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
-		    }
-		  	td {
-		      border-bottom: 0;
-		    }
+			  	> *:first-child {
+			      border-bottom-left-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+			    }
+			    > *:last-child {
+			      border-bottom-right-radius: calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-padding));
+			    }
+			  	td {
+			      border-bottom: 0;
+			    }
+			  }
 		  }
-		  }
-		  
-		}
+		}	
+	}
+
+	> .card-header {
+		border-bottom: 0;
+	}
+
+	> .card-footer {
+		border-top: 0;
+	}
+
+	// Remove Y padding when header or footer exist
+	&:has(.card-header) {
+		padding-top: 0;
+	}
+
+	&:has(.card-footer) {
+		padding-bottom: 0;
 	}
 }
 
