@@ -375,6 +375,38 @@ $utilities: map-merge($utilities, (
       ),
     ),
   ),
+  "grid-template-columns": (
+      property: grid-template-columns,
+      class: grid-cols,
+      responsive: true,
+      values: (
+        1: repeat(1, minmax(0, 1fr)),
+        2: repeat(2, minmax(0, 1fr)),
+        3: repeat(3, minmax(0, 1fr)),
+        4: repeat(4, minmax(0, 1fr)),
+        5: repeat(5, minmax(0, 1fr)),
+        6: repeat(6, minmax(0, 1fr)),
+        12: repeat(12, minmax(0, 1fr)),
+        // named splits for non-uniform layouts
+        "1-2": 1fr 2fr,
+        "2-1": 2fr 1fr,
+        "1-3": 1fr 3fr,
+        "3-1": 3fr 1fr,
+      )
+    ),
+  "grid-template-rows": (
+    property: grid-template-rows,
+    class: grid-rows,
+    responsive: true,
+    values: (
+      1: repeat(1, minmax(0, 1fr)),
+      2: repeat(2, minmax(0, 1fr)),
+      3: repeat(3, minmax(0, 1fr)),
+      4: repeat(4, minmax(0, 1fr)),
+      5: repeat(5, minmax(0, 1fr)),
+      6: repeat(6, minmax(0, 1fr)),
+    )
+  ),
   "overflow": map-merge(
     map-get($utilities, "overflow"),
     (

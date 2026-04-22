@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.0.4
+
+### Features
+
+- Add `grid-cols` utility for `grid-template-columns` with responsive support (1-6, 12 columns + named splits like `1-2`, `2-1`, `1-3`, `3-1`)
+- Add `grid-rows` utility for `grid-template-rows` with responsive support (1-6 rows)
+
 ## v3.0.3
 
 ### Fixes
