@@ -407,6 +407,25 @@ $utilities: map-merge($utilities, (
       6: repeat(6, minmax(0, 1fr)),
     )
   ),
+  "grid-column-span": (
+    property: grid-column,
+    class: col-span,
+    responsive: true,
+    values: (
+      1: span 1, 2: span 2, 3: span 3, 4: span 4,
+      5: span 5, 6: span 6, 7: span 7, 8: span 8,
+      9: span 9, 10: span 10, 11: span 11, 12: span 12,
+      full: 1 / -1,
+    )
+  ),
+  "grid-row-span": (
+    property: grid-row,
+    class: row-span,
+    responsive: true,
+    values: (
+      1: span 1, 2: span 2, 3: span 3, 4: span 4, 5: span 5, 6: span 6,
+    )
+  ),
   "overflow": map-merge(
     map-get($utilities, "overflow"),
     (

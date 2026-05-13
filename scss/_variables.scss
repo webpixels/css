@@ -330,7 +330,7 @@ $surtitle-font-weight:        $font-weight-semibold !default;
 $surtitle-text-transform:     uppercase !default;
 
 // Articles
-$article-font-size:           1rem !default;
+$article-font-size:           .9rem !default;
 $article-color:               var(--#{$prefix}body-color) !default;
 $article-hr-spacing-y:        3em !default;
 $article-text-line-height:    1.9 !default;

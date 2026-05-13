@@ -75,6 +75,8 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark, true) {
+    color-scheme: dark;
+
     // Logo
     .img-light {
       display: block;
@@ -83,6 +85,8 @@
       display: none;
     }
 
+    --#{$prefix}body-color: #{$body-color-dark};
+    
     // Accent
     --#{$prefix}accent-bg: #{$accent-bg-dark};
     --#{$prefix}accent-bg-rgb: #{to-rgb($accent-bg-dark)};

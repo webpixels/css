@@ -27,6 +27,7 @@ $red: 		#dc2626 !default;
 $orange: 	#ea580c !default;
 $yellow: 	#F6B51E !default;
 $green: 	#16a34a !default;
+$emerald: #10B981 !default;
 $lime: 		#d8ff00 !default;
 $teal: 		#22D3BB !default;
 
@@ -111,6 +112,16 @@ $green-700: shade-color($green, 40%) !default;
 $green-800: shade-color($green, 60%) !default;
 $green-900: shade-color($green, 80%) !default;
 
+$emerald-100: tint-color($emerald, 80%) !default;
+$emerald-200: tint-color($emerald, 60%) !default;
+$emerald-300: tint-color($emerald, 40%) !default;
+$emerald-400: tint-color($emerald, 20%) !default;
+$emerald-500: $emerald !default;
+$emerald-600: shade-color($emerald, 20%) !default;
+$emerald-700: shade-color($emerald, 40%) !default;
+$emerald-800: shade-color($emerald, 60%) !default;
+$emerald-900: shade-color($emerald, 80%) !default;
+
 $teal-100: tint-color($teal, 80%) !default;
 $teal-200: tint-color($teal, 60%) !default;
 $teal-300: tint-color($teal, 40%) !default;
@@ -152,9 +163,9 @@ $sky-800: shade-color($sky, 60%) !default;
 $sky-900: shade-color($sky, 80%) !default;
 
 // Theme colors
-$primary: 	$blue !default;
-$secondary: $purple !default;
-$tertiary: 	$cyan !default;
+$primary: 	$gray-900 !default;
+$secondary: $indigo !default;
+$tertiary: 	$emerald !default;
 $success: 	$green !default;
 $info: 			$cyan !default;
 $warning: 	$orange !default;

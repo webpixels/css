@@ -1,46 +1,222 @@
-// Articles
+// =============================================================
+// Article / prose styling for markdown content
+// Built for Bootstrap 5 + Webpixels CSS v3
+// All design tokens flow through Bootstrap's $prefix pattern
+// =============================================================
 
+// -------------------------------------------------------------
+// SCSS variables (can be overridden in _variables-custom.scss
+// before importing this file)
+// -------------------------------------------------------------
+
+// Base
+$article-font-size:               1rem !default;
+$article-color:                   var(--#{$prefix}body-color) !default;
+$article-text-line-height:        1.7 !default;
+$article-img-border-radius:       $border-radius-lg !default;
+$article-pre-border-radius:       $border-radius-lg !default;
+$article-hr-spacing-y:            3rem !default;
+
+// Headings
+$article-h2-font-size:            1.75rem !default;
+$article-h2-letter-spacing:       -.02em !default;
+$article-h2-line-height:          1.25 !default;
+$article-h2-margin-top:           3rem !default;
+$article-h3-font-size:            1.25rem !default;
+$article-h3-margin-top:           2rem !default;
+
+// Section-number pill on h2 (enabled via `data-step` attr)
+$article-step-font-size:          .8125rem !default;
+$article-step-padding-y:          .25rem !default;
+$article-step-padding-x:          .625rem !default;
+$article-step-color:              $primary !default;
+$article-step-bg:                 rgba($primary, .1) !default;
+$article-step-prefix:             "Step " !default;
+
+// Code
+$article-code-bg:                 $dark !default;
+$article-code-color:              color-contrast($dark) !default;
+$article-code-header-bg:          mix($black, $dark, 35%) !default;
+$article-code-header-color:       rgba(color-contrast($dark), .85) !default;
+$article-code-header-border:      rgba(color-contrast($dark), .08) !default;
+$article-code-line-number-color:  rgba(color-contrast($dark), .35) !default;
+$article-code-highlight-bg:       rgba(color-contrast($dark), .07) !default;
+$article-code-highlight-border:   rgba($primary, .8) !default;
+$article-code-inline-bg:          var(--#{$prefix}secondary-bg) !default;
+$article-code-inline-color:       var(--#{$prefix}emphasis-color) !default;
+$article-code-inline-padding:     .1875em .375em !default;
+$article-code-inline-weight:      500 !default;
+
+// Tables
+$article-table-border-color:      var(--#{$prefix}border-color) !default;
+$article-table-heading-color:     var(--#{$prefix}heading-color) !default;
+$article-table-cell-padding-y:    1rem !default;
+$article-table-cell-padding-x:    1.25rem !default;
+$article-table-head-padding-y:    .875rem !default;
+$article-table-head-padding-x:    1.25rem !default;
+$article-table-font-size:         .9375rem !default;
+$article-table-head-font-size:    .75rem !default;
+$article-table-head-bg:           var(--#{$prefix}tertiary-bg) !default;
+$article-table-row-hover-bg:      var(--#{$prefix}tertiary-bg) !default;
+$article-table-border-radius:     $border-radius-lg !default;
+$article-table-shadow:
+	0 0 0 1px rgba(var(--#{$prefix}emphasis-color-rgb), .05),
+	0 1px 2px rgba(var(--#{$prefix}emphasis-color-rgb), .04),
+	0 4px 12px rgba(var(--#{$prefix}emphasis-color-rgb), .04) !default;
+
+// Keyboard keys (<kbd>)
+$article-kbd-bg:                  $white !default;
+$article-kbd-border-color:        var(--#{$prefix}border-color) !default;
+$article-kbd-shadow:              inset 0 -1px 0 rgba($black, .1) !default;
+$article-kbd-padding-y:           .125rem !default;
+$article-kbd-padding-x:           .5rem !default;
+$article-kbd-font-size:           .8125em !default;
+
+// Mark / highlighted text
+$article-mark-bg:                 rgba($warning, .25) !default;
+$article-mark-color:              inherit !default;
+
+// Links
+$article-link-color:              $primary !default;
+$article-link-hover-color:        $link-hover-color !default;
+$article-link-underline-opacity:  .3 !default;
+
+// Blockquote (standard)
+$article-blockquote-font-size:    $font-size-lg !default;
+$article-blockquote-color:        var(--#{$prefix}heading-color) !default;
+$article-blockquote-bg:           var(--#{$prefix}secondary-bg) !default;
+$article-blockquote-padding:      1.5rem 3.5rem !default;
+
+// Pull quote (accent-bordered statement inside article)
+$article-pullquote-font-size:     1.375rem !default;
+$article-pullquote-line-height:   1.4 !default;
+$article-pullquote-color:         var(--#{$prefix}heading-color) !default;
+$article-pullquote-border-color:  $primary !default;
+$article-pullquote-border-width:  3px !default;
+$article-pullquote-padding:       .5rem 0 .5rem 1.5rem !default;
+$article-pullquote-cite-color:    var(--#{$prefix}secondary-color) !default;
+$article-pullquote-cite-size:     .875rem !default;
+
+// Callouts / GitHub-style alerts
+$article-callout-padding:         1.25rem 1.5rem !default;
+$article-callout-border-width:    1px !default;
+$article-callout-border-radius:   $border-radius !default;
+$article-callout-accent-width:    3px !default;
+
+// Key takeaways card
+$article-takeaways-bg-from:       rgba($primary, .06) !default;
+$article-takeaways-bg-to:         rgba($primary, 0) !default;
+$article-takeaways-border:        rgba($primary, .2) !default;
+$article-takeaways-padding:       1.5rem 1.75rem !default;
+$article-takeaways-border-radius: $border-radius-lg !default;
+$article-takeaways-label-color:   $primary !default;
+$article-takeaways-label-size:    .75rem !default;
+$article-takeaways-bullet-color:  $primary !default;
+
+// -------------------------------------------------------------
+// The actual styles
+// -------------------------------------------------------------
 .article,
 .prose {
+	// CSS custom properties expose all tokens for runtime tweaking
 	--#{$prefix}article-font-size: #{$article-font-size};
 	--#{$prefix}article-color: #{$article-color};
 	--#{$prefix}article-line-height: #{$article-text-line-height};
 	--#{$prefix}article-img-border-radius: #{$article-img-border-radius};
 	--#{$prefix}article-pre-border-radius: #{$article-pre-border-radius};
 
+	// Code
+	--#{$prefix}article-code-bg: #{$article-code-bg};
+	--#{$prefix}article-code-color: #{$article-code-color};
+	--#{$prefix}article-code-header-bg: #{$article-code-header-bg};
+	--#{$prefix}article-code-header-color: #{$article-code-header-color};
+	--#{$prefix}article-code-header-border: #{$article-code-header-border};
+	--#{$prefix}article-code-line-number-color: #{$article-code-line-number-color};
+	--#{$prefix}article-code-highlight-bg: #{$article-code-highlight-bg};
+	--#{$prefix}article-code-highlight-border: #{$article-code-highlight-border};
+	--#{$prefix}article-code-inline-bg: #{$article-code-inline-bg};
+	--#{$prefix}article-code-inline-color: #{$article-code-inline-color};
+
+	// Tables
+	--#{$prefix}article-table-border-color: #{$article-table-border-color};
+	--#{$prefix}article-table-heading-color: #{$article-table-heading-color};
+	--#{$prefix}article-table-cell-padding-y: #{$article-table-cell-padding-y};
+	--#{$prefix}article-table-cell-padding-x: #{$article-table-cell-padding-x};
+
+	// kbd / mark
+	--#{$prefix}article-kbd-bg: #{$article-kbd-bg};
+	--#{$prefix}article-kbd-border: #{$article-kbd-border-color};
+	--#{$prefix}article-kbd-shadow: #{$article-kbd-shadow};
+	--#{$prefix}article-mark-bg: #{$article-mark-bg};
+	--#{$prefix}article-mark-color: #{$article-mark-color};
+
+	// Callouts
+	--#{$prefix}article-callout-padding: #{$article-callout-padding};
+	--#{$prefix}article-callout-accent-width: #{$article-callout-accent-width};
+
+	// Pull quote
+	--#{$prefix}article-pullquote-border: #{$article-pullquote-border-color};
+	--#{$prefix}article-pullquote-color: #{$article-pullquote-color};
+
+	// Takeaways
+	--#{$prefix}article-takeaways-bg-from: #{$article-takeaways-bg-from};
+	--#{$prefix}article-takeaways-bg-to: #{$article-takeaways-bg-to};
+	--#{$prefix}article-takeaways-border: #{$article-takeaways-border};
+
 	font-size: var(--#{$prefix}article-font-size);
 	color: var(--#{$prefix}article-color);
 	line-height: var(--#{$prefix}article-line-height);
 
+	// ==========================================================
+	// Headings & text rhythm
+	// ==========================================================
 	> p {
 		margin-top: 1.25rem;
 		margin-bottom: 1.25rem;
-  }
+	}
 
 	> h2 {
-		@include font-size(1.5em);
+		@include font-size($article-h2-font-size);
 		font-weight: $headings-font-weight;
-    margin-top: 2em;
-    margin-bottom: .5em;
-    line-height: 1.3333333;
-    letter-spacing: -.025em;
-    white-space: pre-wrap;
+		margin-top: $article-h2-margin-top;
+		margin-bottom: 1rem;
+		line-height: $article-h2-line-height;
+		letter-spacing: $article-h2-letter-spacing;
+		white-space: pre-wrap;
+		scroll-margin-top: 6rem;
+
+		// Section-number pill, activated by `<h2 data-step="01">`
+		&[data-step]::before {
+			content: "#{$article-step-prefix}" attr(data-step);
+			display: inline-block;
+			@include font-size($article-step-font-size);
+			font-weight: $font-weight-semibold;
+			color: $article-step-color;
+			background-color: $article-step-bg;
+			padding: $article-step-padding-y $article-step-padding-x;
+			@include border-radius(999px);
+			margin-right: .75rem;
+			vertical-align: middle;
+			letter-spacing: .02em;
+			line-height: 1.4;
+		}
 
 		&:first-child {
-			margin-top: 1em;
+			margin-top: 1rem;
 		}
 	}
 
 	> h3 {
-		@include font-size(1.25em);
-		font-weight: $headings-font-weight;
-		margin-top: 1.6em;
-		margin-bottom: .6em;
+		@include font-size($article-h3-font-size);
+		font-weight: $font-weight-semibold;
+		margin-top: $article-h3-margin-top;
+		margin-bottom: .75rem;
 		white-space: pre-wrap;
+		scroll-margin-top: 6rem;
 	}
 
 	> h4 {
-		@include font-size(1em);
+		@include font-size(1rem);
 		font-weight: 500;
 		margin-top: 2em;
 	}
@@ -52,63 +228,570 @@
 	> figure,
 	> img,
 	> video {
-	    margin-top: 2em;
-	    margin-bottom: 2em;
+		margin-top: 2em;
+		margin-bottom: 2em;
 	}
 
+	// ==========================================================
+	// Links
+	// ==========================================================
+	a {
+		color: $article-link-color;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: .2em;
+		text-decoration-color: rgba($article-link-color, $article-link-underline-opacity);
+		transition: text-decoration-color .15s ease-in-out;
+
+		&:hover {
+			color: $article-link-hover-color;
+			text-decoration-color: currentColor;
+		}
+	}
+
+	// ==========================================================
+	// Code blocks
+	// Supports: bare <pre><code>, figure-wrapped with filename,
+	// line-numbers via [data-line-numbers], line highlights
+	// ==========================================================
 	pre {
 		@include font-size(.875em);
 		line-height: 1.7;
-		padding: 1rem 1rem;
+		padding: 1rem 1.25rem;
 		margin-top: 1.75em;
-   	margin-bottom: 1.75em;
-    overflow-x: auto;
-    background-color: $dark;
-    color: color-contrast($dark);
-    max-width: 100%;
-    white-space: pre-wrap;  
+		margin-bottom: 1.75em;
+		overflow-x: auto;
+		background-color: var(--#{$prefix}article-code-bg);
+		color: var(--#{$prefix}article-code-color);
+		max-width: 100%;
 		@include border-radius(var(--#{$prefix}article-pre-border-radius));
 
+		> code {
+			background: none;
+			color: inherit;
+			padding: 0;
+			font-size: inherit;
+			font-weight: inherit;
+			display: block;
+			counter-reset: line;
+			min-width: max-content;
+		}
+
+		.line {
+			display: block;
+			padding: 0 1.25rem;
+			margin: 0 -1.25rem;
+			border-left: 2px solid transparent;
+
+			&.highlighted,
+			&[data-highlighted-line],
+			&[data-highlighted="true"] {
+				background-color: var(--#{$prefix}article-code-highlight-bg);
+				border-left-color: var(--#{$prefix}article-code-highlight-border);
+			}
+		}
+
+		> code[data-line-numbers] .line,
+		> code.line-numbers .line {
+			&::before {
+				counter-increment: line;
+				content: counter(line);
+				display: inline-block;
+				width: 1.75rem;
+				margin-right: 1.25rem;
+				text-align: right;
+				color: var(--#{$prefix}article-code-line-number-color);
+				user-select: none;
+			}
+		}
+
+		.word {
+			background-color: var(--#{$prefix}article-code-highlight-bg);
+			padding: .125rem .25rem;
+			@include border-radius(.25rem);
+			box-shadow: 0 0 0 1px var(--#{$prefix}article-code-highlight-border);
+		}
 	}
 
-	& > :first-child {
-  	margin-top: 0;
+	// Figure-wrapped code with filename header bar
+	figure:has(> pre),
+	figure[data-rehype-pretty-code-figure] {
+		position: relative;
+		margin-top: 1.75em;
+		margin-bottom: 1.75em;
+		background-color: var(--#{$prefix}article-code-bg);
+		@include border-radius(var(--#{$prefix}article-pre-border-radius));
+		overflow: hidden;
+
+		> figcaption,
+		> [data-rehype-pretty-code-title] {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			padding: .75rem 1.25rem;
+			background-color: var(--#{$prefix}article-code-header-bg);
+			color: var(--#{$prefix}article-code-header-color);
+			border-bottom: 1px solid var(--#{$prefix}article-code-header-border);
+			@include font-size(.8125em);
+			font-weight: 500;
+			font-family: $font-family-monospace;
+			text-align: left;
+		}
+
+		> pre {
+			margin: 0;
+			background: transparent;
+			@include border-radius(0);
+		}
+
+		> button[data-copy],
+		> [data-rehype-pretty-code-copy] {
+			position: absolute;
+			top: .5rem;
+			right: .5rem;
+			width: 2rem;
+			height: 2rem;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background-color: transparent;
+			color: var(--#{$prefix}article-code-header-color);
+			border: 0;
+			opacity: .6;
+			cursor: pointer;
+			@include border-radius(.375rem);
+			transition: opacity .15s ease-in-out, background-color .15s ease-in-out;
+
+			&:hover,
+			&:focus-visible {
+				opacity: 1;
+				background-color: rgba($white, .08);
+			}
+		}
 	}
 
-	h2 + *,
-	h3 + *,
-	hr + * {
-  	margin-top: 0;
+	// Inline code
+	:not(pre) > code {
+		@include font-size(.875em);
+		padding: $article-code-inline-padding;
+		background-color: var(--#{$prefix}article-code-inline-bg);
+		color: var(--#{$prefix}article-code-inline-color);
+		@include border-radius(.375rem);
+		font-weight: $article-code-inline-weight;
+
+		&::before,
+		&::after { content: none; }
 	}
 
-	> hr {
-		margin-top: $article-hr-spacing-y;
-		margin-bottom: $article-hr-spacing-y;
+	// ==========================================================
+	// Tables — card-style, elevated, hover states
+	// Use <span class="tier-badge tier-{success|info|warning|danger|primary}">
+	// inside any cell to show a colored status/tier pill.
+	// ==========================================================
+	table {
+		width: 100%;
+		margin-top: 2.5em;
+		margin-bottom: 2.5em;
+		text-align: left;
+		background-color: var(--#{$prefix}body-bg);
+		border-collapse: separate;
+		border-spacing: 0;
+		@include border-radius($article-table-border-radius);
+		box-shadow: $article-table-shadow;
+		overflow: hidden;
+		@include font-size($article-table-font-size);
+		line-height: 1.55;
+
+		thead th {
+			padding: $article-table-head-padding-y $article-table-head-padding-x;
+			background-color: $article-table-head-bg;
+			color: var(--#{$prefix}tertiary-color);
+			@include font-size($article-table-head-font-size);
+			font-weight: $font-weight-semibold;
+			text-transform: uppercase;
+			letter-spacing: .06em;
+			border-bottom: 1px solid var(--#{$prefix}article-table-border-color);
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+
+		tbody td {
+			padding: $article-table-cell-padding-y $article-table-cell-padding-x;
+			border-bottom: 1px solid var(--#{$prefix}article-table-border-color);
+			vertical-align: middle;
+			transition: background-color .15s ease-in-out;
+		}
+
+		tbody tr:last-child td {
+			border-bottom: 0;
+		}
+
+		tbody tr:hover td {
+			background-color: $article-table-row-hover-bg;
+		}
+
+		// First column — strong emphasis, tabular numerals
+		tbody td:first-child {
+			font-weight: $font-weight-semibold;
+			color: var(--#{$prefix}article-table-heading-color);
+			font-variant-numeric: tabular-nums;
+			white-space: nowrap;
+		}
 	}
 
+	.table-responsive {
+		overflow-x: auto;
+		margin-top: 2.5em;
+		margin-bottom: 2.5em;
+
+		> table { margin: 0; }
+	}
+
+	// ----- Tier badge — drop into any cell for a semantic status pill -----
+	.tier-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: .4rem;
+		padding: .25rem .625rem;
+		@include border-radius(999px);
+		@include font-size(.8125rem);
+		font-weight: 500;
+		line-height: 1.4;
+		white-space: nowrap;
+
+		&::before {
+			content: "";
+			width: 6px;
+			height: 6px;
+			@include border-radius(50%);
+			background-color: currentColor;
+		}
+	}
+
+	.tier-primary {
+		background-color: var(--#{$prefix}primary-bg-subtle);
+		color: var(--#{$prefix}primary-text-emphasis);
+	}
+	.tier-info {
+		background-color: var(--#{$prefix}info-bg-subtle);
+		color: var(--#{$prefix}info-text-emphasis);
+	}
+	.tier-success {
+		background-color: var(--#{$prefix}success-bg-subtle);
+		color: var(--#{$prefix}success-text-emphasis);
+	}
+	.tier-warning {
+		background-color: var(--#{$prefix}warning-bg-subtle);
+		color: var(--#{$prefix}warning-text-emphasis);
+	}
+	.tier-danger {
+		background-color: var(--#{$prefix}danger-bg-subtle);
+		color: var(--#{$prefix}danger-text-emphasis);
+	}
+
+	// ==========================================================
+	// Lists
+	// ==========================================================
 	> ul,
 	> ol {
 		padding-left: 1.5rem;
 
-		li {
-			padding: .25rem 0;
+		li { padding: .25rem 0; }
+	}
+
+	// GFM task lists
+	.task-list-item,
+	li:has(> input[type="checkbox"]:first-child) {
+		list-style: none;
+		margin-left: -1.5rem;
+
+		> input[type="checkbox"] {
+			margin-right: .5rem;
+			vertical-align: middle;
+			transform: translateY(-1px);
 		}
 	}
 
+	// ==========================================================
+	// Blockquote (base)
+	// ==========================================================
 	> blockquote {
-		@include font-size($font-size-lg);
+		@include font-size($article-blockquote-font-size);
 		font-weight: 500;
-		color: $headings-color;
-    letter-spacing: -.012em;
-    padding: 1.5rem 3.5rem;
+		color: $article-blockquote-color;
+		letter-spacing: -.012em;
+		padding: $article-blockquote-padding;
 		margin-top: 2em;
 		margin-bottom: 2em;
-		background-color: var(--#{$prefix}body-secondary);
+		background-color: $article-blockquote-bg;
 		@include border-radius($border-radius-lg);
 
 		> p {
 			margin-top: 1.5rem;
 			margin-bottom: 1.5rem;
-	  }
+		}
+	}
+
+	// ==========================================================
+	// Pull quote — inline highlighted statement
+	// Usage: <blockquote class="pullquote">…<cite>—Source</cite></blockquote>
+	// ==========================================================
+	.pullquote,
+	> blockquote.pullquote {
+		@include font-size($article-pullquote-font-size);
+		line-height: $article-pullquote-line-height;
+		font-weight: 500;
+		letter-spacing: -.01em;
+		color: var(--#{$prefix}article-pullquote-color);
+		background: transparent;
+		padding: $article-pullquote-padding;
+		border-left: $article-pullquote-border-width solid var(--#{$prefix}article-pullquote-border);
+		@include border-radius(0); // no rounded corners with single-side border
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
+
+		> cite {
+			display: block;
+			margin-top: 1rem;
+			@include font-size($article-pullquote-cite-size);
+			color: $article-pullquote-cite-color;
+			font-style: normal;
+			font-weight: 400;
+			letter-spacing: 0;
+		}
+	}
+
+	// ==========================================================
+	// Key takeaways — prominent summary card
+	// Usage:
+	//   <aside class="takeaways">
+	//     <span class="takeaways-label"><i class="bi bi-check2-circle"></i> Key takeaways</span>
+	//     <ul class="takeaways-list"><li>…</li></ul>
+	//   </aside>
+	// ==========================================================
+	.takeaways {
+		background: linear-gradient(
+			180deg,
+			var(--#{$prefix}article-takeaways-bg-from) 0%,
+			var(--#{$prefix}article-takeaways-bg-to) 100%
+		);
+		border: 1px solid var(--#{$prefix}article-takeaways-border);
+		@include border-radius($article-takeaways-border-radius);
+		padding: $article-takeaways-padding;
+		margin-top: 2rem;
+		margin-bottom: 2.5rem;
+
+		.takeaways-label {
+			display: inline-flex;
+			align-items: center;
+			gap: .5rem;
+			@include font-size($article-takeaways-label-size);
+			font-weight: $font-weight-semibold;
+			color: $article-takeaways-label-color;
+			text-transform: uppercase;
+			letter-spacing: .06em;
+		}
+
+		.takeaways-list {
+			list-style: none;
+			padding: 0;
+			margin: 1rem 0 0;
+			display: flex;
+			flex-direction: column;
+			gap: .625rem;
+
+			li {
+				display: flex;
+				align-items: start;
+				gap: .625rem;
+				@include font-size(.9375rem);
+				line-height: 1.55;
+				padding: 0;
+
+				&::before {
+					content: "";
+					flex-shrink: 0;
+					margin-top: .5rem;
+					width: 5px;
+					height: 5px;
+					background-color: $article-takeaways-bullet-color;
+					@include border-radius(50%);
+				}
+			}
+		}
+	}
+
+	// ==========================================================
+	// Callouts / admonitions (GitHub-style `> [!NOTE]`)
+	// Uses single-side border-left accent, so no border-radius on
+	// the left edge. Full border radius applied via box to avoid
+	// the single-sided border + rounded corner anti-pattern.
+	// ==========================================================
+	> .markdown-alert,
+	> blockquote.markdown-alert {
+		padding: var(--#{$prefix}article-callout-padding);
+		border: $article-callout-border-width solid var(--#{$prefix}border-color);
+		border-left-width: var(--#{$prefix}article-callout-accent-width);
+		background-color: var(--#{$prefix}secondary-bg);
+		margin-top: 1.75em;
+		margin-bottom: 1.75em;
+		font-weight: 400;
+		font-size: inherit;
+		letter-spacing: normal;
+		color: inherit;
+		@include border-radius($article-callout-border-radius);
+
+		> p { margin-top: .5rem; margin-bottom: .5rem; }
+		> p:first-of-type { margin-top: 0; }
+		> p:last-of-type { margin-bottom: 0; }
+
+		.markdown-alert-title {
+			display: flex;
+			align-items: center;
+			gap: .5rem;
+			font-weight: $font-weight-semibold;
+			margin-bottom: .5rem;
+			text-transform: capitalize;
+
+			> svg { flex-shrink: 0; }
+		}
+
+		&.markdown-alert-note {
+			border-left-color: $info;
+			.markdown-alert-title { color: $info; }
+		}
+		&.markdown-alert-tip {
+			border-left-color: $success;
+			.markdown-alert-title { color: $success; }
+		}
+		&.markdown-alert-important {
+			border-left-color: $primary;
+			.markdown-alert-title { color: $primary; }
+		}
+		&.markdown-alert-warning {
+			border-left-color: $warning;
+			.markdown-alert-title { color: $warning; }
+		}
+		&.markdown-alert-caution {
+			border-left-color: $danger;
+			.markdown-alert-title { color: $danger; }
+		}
+	}
+
+	// ==========================================================
+	// Figure captions (non-code figures)
+	// ==========================================================
+	> figure:not(:has(> pre)):not([data-rehype-pretty-code-figure]) {
+		> figcaption {
+			@include font-size(.875em);
+			color: var(--#{$prefix}secondary-color);
+			text-align: center;
+			margin-top: .75rem;
+			line-height: 1.5;
+		}
+	}
+
+	// ==========================================================
+	// Collapsible details/summary
+	// ==========================================================
+	> details {
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
+		padding: 1rem 1.25rem;
+		background-color: var(--#{$prefix}secondary-bg);
+		@include border-radius($border-radius);
+
+		> summary {
+			cursor: pointer;
+			font-weight: 500;
+			color: var(--#{$prefix}heading-color);
+			user-select: none;
+			list-style: none;
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+
+			&::-webkit-details-marker { display: none; }
+
+			&::before {
+				content: "";
+				display: inline-block;
+				width: .5rem;
+				height: .5rem;
+				border-right: 2px solid currentColor;
+				border-bottom: 2px solid currentColor;
+				transform: rotate(-45deg);
+				transition: transform .2s ease-in-out;
+				margin-left: .125rem;
+			}
+		}
+
+		&[open] > summary::before { transform: rotate(45deg); }
+
+		> *:not(summary) { margin-top: 1rem; }
+	}
+
+	// ==========================================================
+	// Definition lists
+	// ==========================================================
+	> dl {
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
+
+		> dt {
+			font-weight: $font-weight-semibold;
+			color: var(--#{$prefix}heading-color);
+			margin-top: 1rem;
+		}
+
+		> dd {
+			margin-left: 1.5rem;
+			margin-bottom: .5rem;
+		}
+	}
+
+	// ==========================================================
+	// Inline helpers: kbd, mark, abbr
+	// ==========================================================
+	kbd {
+		display: inline-block;
+		padding: $article-kbd-padding-y $article-kbd-padding-x;
+		@include font-size($article-kbd-font-size);
+		font-family: $font-family-monospace;
+		font-weight: 500;
+		line-height: 1.4;
+		color: var(--#{$prefix}emphasis-color);
+		background-color: var(--#{$prefix}article-kbd-bg);
+		border: 1px solid var(--#{$prefix}article-kbd-border);
+		box-shadow: var(--#{$prefix}article-kbd-shadow);
+		@include border-radius(.375rem);
+	}
+
+	mark {
+		background-color: var(--#{$prefix}article-mark-bg);
+		color: var(--#{$prefix}article-mark-color);
+		padding: .0625em .25em;
+		@include border-radius(.25rem);
+	}
+
+	abbr[title] {
+		text-decoration: underline dotted;
+		text-underline-offset: .2em;
+		cursor: help;
+	}
+
+	// ==========================================================
+	// Spacing resets
+	// ==========================================================
+	& > :first-child { margin-top: 0; }
+
+	h2 + *, h3 + *, hr + * { margin-top: 0; }
+
+	> hr {
+		margin-top: $article-hr-spacing-y;
+		margin-bottom: $article-hr-spacing-y;
+		border: 0;
+		border-top: 1px solid var(--#{$prefix}border-color);
 	}
 }
