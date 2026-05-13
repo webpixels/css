@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.0.5
+
+### Features
+
+- Add emerald color scale (`$emerald-100` through `$emerald-900`)
+- Add `color-scheme: dark` and `--body-color` custom property for dark mode
+- Add `col-span` and `row-span` CSS grid utilities with responsive support
+- Import extras module in main entry point
+- Redesign article/prose component with comprehensive markdown support:
+  - Code blocks with line numbers, line highlights, filename headers, and copy button styling
+  - Card-style tables with hover states and tier badges
+  - Pull quotes, blockquotes, and GitHub-style callouts/admonitions
+  - Key takeaways card, collapsible details/summary, definition lists
+  - Inline helpers: `kbd`, `mark`, `abbr`, link styling, GFM task lists
+
+### Changes
+
+- Update theme color defaults: primary to `$gray-900`, secondary to `$indigo`, tertiary to `$emerald`
+- Change article base font size from `1rem` to `.9rem`
+
 ## v3.0.4
 
 ### Features
